@@ -14,7 +14,7 @@ public class Screenshot : MonoBehaviour
 
     private bool takeHiResShot = false;
 
-    public PhotoInventory photoInventory;
+    //public PhotoInventory photoInventory;
     public string fieldName;
     public string serverUrl;
 
@@ -57,7 +57,6 @@ public class Screenshot : MonoBehaviour
             byte[] bytes = screenShot.EncodeToPNG();
             string fileName = ScreenShotName(resWidth, resHeight);
             System.IO.File.WriteAllBytes(fileName, bytes);
-            Debug.Log("fileName: " + fileName);
             txtItem.text = "se tomo la foto: "+fileName;
             Debug.Log(string.Format("Took screenshot to: {0}", fileName));
             takeHiResShot = false;
@@ -74,7 +73,7 @@ public class Screenshot : MonoBehaviour
         //_webGLDownload.GetScreenshot(WebGLDownload.ImageFormat.jpg, 1, "");
         //if (!takeHiResShot) StartCoroutine(RecordUpscaledFrame(ImageFormat.jpg, screenshotUpscale, ""));
     }
-
+    //Funcion sin usar 
     IEnumerator RecordUpscaledFrame(ImageFormat imageFormat, int screenshotUpscale, string fileName) {
         takeHiResShot = true;
         yield return new WaitForEndOfFrame();
@@ -86,17 +85,17 @@ public class Screenshot : MonoBehaviour
             RenderTexture.active = rt;
             screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
             mainCamera.targetTexture = null;
-            //RenderTexture.active = null;
-            //Destroy(rt);
-            //byte[] bytes = screenShot.EncodeToJPG();
+            RenderTexture.active = null;
+            Destroy(rt);
+            byte[] bytes = screenShot.EncodeToJPG();
             string dateFormat = "yyyy-MM-dd-HH-mm-ss";
             fileName = resWidth.ToString() + "x" + resHeight.ToString() + "px_" + System.DateTime.Now.ToString(dateFormat);
-            photoInventory.GetTexture(rt);
-            RenderTexture.active = null;
+            //photoInventory.GetTexture(rt);
             if (fileName == "") {
                 int resWidth = mainCamera.pixelWidth * screenshotUpscale;
                 int resHeight = mainCamera.pixelHeight * screenshotUpscale;
             }
+            //Funcion para subir imagen a servidor... SIN USO
             //Texture2D screenShot = ScreenCapture.CaptureScreenshotAsTexture(screenshotUpscale);
             //ImageUploader.Initialize()
             //    .SetUrl(serverUrl)

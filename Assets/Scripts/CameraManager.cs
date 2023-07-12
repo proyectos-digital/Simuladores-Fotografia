@@ -12,11 +12,10 @@ public class CameraManager : MonoBehaviour
 {
     public Camera cameraPhoto;
     public GameObject camFirst;
-    public GameObject camThird;
     //Paneles
     public GameObject panelUI, panelDepth, panelMotion;
     //Sliders Prop Camera
-    public Slider sliderFoV, sliderNear, sliderFar, sliderSensorX, sliderSensorY, sliderFocalLength;
+    public Slider sliderFoV; //sliderFoV, sliderNear, sliderFar, sliderSensorX, sliderSensorY, 
     //Sliders Efectos
     public Slider sliderVignette;
     public Slider sliderDepthFocusDistance, sliderDepthFocalLength, sliderDepthAperture;
@@ -36,10 +35,10 @@ public class CameraManager : MonoBehaviour
 
     //fov max 179
     //Lentes
-    public float[] lenteNormal;// = new float[] { 60f, 40f, 24f,20.7f };
-    public float[] lenteAngular;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
-    public float[] lenteTeleObjetivo;// = new float[] { 101, 70, 51, 20.47f };
-    public float[] lenteSuperTele;// = new float[] { 101, 70, 51, 20.47f };
+    public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
+    public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
+    public float lenteTeleObjetivo = 101f;// = new float[] { 101, 70, 51, 20.47f };
+    public float lenteSuperTele = 150.64f;// = new float[] { 101, 70, 51, 20.47f };
 
 
     void Start() {
@@ -64,22 +63,6 @@ public class CameraManager : MonoBehaviour
         {
             cameraPhoto.fieldOfView = v;
         });
-        sliderNear.onValueChanged.AddListener(v =>
-        {
-            cameraPhoto.nearClipPlane = v;
-        });
-        sliderFar.onValueChanged.AddListener(v =>{
-            cameraPhoto.farClipPlane = v;
-        });
-        //sliderSensorX.onValueChanged.AddListener(v =>{
-        //    cameraPhoto.sensorSize.Set(v, cameraPhoto.sensorSize.y);
-        //});
-        //sliderSensorY.onValueChanged.AddListener(v =>{
-        //    cameraPhoto.sensorSize.Set(cameraPhoto.sensorSize.x, v);
-        //});
-        sliderFocalLength.onValueChanged.AddListener(v =>{
-            cameraPhoto.focalLength = v;
-        });
         sliderVignette.onValueChanged.AddListener(v =>{
             vignette.intensity.value = v;
         });
@@ -92,9 +75,6 @@ public class CameraManager : MonoBehaviour
         sliderDepthAperture.onValueChanged.AddListener(v => {
             depth.aperture.value = v;
         });
-        //tglDepth.onValueChanged.AddListener(v=>{
-        //    depth.active = v;
-        //});
         tglDepth.onValueChanged.AddListener(delegate {
             ToggleValueChanged(tglDepth);
         });
@@ -126,34 +106,34 @@ public class CameraManager : MonoBehaviour
         //Usar solo Fov y focalLength
         switch (index) {
             case 0:
-                cameraPhoto.fieldOfView = lenteNormal[0];
+                cameraPhoto.fieldOfView = lenteNormal;
+                sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteNormal[1], lenteNormal[2]);
                 //cameraPhoto.focalLength = lenteNormal[3];
                 break;
             case 1:
-                cameraPhoto.fieldOfView = lenteAngular[0];
+                cameraPhoto.fieldOfView = lenteAngular;
+                sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteAngular[1], lenteAngular[2]);
                 //cameraPhoto.focalLength = lenteAngular[3];
             break;
             case 2:
-                cameraPhoto.fieldOfView = lenteTeleObjetivo[0];
+                cameraPhoto.fieldOfView = lenteTeleObjetivo;
+                sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteTeleObjetivo[1], lenteTeleObjetivo[2]);
                 //cameraPhoto.focalLength = lenteTeleObjetivo[3];
-            break;
+                break;
             case 3:
-                cameraPhoto.fieldOfView = lenteSuperTele[0];
+                cameraPhoto.fieldOfView = lenteSuperTele;
+                sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteSuperTele[1], lenteSuperTele[2]);
                 //cameraPhoto.focalLength = lenteSuperTele[3];
-            break;
+                break;
         }
         //float floatValue = float.Parse(strFloatValue, CultureInfo.InvariantCulture.NumberFormat);
     }
 
     void Update(){
-        //if (Input.GetKeyUp(KeyCode.C)) {
-        //    camFirst.SetActive(!camFirst.activeSelf);
-        //    camThird.SetActive(!camThird.activeSelf);
-        //}
         if (Input.GetKeyUp(KeyCode.V)){
             vignette.active = !vignette.active;
         }
