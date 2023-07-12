@@ -12,7 +12,7 @@ public class Screenshot : MonoBehaviour
     public int resHeight = 0;
     public Camera mainCamera;
 
-    private bool takeHiResShot = false;
+    private bool takeHiResShot = false, isHorizontal = true;
 
     //public PhotoInventory photoInventory;
     public string fieldName;
@@ -41,16 +41,33 @@ public class Screenshot : MonoBehaviour
     {
         takeHiResShot = true;
     }
+    public void ChangeOrientation() {
+        isHorizontal = !isHorizontal;
+        Debug.Log("isHorizontal: "+ isHorizontal);
+    }
 
     void LateUpdate() {
+        Texture2D screenShot;
+        RenderTexture rt;
         //takeHiResShot |= Input.GetKeyUp(KeyCode.P); //Input.GetKeyDown("k");
         if (Input.GetKeyUp(KeyCode.K) || takeHiResShot) {
-            RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
-            mainCamera.targetTexture = rt;
-            Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
-            mainCamera.Render();
-            RenderTexture.active = rt;
-            screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+            if (isHorizontal) {
+                Debug.Log("horizontal verdadero");
+                rt = new RenderTexture(resWidth, resHeight, 24);
+                mainCamera.targetTexture = rt;
+                screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
+                mainCamera.Render();
+                RenderTexture.active = rt;
+                screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+            } else {
+                Debug.Log("horizontal falso");
+                rt = new RenderTexture(resHeight, resWidth, 24);
+                mainCamera.targetTexture = rt;
+                screenShot = new Texture2D(resHeight, resWidth, TextureFormat.RGB24, false);
+                mainCamera.Render();
+                RenderTexture.active = rt;
+                screenShot.ReadPixels(new Rect(0, 0, resHeight, resWidth), 0, 0);
+            }
             mainCamera.targetTexture = null;
             RenderTexture.active = null;
             Destroy(rt);

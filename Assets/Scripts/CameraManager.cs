@@ -11,7 +11,7 @@ using System;
 public class CameraManager : MonoBehaviour
 {
     public Camera cameraPhoto;
-    public GameObject camFirst;
+    //public GameObject camFirst;
     //Paneles
     public GameObject panelUI, panelDepth, panelMotion;
     //Sliders Prop Camera
@@ -149,7 +149,7 @@ public class CameraManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
             panelUI.SetActive(!panelUI.activeSelf);
-            camFirst.GetComponentInChildren<PlayerCam>().enabled = !camFirst.GetComponentInChildren<PlayerCam>().enabled;
+            cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
         }
     }
 }
