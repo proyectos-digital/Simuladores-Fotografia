@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
     public Slider sliderMotionIntensity, sliderMotionClamp;
     public TMP_Dropdown dropdown;
     public TMP_Text txtItem;
-    public Toggle tglDepth, tglMotion;
+    public Toggle tglDepth, tglMotion, tglFlash;
     //Valores iniciales de la camara Foto
     float foV, near, far, sensorSizeX, sensorSizeY, focalLength, vigneteValue;
 
@@ -32,6 +32,8 @@ public class CameraManager : MonoBehaviour
     private LensDistortion lens = null;
     private Vignette vignette = null;
     private MotionBlur motion = null;
+
+    public Screenshot screenshot;
 
     //fov max 179
     //Lentes
@@ -44,8 +46,6 @@ public class CameraManager : MonoBehaviour
     void Start() {
         
         panelUI.SetActive(false);
-        //camFirst.SetActive(false);
-        //camThird.SetActive(true);
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out lens);
         volume.profile.TryGet(out depth);
@@ -82,6 +82,9 @@ public class CameraManager : MonoBehaviour
         tglMotion.onValueChanged.AddListener(delegate {
             ToggleMotionChanged(tglMotion);
         });
+        tglFlash.onValueChanged.AddListener(delegate {
+            ToggleFlash(tglFlash);
+        });
 
         DropDownItemSelected(dropdown);
         dropdown.onValueChanged.AddListener(delegate { DropDownItemSelected(dropdown); });
@@ -99,10 +102,13 @@ public class CameraManager : MonoBehaviour
         panelMotion.SetActive(toggle.isOn);
         //crear panel para sliders de propiedades Depth
     }
+    private void ToggleFlash(Toggle toggle) {
+        screenshot.FlashOn(toggle);
+        toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
+    }
 
     void DropDownItemSelected(TMP_Dropdown dropdown){
         int index = dropdown.value;
-        txtItem.text = "Lente seleccionado: " + dropdown.options[index].text;
         //Usar solo Fov y focalLength
         switch (index) {
             case 0:
@@ -114,7 +120,7 @@ public class CameraManager : MonoBehaviour
             case 1:
                 cameraPhoto.fieldOfView = lenteAngular;
                 sliderFoV.value = cameraPhoto.fieldOfView;
-                //cameraPhoto.sensorSize.Set(lenteAngular[1], lenteAngular[2]);
+                //cameraPhoto.sensorSize.Set(lenteAngular[                                                                                           1], lenteAngular[2]);
                 //cameraPhoto.focalLength = lenteAngular[3];
             break;
             case 2:

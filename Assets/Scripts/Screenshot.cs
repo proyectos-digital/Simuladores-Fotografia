@@ -12,7 +12,7 @@ public class Screenshot : MonoBehaviour
     public int resHeight = 0;
     public Camera mainCamera;
 
-    private bool takeHiResShot = false, isHorizontal = true;
+    private bool takeHiResShot = false, isHorizontal = true, isFlashing = false;
 
     //public PhotoInventory photoInventory;
     public string fieldName;
@@ -43,7 +43,11 @@ public class Screenshot : MonoBehaviour
     }
     public void ChangeOrientation() {
         isHorizontal = !isHorizontal;
-        Debug.Log("isHorizontal: "+ isHorizontal);
+    }
+
+    public void FlashOn(Toggle tgl) {
+        isFlashing = tgl.isOn;
+        Debug.Log("isFlashing: "+ isFlashing);
     }
 
     void LateUpdate() {
@@ -52,7 +56,6 @@ public class Screenshot : MonoBehaviour
         //takeHiResShot |= Input.GetKeyUp(KeyCode.P); //Input.GetKeyDown("k");
         if (Input.GetKeyUp(KeyCode.K) || takeHiResShot) {
             if (isHorizontal) {
-                Debug.Log("horizontal verdadero");
                 rt = new RenderTexture(resWidth, resHeight, 24);
                 mainCamera.targetTexture = rt;
                 screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
@@ -60,7 +63,6 @@ public class Screenshot : MonoBehaviour
                 RenderTexture.active = rt;
                 screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
             } else {
-                Debug.Log("horizontal falso");
                 rt = new RenderTexture(resHeight, resWidth, 24);
                 mainCamera.targetTexture = rt;
                 screenShot = new Texture2D(resHeight, resWidth, TextureFormat.RGB24, false);
@@ -83,10 +85,12 @@ public class Screenshot : MonoBehaviour
 
     public void GetScreenshot() {
         //Iluminar luz con flash
-        luzFlash.SetActive(true);
+        if (isFlashing) {
+            luzFlash.SetActive(true);
+            StartCoroutine("FlashOff");
+        }
         takeHiResShot = true;
 
-        StartCoroutine("FlashOff");
         //_webGLDownload.GetScreenshot(WebGLDownload.ImageFormat.jpg, 1, "");
         //if (!takeHiResShot) StartCoroutine(RecordUpscaledFrame(ImageFormat.jpg, screenshotUpscale, ""));
     }
