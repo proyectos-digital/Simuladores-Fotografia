@@ -47,10 +47,9 @@ public class Screenshot : MonoBehaviour
 
     public void FlashOn(Toggle tgl) {
         isFlashing = tgl.isOn;
-        Debug.Log("isFlashing: "+ isFlashing);
     }
 
-    void LateUpdate() {
+    /*void LateUpdate() {
         Texture2D screenShot;
         RenderTexture rt;
         //takeHiResShot |= Input.GetKeyUp(KeyCode.P); //Input.GetKeyDown("k");
@@ -76,26 +75,50 @@ public class Screenshot : MonoBehaviour
             byte[] bytes = screenShot.EncodeToPNG();
             string fileName = ScreenShotName(resWidth, resHeight);
             System.IO.File.WriteAllBytes(fileName, bytes);
-            txtItem.text = "se tomo la foto: "+fileName;
+            txtItem.text = "se tomo la foto: " + fileName;
             Debug.Log(string.Format("Took screenshot to: {0}", fileName));
             takeHiResShot = false;
 
         }
-    }
+    }*/
 
     public void GetScreenshot() {
         //Iluminar luz con flash
-        if (isFlashing) {
-            luzFlash.SetActive(true);
-            StartCoroutine("FlashOff");
-        }
-        takeHiResShot = true;
-
+        if (isFlashing) StartCoroutine("FlashOff");
+        
         //_webGLDownload.GetScreenshot(WebGLDownload.ImageFormat.jpg, 1, "");
-        //if (!takeHiResShot) StartCoroutine(RecordUpscaledFrame(ImageFormat.jpg, screenshotUpscale, ""));
+        if (!takeHiResShot) StartCoroutine(TakeScreenshot(ImageFormat.jpg, screenshotUpscale));
+    }
+    IEnumerator TakeScreenshot(ImageFormat imageFormat, int screenshotUpscale) {
+        Texture2D screenShot;
+        RenderTexture rt;
+        Debug.Log("holas");
+        takeHiResShot = true;
+        yield return new WaitForEndOfFrame();
+        try {
+            rt = new RenderTexture(isHorizontal ? resWidth : resHeight, isHorizontal ? resHeight : resWidth, 24);
+            mainCamera.targetTexture = rt;
+            screenShot = new Texture2D(isHorizontal? resWidth: resHeight, isHorizontal? resHeight:resWidth, TextureFormat.RGB24, false);
+            mainCamera.Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(0, 0, isHorizontal? resWidth : resHeight, isHorizontal? resHeight:resWidth), 0, 0);
+            
+            mainCamera.targetTexture = null;
+            RenderTexture.active = null;
+            Destroy(rt);
+            byte[] bytes = screenShot.EncodeToPNG();
+            string fileName = ScreenShotName(resWidth, resHeight);
+            System.IO.File.WriteAllBytes(fileName, bytes);
+            //Debug.Log(string.Format("Took screenshot to: {0}", fileName));
+            takeHiResShot = false;
+            Destroy(screenShot);
+        } catch (System.Exception e) {
+            Debug.Log("Original error: " + e.Message);
+        }
+        takeHiResShot = false;
     }
     //Funcion sin usar 
-    IEnumerator RecordUpscaledFrame(ImageFormat imageFormat, int screenshotUpscale, string fileName) {
+    /*IEnumerator RecordUpscaledFrame(ImageFormat imageFormat, int screenshotUpscale, string fileName) {
         takeHiResShot = true;
         yield return new WaitForEndOfFrame();
         try {
@@ -136,8 +159,9 @@ public class Screenshot : MonoBehaviour
         }
         takeHiResShot = false;
         StartCoroutine("FlashOff");
-    }
+    }*/
     IEnumerator FlashOff() {
+        luzFlash.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         luzFlash.SetActive(false);
     }
