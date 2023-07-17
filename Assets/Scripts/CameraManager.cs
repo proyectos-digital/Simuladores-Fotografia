@@ -40,7 +40,7 @@ public class CameraManager : MonoBehaviour
     public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
     public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
     public float lenteTeleObjetivo = 101f;// = new float[] { 101, 70, 51, 20.47f };
-    public float lenteSuperTele = 150.64f;// = new float[] { 101, 70, 51, 20.47f };
+    public float lenteSuperTele = 130f;// = new float[] { 101, 70, 51, 20.47f };
 
 
     void Start() {

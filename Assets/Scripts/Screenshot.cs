@@ -20,6 +20,7 @@ public class Screenshot : MonoBehaviour
 
     public GameObject luzFlash;
     public TMP_Text txtItem;
+    public GameObject imagen;
     public enum ImageFormat {
         jpg,
         png
@@ -43,6 +44,7 @@ public class Screenshot : MonoBehaviour
     }
     public void ChangeOrientation() {
         isHorizontal = !isHorizontal;
+        imagen.SetActive(!imagen.activeSelf);
     }
 
     public void FlashOn(Toggle tgl) {
@@ -90,15 +92,12 @@ public class Screenshot : MonoBehaviour
         if (!takeHiResShot) StartCoroutine(TakeScreenshot(ImageFormat.jpg, screenshotUpscale));
     }
     IEnumerator TakeScreenshot(ImageFormat imageFormat, int screenshotUpscale) {
-        Texture2D screenShot;
-        RenderTexture rt;
-        Debug.Log("holas");
         takeHiResShot = true;
         yield return new WaitForEndOfFrame();
         try {
-            rt = new RenderTexture(isHorizontal ? resWidth : resHeight, isHorizontal ? resHeight : resWidth, 24);
+            RenderTexture rt = new RenderTexture(isHorizontal ? resWidth : resHeight, isHorizontal ? resHeight : resWidth, 24);
             mainCamera.targetTexture = rt;
-            screenShot = new Texture2D(isHorizontal? resWidth: resHeight, isHorizontal? resHeight:resWidth, TextureFormat.RGB24, false);
+            Texture2D screenShot = new Texture2D(isHorizontal? resWidth: resHeight, isHorizontal? resHeight:resWidth, TextureFormat.RGB24, false);
             mainCamera.Render();
             RenderTexture.active = rt;
             screenShot.ReadPixels(new Rect(0, 0, isHorizontal? resWidth : resHeight, isHorizontal? resHeight:resWidth), 0, 0);
