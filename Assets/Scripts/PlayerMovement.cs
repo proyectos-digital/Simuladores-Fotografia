@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
 
+        //handled drag
         if(grounded){
             rb.drag = groundDrag;
         }else{
@@ -53,9 +54,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void MovePlayer(){
+        //Calcular dirección del movimiento
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized*moveSpeed * 10, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized*moveSpeed * 10f, ForceMode.Force);
     }
 
     private void SpeedControl(){

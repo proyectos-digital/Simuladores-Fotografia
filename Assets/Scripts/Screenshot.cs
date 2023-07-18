@@ -12,14 +12,13 @@ public class Screenshot : MonoBehaviour
     public int resHeight = 0;
     public Camera mainCamera;
 
-    private bool takeHiResShot = false;
+    private bool takeHiResShot = false, isHorizontal = true, isFlashing = false;
 
-    public PhotoInventory photoInventory;
+    //public PhotoInventory photoInventory;
     public string fieldName;
     public string serverUrl;
 
-    public GameObject luzFlash;
-    public TMP_Text txtItem;
+    public GameObject luzFlash, imgHorizontal, imgVertical;
     public enum ImageFormat {
         jpg,
         png
@@ -41,41 +40,83 @@ public class Screenshot : MonoBehaviour
     {
         takeHiResShot = true;
     }
+    public void ChangeOrientation() {
+        isHorizontal = !isHorizontal;
+        imgHorizontal.SetActive(!imgHorizontal.activeSelf);
+        imgVertical.SetActive(!imgVertical.activeSelf);
+    }
 
-    void LateUpdate() {
+    public void FlashOn(Toggle tgl) {
+        isFlashing = tgl.isOn;
+    }
+
+    /*void LateUpdate() {
+        Texture2D screenShot;
+        RenderTexture rt;
         //takeHiResShot |= Input.GetKeyUp(KeyCode.P); //Input.GetKeyDown("k");
         if (Input.GetKeyUp(KeyCode.K) || takeHiResShot) {
-            RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
-            mainCamera.targetTexture = rt;
-            Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
-            mainCamera.Render();
-            RenderTexture.active = rt;
-            screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+            if (isHorizontal) {
+                rt = new RenderTexture(resWidth, resHeight, 24);
+                mainCamera.targetTexture = rt;
+                screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
+                mainCamera.Render();
+                RenderTexture.active = rt;
+                screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+            } else {
+                rt = new RenderTexture(resHeight, resWidth, 24);
+                mainCamera.targetTexture = rt;
+                screenShot = new Texture2D(resHeight, resWidth, TextureFormat.RGB24, false);
+                mainCamera.Render();
+                RenderTexture.active = rt;
+                screenShot.ReadPixels(new Rect(0, 0, resHeight, resWidth), 0, 0);
+            }
             mainCamera.targetTexture = null;
             RenderTexture.active = null;
             Destroy(rt);
             byte[] bytes = screenShot.EncodeToPNG();
             string fileName = ScreenShotName(resWidth, resHeight);
             System.IO.File.WriteAllBytes(fileName, bytes);
-            Debug.Log("fileName: " + fileName);
-            txtItem.text = "se tomo la foto: "+fileName;
+            txtItem.text = "se tomo la foto: " + fileName;
             Debug.Log(string.Format("Took screenshot to: {0}", fileName));
             takeHiResShot = false;
 
         }
-    }
+    }*/
 
     public void GetScreenshot() {
         //Iluminar luz con flash
-        luzFlash.SetActive(true);
-        takeHiResShot = true;
-
-        StartCoroutine("FlashOff");
+        if (isFlashing) StartCoroutine("FlashOff");
+        
         //_webGLDownload.GetScreenshot(WebGLDownload.ImageFormat.jpg, 1, "");
-        //if (!takeHiResShot) StartCoroutine(RecordUpscaledFrame(ImageFormat.jpg, screenshotUpscale, ""));
+        if (!takeHiResShot) StartCoroutine(TakeScreenshot(ImageFormat.jpg, screenshotUpscale));
     }
-
-    IEnumerator RecordUpscaledFrame(ImageFormat imageFormat, int screenshotUpscale, string fileName) {
+    IEnumerator TakeScreenshot(ImageFormat imageFormat, int screenshotUpscale) {
+        takeHiResShot = true;
+        yield return new WaitForEndOfFrame();
+        try {
+            RenderTexture rt = new RenderTexture(isHorizontal ? resWidth : resHeight, isHorizontal ? resHeight : resWidth, 24);
+            mainCamera.targetTexture = rt;
+            Texture2D screenShot = new Texture2D(isHorizontal? resWidth: resHeight, isHorizontal? resHeight:resWidth, TextureFormat.RGB24, false);
+            mainCamera.Render();
+            RenderTexture.active = rt;
+            screenShot.ReadPixels(new Rect(0, 0, isHorizontal? resWidth : resHeight, isHorizontal? resHeight:resWidth), 0, 0);
+            
+            mainCamera.targetTexture = null;
+            RenderTexture.active = null;
+            Destroy(rt);
+            byte[] bytes = screenShot.EncodeToPNG();
+            string fileName = ScreenShotName(resWidth, resHeight);
+            System.IO.File.WriteAllBytes(fileName, bytes);
+            //Debug.Log(string.Format("Took screenshot to: {0}", fileName));
+            takeHiResShot = false;
+            Destroy(screenShot);
+        } catch (System.Exception e) {
+            Debug.Log("Original error: " + e.Message);
+        }
+        takeHiResShot = false;
+    }
+    //Funcion sin usar 
+    /*IEnumerator RecordUpscaledFrame(ImageFormat imageFormat, int screenshotUpscale, string fileName) {
         takeHiResShot = true;
         yield return new WaitForEndOfFrame();
         try {
@@ -86,17 +127,17 @@ public class Screenshot : MonoBehaviour
             RenderTexture.active = rt;
             screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
             mainCamera.targetTexture = null;
-            //RenderTexture.active = null;
-            //Destroy(rt);
-            //byte[] bytes = screenShot.EncodeToJPG();
+            RenderTexture.active = null;
+            Destroy(rt);
+            byte[] bytes = screenShot.EncodeToJPG();
             string dateFormat = "yyyy-MM-dd-HH-mm-ss";
             fileName = resWidth.ToString() + "x" + resHeight.ToString() + "px_" + System.DateTime.Now.ToString(dateFormat);
-            photoInventory.GetTexture(rt);
-            RenderTexture.active = null;
+            //photoInventory.GetTexture(rt);
             if (fileName == "") {
                 int resWidth = mainCamera.pixelWidth * screenshotUpscale;
                 int resHeight = mainCamera.pixelHeight * screenshotUpscale;
             }
+            //Funcion para subir imagen a servidor... SIN USO
             //Texture2D screenShot = ScreenCapture.CaptureScreenshotAsTexture(screenshotUpscale);
             //ImageUploader.Initialize()
             //    .SetUrl(serverUrl)
@@ -116,8 +157,9 @@ public class Screenshot : MonoBehaviour
         }
         takeHiResShot = false;
         StartCoroutine("FlashOff");
-    }
+    }*/
     IEnumerator FlashOff() {
+        luzFlash.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         luzFlash.SetActive(false);
     }
