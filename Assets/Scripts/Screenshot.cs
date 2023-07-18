@@ -18,9 +18,7 @@ public class Screenshot : MonoBehaviour
     public string fieldName;
     public string serverUrl;
 
-    public GameObject luzFlash;
-    public TMP_Text txtItem;
-    public GameObject imagen;
+    public GameObject luzFlash, imgHorizontal, imgVertical;
     public enum ImageFormat {
         jpg,
         png
@@ -44,7 +42,8 @@ public class Screenshot : MonoBehaviour
     }
     public void ChangeOrientation() {
         isHorizontal = !isHorizontal;
-        imagen.SetActive(!imagen.activeSelf);
+        imgHorizontal.SetActive(!imgHorizontal.activeSelf);
+        imgVertical.SetActive(!imgVertical.activeSelf);
     }
 
     public void FlashOn(Toggle tgl) {
