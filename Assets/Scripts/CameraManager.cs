@@ -11,36 +11,44 @@ using System;
 public class CameraManager : MonoBehaviour
 {
     public Camera cameraPhoto;
-    //public GameObject camFirst;
     //Paneles
-    public GameObject panelUI, panelDepth, panelMotion;
-    //Sliders Prop Camera
+    public GameObject panelUI, panelDepth, panelMotion, panelColor;
+    //Sliders Prop Camera Zoom
     public Slider sliderFoV; //sliderFoV, sliderNear, sliderFar, sliderSensorX, sliderSensorY, 
     //Sliders Efectos
     public Slider sliderVignette;
+    //Enfoque
     public Slider sliderDepthFocusDistance, sliderDepthFocalLength, sliderDepthAperture;
+    //Motion Blur
     public Slider sliderMotionIntensity, sliderMotionClamp;
+    //Color
+    public Slider sliderExposure, sliderContrast, sliderHue, sliderSaturation;
     public TMP_Dropdown dropdown;
-    public TMP_Text txtItem;
-    public Toggle tglDepth, tglMotion, tglFlash;
+    //Activadores efectos y flash
+    public Toggle tglDepth, tglMotion, tglColor, tglFlash;
     //Valores iniciales de la camara Foto
     float foV, near, far, sensorSizeX, sensorSizeY, focalLength, vigneteValue;
+    bool isOpenPanel = false;
 
     public Volume volume;
-    //Depth of Field o Efecto Bokeh
+    //Efecto Bokeh
     private DepthOfField depth;
+    //Ojo de Pez
     private LensDistortion lens = null;
+    //Viñeta
     private Vignette vignette = null;
+    //Motion Blur
     private MotionBlur motion = null;
+    //Ajuste de color
+    private ColorAdjustments colorAdjustments = null;
 
     public Screenshot screenshot;
 
-    //fov max 179
     //Lentes
     public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
     public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
     public float lenteTeleObjetivo = 101f;// = new float[] { 101, 70, 51, 20.47f };
-    public float lenteSuperTele = 130f;// = new float[] { 101, 70, 51, 20.47f };
+    public float lenteSuperTele = 120f;// = new float[] { 101, 70, 51, 20.47f };
 
 
     void Start() {
@@ -50,14 +58,8 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGet(out lens);
         volume.profile.TryGet(out depth);
         volume.profile.TryGet(out motion);
-        //vignette.active = true;
-        //foV = cameraPhoto.fieldOfView; sliderFoV.value = foV;
-        //near = cameraPhoto.nearClipPlane; sliderNear.value = near;
-        //far = cameraPhoto.farClipPlane; sliderFar.value = far;
-        //sensorSizeX = cameraPhoto.sensorSize.x; sliderSensorX.value = sensorSizeX;
-        //sensorSizeY = cameraPhoto.sensorSize.y; sliderSensorY.value = sensorSizeY;
-        //focalLength = cameraPhoto.focalLength; sliderFocalLength.value = focalLength;
-        //vigneteValue = vignette.intensity.value; sliderVignette.value = vigneteValue;
+        volume.profile.TryGet(out colorAdjustments);
+        foV = cameraPhoto.fieldOfView; sliderFoV.value = foV;
 
         sliderFoV.onValueChanged.AddListener(v =>
         {
@@ -75,6 +77,18 @@ public class CameraManager : MonoBehaviour
         sliderDepthAperture.onValueChanged.AddListener(v => {
             depth.aperture.value = v;
         });
+        sliderExposure.onValueChanged.AddListener(v => {
+            colorAdjustments.postExposure.value = v;
+        });
+        sliderContrast.onValueChanged.AddListener(v => {
+            colorAdjustments.contrast.value = v;
+        });
+        sliderHue.onValueChanged.AddListener(v => {
+            colorAdjustments.hueShift.value = v;
+        });
+        sliderSaturation.onValueChanged.AddListener(v => {
+            colorAdjustments.saturation.value = v;
+        });
         tglDepth.onValueChanged.AddListener(delegate {
             ToggleValueChanged(tglDepth);
         });
@@ -84,6 +98,9 @@ public class CameraManager : MonoBehaviour
         });
         tglFlash.onValueChanged.AddListener(delegate {
             ToggleFlash(tglFlash);
+        });
+        tglColor.onValueChanged.AddListener(delegate {
+            ToggleColorChanged(tglColor);
         });
 
         DropDownItemSelected(dropdown);
@@ -102,9 +119,37 @@ public class CameraManager : MonoBehaviour
         panelMotion.SetActive(toggle.isOn);
         //crear panel para sliders de propiedades Depth
     }
+    private void ToggleColorChanged(Toggle toggle) {
+        colorAdjustments.active = toggle.isOn;
+        panelColor.SetActive(toggle.isOn);
+        //crear panel para sliders de propiedades Depth
+    }
     private void ToggleFlash(Toggle toggle) {
         screenshot.FlashOn(toggle);
         toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
+    }
+    public void OnOffVignette() {
+        vignette.active = !vignette.active;
+    }
+    public void OnOffEyeFish() {
+        lens.active = !lens.active;
+    }
+
+    public void ResetCamera() {
+        cameraPhoto.fieldOfView = foV;
+        sliderFoV.value = foV;
+        vignette.active = false;
+        lens.active = false;
+        dropdown.value = 0;
+        colorAdjustments.active = false;
+        colorAdjustments.postExposure.value = 0;
+        colorAdjustments.contrast.value = 0;
+        colorAdjustments.hueShift.value = 0;
+        colorAdjustments.saturation.value = 0;
+        sliderExposure.value = colorAdjustments.postExposure.value;
+        sliderContrast.value = colorAdjustments.contrast.value;
+        sliderHue.value = colorAdjustments.hueShift.value;
+        sliderSaturation.value = colorAdjustments.saturation.value;
     }
 
     void DropDownItemSelected(TMP_Dropdown dropdown){
@@ -112,24 +157,32 @@ public class CameraManager : MonoBehaviour
         //Usar solo Fov y focalLength
         switch (index) {
             case 0:
+                sliderFoV.minValue = 30;
+                sliderFoV.maxValue = 80;
                 cameraPhoto.fieldOfView = lenteNormal;
                 sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteNormal[1], lenteNormal[2]);
                 //cameraPhoto.focalLength = lenteNormal[3];
                 break;
             case 1:
+                sliderFoV.minValue = 10;
+                sliderFoV.maxValue = 30;
                 cameraPhoto.fieldOfView = lenteAngular;
                 sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteAngular[                                                                                           1], lenteAngular[2]);
                 //cameraPhoto.focalLength = lenteAngular[3];
             break;
             case 2:
+                sliderFoV.minValue = 70;
+                sliderFoV.maxValue = 110;
                 cameraPhoto.fieldOfView = lenteTeleObjetivo;
                 sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteTeleObjetivo[1], lenteTeleObjetivo[2]);
                 //cameraPhoto.focalLength = lenteTeleObjetivo[3];
                 break;
             case 3:
+                sliderFoV.minValue = 110;
+                sliderFoV.maxValue = 127;
                 cameraPhoto.fieldOfView = lenteSuperTele;
                 sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteSuperTele[1], lenteSuperTele[2]);
@@ -140,19 +193,20 @@ public class CameraManager : MonoBehaviour
     }
 
     void Update(){
-        if (Input.GetKeyUp(KeyCode.V)){
-            vignette.active = !vignette.active;
-        }
-        if(Input.GetKeyUp(KeyCode.F)){
-            lens.active = !lens.active;
-        }
+        //if(Input.GetKeyUp(KeyCode.F)){
+        //    lens.active = !lens.active;
+        //}
         if (Input.GetKeyUp(KeyCode.P)){
+            isOpenPanel = !isOpenPanel;
             //Mostrar Panel, bloquear movimiento mouse y ya
             Cursor.visible = !Cursor.visible;
             if (Cursor.visible){
                 Cursor.lockState = CursorLockMode.None;
             }else{
                 Cursor.lockState = CursorLockMode.Locked;
+            }
+            if (!isOpenPanel) {
+                ResetCamera();
             }
             panelUI.SetActive(!panelUI.activeSelf);
             cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
