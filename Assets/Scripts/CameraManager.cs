@@ -12,22 +12,44 @@ public class CameraManager : MonoBehaviour
 {
     public Camera cameraPhoto;
     //Paneles
-    public GameObject panelUI, panelDepth, panelMotion, panelColor;
+    [Header("Paneles")]
+    public GameObject panelUI;
+    public GameObject panelDepth;
+    public GameObject panelMotion;
+    public GameObject panelColor;
+    
     //Sliders Prop Camera Zoom
     public Slider sliderFoV; //sliderFoV, sliderNear, sliderFar, sliderSensorX, sliderSensorY, 
     //Sliders Efectos
     public Slider sliderVignette;
     //Enfoque
-    public Slider sliderDepthFocusDistance, sliderDepthFocalLength, sliderDepthAperture;
+    [Header("Panel Depth")]
+    public Slider sliderDepthFocusDistance;
+    public Slider sliderDepthFocalLength;
+    public Slider sliderDepthAperture;
+
     //Motion Blur
-    public Slider sliderMotionIntensity, sliderMotionClamp;
+    [Header("Panel Motion")]
+    public Slider sliderMotionIntensity;
+    public Slider sliderMotionClamp;
+
     //Color
-    public Slider sliderExposure, sliderContrast, sliderHue, sliderSaturation;
+    [Header("Panel Color")]
+    public Slider sliderExposure;
+    public Slider sliderContrast;
+    public Slider sliderHue;
+    public Slider sliderSaturation;
+
     public TMP_Dropdown dropdown;
+
     //Activadores efectos y flash
-    public Toggle tglDepth, tglMotion, tglColor, tglFlash;
+    [Header("Toggles")]
+    public Toggle tglDepth;
+    public Toggle tglMotion;
+    public Toggle tglColor;
+    public Toggle tglFlash;
     //Valores iniciales de la camara Foto
-    float foV, near, far, sensorSizeX, sensorSizeY, focalLength, vigneteValue;
+    float foV, near, far, sensorSizeX, sensorSizeY, focalLength, vigneteValue;        
     bool isOpenPanel = false;
 
     public Volume volume;
@@ -45,6 +67,7 @@ public class CameraManager : MonoBehaviour
     public Screenshot screenshot;
 
     //Lentes
+    [Header("Distancia Lentes")]
     public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
     public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
     public float lenteTeleObjetivo = 101f;// = new float[] { 101, 70, 51, 20.47f };
