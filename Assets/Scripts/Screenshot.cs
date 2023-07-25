@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
-using TMPro;
+//using TMPro;
 
 public class Screenshot : MonoBehaviour
 {
@@ -32,12 +32,10 @@ public class Screenshot : MonoBehaviour
         }
         return string.Format("{0}/Screenshots/screen_{1}x{2}_{3}.png",
             System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-            width, height,
-            System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
+            width, height, System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
     }
 
-    public void TakeHiResShot()
-    {
+    public void TakeHiResShot(){
         takeHiResShot = true;
     }
     public void ChangeOrientation() {
