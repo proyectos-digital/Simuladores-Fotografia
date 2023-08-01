@@ -11,7 +11,7 @@ public class AmbientLightController : MonoBehaviour {
 
     public void ChangeDay(float time) {
         //ambientLight.transform.Rotate(new Vector3(25, 0f, 0f));
-        ambientLight.transform.localEulerAngles = new Vector3(time, 0, 0);
+        ambientLight.transform.localEulerAngles = new Vector3(time, ambientLight.transform.localEulerAngles.y, ambientLight.transform.localEulerAngles.z);
         if (time > 155) {
             RenderSettings.skybox = nightMaterial;
             RenderSettings.ambientIntensity = 0.5f;

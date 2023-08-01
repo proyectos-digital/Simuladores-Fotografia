@@ -41,6 +41,7 @@ public class CameraManager : MonoBehaviour
     public Slider sliderSaturation;
 
     public TMP_Dropdown dropdown;
+    public TMP_Text textLente;
 
     //Activadores efectos y flash
     [Header("Toggles")]
@@ -84,9 +85,24 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGet(out colorAdjustments);
         foV = cameraPhoto.fieldOfView; sliderFoV.value = foV;
 
-        sliderFoV.onValueChanged.AddListener(v =>
-        {
+        sliderFoV.onValueChanged.AddListener(v =>{
             cameraPhoto.fieldOfView = v;
+            if (v > 110) {
+                //Debug.Log("Lente Gran Angular");
+                textLente.text = "Lente Gran Angular";
+            }
+            if (v > 80 && v < 110) {
+                //Debug.Log("Lente Angular");
+                textLente.text = "Lente Angular";
+            }
+            if (v > 40 && v < 80) {
+                //Debug.Log("Lente Normal");
+                textLente.text = "Lente Normal";
+            }
+            if(v < 40) {
+                //Debug.Log("Lente TeleObjetivo");
+                textLente.text = "Lente TeleObjetivo";
+            }
         });
         sliderVignette.onValueChanged.AddListener(v =>{
             vignette.intensity.value = v;
@@ -180,8 +196,8 @@ public class CameraManager : MonoBehaviour
         //Usar solo Fov y focalLength
         switch (index) {
             case 0:
-                sliderFoV.minValue = 30;
-                sliderFoV.maxValue = 80;
+                sliderFoV.minValue = 10;
+                sliderFoV.maxValue = 127;
                 cameraPhoto.fieldOfView = lenteNormal;
                 sliderFoV.value = cameraPhoto.fieldOfView;
                 //cameraPhoto.sensorSize.Set(lenteNormal[1], lenteNormal[2]);
