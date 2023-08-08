@@ -67,7 +67,12 @@ public class CameraManager : MonoBehaviour
 
     public Screenshot screenshot;
 
+    //Crear Delegado y Evento
+    public delegate void cameraAnimations();
+    public event cameraAnimations cameraAnimation;
+
     //Lentes
+    //Obsoleto
     [Header("Distancia Lentes")]
     public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
     public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
@@ -88,19 +93,15 @@ public class CameraManager : MonoBehaviour
         sliderFoV.onValueChanged.AddListener(v =>{
             cameraPhoto.fieldOfView = v;
             if (v > 110) {
-                //Debug.Log("Lente Gran Angular");
                 textLente.text = "Lente Gran Angular";
             }
             if (v > 80 && v < 110) {
-                //Debug.Log("Lente Angular");
                 textLente.text = "Lente Angular";
             }
             if (v > 40 && v < 80) {
-                //Debug.Log("Lente Normal");
                 textLente.text = "Lente Normal";
             }
             if(v < 40) {
-                //Debug.Log("Lente TeleObjetivo");
                 textLente.text = "Lente TeleObjetivo";
             }
         });
@@ -142,8 +143,8 @@ public class CameraManager : MonoBehaviour
             ToggleColorChanged(tglColor);
         });
 
-        DropDownItemSelected(dropdown);
-        dropdown.onValueChanged.AddListener(delegate { DropDownItemSelected(dropdown); });
+        //DropDownItemSelected(dropdown);
+        //dropdown.onValueChanged.AddListener(delegate { DropDownItemSelected(dropdown); });
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -190,8 +191,8 @@ public class CameraManager : MonoBehaviour
         sliderHue.value = colorAdjustments.hueShift.value;
         sliderSaturation.value = colorAdjustments.saturation.value;
     }
-
-    void DropDownItemSelected(TMP_Dropdown dropdown){
+    //Obsoleto
+    /*void DropDownItemSelected(TMP_Dropdown dropdown){
         int index = dropdown.value;
         //Usar solo Fov y focalLength
         switch (index) {
@@ -229,7 +230,7 @@ public class CameraManager : MonoBehaviour
                 break;
         }
         //float floatValue = float.Parse(strFloatValue, CultureInfo.InvariantCulture.NumberFormat);
-    }
+    }*/
 
     void Update(){
         //if(Input.GetKeyUp(KeyCode.F)){
@@ -238,7 +239,8 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.P)){
             isOpenPanel = !isOpenPanel;
             //Mostrar Panel, bloquear movimiento mouse y ya
-            Cursor.visible = !Cursor.visible;
+            Cursor.visible = isOpenPanel;
+            //Crear Script para el Cursor?????
             if (Cursor.visible){
                 Cursor.lockState = CursorLockMode.None;
             }else{
@@ -247,7 +249,7 @@ public class CameraManager : MonoBehaviour
             if (!isOpenPanel) {
                 ResetCamera();
             }
-            panelUI.SetActive(!panelUI.activeSelf);
+            cameraAnimation();
             cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
         }
     }
