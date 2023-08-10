@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AmbientLightController : MonoBehaviour {
 
     [SerializeField] private Light ambientLight;
+    [SerializeField] private LensFlareComponentSRP sunFlare;
     [SerializeField] private Light[] lampLights;
 
     public Material dayMaterial, nightMaterial,sunriseMaterial,sunsetMaterial;
@@ -28,8 +30,8 @@ public class AmbientLightController : MonoBehaviour {
                 RenderSettings.skybox = sunriseMaterial;
                 DisactivateLamps();
                 RenderSettings.fog = true;
-                RenderSettings.fogColor = new Color32(0x6C, 0x86, 0x9C, 0xff);
-                RenderSettings.fogDensity = 0.023f;
+                RenderSettings.fogColor = new Color32(0x47, 0x6A, 0x7D, 0xff);
+                RenderSettings.fogDensity = 0.03f;
                 break;
             case 2:
                 RenderSettings.skybox = dayMaterial;
@@ -47,6 +49,7 @@ public class AmbientLightController : MonoBehaviour {
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x25, 0x29, 0x35, 0xff);
                 RenderSettings.fogDensity = 0.04f;
+                sunFlare.gameObject.SetActive(false);
                 ActivateLamps();
                 break;
         }
@@ -70,5 +73,10 @@ public class AmbientLightController : MonoBehaviour {
             light.gameObject.SetActive(false);
         }
         ambientLight.gameObject.SetActive(true);
+    }
+
+    void LensFlare()
+    {
+        sunFlare.gameObject.SetActive(false);
     }
 }
