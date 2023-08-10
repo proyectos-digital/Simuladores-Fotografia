@@ -20,7 +20,8 @@ public class CameraAnimations : MonoBehaviour
     void MoveCamera() {
         isOpenPanel = !isOpenPanel;
         cameraAnimator.SetBool("IsMode", isOpenPanel);
-        cameraRender.SetActive(isOpenPanel);
+        //Desactivar renderizar en miniatura camara si da problemas de rendimiento
+        //cameraRender.SetActive(isOpenPanel);
     }
 
     void OnOffPanel() {
