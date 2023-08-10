@@ -13,9 +13,9 @@ public class CameraManager : MonoBehaviour
     public Camera cameraPhoto;
     //Paneles
     [Header("Paneles")]
-    public GameObject panelUI;
+    //public GameObject panelUI;
     public GameObject panelDepth;
-    public GameObject panelMotion;
+    //public GameObject panelMotion;
     public GameObject panelColor;
     
     //Sliders Prop Camera Zoom
@@ -29,9 +29,9 @@ public class CameraManager : MonoBehaviour
     public Slider sliderDepthAperture;
 
     //Motion Blur
-    [Header("Panel Motion")]
-    public Slider sliderMotionIntensity;
-    public Slider sliderMotionClamp;
+    //[Header("Panel Motion")]
+    //public Slider sliderMotionIntensity;
+    //public Slider sliderMotionClamp;
 
     //Color
     [Header("Panel Color")]
@@ -73,16 +73,17 @@ public class CameraManager : MonoBehaviour
 
     //Lentes
     //Obsoleto
-    [Header("Distancia Lentes")]
+    /*[Header("Distancia Lentes")]
     public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
     public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
     public float lenteTeleObjetivo = 101f;// = new float[] { 101, 70, 51, 20.47f };
     public float lenteSuperTele = 120f;// = new float[] { 101, 70, 51, 20.47f };
+    */
 
 
     void Start() {
         
-        panelUI.SetActive(false);
+        //panelUI.SetActive(false);
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out lens);
         volume.profile.TryGet(out depth);
@@ -123,9 +124,9 @@ public class CameraManager : MonoBehaviour
         sliderContrast.onValueChanged.AddListener(v => {
             colorAdjustments.contrast.value = v;
         });
-        sliderHue.onValueChanged.AddListener(v => {
-            colorAdjustments.hueShift.value = v;
-        });
+        //sliderHue.onValueChanged.AddListener(v => {
+        //    colorAdjustments.hueShift.value = v;
+        //});
         sliderSaturation.onValueChanged.AddListener(v => {
             colorAdjustments.saturation.value = v;
         });
@@ -133,9 +134,9 @@ public class CameraManager : MonoBehaviour
             ToggleValueChanged(tglDepth);
         });
 
-        tglMotion.onValueChanged.AddListener(delegate {
-            ToggleMotionChanged(tglMotion);
-        });
+        //tglMotion.onValueChanged.AddListener(delegate {
+        //    ToggleMotionChanged(tglMotion);
+        //});
         tglFlash.onValueChanged.AddListener(delegate {
             ToggleFlash(tglFlash);
         });
@@ -154,11 +155,11 @@ public class CameraManager : MonoBehaviour
         panelDepth.SetActive(toggle.isOn);
         //crear panel para sliders de propiedades Depth
     }
-    private void ToggleMotionChanged(Toggle toggle){
-        motion.active = toggle.isOn;
-        panelMotion.SetActive(toggle.isOn);
-        //crear panel para sliders de propiedades Depth
-    }
+    //private void ToggleMotionChanged(Toggle toggle){
+    //    motion.active = toggle.isOn;
+    //    panelMotion.SetActive(toggle.isOn);
+    //    //crear panel para sliders de propiedades Depth
+    //}
     private void ToggleColorChanged(Toggle toggle) {
         colorAdjustments.active = toggle.isOn;
         panelColor.SetActive(toggle.isOn);
@@ -191,7 +192,7 @@ public class CameraManager : MonoBehaviour
         sliderHue.value = colorAdjustments.hueShift.value;
         sliderSaturation.value = colorAdjustments.saturation.value;
     }
-    //Obsoleto
+    //Obsoleto Select de lente SIN USO
     /*void DropDownItemSelected(TMP_Dropdown dropdown){
         int index = dropdown.value;
         //Usar solo Fov y focalLength

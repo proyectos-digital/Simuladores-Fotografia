@@ -14,6 +14,7 @@ public class CameraAnimations : MonoBehaviour
     {
         cameraAnimator = GetComponent<Animator>();
         cameraManager.cameraAnimation += MoveCamera;
+        OnOffPanel();
     }
 
     void MoveCamera() {
