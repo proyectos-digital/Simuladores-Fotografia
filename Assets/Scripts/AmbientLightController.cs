@@ -28,24 +28,32 @@ public class AmbientLightController : MonoBehaviour {
         {
             case 1:
                 RenderSettings.skybox = sunriseMaterial;
+                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
                 DisactivateLamps();
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x47, 0x6A, 0x7D, 0xff);
                 RenderSettings.fogDensity = 0.03f;
+                sunFlare.gameObject.SetActive(true);
                 break;
             case 2:
                 RenderSettings.skybox = dayMaterial;
+                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
                 DisactivateLamps();
+                sunFlare.gameObject.SetActive(false);
                 break;
             case 3:
                 RenderSettings.skybox = sunsetMaterial;
+                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x67,0x4E,0x28,0xff);
                 RenderSettings.fogDensity = 0.023f;
+                sunFlare.gameObject.SetActive(true);
                 ActivateLamps();
                 break;
             case 4:
                 RenderSettings.skybox = nightMaterial;
+                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+                RenderSettings.ambientLight = new Color32(0x46, 0x4E, 0x62, 0xff);
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x25, 0x29, 0x35, 0xff);
                 RenderSettings.fogDensity = 0.04f;
