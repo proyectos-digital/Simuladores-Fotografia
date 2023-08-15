@@ -13,7 +13,6 @@ public class CameraManager : MonoBehaviour
     public Camera cameraPhoto;
     //Paneles
     [Header("Paneles")]
-    //public GameObject panelUI;
     public GameObject panelDepth;
     //public GameObject panelMotion;
     public GameObject panelColor;
@@ -41,7 +40,7 @@ public class CameraManager : MonoBehaviour
     public Slider sliderSaturation;
 
     public TMP_Dropdown dropdown;
-    public TMP_Text textLente;
+    public TMP_Text txtLens;
 
     //Activadores efectos y flash
     [Header("Toggles")]
@@ -50,7 +49,7 @@ public class CameraManager : MonoBehaviour
     public Toggle tglColor;
     public Toggle tglFlash;
     //Valores iniciales de la camara Foto
-    float foV, near, far, sensorSizeX, sensorSizeY, focalLength, vigneteValue;        
+    float fovIni, near, far, sensorSizeX, sensorSizeY, focalLength, vigneteValue;        
     bool isOpenPanel = false;
 
     public Volume volume;
@@ -60,7 +59,7 @@ public class CameraManager : MonoBehaviour
     private LensDistortion lens = null;
     //Viñeta
     private Vignette vignette = null;
-    //Motion Blur
+    //Motion Blur Sin usar
     private MotionBlur motion = null;
     //Ajuste de color
     private ColorAdjustments colorAdjustments = null;
@@ -83,27 +82,26 @@ public class CameraManager : MonoBehaviour
 
     void Start() {
         
-        //panelUI.SetActive(false);
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out lens);
         volume.profile.TryGet(out depth);
         volume.profile.TryGet(out motion);
         volume.profile.TryGet(out colorAdjustments);
-        foV = cameraPhoto.fieldOfView; sliderFoV.value = foV;
+        fovIni = cameraPhoto.fieldOfView; sliderFoV.value = fovIni;
 
         sliderFoV.onValueChanged.AddListener(v =>{
             cameraPhoto.fieldOfView = v;
             if (v > 110) {
-                textLente.text = "Lente Gran Angular";
+                txtLens.text = "Lente Gran Angular";
             }
             if (v > 80 && v < 110) {
-                textLente.text = "Lente Angular";
+                txtLens.text = "Lente Angular";
             }
             if (v > 40 && v < 80) {
-                textLente.text = "Lente Normal";
+                txtLens.text = "Lente Normal";
             }
             if(v < 40) {
-                textLente.text = "Lente TeleObjetivo";
+                txtLens.text = "Lente TeleObjetivo";
             }
         });
         sliderVignette.onValueChanged.AddListener(v =>{
@@ -177,8 +175,8 @@ public class CameraManager : MonoBehaviour
     }
 
     public void ResetCamera() {
-        cameraPhoto.fieldOfView = foV;
-        sliderFoV.value = foV;
+        cameraPhoto.fieldOfView = fovIni;
+        sliderFoV.value = fovIni;
         vignette.active = false;
         lens.active = false;
         dropdown.value = 0;
