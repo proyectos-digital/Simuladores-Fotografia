@@ -12,7 +12,7 @@ public class AmbientLightController : MonoBehaviour {
     public Material dayMaterial, nightMaterial,sunriseMaterial,sunsetMaterial;
 
     public void ChangeDay(float time) {
-        DisactivateLamps();
+        //DisactivateLamps();
         //ambientLight.transform.Rotate(new Vector3(25, 0f, 0f));
         //ambientLight.transform.localEulerAngles = new Vector3(time, ambientLight.transform.localEulerAngles.y, ambientLight.transform.localEulerAngles.z);
         /*if (time > 155) {
@@ -29,16 +29,16 @@ public class AmbientLightController : MonoBehaviour {
             case 1:
                 RenderSettings.skybox = sunriseMaterial;
                 RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
-                DisactivateLamps();
+                //DisactivateLamps();
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x47, 0x6A, 0x7D, 0xff);
-                RenderSettings.fogDensity = 0.03f;
+                //RenderSettings.fogDensity = 0.03f;
                 sunFlare.gameObject.SetActive(true);
                 break;
             case 2:
                 RenderSettings.skybox = dayMaterial;
                 RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
-                DisactivateLamps();
+                //DisactivateLamps();
                 sunFlare.gameObject.SetActive(false);
                 break;
             case 3:
@@ -48,7 +48,7 @@ public class AmbientLightController : MonoBehaviour {
                 RenderSettings.fogColor = new Color32(0x67,0x4E,0x28,0xff);
                 RenderSettings.fogDensity = 0.023f;
                 sunFlare.gameObject.SetActive(true);
-                ActivateLamps();
+                //ActivateLamps();
                 break;
             case 4:
                 RenderSettings.skybox = nightMaterial;
@@ -58,7 +58,7 @@ public class AmbientLightController : MonoBehaviour {
                 RenderSettings.fogColor = new Color32(0x25, 0x29, 0x35, 0xff);
                 RenderSettings.fogDensity = 0.04f;
                 sunFlare.gameObject.SetActive(false);
-                ActivateLamps();
+                //ActivateLamps();
                 break;
         }
     }
@@ -66,25 +66,37 @@ public class AmbientLightController : MonoBehaviour {
     public void ChangeIntensity(float value){
         ambientLight.intensity = value;
     }
+
+    public void ChangeDensitiyFog(float value)
+    {
+        RenderSettings.fogDensity = value;
+    }
+
+    public void Lamps(bool value)
+    {
+        Debug.Log("Bool: " + value);
+        foreach (Light light in lampLights)
+        {
+            light.gameObject.SetActive(value);
+        }
+    }
+
     public void ChangeTemperature(float value) {
         ambientLight.colorTemperature = value;
     }
 
     void ActivateLamps() {
-        foreach(Light light in lampLights) {
+        
+        foreach (Light light in lampLights) {
             light.gameObject.SetActive(true);
         }
         //ambientLight.gameObject.SetActive(false);
     }
-    void DisactivateLamps() {
+    /*void DisactivateLamps() {
         foreach (Light light in lampLights) {
             light.gameObject.SetActive(false);
         }
         ambientLight.gameObject.SetActive(true);
-    }
+    }*/
 
-    void LensFlare()
-    {
-        sunFlare.gameObject.SetActive(false);
-    }
 }

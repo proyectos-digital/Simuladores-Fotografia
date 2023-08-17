@@ -316,6 +316,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 403018476}
+        m_TargetAssemblyTypeName: AmbientLightController, Assembly-CSharp
+        m_MethodName: Lamps
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &13167249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4817,7 +4829,7 @@ MonoBehaviour:
   sliderHue: {fileID: 65018355}
   sliderSaturation: {fileID: 1711331551}
   dropdown: {fileID: 1236358253}
-  textLente: {fileID: 966081659}
+  txtLens: {fileID: 966081659}
   tglDepth: {fileID: 1429942382}
   tglMotion: {fileID: 146847212}
   tglColor: {fileID: 1141206384}
@@ -5664,7 +5676,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -5700,6 +5712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -6426,7 +6443,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -6462,6 +6479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -9195,7 +9217,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -9231,6 +9253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -9285,6 +9312,11 @@ PrefabInstance:
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756660098181531717, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9738,7 +9770,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -9774,6 +9806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -10686,7 +10723,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -10722,6 +10759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -12427,6 +12469,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 403018476}
+        m_TargetAssemblyTypeName: AmbientLightController, Assembly-CSharp
+        m_MethodName: ChangeDensitiyFog
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.023
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &653782174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12485,7 +12539,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -12521,6 +12575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -13832,7 +13891,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd954301e31098459c3d654058d78e1, type: 2}
+      objectReference: {fileID: 2100000, guid: a2432424e232d66439470517ba82bb7d, type: 2}
     - target: {fileID: 4115121133744559094, guid: 1b139ff1720c11541bc19d86cfb2ea88,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -21331,7 +21390,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -21367,6 +21426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -22813,7 +22877,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -22849,6 +22913,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -23518,7 +23587,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -23554,6 +23623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -25268,6 +25342,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 403018476}
+        m_TargetAssemblyTypeName: AmbientLightController, Assembly-CSharp
+        m_MethodName: ChangeDensitiyFog
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.03
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 403018476}
+        m_TargetAssemblyTypeName: AmbientLightController, Assembly-CSharp
+        m_MethodName: Lamps
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1341817064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26096,7 +26194,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -26132,6 +26230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -26943,7 +27046,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -26979,6 +27082,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -34062,7 +34170,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -34098,6 +34206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -36926,6 +37039,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 4888
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 403018476}
+        m_TargetAssemblyTypeName: AmbientLightController, Assembly-CSharp
+        m_MethodName: Lamps
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -40821,7 +40946,7 @@ PrefabInstance:
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787298344536597480, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
@@ -40862,6 +40987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalLightsShadowResolutionTier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787298344536597482, guid: d60a2807ef4858d4dad1ba9387e5de56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2253905526832326261, guid: d60a2807ef4858d4dad1ba9387e5de56,
         type: 3}
