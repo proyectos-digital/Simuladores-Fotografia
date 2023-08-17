@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 4914f2279ca8cec46a86dc7d913d241f, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8bf7db0cabc76d84ab7291b7584f0449, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1676798006}
-  m_IndirectSpecularColor: {r: 0.46601868, g: 0.5960859, b: 0.7371505, a: 1}
+  m_IndirectSpecularColor: {r: 0.64997786, g: 0.6918087, b: 0.68398505, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10184,6 +10184,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4663585850815964844}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &810084545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2521486382276703012, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3997787995699504314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &810084549
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810084545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3442923855343079542, guid: 9f02004b4410a2b409e789220468ea82, type: 3}
 --- !u!1 &837924904
 GameObject:
   m_ObjectHideFlags: 0
@@ -10965,6 +10985,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934915953}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &936520966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936520968}
+  - component: {fileID: 936520967}
+  m_Layer: 0
+  m_Name: WindZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!182 &936520967
+WindZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936520966}
+  m_Enabled: 1
+  m_Mode: 0
+  m_Radius: 20
+  m_WindMain: 1
+  m_WindTurbulence: 1
+  m_WindPulseMagnitude: 0.5
+  m_WindPulseFrequency: 0.01
+--- !u!4 &936520968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936520966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -38.19, y: 0.73, z: -15.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939292141
 GameObject:
   m_ObjectHideFlags: 0
@@ -16896,7 +16962,7 @@ PrefabInstance:
     - target: {fileID: 8564215334530108553, guid: f376e19f50d81274d95a970b6cb63f66,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.79505
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8564215334530108553, guid: f376e19f50d81274d95a970b6cb63f66,
         type: 3}
@@ -17359,8 +17425,8 @@ MonoBehaviour:
   - {fileID: 2194459514310775967}
   - {fileID: 1043673222}
   - {fileID: 1043673221}
-  dayMaterial: {fileID: 2100000, guid: 4914f2279ca8cec46a86dc7d913d241f, type: 2}
-  nightMaterial: {fileID: 2100000, guid: 2d056ac30ecc9e542b26e06133f23602, type: 2}
+  dayMaterial: {fileID: 2100000, guid: 8bf7db0cabc76d84ab7291b7584f0449, type: 2}
+  nightMaterial: {fileID: 2100000, guid: 7f2973af57da9b44a9325da979416deb, type: 2}
   sunriseMaterial: {fileID: 2100000, guid: aca4207ab11d04546b092a504868044b, type: 2}
   sunsetMaterial: {fileID: 2100000, guid: 94e3f7c8ea4015b449bfb8c07ba5b0f2, type: 2}
 --- !u!4 &1435650063
@@ -27228,6 +27294,31 @@ PrefabInstance:
     - target: {fileID: 3526396011283965534, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997787995475086615, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997787995924347787, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997787996094436327, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997787996180991986, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997787996205015275, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4304199695680355556, guid: 13b19ae4ecb7bd14ba7cf938d0c7fd4f,
