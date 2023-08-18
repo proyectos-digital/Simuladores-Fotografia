@@ -9,11 +9,13 @@ public class CameraAnimations : MonoBehaviour
     [SerializeField] private GameObject cameraRender;
     private Animator cameraAnimator;
     private bool isOpenPanel = false;
+    private bool isVertical = false;
     // Start is called before the first frame update
     void Start()
     {
         cameraAnimator = GetComponent<Animator>();
         cameraManager.cameraAnimation += MoveCamera;
+        cameraManager.cameraOrientation += ChangeOrientation;
         OnOffPanel();
     }
 
@@ -23,8 +25,15 @@ public class CameraAnimations : MonoBehaviour
         //Desactivar renderizar en miniatura camara si da problemas de rendimiento
         //cameraRender.SetActive(isOpenPanel);
     }
+    void ChangeOrientation() {
+        isVertical = !isVertical;
+        cameraAnimator.SetBool("IsVertical", isVertical);
+    }
 
     void OnOffPanel() {
         panelUI.SetActive(isOpenPanel);
+    }
+    void LoadCamera() {
+        cameraManager.LoadCamera();
     }
 }

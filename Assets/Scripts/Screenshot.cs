@@ -11,6 +11,8 @@ public class Screenshot : MonoBehaviour
     public int resWidth = 0;
     public int resHeight = 0;
     public Camera mainCamera;
+    [SerializeField] private CameraManager cameraManager;
+
 
     private bool takeHiResShot = false, isHorizontal = true, isFlashing = false;
 
@@ -42,6 +44,7 @@ public class Screenshot : MonoBehaviour
         isHorizontal = !isHorizontal;
         imgHorizontal.SetActive(!imgHorizontal.activeSelf);
         imgVertical.SetActive(!imgVertical.activeSelf);
+        cameraManager.Orientation();
     }
 
     public void FlashOn(Toggle tgl) {

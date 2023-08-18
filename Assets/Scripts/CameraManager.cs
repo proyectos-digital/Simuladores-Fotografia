@@ -69,6 +69,18 @@ public class CameraManager : MonoBehaviour
     //Crear Delegado y Evento
     public delegate void cameraAnimations();
     public event cameraAnimations cameraAnimation;
+    public event cameraAnimations cameraOrientation;
+
+    float camPhoto;
+    float sldFov;
+    bool vig;
+    bool len;
+    bool tgldepth;
+    bool tglcolor;
+    float depFoDi;
+    float depFoLe;
+    float depApe;
+    float colExp;
 
     //Lentes
     //Obsoleto
@@ -88,6 +100,7 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGet(out motion);
         volume.profile.TryGet(out colorAdjustments);
         fovIni = cameraPhoto.fieldOfView; sliderFoV.value = fovIni;
+        SaveCamera();
 
         sliderFoV.onValueChanged.AddListener(v =>{
             cameraPhoto.fieldOfView = v;
@@ -151,7 +164,6 @@ public class CameraManager : MonoBehaviour
     private void ToggleValueChanged(Toggle toggle){
         depth.active = toggle.isOn;
         panelDepth.SetActive(toggle.isOn);
-        //crear panel para sliders de propiedades Depth
     }
     //private void ToggleMotionChanged(Toggle toggle){
     //    motion.active = toggle.isOn;
@@ -161,7 +173,6 @@ public class CameraManager : MonoBehaviour
     private void ToggleColorChanged(Toggle toggle) {
         colorAdjustments.active = toggle.isOn;
         panelColor.SetActive(toggle.isOn);
-        //crear panel para sliders de propiedades Depth
     }
     private void ToggleFlash(Toggle toggle) {
         screenshot.FlashOn(toggle);
@@ -173,22 +184,37 @@ public class CameraManager : MonoBehaviour
     public void OnOffEyeFish() {
         lens.active = !lens.active;
     }
+    //Guardar ajustes de la camara
+    void SaveCamera() {
+        camPhoto = cameraPhoto.fieldOfView;
+        sldFov = sliderFoV.value;
+        vig = vignette.active;
+        len = lens.active;
+        tgldepth = tglDepth.isOn;
+        tglcolor = tglColor.isOn;
+    }
+
+    //Cargar ajustes Camara
+    public void LoadCamera() {
+        cameraPhoto.fieldOfView = camPhoto;
+        sliderFoV.value =sldFov;
+        vignette.active = vig;
+        lens.active = len;
+        tglDepth.isOn = tgldepth;
+        tglColor.isOn = tglcolor;
+    }
 
     public void ResetCamera() {
+        SaveCamera();
         cameraPhoto.fieldOfView = fovIni;
         sliderFoV.value = fovIni;
         vignette.active = false;
         lens.active = false;
-        dropdown.value = 0;
-        colorAdjustments.active = false;
-        colorAdjustments.postExposure.value = 0;
-        colorAdjustments.contrast.value = 0;
-        colorAdjustments.hueShift.value = 0;
-        colorAdjustments.saturation.value = 0;
-        sliderExposure.value = colorAdjustments.postExposure.value;
-        sliderContrast.value = colorAdjustments.contrast.value;
-        sliderHue.value = colorAdjustments.hueShift.value;
-        sliderSaturation.value = colorAdjustments.saturation.value;
+        tglDepth.isOn = false;
+        tglColor.isOn = false;
+    }
+    public void Orientation() {
+        cameraOrientation();
     }
     //Obsoleto Select de lente SIN USO
     /*void DropDownItemSelected(TMP_Dropdown dropdown){
@@ -232,9 +258,6 @@ public class CameraManager : MonoBehaviour
     }*/
 
     void Update(){
-        //if(Input.GetKeyUp(KeyCode.F)){
-        //    lens.active = !lens.active;
-        //}
         if (Input.GetKeyUp(KeyCode.P)){
             isOpenPanel = !isOpenPanel;
             //Mostrar Panel, bloquear movimiento mouse y ya
@@ -242,12 +265,12 @@ public class CameraManager : MonoBehaviour
             //Crear Script para el Cursor?????
             if (Cursor.visible){
                 Cursor.lockState = CursorLockMode.None;
-            }else{
+            } else{
                 Cursor.lockState = CursorLockMode.Locked;
-            }
-            if (!isOpenPanel) {
                 ResetCamera();
             }
+            //if (!isOpenPanel) {
+            //}
             cameraAnimation();
             cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
         }
