@@ -17,8 +17,8 @@ public class CameraManager : MonoBehaviour
     //public GameObject panelMotion;
     public GameObject panelColor;
     
-    //Sliders Prop Camera Zoom
-    public Slider sliderFoV; //sliderFoV, sliderNear, sliderFar, sliderSensorX, sliderSensorY, 
+    //Sliders Propiedades Camera Zoom
+    public Slider sliderFoV; //sliderNear, sliderFar, sliderSensorX, sliderSensorY, 
     //Sliders Efectos
     public Slider sliderVignette;
     //Enfoque
@@ -39,7 +39,8 @@ public class CameraManager : MonoBehaviour
     public Slider sliderHue;
     public Slider sliderSaturation;
 
-    public TMP_Dropdown dropdown;
+    //Obsoleto
+    //public TMP_Dropdown dropdown;
     public TMP_Text txtLens;
 
     //Activadores efectos y flash
@@ -49,11 +50,11 @@ public class CameraManager : MonoBehaviour
     public Toggle tglColor;
     public Toggle tglFlash;
     //Valores iniciales de la camara Foto
-    float fovIni, near, far, sensorSizeX, sensorSizeY, focalLength, vigneteValue;        
-    bool isOpenPanel = false;
+    float fovIni, camPhoto, sldFov;        
+    bool isOpenPanel = false, vig, len, tgldepth, tglcolor;
 
     public Volume volume;
-    //Efecto Bokeh
+    //Efecto Bokeh o Enfoque
     private DepthOfField depth;
     //Ojo de Pez
     private LensDistortion lens = null;
@@ -71,19 +72,7 @@ public class CameraManager : MonoBehaviour
     public event cameraAnimations cameraAnimation;
     public event cameraAnimations cameraOrientation;
 
-    float camPhoto;
-    float sldFov;
-    bool vig;
-    bool len;
-    bool tgldepth;
-    bool tglcolor;
-    float depFoDi;
-    float depFoLe;
-    float depApe;
-    float colExp;
-
-    //Lentes
-    //Obsoleto
+    //Lentes Obsoleto
     /*[Header("Distancia Lentes")]
     public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
     public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
@@ -91,9 +80,7 @@ public class CameraManager : MonoBehaviour
     public float lenteSuperTele = 120f;// = new float[] { 101, 70, 51, 20.47f };
     */
 
-
     void Start() {
-        
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out lens);
         volume.profile.TryGet(out depth);
@@ -160,7 +147,6 @@ public class CameraManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
     }
-
     private void ToggleValueChanged(Toggle toggle){
         depth.active = toggle.isOn;
         panelDepth.SetActive(toggle.isOn);
@@ -193,7 +179,6 @@ public class CameraManager : MonoBehaviour
         tgldepth = tglDepth.isOn;
         tglcolor = tglColor.isOn;
     }
-
     //Cargar ajustes Camara
     public void LoadCamera() {
         cameraPhoto.fieldOfView = camPhoto;
@@ -203,7 +188,6 @@ public class CameraManager : MonoBehaviour
         tglDepth.isOn = tgldepth;
         tglColor.isOn = tglcolor;
     }
-
     public void ResetCamera() {
         SaveCamera();
         cameraPhoto.fieldOfView = fovIni;
@@ -262,15 +246,7 @@ public class CameraManager : MonoBehaviour
             isOpenPanel = !isOpenPanel;
             //Mostrar Panel, bloquear movimiento mouse y ya
             Cursor.visible = isOpenPanel;
-            //Crear Script para el Cursor?????
-            if (Cursor.visible){
-                Cursor.lockState = CursorLockMode.None;
-            } else{
-                Cursor.lockState = CursorLockMode.Locked;
-                ResetCamera();
-            }
-            //if (!isOpenPanel) {
-            //}
+            Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
             cameraAnimation();
             cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
         }
