@@ -10,9 +10,8 @@ public class CameraAnimations : MonoBehaviour
     private Animator cameraAnimator;
     private bool isOpenPanel = false;
     private bool isVertical = false;
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    void Start(){
         cameraAnimator = GetComponent<Animator>();
         cameraManager.cameraAnimation += MoveCamera;
         cameraManager.cameraOrientation += ChangeOrientation;
@@ -29,11 +28,14 @@ public class CameraAnimations : MonoBehaviour
         isVertical = !isVertical;
         cameraAnimator.SetBool("IsVertical", isVertical);
     }
-
+    //Funciones usadas como eventos en las animaciones de la camara
     void OnOffPanel() {
         panelUI.SetActive(isOpenPanel);
     }
     void LoadCamera() {
         cameraManager.LoadCamera();
+    }
+    void ResetCamera() {
+        cameraManager.ResetCamera();
     }
 }
