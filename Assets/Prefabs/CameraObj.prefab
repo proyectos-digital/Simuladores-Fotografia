@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 3418799702819964066}
   - component: {fileID: 3418799702819964077}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: FlashLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,6 +491,7 @@ MonoBehaviour:
   resWidth: 1280
   resHeight: 720
   mainCamera: {fileID: 1576445735}
+  cameraManager: {fileID: 0}
   fieldName: fotografia
   serverUrl: http://localhost/unity/uploader/
   luzFlash: {fileID: 3418799702819964079}
@@ -660,6 +661,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2c1ef9f0ecf798645877be9f4128ff93, type: 2}
+    - target: {fileID: 3712487195658304925, guid: e1a05af2d657b9b41809c5b1da1a1b7c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 4044979110724834481, guid: e1a05af2d657b9b41809c5b1da1a1b7c,
         type: 3}
       propertyPath: m_Name
