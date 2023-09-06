@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1333992207207796100
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,24 +20,26 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TreeLeaves
-  m_Shader: {fileID: 4800000, guid: ee7e4c9a5f6364b688a332c67fc32cca, type: 3}
-  m_ValidKeywords:
-  - _ALPHATEST_ON
-  - _SPECULAR_SETUP
+  m_Name: BirchLeaves
+  m_Shader: {fileID: -6465566751694194690, guid: 49116507c27b680428b7936db3cecd8c,
+    type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2450
-  stringTagMap:
-    RenderType: TransparentCutout
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: ee8680ca49b912746958dd16c5d23051, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 6414bb4c4696b1b42815b96b015d0b27, type: 3}
+        m_Texture: {fileID: 2800000, guid: ee8680ca49b912746958dd16c5d23051, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -52,7 +67,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 00ec082e8158e464497f0764cfdb848b, type: 3}
+        m_Texture: {fileID: 2800000, guid: ee8680ca49b912746958dd16c5d23051, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -85,9 +100,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AO: 5
+    - _AO: 4.5
     - _AlphaClip: 1
-    - _BaseLight: 0.452
+    - _Alpha_CuttOff: 0.417
+    - _BaseLight: 0.273
     - _Blend: 0
     - _BlendOp: 0
     - _BumpScale: 1
@@ -95,7 +111,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 1
     - _Cull: 0
-    - _Cutoff: 0.1
+    - _Cutoff: 0.236
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -103,27 +119,33 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.05
     - _Mode: 3
-    - _Occlusion: 15
+    - _Occlusion: 8.5
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 0.2
     - _SquashAmount: 1
     - _SrcBlend: 1
+    - _Strength: 0.2
     - _Surface: 0
     - _UVSec: 0
     - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.7724063, g: 0.8867924, b: 0.28862584, a: 1}
-    - _Color: {r: 0.6332478, g: 0.6764706, b: 0.63170415, a: 1}
+    - _BaseColor: {r: 0.7075472, g: 0.52425605, b: 0.28368637, a: 1}
+    - _Base_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
+    - _Color: {r: 0.59688574, g: 0.7352941, b: 0.57850343, a: 1}
+    - _Direction: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.1981132, g: 0.113156855, b: 0.021493418, a: 1}
+    - _SpecColor: {r: 0.1509434, g: 0.077268645, b: 0, a: 1}
+    - _Specular_Color: {r: 0.26415092, g: 0.09843359, b: 0.09843359, a: 0}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
