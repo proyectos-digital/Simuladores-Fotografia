@@ -5,33 +5,37 @@ using UnityEngine;
 public class CameraAnimations : MonoBehaviour
 {
     [SerializeField] private CameraManager cameraManager;
-    [SerializeField] private GameObject panelUI;
+    [SerializeField] private Screenshot screenshot;
     [SerializeField] private GameObject cameraRender;
     private Animator cameraAnimator;
-    private bool isOpenPanel = false;
-    private bool isVertical = false;
+
+    //Crear Delegado y Evento
+    public delegate void OpenPanel();
+    public event OpenPanel openPanel;
+    [SerializeField] bool isStudy;
 
     void Start(){
+        screenshot = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Screenshot>();
         cameraAnimator = GetComponent<Animator>();
-        cameraManager.cameraAnimation += MoveCamera;
-        cameraManager.cameraOrientation += ChangeOrientation;
-        OnOffPanel();
+        if (!isStudy) {
+            cameraManager.cameraAnimation += MoveCamera;
+            screenshot.cameraOrientation += ChangeOrientation;
+        }
     }
 
-    void MoveCamera() {
-        isOpenPanel = !isOpenPanel;
-        cameraAnimator.SetBool("IsMode", isOpenPanel);
+    void MoveCamera(bool isOpen) {
+        cameraAnimator.SetBool("IsMode", isOpen);
         //Desactivar renderizar en miniatura camara si da problemas de rendimiento
-        //cameraRender.SetActive(isOpenPanel);
+        cameraRender.SetActive(!isOpen);
     }
-    void ChangeOrientation() {
-        isVertical = !isVertical;
-        cameraAnimator.SetBool("IsVertical", isVertical);
+    void ChangeOrientation(bool isHorizontal) {
+        cameraAnimator.SetBool("IsHorizontal", isHorizontal);
+    }
+    //Funcion para ejecutar el Evento openPanel
+    void OnOffPanel() {
+        openPanel();
     }
     //Funciones usadas como eventos en las animaciones de la camara
-    void OnOffPanel() {
-        panelUI.SetActive(isOpenPanel);
-    }
     void LoadCamera() {
         cameraManager.LoadCamera();
     }

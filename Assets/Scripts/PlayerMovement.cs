@@ -22,11 +22,16 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+    [SerializeField] CameraManager camManager;
+    bool isMove = true;
 
     void Start(){
         rb = GetComponent<Rigidbody>();
+        camManager = GameObject.FindGameObjectWithTag("CamManager").GetComponent<CameraManager>();
         rb.freezeRotation = true;
+        camManager.panelStudy += MoveAllow;
     }
+    //Revisar movimmiento personaje cancelarlo
 
     // Update is called once per frame
     void Update(){
@@ -46,9 +51,13 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() {
         MovePlayer();
     }
-
+    void MoveAllow() {
+        isMove = !isMove;
+    }
 
     private void MyInput(){
+        if (!isMove)
+            return;
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }

@@ -8,25 +8,26 @@ using System;
 
 public class Screenshot : MonoBehaviour
 {
-    public int resWidth = 0;
-    public int resHeight = 0;
-    public Camera mainCamera;
-    [SerializeField] private CameraManager cameraManager;
-
+    [SerializeField] int resWidth = 0;
+    [SerializeField] int resHeight = 0;
+    [SerializeField] Camera mainCamera;
 
     private bool takeHiResShot = false, isHorizontal = true, isFlashing = false;
 
     //public PhotoInventory photoInventory;
-    public string fieldName;
-    public string serverUrl;
+    //public string fieldName;
+    //public string serverUrl;
 
-    public GameObject luzFlash, imgHorizontal, imgVertical;
+    [SerializeField] GameObject luzFlash, imgHorizontal, imgVertical;
     public enum ImageFormat {
         jpg,
         png
     }
 
-    public int screenshotUpscale = 1;
+    [SerializeField] int screenshotUpscale = 1;
+
+    public delegate void cameraOrientations(bool isHorizontal);
+    public event cameraOrientations cameraOrientation;
 
     public static string ScreenShotName(int width, int height){
         if (!Directory.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"/Screenshots")) {
@@ -44,7 +45,7 @@ public class Screenshot : MonoBehaviour
         isHorizontal = !isHorizontal;
         imgHorizontal.SetActive(!imgHorizontal.activeSelf);
         imgVertical.SetActive(!imgVertical.activeSelf);
-        cameraManager.Orientation();
+        cameraOrientation(isHorizontal);
     }
 
     public void FlashOn(Toggle tgl) {

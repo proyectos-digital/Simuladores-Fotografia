@@ -10,7 +10,10 @@ using System;
 
 public class CameraManager : MonoBehaviour
 {
+    public bool camHand = true;
     public Camera cameraPhoto;
+    public Transform camObj, camPosOrig, camPosStudy;
+    
     //Paneles
     [Header("Paneles")]
     public GameObject panelDepth;
@@ -50,7 +53,7 @@ public class CameraManager : MonoBehaviour
     public Toggle tglColor;
     public Toggle tglFlash;
     //Valores iniciales de la camara Foto
-    float fovIni, camPhoto, sldFov;        
+    float fovIni, camPhotoValue, sldFov;        
     bool isOpenPanel = false, vig, len, tgldepth, tglcolor;
 
     public Volume volume;
@@ -68,9 +71,10 @@ public class CameraManager : MonoBehaviour
     public Screenshot screenshot;
 
     //Crear Delegado y Evento
-    public delegate void cameraAnimations();
+    public delegate void cameraAnimations(bool isOpen);
     public event cameraAnimations cameraAnimation;
-    public event cameraAnimations cameraOrientation;
+    public delegate void PanelStudy();
+    public event PanelStudy panelStudy;
 
     //Lentes Obsoleto
     /*[Header("Distancia Lentes")]
@@ -86,7 +90,8 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGet(out depth);
         volume.profile.TryGet(out motion);
         volume.profile.TryGet(out colorAdjustments);
-        fovIni = cameraPhoto.fieldOfView; sliderFoV.value = fovIni;
+        fovIni = cameraPhoto.fieldOfView; 
+        sliderFoV.value = fovIni;
         SaveCamera();
 
         sliderFoV.onValueChanged.AddListener(v =>{
@@ -172,7 +177,7 @@ public class CameraManager : MonoBehaviour
     }
     //Guardar ajustes de la camara
     void SaveCamera() {
-        camPhoto = cameraPhoto.fieldOfView;
+        camPhotoValue = cameraPhoto.fieldOfView;
         sldFov = sliderFoV.value;
         vig = vignette.active;
         len = lens.active;
@@ -181,24 +186,25 @@ public class CameraManager : MonoBehaviour
     }
     //Cargar ajustes Camara
     public void LoadCamera() {
-        cameraPhoto.fieldOfView = camPhoto;
+        cameraPhoto.fieldOfView = camPhotoValue;
         sliderFoV.value =sldFov;
         vignette.active = vig;
         lens.active = len;
         tglDepth.isOn = tgldepth;
         tglColor.isOn = tglcolor;
     }
+    void LoadCameraStudy() {
+        cameraPhoto.fieldOfView = 24;
+        sliderFoV.value = 24;
+    }
     public void ResetCamera() {
         SaveCamera();
-        cameraPhoto.fieldOfView = fovIni;
         sliderFoV.value = fovIni;
+        cameraPhoto.fieldOfView = fovIni;
         vignette.active = false;
         lens.active = false;
         tglDepth.isOn = false;
         tglColor.isOn = false;
-    }
-    public void Orientation() {
-        cameraOrientation();
     }
     //Obsoleto Select de lente SIN USO
     /*void DropDownItemSelected(TMP_Dropdown dropdown){
@@ -242,13 +248,35 @@ public class CameraManager : MonoBehaviour
     }*/
 
     void Update(){
-        if (Input.GetKeyUp(KeyCode.P)){
-            isOpenPanel = !isOpenPanel;
-            //Mostrar Panel, bloquear movimiento mouse y ya
-            Cursor.visible = isOpenPanel;
-            Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
-            cameraAnimation();
-            cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
+        if (camHand && Input.GetKeyUp(KeyCode.P)){
+            PanelAction(true);
         }
+    }
+    public void PanelCamStudy() {
+        PanelAction(false);
+    }
+    void PanelAction(bool animate) {
+        isOpenPanel = !isOpenPanel;
+        //Mostrar Panel, bloquear movimiento mouse y ya
+        Cursor.visible = isOpenPanel;
+        Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
+        if (animate) {
+            cameraAnimation(isOpenPanel);
+        } else {
+            panelStudy();
+            //playerMov.gameObject.SetActive(!playerMov.gameObject.activeSelf);
+            //playerMov.enabled = !playerMov.enabled;
+            if (isOpenPanel) {
+                //camObj.position = camPosStudy.position;
+                cameraPhoto.transform.rotation = camPosStudy.rotation;
+                LoadCameraStudy();
+            } else {
+                //camObj.position = camPosOrig.position;
+                cameraPhoto.transform.rotation = camPosOrig.rotation;
+                ResetCamera();
+            }
+            
+        }
+        cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
     }
 }
