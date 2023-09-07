@@ -105,8 +105,11 @@ public class CameraManager : MonoBehaviour
             if (v > 40 && v < 80) {
                 txtLens.text = "Lente Normal";
             }
-            if(v < 40) {
+            if(v > 20 && v < 40) {
                 txtLens.text = "Lente TeleObjetivo";
+            }
+            if (v < 20) {
+                txtLens.text = "Lente Super TeleObjetivo";
             }
         });
         sliderVignette.onValueChanged.AddListener(v =>{
