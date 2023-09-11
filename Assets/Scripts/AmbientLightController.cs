@@ -10,7 +10,7 @@ public class AmbientLightController : MonoBehaviour {
     [SerializeField] private Light[] lampLights;
     [SerializeField] private Material EmissionMaterial;
 
-    public Material dayMaterial, nightMaterial,sunriseMaterial,sunsetMaterial;
+    public Material dayMaterial, nightMaterial, sunriseMaterial, sunsetMaterial;
 
     public void ChangeDay(float time) {
         switch (time)
