@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StudyLighController : MonoBehaviour{
+public class StudyLightController : MonoBehaviour{
 
     //En Desuso todo el script
     [SerializeField] private Light umbrellaLight;

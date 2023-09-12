@@ -18,6 +18,8 @@ public class MoveCamera : MonoBehaviour
     void Update() {
         if (!isStudy) {
             transform.position = cameraPosition.position;
+        } else {
+            transform.position = studyPosition.position;
         }
     }
     void MoveCam() {

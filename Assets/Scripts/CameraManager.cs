@@ -10,7 +10,8 @@ using System;
 
 public class CameraManager : MonoBehaviour
 {
-    public bool camHand = true;
+    [SerializeField] bool camHand = true;
+    public bool isMenu = false;
     public Camera cameraPhoto;
     public Transform camObj, camPosOrig, camPosStudy;
     
@@ -19,7 +20,8 @@ public class CameraManager : MonoBehaviour
     public GameObject panelDepth;
     //public GameObject panelMotion;
     public GameObject panelColor;
-    
+    public GameObject panelMenu;
+
     //Sliders Propiedades Camera Zoom
     public Slider sliderFoV; //sliderNear, sliderFar, sliderSensorX, sliderSensorY, 
     //Sliders Efectos
@@ -251,12 +253,21 @@ public class CameraManager : MonoBehaviour
     }*/
 
     void Update(){
-        if (camHand && Input.GetKeyUp(KeyCode.P)){
+        if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.P)){
             PanelAction(true);
+        }
+        //Menu de luces en escena Estudio
+        if ((!camHand && !isOpenPanel)&& Input.GetKeyUp(KeyCode.M)) {
+            isMenu = !isMenu;
+            panelMenu.SetActive(isMenu);
+            Cursor.visible = isMenu;
+            Cursor.lockState = isMenu ? CursorLockMode.None : CursorLockMode.Locked;
+            cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !isMenu;
         }
     }
     public void PanelCamStudy() {
-        PanelAction(false);
+        if(!isMenu)
+            PanelAction(false);
     }
     void PanelAction(bool animate) {
         isOpenPanel = !isOpenPanel;
