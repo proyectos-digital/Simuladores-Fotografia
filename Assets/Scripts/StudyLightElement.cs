@@ -23,7 +23,6 @@ public class StudyLightElement : MonoBehaviour {
         if(active && Input.GetKeyUp(KeyCode.Q)) {
             lightObj.enabled = !lightObj.isActiveAndEnabled;
             lightObj.GetComponentInChildren<Renderer>().material = lightObj.enabled ? materialOn : materialOff;
-            //panelInfo.SetActive(!panelInfo.activeInHierarchy);
             txtInfo.text = lightObj.enabled ? "Presiona Q para apagar la Luz.": "Presiona Q para encender Luz.";
         }
     }
