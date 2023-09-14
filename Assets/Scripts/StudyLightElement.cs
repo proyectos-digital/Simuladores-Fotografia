@@ -23,14 +23,14 @@ public class StudyLightElement : MonoBehaviour {
         if(active && Input.GetKeyUp(KeyCode.Q)) {
             lightObj.enabled = !lightObj.isActiveAndEnabled;
             lightObj.GetComponentInChildren<Renderer>().material = lightObj.enabled ? materialOn : materialOff;
-            panelInfo.SetActive(!panelInfo.activeInHierarchy);
+            txtInfo.text = lightObj.enabled ? "Presiona Q para apagar la Luz.": "Presiona Q para encender Luz.";
         }
     }
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Player") {
             active = true;
             panelInfo.SetActive(true);
-            txtInfo.text = "Presiona Q para encender Luz.";
+            txtInfo.text = lightObj.enabled ? "Presiona Q para apagar la Luz." : "Presiona Q para encender Luz.";
         }
     }
     private void OnTriggerExit(Collider other) {
