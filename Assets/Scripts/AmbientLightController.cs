@@ -7,7 +7,7 @@ public class AmbientLightController : MonoBehaviour {
 
     [SerializeField] private Light ambientLight;
     [SerializeField] private LensFlareComponentSRP sunFlare;
-    [SerializeField] private Light[] lampLights;
+    [SerializeField] private Light[] Lights;
     [SerializeField] private Material EmissionMaterial;
 
     public Material dayMaterial, nightMaterial, sunriseMaterial, sunsetMaterial;
@@ -26,7 +26,9 @@ public class AmbientLightController : MonoBehaviour {
             case 2:
                 RenderSettings.skybox = dayMaterial;
                 RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
-                sunFlare.gameObject.SetActive(false);
+                RenderSettings.fogColor = new Color32(0x67, 0x4E, 0x28, 0xff);
+                RenderSettings.fog = true;
+                sunFlare.gameObject.SetActive(true);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 break;
             case 3:
@@ -34,8 +36,7 @@ public class AmbientLightController : MonoBehaviour {
                 RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x67,0x4E,0x28,0xff);
-                RenderSettings.fogDensity = 0.023f;
-                //sunFlare.gameObject.SetActive(true);
+                sunFlare.gameObject.SetActive(true);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 break;
             case 4:
@@ -44,7 +45,6 @@ public class AmbientLightController : MonoBehaviour {
                 RenderSettings.ambientLight = new Color32(0x46, 0x4E, 0x62, 0xff);
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x25, 0x29, 0x35, 0xff);
-                RenderSettings.fogDensity = 0.04f;
                 sunFlare.gameObject.SetActive(false);
                 EmissionMaterial.EnableKeyword("_EMISSION");
                 break;
@@ -60,15 +60,10 @@ public class AmbientLightController : MonoBehaviour {
     }
 
     public void Lamps(bool value){
-        foreach (Light light in lampLights)
+        foreach (Light light in Lights)
         {
             light.gameObject.SetActive(value);
         }
-    }
-
-    public void Emission(bool value)
-    {
-
     }
 
     public void ChangeTemperature(float value) {
