@@ -16,36 +16,36 @@ public class AmbientLightController : MonoBehaviour {
         switch (time)
         {
             case 1:
-                RenderSettings.skybox = sunriseMaterial;
-                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
+                //RenderSettings.skybox = sunriseMaterial;
+                //RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x47, 0x6A, 0x7D, 0xff);
-                sunFlare.gameObject.SetActive(true);
+                //sunFlare.gameObject.SetActive(true);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 break;
             case 2:
-                RenderSettings.skybox = dayMaterial;
-                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
+                //RenderSettings.skybox = dayMaterial;
+                //RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
                 RenderSettings.fogColor = new Color32(0x67, 0x4E, 0x28, 0xff);
                 RenderSettings.fog = true;
-                sunFlare.gameObject.SetActive(true);
+                //sunFlare.gameObject.SetActive(true);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 break;
             case 3:
-                RenderSettings.skybox = sunsetMaterial;
-                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
+                //RenderSettings.skybox = sunsetMaterial;
+                //RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x67,0x4E,0x28,0xff);
-                sunFlare.gameObject.SetActive(true);
+                //sunFlare.gameObject.SetActive(true);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 break;
             case 4:
-                RenderSettings.skybox = nightMaterial;
-                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
-                RenderSettings.ambientLight = new Color32(0x46, 0x4E, 0x62, 0xff);
+                //RenderSettings.skybox = nightMaterial;
+                //RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+                //RenderSettings.ambientLight = new Color32(0x46, 0x4E, 0x62, 0xff);
                 RenderSettings.fog = true;
                 RenderSettings.fogColor = new Color32(0x25, 0x29, 0x35, 0xff);
-                sunFlare.gameObject.SetActive(false);
+                //sunFlare.gameObject.SetActive(false);
                 EmissionMaterial.EnableKeyword("_EMISSION");
                 break;
         }
