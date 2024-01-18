@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+//using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
@@ -14,243 +15,178 @@ public class CameraManager : MonoBehaviour
     public bool isMenu = false;
     public Camera cameraPhoto;
     public Transform camObj, camPosOrig, camPosStudy;
-    
+
+
     //Paneles
     [Header("Paneles")]
-    public GameObject panelDepth;
-    //public GameObject panelMotion;
+   
     public GameObject panelColor;
     public GameObject panelMenu;
 
-    //Sliders Propiedades Camera Zoom
-    public Slider sliderFoV; //sliderNear, sliderFar, sliderSensorX, sliderSensorY, 
-    //Sliders Efectos
-    public Slider sliderVignette;
-    //Enfoque
-    [Header("Panel Depth")]
-    public Slider sliderDepthFocusDistance;
-    public Slider sliderDepthFocalLength;
-    public Slider sliderDepthAperture;
+    [Header("Buttons")]
+    public Button isoButton;
+    public Button apertureButton;
+    public Button shutterSpeedButton;
+    public Button exposureButton;
+    public Button focalLengthButton;
 
-    //Motion Blur
-    //[Header("Panel Motion")]
-    //public Slider sliderMotionIntensity;
-    //public Slider sliderMotionClamp;
-
-    //Color
-    [Header("Panel Color")]
-    public Slider sliderExposure;
-    public Slider sliderContrast;
-    public Slider sliderHue;
-    public Slider sliderSaturation;
-
-    //Obsoleto
-    //public TMP_Dropdown dropdown;
-    public TMP_Text txtLens;
-
-    //Activadores efectos y flash
-    [Header("Toggles")]
-    public Toggle tglDepth;
-    public Toggle tglMotion;
-    public Toggle tglColor;
-    public Toggle tglFlash;
-    //Valores iniciales de la camara Foto
-    float fovIni, camPhotoValue, sldFov;        
-    bool isOpenPanel = false, vig, len, tgldepth, tglcolor;
-
+    [Header("Other Settings")]
     public Volume volume;
-    //Efecto Bokeh o Enfoque
-    private DepthOfField depth;
+    public TMP_Text txtLens;
     //Ojo de Pez
     private LensDistortion lens = null;
     //Viñeta
     private Vignette vignette = null;
-    //Motion Blur Sin usar
-    private MotionBlur motion = null;
-    //Ajuste de color
     private ColorAdjustments colorAdjustments = null;
-
+    //Valores iniciales de la camara Foto
+    float fovIni, camPhotoValue, sldFov;
+    bool isOpenPanel = false, vig, len, tgldepth, tglcolor;
     public Screenshot screenshot;
 
+    //sliders
+    [Header("Sliders")]
+    public Slider isoSlider;
+    public Slider apertureSlider;
+    public Slider vignetteSlider;
+    public Slider shutterSpeedSlider;
+    public Slider exposureSlider;
+    public Slider focalLengthSlider;
+
+    public TMP_Text lensInfo;
+    private TMP_Text isoText;
+    private TMP_Text apertureText;
+    private TMP_Text shutterSpeedText;
+    private TMP_Text exposureText;
+    private TMP_Text focalLengthText;
+
+    //Activadores efectos y flash
+    [Header("Toggles")]
+    public Toggle tglColor;
+    public Toggle tglFlash;
+ 
     //Crear Delegado y Evento
     public delegate void cameraAnimations(bool isOpen);
     public event cameraAnimations cameraAnimation;
     public delegate void PanelStudy();
     public event PanelStudy panelStudy;
 
-    //Lentes Obsoleto
-    /*[Header("Distancia Lentes")]
-    public float lenteNormal = 60f;// = new float[] { 60f, 40f, 24f,20.7f };
-    public float lenteAngular = 20.4f;// = new float[] { 20.4f, 10.26f, 7.49f, 20.7f };
-    public float lenteTeleObjetivo = 101f;// = new float[] { 101, 70, 51, 20.47f };
-    public float lenteSuperTele = 120f;// = new float[] { 101, 70, 51, 20.47f };
-    */
 
     void Start() {
+
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out lens);
-        volume.profile.TryGet(out depth);
-        volume.profile.TryGet(out motion);
-        volume.profile.TryGet(out colorAdjustments);
-        fovIni = cameraPhoto.fieldOfView; 
-        sliderFoV.value = fovIni;
+        //volume.profile.TryGet(out colorAdjustments);
+        volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
+
+
+        isoSlider.wholeNumbers = true;
+        int[] isoValues = { 100, 200, 400, 800, 1600, 3200, 6400 };
+        float[] apertureValues = { 1.4f, 2f, 2.8f, 4f, 5.6f, 8f, 11f, 13f, 16f, 22f };
+        //float[] shutterSpeedValues = { 2f, 0.25f, 0.125f, 0.0666666666666667f, 0.0333333333333333f, 0.0166666666666667f, 0.008f, 0.004f, 0.002f, 0.001f };
+        float[] shutterSpeedValues = { 2f, 4f, 8f, 15f, 30f, 60f, 125f, 250f, 500f, 1000f };
+        float[] FocalLengthValues = { 14f, 35f, 50f, 200f, 400f };
+        string[] FocalLegthTexts = { "Ultra Angular 14MM", "Gran Angular 35MM", "Distancia Media 50MM", "Teleobjetivo 200MM", "Super Teleobjetivo 400MM" };
+
+        isoSlider.onValueChanged.AddListener(i => {
+            cameraPhoto.iso = isoValues[(int)i - 1];
+            isoText = isoButton.GetComponentInChildren<TMP_Text>();
+            isoText.text = isoValues[(int)i - 1].ToString();
+        });
+
+        focalLengthSlider.onValueChanged.AddListener(fl => {
+            cameraPhoto.focalLength = FocalLengthValues[(int)fl - 1];
+            focalLengthText = focalLengthButton.GetComponentInChildren<TMP_Text>();
+            lensInfo.text = FocalLegthTexts[(int)fl - 1];
+        });
+
+        apertureSlider.onValueChanged.AddListener(a => {
+            cameraPhoto.aperture = apertureValues[(int)a - 1];
+            apertureText = apertureButton.GetComponentInChildren<TMP_Text>();
+            apertureText.text = apertureValues[(int)a - 1].ToString();
+        });
+
+        shutterSpeedSlider.onValueChanged.AddListener(ss => {
+            float realshutterspeedvalue = 1 / shutterSpeedValues[(int)ss - 1];
+            Debug.Log(realshutterspeedvalue);
+            cameraPhoto.shutterSpeed = realshutterspeedvalue;
+            shutterSpeedText = shutterSpeedButton.GetComponentInChildren<TMP_Text>();
+            shutterSpeedText.text = "1/" + shutterSpeedValues[(int)ss - 1].ToString();
+        });
+
+        /*tglFlash.onValueChanged.AddListener(delegate {
+            ToggleFlash(tglFlash);
+        });*/
+
+        exposureSlider.onValueChanged.AddListener(v => {
+            colorAdjustments.postExposure.value = v;
+            exposureText = exposureButton.GetComponentInChildren<TMP_Text>();
+            exposureText.text = "± " + v.ToString();
+            //exposureText.text = "± " + v.ToString();
+            //Debug.Log(colorAdjustments);
+        });
+
+        
+        
         SaveCamera();
 
-        sliderFoV.onValueChanged.AddListener(v =>{
-            cameraPhoto.fieldOfView = v;
-            if (v > 110) {
-                txtLens.text = "Lente Gran Angular";
-            }
-            if (v > 80 && v < 110) {
-                txtLens.text = "Lente Angular";
-            }
-            if (v > 40 && v < 80) {
-                txtLens.text = "Lente Normal";
-            }
-            if(v > 20 && v < 40) {
-                txtLens.text = "Lente TeleObjetivo";
-            }
-            if (v < 20) {
-                txtLens.text = "Lente Super TeleObjetivo";
-            }
-        });
-        sliderVignette.onValueChanged.AddListener(v =>{
-            vignette.intensity.value = v;
-        });
-        sliderDepthFocusDistance.onValueChanged.AddListener(v => {
-            depth.focusDistance.value = v;
-        });
-        sliderDepthFocalLength.onValueChanged.AddListener(v =>{
-            depth.focalLength.value = v;
-        });
-        sliderDepthAperture.onValueChanged.AddListener(v => {
-            depth.aperture.value = v;
-        });
-        sliderExposure.onValueChanged.AddListener(v => {
-            colorAdjustments.postExposure.value = v;
-        });
-        sliderContrast.onValueChanged.AddListener(v => {
-            colorAdjustments.contrast.value = v;
-        });
-        //sliderHue.onValueChanged.AddListener(v => {
-        //    colorAdjustments.hueShift.value = v;
-        //});
-        sliderSaturation.onValueChanged.AddListener(v => {
-            colorAdjustments.saturation.value = v;
-        });
-        tglDepth.onValueChanged.AddListener(delegate {
-            ToggleValueChanged(tglDepth);
-        });
-
-        //tglMotion.onValueChanged.AddListener(delegate {
-        //    ToggleMotionChanged(tglMotion);
-        //});
-        tglFlash.onValueChanged.AddListener(delegate {
-            ToggleFlash(tglFlash);
-        });
-        tglColor.onValueChanged.AddListener(delegate {
-            ToggleColorChanged(tglColor);
-        });
-
-        //DropDownItemSelected(dropdown);
-        //dropdown.onValueChanged.AddListener(delegate { DropDownItemSelected(dropdown); });
+      
 
         Cursor.lockState = CursorLockMode.Locked;
     }
-    private void ToggleValueChanged(Toggle toggle){
-        depth.active = toggle.isOn;
-        panelDepth.SetActive(toggle.isOn);
+
+    public void ActiveSlider(Slider slider){
+        if (slider.gameObject.activeSelf)
+        {
+            slider.gameObject.SetActive(false);
+        }
+        else
+        {
+            slider.gameObject.SetActive(true);
+        }
     }
-    //private void ToggleMotionChanged(Toggle toggle){
-    //    motion.active = toggle.isOn;
-    //    panelMotion.SetActive(toggle.isOn);
-    //    //crear panel para sliders de propiedades Depth
-    //}
+
+    
+
     private void ToggleColorChanged(Toggle toggle) {
-        colorAdjustments.active = toggle.isOn;
-        panelColor.SetActive(toggle.isOn);
+        //colorAdjustments.active = toggle.isOn;
+        //panelColor.SetActive(toggle.isOn);
     }
+
     private void ToggleFlash(Toggle toggle) {
         screenshot.FlashOn(toggle);
         toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
     }
+
     public void OnOffVignette() {
         vignette.active = !vignette.active;
     }
+
     public void OnOffEyeFish() {
         lens.active = !lens.active;
     }
+
+
     //Guardar ajustes de la camara
     void SaveCamera() {
-        camPhotoValue = cameraPhoto.fieldOfView;
-        sldFov = sliderFoV.value;
-        vig = vignette.active;
-        len = lens.active;
-        tgldepth = tglDepth.isOn;
-        tglcolor = tglColor.isOn;
+        //vig = vignette.active;
+        //len = lens.active;
     }
+
     //Cargar ajustes Camara
     public void LoadCamera() {
-        cameraPhoto.fieldOfView = camPhotoValue;
-        sliderFoV.value =sldFov;
-        vignette.active = vig;
-        lens.active = len;
-        tglDepth.isOn = tgldepth;
-        tglColor.isOn = tglcolor;
+        //lens.active = len;
+        //vignette.active = vig;
     }
+
     void LoadCameraStudy() {
-        cameraPhoto.fieldOfView = 24;
-        sliderFoV.value = 24;
+        cameraPhoto.fieldOfView = 30;
     }
+
     public void ResetCamera() {
         SaveCamera();
-        sliderFoV.value = fovIni;
-        cameraPhoto.fieldOfView = fovIni;
         vignette.active = false;
         lens.active = false;
-        tglDepth.isOn = false;
-        tglColor.isOn = false;
     }
-    //Obsoleto Select de lente SIN USO
-    /*void DropDownItemSelected(TMP_Dropdown dropdown){
-        int index = dropdown.value;
-        //Usar solo Fov y focalLength
-        switch (index) {
-            case 0:
-                sliderFoV.minValue = 10;
-                sliderFoV.maxValue = 127;
-                cameraPhoto.fieldOfView = lenteNormal;
-                sliderFoV.value = cameraPhoto.fieldOfView;
-                //cameraPhoto.sensorSize.Set(lenteNormal[1], lenteNormal[2]);
-                //cameraPhoto.focalLength = lenteNormal[3];
-                break;
-            case 1:
-                sliderFoV.minValue = 10;
-                sliderFoV.maxValue = 30;
-                cameraPhoto.fieldOfView = lenteAngular;
-                sliderFoV.value = cameraPhoto.fieldOfView;
-                //cameraPhoto.sensorSize.Set(lenteAngular[                                                                                           1], lenteAngular[2]);
-                //cameraPhoto.focalLength = lenteAngular[3];
-            break;
-            case 2:
-                sliderFoV.minValue = 70;
-                sliderFoV.maxValue = 110;
-                cameraPhoto.fieldOfView = lenteTeleObjetivo;
-                sliderFoV.value = cameraPhoto.fieldOfView;
-                //cameraPhoto.sensorSize.Set(lenteTeleObjetivo[1], lenteTeleObjetivo[2]);
-                //cameraPhoto.focalLength = lenteTeleObjetivo[3];
-                break;
-            case 3:
-                sliderFoV.minValue = 110;
-                sliderFoV.maxValue = 127;
-                cameraPhoto.fieldOfView = lenteSuperTele;
-                sliderFoV.value = cameraPhoto.fieldOfView;
-                //cameraPhoto.sensorSize.Set(lenteSuperTele[1], lenteSuperTele[2]);
-                //cameraPhoto.focalLength = lenteSuperTele[3];
-                break;
-        }
-        //float floatValue = float.Parse(strFloatValue, CultureInfo.InvariantCulture.NumberFormat);
-    }*/
 
     void Update(){
         if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.P)){
@@ -269,6 +205,7 @@ public class CameraManager : MonoBehaviour
         if(!isMenu)
             PanelAction(false);
     }
+
     void PanelAction(bool animate) {
         isOpenPanel = !isOpenPanel;
         //Mostrar Panel, bloquear movimiento mouse y ya

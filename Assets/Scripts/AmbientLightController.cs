@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class AmbientLightController : MonoBehaviour {
 
     [SerializeField] private Light ambientLight;
-    [SerializeField] private LensFlareComponentSRP sunFlare;
+    //[SerializeField] private LensFlareComponentSRP sunFlare;
     [SerializeField] private Light[] Lights;
     [SerializeField] private Material EmissionMaterial;
 
