@@ -185,7 +185,7 @@ public class CameraManager : MonoBehaviour
     public void ResetCamera() {
         SaveCamera();
         vignette.active = false;
-        lens.active = false;
+        //lens.active = false;
     }
 
     void Update(){

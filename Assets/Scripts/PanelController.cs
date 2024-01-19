@@ -26,7 +26,7 @@ public class PanelController : MonoBehaviour{
 
     void Start(){
         panelDay.SetActive(activatePanelDay);
-        panelCamProp.SetActive(activatePanelCam);
+        //panelCamProp.SetActive(activatePanelCam);
         OpenPanel();
     }
 
