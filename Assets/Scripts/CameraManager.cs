@@ -38,6 +38,7 @@ public class CameraManager : MonoBehaviour
     //Viñeta
     private Vignette vignette = null;
     private ColorAdjustments colorAdjustments = null;
+    private FilmGrain filmGrain = null;
     //Valores iniciales de la camara Foto
     float fovIni, camPhotoValue, sldFov;
     bool isOpenPanel = false, vig, len, tgldepth, tglcolor;
@@ -51,6 +52,7 @@ public class CameraManager : MonoBehaviour
     public Slider shutterSpeedSlider;
     public Slider exposureSlider;
     public Slider focalLengthSlider;
+    public Slider focusDistanceSlider;
 
     public TMP_Text lensInfo;
     private TMP_Text isoText;
@@ -72,17 +74,18 @@ public class CameraManager : MonoBehaviour
 
 
     void Start() {
-
+        
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out lens);
         //volume.profile.TryGet(out colorAdjustments);
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
+        volume.profile.TryGet<FilmGrain>(out filmGrain);
 
 
         isoSlider.wholeNumbers = true;
         int[] isoValues = { 100, 200, 400, 800, 1600, 3200, 6400 };
+        float[] FGValues = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.7f, 0.9f };
         float[] apertureValues = { 1.4f, 2f, 2.8f, 4f, 5.6f, 8f, 11f, 13f, 16f, 22f };
-        //float[] shutterSpeedValues = { 2f, 0.25f, 0.125f, 0.0666666666666667f, 0.0333333333333333f, 0.0166666666666667f, 0.008f, 0.004f, 0.002f, 0.001f };
         float[] shutterSpeedValues = { 2f, 4f, 8f, 15f, 30f, 60f, 125f, 250f, 500f, 1000f };
         float[] FocalLengthValues = { 14f, 35f, 50f, 200f, 400f };
         string[] FocalLegthTexts = { "Ultra Angular 14MM", "Gran Angular 35MM", "Distancia Media 50MM", "Teleobjetivo 200MM", "Super Teleobjetivo 400MM" };
@@ -90,7 +93,12 @@ public class CameraManager : MonoBehaviour
         isoSlider.onValueChanged.AddListener(i => {
             cameraPhoto.iso = isoValues[(int)i - 1];
             isoText = isoButton.GetComponentInChildren<TMP_Text>();
+            filmGrain.intensity.value = FGValues[(int)i - 1];
             isoText.text = isoValues[(int)i - 1].ToString();
+        });
+
+        focusDistanceSlider.onValueChanged.AddListener(fd => {
+            cameraPhoto.focusDistance = FocalLengthValues[(int)fd - 1];
         });
 
         focalLengthSlider.onValueChanged.AddListener(fl => {
@@ -113,24 +121,13 @@ public class CameraManager : MonoBehaviour
             shutterSpeedText.text = "1/" + shutterSpeedValues[(int)ss - 1].ToString();
         });
 
-        /*tglFlash.onValueChanged.AddListener(delegate {
-            ToggleFlash(tglFlash);
-        });*/
-
         exposureSlider.onValueChanged.AddListener(v => {
             colorAdjustments.postExposure.value = v;
             exposureText = exposureButton.GetComponentInChildren<TMP_Text>();
             exposureText.text = "± " + v.ToString();
-            //exposureText.text = "± " + v.ToString();
-            //Debug.Log(colorAdjustments);
         });
 
-        
-        
         SaveCamera();
-
-      
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -147,18 +144,9 @@ public class CameraManager : MonoBehaviour
 
     
 
-    private void ToggleColorChanged(Toggle toggle) {
-        //colorAdjustments.active = toggle.isOn;
-        //panelColor.SetActive(toggle.isOn);
-    }
-
     private void ToggleFlash(Toggle toggle) {
         screenshot.FlashOn(toggle);
         toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
-    }
-
-    public void OnOffVignette() {
-        vignette.active = !vignette.active;
     }
 
     public void OnOffEyeFish() {
@@ -191,6 +179,7 @@ public class CameraManager : MonoBehaviour
     void Update(){
         if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.P)){
             PanelAction(true);
+            volume.enabled = true;
         }
         //Menu de luces en escena Estudio
         if ((!camHand && !isOpenPanel)&& Input.GetKeyUp(KeyCode.M)) {

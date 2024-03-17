@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8770122170507510650
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76fd08475e21554b8f284f723dd7cf8, type: 3}
+  m_Name: WaterRendering
+  m_EditorClassIdentifier: 
+  active: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  minGridSize:
+    m_OverrideState: 0
+    m_Value: 50
+  maxGridSize:
+    m_OverrideState: 0
+    m_Value: 2500
+  elevationTransition:
+    m_OverrideState: 0
+    m_Value: 1000
+  numLevelOfDetails:
+    m_OverrideState: 0
+    m_Value: 2
+  maxTessellationFactor:
+    m_OverrideState: 0
+    m_Value: 10
+  tessellationFactorFadeStart:
+    m_OverrideState: 0
+    m_Value: 150
+  tessellationFactorFadeRange:
+    m_OverrideState: 0
+    m_Value: 1850
+  ambientProbeDimmer:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &-7089757308646879465
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -12,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf384b154398e341b6b29969c078198, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 1
@@ -46,7 +86,7 @@ MonoBehaviour:
   m_SampleCount:
     m_OverrideState: 1
     m_Value: 8
---- !u!114 &-4119084579864484310
+--- !u!114 &-6026464391438864705
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,9 +102,8 @@ MonoBehaviour:
   diffusionProfiles:
     m_OverrideState: 1
     m_Value:
-    - {fileID: 11400000, guid: a15b541fc29b06a449f4c3d5ee3edc3a, type: 2}
-    - {fileID: 11400000, guid: 3a29c9c86ef67314b94d5de3e6fc93b7, type: 2}
-    - {fileID: 11400000, guid: 879ffae44eefa4412bb327928f1a96dd, type: 2}
+    - {fileID: 11400000, guid: 404820c4cf36ad944862fa59c56064f0, type: 2}
+    - {fileID: 11400000, guid: 2384dbf2c1c420f45a792fbc315fbfb1, type: 2}
 --- !u!114 &-1016694868962581565
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -127,7 +166,7 @@ MonoBehaviour:
   m_Name: DefaultSettingsVolumeProfile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 7686318427622180703}
+  - {fileID: 8082011793732817181}
   - {fileID: -1016694868962581565}
   - {fileID: 7502528774814404555}
   - {fileID: 7542669330009093999}
@@ -136,7 +175,8 @@ MonoBehaviour:
   - {fileID: 1932259527246508038}
   - {fileID: 448115243408767295}
   - {fileID: -7089757308646879465}
-  - {fileID: -4119084579864484310}
+  - {fileID: -8770122170507510650}
+  - {fileID: 6671270515598950552}
 --- !u!114 &448115243408767295
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -149,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
   m_Name: HDRISky
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   rotation:
     m_OverrideState: 0
     m_Value: 0
@@ -164,10 +204,10 @@ MonoBehaviour:
     m_Value: 1
   upperHemisphereLuxValue:
     m_OverrideState: 1
-    m_Value: 0.4660715
+    m_Value: 0.3636535
   upperHemisphereLuxColor:
     m_OverrideState: 1
-    m_Value: {x: 0.18750614, y: 0.29181972, z: 0.5}
+    m_Value: {x: 0.1615896, y: 0.2587873, z: 0.5}
   desiredLuxValue:
     m_OverrideState: 0
     m_Value: 20000
@@ -182,7 +222,7 @@ MonoBehaviour:
     m_Value: 0
   hdriSky:
     m_OverrideState: 1
-    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
+    m_Value: {fileID: 8900000, guid: 1153dc89e66880c4eb7adc16ba588855, type: 3}
   distortionMode:
     m_OverrideState: 0
     m_Value: 0
@@ -285,7 +325,7 @@ MonoBehaviour:
     m_Value: 0.7
   tint:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.8903692, b: 0.6556604, a: 1}
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -325,7 +365,7 @@ MonoBehaviour:
     m_Value: 0
   skyAmbientMode:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   windOrientation:
     m_OverrideState: 0
     m_Value: 0
@@ -365,10 +405,10 @@ MonoBehaviour:
     m_Value: 0
   limitMin:
     m_OverrideState: 0
-    m_Value: -10
+    m_Value: 6.1310368
   limitMax:
     m_OverrideState: 0
-    m_Value: 10
+    m_Value: 3.0939176
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -448,7 +488,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   adaptationMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   adaptationSpeedDarkToLight:
     m_OverrideState: 0
@@ -486,6 +526,25 @@ MonoBehaviour:
   proceduralSoftness:
     m_OverrideState: 0
     m_Value: 0.5
+--- !u!114 &6671270515598950552
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7ff42a8c5be6646ad3975f3a54c1eb, type: 3}
+  m_Name: DiffusionProfileList
+  m_EditorClassIdentifier: 
+  active: 1
+  diffusionProfiles:
+    m_OverrideState: 1
+    m_Value:
+    - {fileID: 11400000, guid: 404820c4cf36ad944862fa59c56064f0, type: 2}
+    - {fileID: 11400000, guid: 2384dbf2c1c420f45a792fbc315fbfb1, type: 2}
+    - {fileID: 11400000, guid: 879ffae44eefa4412bb327928f1a96dd, type: 2}
 --- !u!114 &7502528774814404555
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -542,7 +601,7 @@ MonoBehaviour:
     m_Value: 1
   m_StepCount:
     m_OverrideState: 0
-    m_Value: 6
+    m_Value: 9
   m_FullResolution:
     m_OverrideState: 0
     m_Value: 0
@@ -637,7 +696,7 @@ MonoBehaviour:
   maxNits:
     m_OverrideState: 0
     m_Value: 1000
---- !u!114 &7686318427622180703
+--- !u!114 &8082011793732817181
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -649,7 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
   m_Name: HDShadowSettings
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   interCascadeBorders: 1
   maxShadowDistance:
     m_OverrideState: 1
@@ -671,10 +730,10 @@ MonoBehaviour:
     m_Value: 0.3
   cascadeShadowBorder0:
     m_OverrideState: 1
-    m_Value: 0.06905067
+    m_Value: 0.06
   cascadeShadowBorder1:
     m_OverrideState: 1
-    m_Value: 0.05086228
+    m_Value: 0.05
   cascadeShadowBorder2:
     m_OverrideState: 0
     m_Value: 0

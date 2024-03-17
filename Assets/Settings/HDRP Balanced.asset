@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HDRP Balanced
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
-    supportShadowMask: 0
-    supportSSR: 0
+    supportShadowMask: 1
+    supportSSR: 1
     supportSSRTransparent: 0
     supportSSAO: 1
     supportSSGI: 1
@@ -33,10 +33,10 @@ MonoBehaviour:
     supportTransparentBackface: 1
     supportTransparentDepthPrepass: 1
     supportTransparentDepthPostpass: 1
-    colorBufferFormat: 74
+    colorBufferFormat: 48
     supportCustomPass: 1
     customBufferFormat: 12
-    supportedLitShaderMode: 2
+    supportedLitShaderMode: 3
     planarReflectionResolution:
       m_Values: 000100000004000000040000
       m_SchemaId:
@@ -95,7 +95,7 @@ MonoBehaviour:
       maxShadowRequests: 128
       directionalShadowsDepthBits: 16
       shadowFilteringQuality: 1
-      areaShadowFilteringQuality: 0
+      areaShadowFilteringQuality: 1
       punctualLightShadowAtlas:
         shadowAtlasResolution: 4096
         shadowAtlasDepthBits: 16
@@ -122,7 +122,7 @@ MonoBehaviour:
       maxDirectionalShadowMapResolution: 2048
       maxPunctualShadowMapResolution: 2048
       maxAreaShadowMapResolution: 2048
-      supportScreenSpaceShadows: 0
+      supportScreenSpaceShadows: 1
       maxScreenSpaceShadowSlots: 4
       screenSpaceShadowBufferFormat: 48
     decalSettings:
@@ -174,9 +174,9 @@ MonoBehaviour:
       - 8
       DoFResolution: 040000000200000002000000
       DoFHighQualityFiltering: 000001
-      DoFPhysicallyBased: 000000
+      DoFPhysicallyBased: 010000
       LimitManualRangeNearBlur: 000000
-      MotionBlurSampleCount: 04000000080000000c000000
+      MotionBlurSampleCount: 02000000080000000c000000
       BloomRes: 040000000200000002000000
       BloomHighQualityFiltering: 000101
       BloomHighQualityPrefiltering: 000001
@@ -198,11 +198,11 @@ MonoBehaviour:
       m_SchemaId:
         m_Id: With3Levels
     lightingQualitySettings:
-      AOStepCount: 040000000600000006000000
+      AOStepCount: 060000000900000008000000
       AOFullRes: 000000
-      AOMaximumRadiusPixels: 200000002000000028000000
+      AOMaximumRadiusPixels: 3e0000002000000038000000
       AOBilateralUpsample: 000001
-      AODirectionCount: 010000000200000002000000
+      AODirectionCount: 030000000200000002000000
       ContactShadowSampleCount: 04000000080000000c000000
       SSRMaxRaySteps: 0c0000001800000030000000
       SSGIRaySteps: 200000004000000080000000

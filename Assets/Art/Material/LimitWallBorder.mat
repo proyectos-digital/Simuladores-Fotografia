@@ -42,8 +42,13 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
+  - _DISPLACEMENT_LOCK_TILING_SCALE
+  - _HEIGHTMAP
+  - _MASKMAP
   - _NORMALMAP
   - _NORMALMAP_TANGENT_SPACE
+  - _PIXEL_DISPLACEMENT
+  - _PIXEL_DISPLACEMENT_LOCK_OBJECT_SCALE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -65,8 +70,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: 48ff051f5bb6b3349b95cc15a9398bab, type: 3}
-        m_Scale: {x: 10, y: 0.03}
+        m_Texture: {fileID: 2800000, guid: e1daf5591b596bf42acf706da3ed1701, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 48ff051f5bb6b3349b95cc15a9398bab, type: 3}
@@ -113,7 +118,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: cc281a99dc3d22647a997acbd77da18f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _IridescenceMaskMap:
@@ -125,11 +130,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 48ff051f5bb6b3349b95cc15a9398bab, type: 3}
-        m_Scale: {x: 10, y: 0.03}
+        m_Texture: {fileID: 2800000, guid: e1daf5591b596bf42acf706da3ed1701, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5a62edb76b446ea41ad96dd583d1abd8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -137,7 +142,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 076d5cabea87dfc408eca853f97b0c8d, type: 3}
+        m_Texture: {fileID: 2800000, guid: e1daf5591b596bf42acf706da3ed1701, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -199,7 +204,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AORemapMax: 1
-    - _AORemapMin: 0
+    - _AORemapMin: 0.25512546
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
@@ -236,7 +241,7 @@ Material:
     - _DiffusionProfileHash: 0
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
-    - _DisplacementMode: 0
+    - _DisplacementMode: 2
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
@@ -255,7 +260,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _HeightAmplitude: 0.02
-    - _HeightCenter: 0.5
+    - _HeightCenter: 1
     - _HeightMapParametrization: 0
     - _HeightMax: 1
     - _HeightMin: -1
@@ -263,14 +268,14 @@ Material:
     - _HeightPoMAmplitude: 2
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
-    - _InvTilingScale: 0.1994018
+    - _InvTilingScale: 1
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0.099
-    - _MetallicRemapMax: 0.099
+    - _MetallicRemapMax: 0.021551296
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
@@ -291,7 +296,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _Smoothness: 0.02
-    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMax: 0.03872451
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularAAScreenSpaceVariance: 0.1

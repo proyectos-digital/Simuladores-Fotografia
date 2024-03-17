@@ -17,7 +17,7 @@ MonoBehaviour:
     supportSSR: 0
     supportSSRTransparent: 0
     supportSSAO: 1
-    supportSSGI: 0
+    supportSSGI: 1
     supportSubsurfaceScattering: 1
     sssSampleBudget:
       m_Values: 140000002800000050000000
@@ -55,12 +55,12 @@ MonoBehaviour:
     supportRuntimeAOVAPI: 0
     supportDitheringCrossFade: 1
     supportTerrainHole: 0
-    lightProbeSystem: 0
+    lightProbeSystem: 1
     probeVolumeMemoryBudget: 1024
     probeVolumeBlendingMemoryBudget: 128
     supportProbeVolumeStreaming: 0
     probeVolumeSHBands: 1
-    supportRayTracing: 1
+    supportRayTracing: 0
     supportedRayTracingMode: 3
     lightLoopSettings:
       cookieAtlasSize: 512
@@ -73,7 +73,7 @@ MonoBehaviour:
       maxEnvLightsOnScreen: 32
       reflectionCacheCompressed: 1
       reflectionProbeFormat: 74
-      reflectionProbeTexCacheSize: 8192
+      reflectionProbeTexCacheSize: 4096
       reflectionProbeTexLastValidCubeMip: 3
       reflectionProbeTexLastValidPlanarMip: 0
       reflectionProbeDecreaseResToFit: 1
