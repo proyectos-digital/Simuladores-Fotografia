@@ -5,14 +5,20 @@ using UnityEngine.Rendering;
 
 public class AmbientLightController : MonoBehaviour {
 
-    [SerializeField] private Light ambientLight;
-    //[SerializeField] private LensFlareComponentSRP sunFlare;
     [SerializeField] private Light[] Lights;
-    [SerializeField] private Material EmissionMaterial;
+    //[SerializeField] private Light ambientLight;
+    //[SerializeField] private LensFlareComponentSRP sunFlare;
+    //[SerializeField] private Material EmissionMaterial;
 
-    public Material dayMaterial, nightMaterial, sunriseMaterial, sunsetMaterial;
+    //public Material dayMaterial, nightMaterial, sunriseMaterial, sunsetMaterial;
 
-    public void ChangeDay(float time) {
+    public void Lamps(bool value){
+        foreach (Light light in Lights)
+        {
+            light.gameObject.SetActive(value);
+        }
+    }
+    /*public void ChangeDay(float time) {
         switch (time)
         {
             case 1:
@@ -49,24 +55,18 @@ public class AmbientLightController : MonoBehaviour {
                 EmissionMaterial.EnableKeyword("_EMISSION");
                 break;
         }
-    }
+    }*/
 
-    public void ChangeIntensity(float value){
+    /*public void ChangeIntensity(float value){
         ambientLight.intensity = value;
-    }
+    }*/
 
-    public void ChangeDensitiyFog(float value){
+    /*public void ChangeDensitiyFog(float value){
         RenderSettings.fogDensity = value;
-    }
+    }*/
 
-    public void Lamps(bool value){
-        foreach (Light light in Lights)
-        {
-            light.gameObject.SetActive(value);
-        }
-    }
 
-    public void ChangeTemperature(float value) {
+    /*public void ChangeTemperature(float value) {
         ambientLight.colorTemperature = value;
-    }
+    }*/
 }

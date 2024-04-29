@@ -7,15 +7,22 @@ using UnityEngine;
 public class SkyController : MonoBehaviour
 {
     public Volume skyVolume;
-    public Light sun;
+    public GameObject sun;
+    private HDAdditionalLightData sunData;
+    private Light sunLight;
     [SerializeField] private VolumetricClouds volumetricClouds = null;
-    [SerializeField] private Material EmissionMaterial;
-
+    [SerializeField] public Material EmissionMaterial;
+    [SerializeField] public Color LigthEmsvColor = new Color(1f, 0.8f, 0.5f, 1f);
     public VolumetricClouds.CloudPresets[] cloudsPrefabs = { VolumetricClouds.CloudPresets.Overcast };
     public VolumetricClouds.CloudPresets cloudPresetSelected;
+    private float emissiveIntensityNight = 7;
+    private float emissiveIntensityDay = 0;
     // Start is called before the first frame update
     void Start()
     {
+        
+        sunData = sun.GetComponent<HDAdditionalLightData>();
+        sunLight = sun.GetComponent<Light>();
         SetCloudPreset();
     }
 
@@ -30,31 +37,44 @@ public class SkyController : MonoBehaviour
         skyVolume.profile.TryGet<VolumetricClouds>(out volumetricClouds);
         cloudPresetSelected = cloudsPrefabs[Random.Range(0, cloudsPrefabs.Length - 1)];
         volumetricClouds.cloudPreset = cloudPresetSelected;
-        Debug.Log(cloudPresetSelected);
+        //Debug.Log(cloudPresetSelected);
     }
 
     public void SetTimeOfDay(float time)
     {
-       sun.transform.Rotate(0.0f, 0.0f, 0.0f, Space.Self);
         switch (time)
         {
             case 1:
+                sun.transform.rotation = Quaternion.identity;
                 //sunrise
-                sun.intensity = 5000f;
-                sun.colorTemperature = 6500f;
-                //sun.transform.Rotate(5.0f,0.0f,0.0f);
-                //EmissionMaterial.DisableKeyword("_EMISSION");
+                sunData.intensity = 5000f;
+                sun.transform.Rotate(21.0f, 0.0f, 0.0f, Space.Self);
+                sunLight.colorTemperature = 4000f;
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
                 break;
             case 2:
-
-                //EmissionMaterial.DisableKeyword("_EMISSION");
+                sun.transform.rotation = Quaternion.identity;
+                //mid sun
+                sunData.intensity = 30000f;
+                sun.transform.Rotate(75.0f, 0.0f, 0.0f, Space.Self);
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
+                sunLight.colorTemperature = 5500f;
                 break;
             case 3:
-
-                //EmissionMaterial.DisableKeyword("_EMISSION");
+                sun.transform.rotation = Quaternion.identity;
+                //mid sun
+                sunData.intensity = 2000f;
+                sun.transform.Rotate(-180.0f, 0.0f, 0.0f, Space.Self);
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
+                sunLight.colorTemperature = 4000f;
                 break;
             case 4:
-                //EmissionMaterial.EnableKeyword("_EMISSION");
+                sun.transform.rotation = Quaternion.identity;
+                //mid sun
+                sunData.intensity = 1f;
+                sun.transform.Rotate(60.0f, 0.0f, 0.0f, Space.Self);
+                sunLight.colorTemperature = 15000f;
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
                 break;
         }
     }

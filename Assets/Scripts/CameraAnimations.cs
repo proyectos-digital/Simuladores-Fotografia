@@ -26,7 +26,7 @@ public class CameraAnimations : MonoBehaviour
     void MoveCamera(bool isOpen) {
         cameraAnimator.SetBool("IsMode", isOpen);
         //Desactivar renderizar en miniatura camara si da problemas de rendimiento
-        cameraRender.SetActive(!isOpen);
+        //cameraRender.SetActive(!isOpen);
     }
     void ChangeOrientation(bool isHorizontal) {
         cameraAnimator.SetBool("IsHorizontal", isHorizontal);

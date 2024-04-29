@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour
     private bool isMenuActive = false;
 
     public Toggle fullScreenToggle;
+    public Toggle grassEnabled;
     public GameObject mainMenuPanel;
     public TMP_Dropdown screenSizeDropdown;
     //public string[] resString;
@@ -35,6 +36,7 @@ public class MenuController : MonoBehaviour
         {
             Cursor.lockState = isMenuActive ? CursorLockMode.None : CursorLockMode.Confined;
             mainMenuPanel.SetActive(true);
+            Cursor.visible = true;
             Time.timeScale = isMenuActive ? 1 : 0;
         }
     }
@@ -44,6 +46,7 @@ public class MenuController : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = activeMenu ? CursorLockMode.None : CursorLockMode.Confined;
         mainMenuPanel.SetActive(false);
+        Cursor.visible = isMenuActive;
         Time.timeScale = isMenuActive ? 0 : 1;
         //Debug.Log(Time.timeScale);
     }
@@ -85,5 +88,22 @@ public class MenuController : MonoBehaviour
         }*/
     }
 
+    public void DisableButton(Button btn)
+    {
+
+    }
+
+    public void EnableGrass(Toggle grassToggle)
+    {
+        if (grassToggle.isOn)
+        {
+            Terrain.activeTerrain.detailObjectDistance = 80;
+        }
+        else
+        {
+            Terrain.activeTerrain.detailObjectDistance = 0;
+        }
+        
+    }
 
 }

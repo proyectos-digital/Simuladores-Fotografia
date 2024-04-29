@@ -15,6 +15,7 @@ public class CameraManager : MonoBehaviour
     public bool isMenu = false;
     public Camera cameraPhoto;
     public Transform camObj, camPosOrig, camPosStudy;
+    
 
 
     //Paneles
@@ -33,10 +34,7 @@ public class CameraManager : MonoBehaviour
     [Header("Other Settings")]
     public Volume volume;
     public TMP_Text txtLens;
-    //Ojo de Pez
     private LensDistortion lens = null;
-    //Viñeta
-    private Vignette vignette = null;
     private ColorAdjustments colorAdjustments = null;
     private FilmGrain filmGrain = null;
     //Valores iniciales de la camara Foto
@@ -63,7 +61,6 @@ public class CameraManager : MonoBehaviour
 
     //Activadores efectos y flash
     [Header("Toggles")]
-    public Toggle tglColor;
     public Toggle tglFlash;
  
     //Crear Delegado y Evento
@@ -75,11 +72,13 @@ public class CameraManager : MonoBehaviour
 
     void Start() {
         
-        volume.profile.TryGet(out vignette);
-        volume.profile.TryGet(out lens);
+        volume.profile.TryGet<LensDistortion>(out lens);
         //volume.profile.TryGet(out colorAdjustments);
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         volume.profile.TryGet<FilmGrain>(out filmGrain);
+
+        Debug.Log(tglFlash);
+        ToggleFlash(tglFlash);
 
 
         isoSlider.wholeNumbers = true;
@@ -115,7 +114,6 @@ public class CameraManager : MonoBehaviour
 
         shutterSpeedSlider.onValueChanged.AddListener(ss => {
             float realshutterspeedvalue = 1 / shutterSpeedValues[(int)ss - 1];
-            Debug.Log(realshutterspeedvalue);
             cameraPhoto.shutterSpeed = realshutterspeedvalue;
             shutterSpeedText = shutterSpeedButton.GetComponentInChildren<TMP_Text>();
             shutterSpeedText.text = "1/" + shutterSpeedValues[(int)ss - 1].ToString();
@@ -144,18 +142,26 @@ public class CameraManager : MonoBehaviour
 
     
 
-    private void ToggleFlash(Toggle toggle) {
+    public void ToggleFlash(Toggle toggle) {
+        Debug.Log(toggle);
         screenshot.FlashOn(toggle);
-        toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
+        //toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
     }
 
     public void OnOffEyeFish() {
         lens.active = !lens.active;
+        //lens.active = true;
+        Debug.Log("On off Ojo de Pez");
+    }
+    public void OnOffPanel(GameObject panel) {
+        panel.active = !panel.active;
+        //lens.active = true;
     }
 
 
     //Guardar ajustes de la camara
     void SaveCamera() {
+        
         //vig = vignette.active;
         //len = lens.active;
     }
@@ -172,12 +178,14 @@ public class CameraManager : MonoBehaviour
 
     public void ResetCamera() {
         SaveCamera();
-        vignette.active = false;
+        cameraPhoto.focalLength = 23.5f;
+        volume.enabled = false;
+        //vignette.active = false;
         //lens.active = false;
     }
 
     void Update(){
-        if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.P)){
+        if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C)){
             PanelAction(true);
             volume.enabled = true;
         }
