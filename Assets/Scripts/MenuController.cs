@@ -62,7 +62,9 @@ public class MenuController : MonoBehaviour
 
     public void ChangeResolution()
     {
-
+        //se necesita resolucion
+        //necesita ver si es full screen o no
+        Screen.SetResolution(640, 480, true);
     }
 
     private void SetNativeResolutions()

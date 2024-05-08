@@ -15,7 +15,8 @@ public class CameraManager : MonoBehaviour
     public bool isMenu = false;
     public Camera cameraPhoto;
     public Transform camObj, camPosOrig, camPosStudy;
-    
+    [SerializeField] private Slider[] sliders;
+
 
 
     //Paneles
@@ -130,6 +131,16 @@ public class CameraManager : MonoBehaviour
     }
 
     public void ActiveSlider(Slider slider){
+        bool checkSlider = CheckActiveSlider(sliders);
+        Debug.Log(checkSlider);
+
+        if (checkSlider)
+        {
+            foreach (var s in sliders)
+            {
+                s.gameObject.SetActive(false);
+            }
+        }
         if (slider.gameObject.activeSelf)
         {
             slider.gameObject.SetActive(false);
@@ -138,6 +149,25 @@ public class CameraManager : MonoBehaviour
         {
             slider.gameObject.SetActive(true);
         }
+    }
+
+    private bool CheckActiveSlider(Slider[] sliderList)
+    {
+        bool sliderStatus = false;
+
+        foreach (var slider in sliderList)
+        {
+            if (slider.gameObject.activeSelf) {
+                sliderStatus = false;
+            }
+            else
+            {
+                sliderStatus = true;
+                break;
+            }
+        }
+        return sliderStatus;
+
     }
 
     
@@ -154,7 +184,15 @@ public class CameraManager : MonoBehaviour
         Debug.Log("On off Ojo de Pez");
     }
     public void OnOffPanel(GameObject panel) {
-        panel.active = !panel.active;
+        //panel.active = !panel.active;
+        if (panel.gameObject.activeSelf)
+        {
+            panel.gameObject.SetActive(false);
+        }
+        else
+        {
+            panel.gameObject.SetActive(true);
+        }
         //lens.active = true;
     }
 
