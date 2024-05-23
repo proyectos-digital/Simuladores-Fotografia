@@ -11,10 +11,10 @@ using TMPro;
 public class MenuController : MonoBehaviour
 {
     private bool isMenuActive = false;
-
     public Toggle fullScreenToggle;
     public Toggle grassEnabled;
     public GameObject mainMenuPanel;
+    public GameObject infoMenuPanel;
     public TMP_Dropdown screenSizeDropdown;
     //public string[] resString;
     public List<string> resString = new List<string>();
@@ -22,11 +22,13 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //ActivateMenuInfo();
         SetNativeResolutions();
         /*foreach (var res in resolutions)
         {
             Debug.Log(res.width + "x" + res.height);
         }*/
+
     }
 
     // Update is called once per frame
@@ -50,10 +52,37 @@ public class MenuController : MonoBehaviour
         Time.timeScale = isMenuActive ? 0 : 1;
         //Debug.Log(Time.timeScale);
     }
-    public bool SetFullScreen()
+
+    public void ActivateMenuInfo()
     {
-        // Screen.fullScreen = !Screen.fullScreen;
-        return false;
+        infoMenuPanel.SetActive(true);
+        //Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = false;
+        Time.timeScale = 0;
+        Debug.Log(Cursor.visible);
+        Debug.Log(Cursor.lockState);
+    }
+
+    public void DisableinfoPanel()
+    {
+        Debug.Log("finalizo");
+        infoMenuPanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+        Time.timeScale = 1.0f;
+    }
+
+    public void SetFullScreen(Toggle fsToggle)
+    {
+        if (fsToggle.isOn)
+        {
+            Screen.fullScreen = true;
+        }
+        else
+        {
+            Screen.fullScreen = false;
+        }
     }
     public void QuitApplication()
     {
@@ -88,11 +117,6 @@ public class MenuController : MonoBehaviour
         {
             Debug.Log(res.width + "x" + res.height);
         }*/
-    }
-
-    public void DisableButton(Button btn)
-    {
-
     }
 
     public void EnableGrass(Toggle grassToggle)

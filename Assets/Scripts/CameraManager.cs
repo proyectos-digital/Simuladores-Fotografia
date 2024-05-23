@@ -21,8 +21,6 @@ public class CameraManager : MonoBehaviour
 
     //Paneles
     [Header("Paneles")]
-   
-    public GameObject panelColor;
     public GameObject panelMenu;
 
     [Header("Buttons")]
@@ -39,15 +37,14 @@ public class CameraManager : MonoBehaviour
     private ColorAdjustments colorAdjustments = null;
     private FilmGrain filmGrain = null;
     //Valores iniciales de la camara Foto
-    float fovIni, camPhotoValue, sldFov;
-    bool isOpenPanel = false, vig, len, tgldepth, tglcolor;
+    //float fovIni, camPhotoValue, sldFov;
+    bool isOpenPanel = false, len;
     public Screenshot screenshot;
 
     //sliders
     [Header("Sliders")]
     public Slider isoSlider;
     public Slider apertureSlider;
-    public Slider vignetteSlider;
     public Slider shutterSpeedSlider;
     public Slider exposureSlider;
     public Slider focalLengthSlider;
@@ -78,9 +75,7 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         volume.profile.TryGet<FilmGrain>(out filmGrain);
 
-        Debug.Log(tglFlash);
-        ToggleFlash(tglFlash);
-
+        
 
         isoSlider.wholeNumbers = true;
         int[] isoValues = { 100, 200, 400, 800, 1600, 3200, 6400 };
@@ -173,7 +168,6 @@ public class CameraManager : MonoBehaviour
     
 
     public void ToggleFlash(Toggle toggle) {
-        Debug.Log(toggle);
         screenshot.FlashOn(toggle);
         //toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
     }
@@ -200,14 +194,12 @@ public class CameraManager : MonoBehaviour
     //Guardar ajustes de la camara
     void SaveCamera() {
         
-        //vig = vignette.active;
         //len = lens.active;
     }
 
     //Cargar ajustes Camara
     public void LoadCamera() {
         //lens.active = len;
-        //vignette.active = vig;
     }
 
     void LoadCameraStudy() {
@@ -218,7 +210,6 @@ public class CameraManager : MonoBehaviour
         SaveCamera();
         cameraPhoto.focalLength = 23.5f;
         volume.enabled = false;
-        //vignette.active = false;
         //lens.active = false;
     }
 
