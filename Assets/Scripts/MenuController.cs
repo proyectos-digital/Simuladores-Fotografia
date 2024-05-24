@@ -11,9 +11,12 @@ using TMPro;
 public class MenuController : MonoBehaviour
 {
     private bool isMenuActive = false;
+    private bool isInfoActive = true;
     public Toggle fullScreenToggle;
     public Toggle grassEnabled;
     public GameObject mainMenuPanel;
+    public GameObject mainOptionsPanel;
+    public GameObject controlOptionsPanel;
     public GameObject infoMenuPanel;
     public TMP_Dropdown screenSizeDropdown;
     //public string[] resString;
@@ -41,6 +44,14 @@ public class MenuController : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = isMenuActive ? 1 : 0;
         }
+
+        if (isInfoActive)
+        {
+            infoMenuPanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            Time.timeScale = 0;
+        }
     }
 
     public void ActivateMenu(bool activeMenu)
@@ -55,22 +66,34 @@ public class MenuController : MonoBehaviour
 
     public void ActivateMenuInfo()
     {
-        infoMenuPanel.SetActive(true);
+        
         //Cursor.lockState = CursorLockMode.Confined;
-        Cursor.lockState = CursorLockMode.Confined;
-        //Cursor.visible = false;
-        Time.timeScale = 0;
-        Debug.Log(Cursor.visible);
-        Debug.Log(Cursor.lockState);
+        
     }
 
     public void DisableinfoPanel()
     {
+        isInfoActive = false;
         Debug.Log("finalizo");
         infoMenuPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
         Time.timeScale = 1.0f;
+    }
+
+    public void EnabledControlPanel(bool showControlPanel)
+    {
+        if (showControlPanel)
+        {
+            mainOptionsPanel.SetActive(false);
+            controlOptionsPanel.SetActive(true);
+        }
+        else
+        {
+            mainOptionsPanel.SetActive(true);
+            controlOptionsPanel.SetActive(false);
+        }
+
     }
 
     public void SetFullScreen(Toggle fsToggle)

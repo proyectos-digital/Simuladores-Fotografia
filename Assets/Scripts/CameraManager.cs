@@ -214,7 +214,8 @@ public class CameraManager : MonoBehaviour
     }
 
     void Update(){
-        if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C)){
+        if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C))
+        {
             PanelAction(true);
             volume.enabled = true;
         }
