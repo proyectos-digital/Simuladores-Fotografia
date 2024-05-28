@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCam : MonoBehaviour
 {
-    private float sensX = 250f;
-    private float sensY = 250f;
+    private float sensX;
+    private float sensY;
+    public Slider sensitivtySloder;
 
     public Transform orientation;
 
@@ -18,9 +20,10 @@ public class PlayerCam : MonoBehaviour
     }
 
     void Update(){
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivtySloder.value;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivtySloder.value;
 
+        Debug.Log(sensitivtySloder.value);
         yRotation += mouseX;
 
         xRotation -= mouseY;
