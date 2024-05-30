@@ -12,6 +12,8 @@ public class MenuController : MonoBehaviour
 {
     private bool isMenuActive = false;
     private bool isInfoActive = true;
+    private char[] delimiterChars = { 'x', ' '};
+    private string screenResolutionSelected;
     public Toggle fullScreenToggle;
     public Toggle grassEnabled;
     public GameObject mainMenuPanel;
@@ -27,10 +29,9 @@ public class MenuController : MonoBehaviour
     {
         //ActivateMenuInfo();
         SetNativeResolutions();
-        /*foreach (var res in resolutions)
-        {
-            Debug.Log(res.width + "x" + res.height);
-        }*/
+        screenSizeDropdown.onValueChanged.AddListener(delegate {
+            DropdownValueChanged(screenSizeDropdown);
+        });
 
     }
 
@@ -54,6 +55,28 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    void DropdownValueChanged(TMP_Dropdown dropdown)
+    {
+        screenResolutionSelected = dropdown.options[dropdown.value].text;
+        string[] words = screenResolutionSelected.Split(delimiterChars);
+        foreach (var word in words)
+        {
+            Debug.Log(word);
+        }
+        //Debug.Log(screenResolutionSelected);
+        int resx = Int32.Parse(words[0]);
+        //Debug.Log(resx);
+        int resy = Int32.Parse(words[1]);
+        //Debug.Log(resy);
+        if (fullScreenToggle.isOn)
+        {
+            Screen.SetResolution(resx, resy, true);
+        }
+        else
+        {
+            Screen.SetResolution(resx, resy, false);
+        }
+    }
     public void ActivateMenu(bool activeMenu)
     {
         //Cursor.lockState = CursorLockMode.Confined;
@@ -107,16 +130,17 @@ public class MenuController : MonoBehaviour
             Screen.fullScreen = false;
         }
     }
+
     public void QuitApplication()
     {
         Application.Quit();
     }
 
-    public void ChangeResolution()
+    public void ChangeResolution(string resSelected)
     {
         //se necesita resolucion
         //necesita ver si es full screen o no
-        Screen.SetResolution(640, 480, true);
+        
     }
 
     private void SetNativeResolutions()
@@ -125,7 +149,7 @@ public class MenuController : MonoBehaviour
         
         foreach (var res in resolutions)
         {
-            resString.Add(res.width.ToString() + "x" + res.height.ToString());
+            resString.Add(res.width.ToString() + "x" + res.height.ToString() +" "+ res.refreshRateRatio.ToString() + "hz");
         }
         screenSizeDropdown.ClearOptions();
         screenSizeDropdown.AddOptions(resString);

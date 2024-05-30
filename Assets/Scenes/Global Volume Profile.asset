@@ -65,6 +65,47 @@ MonoBehaviour:
   - {fileID: 4374822447818966031}
   - {fileID: 8315328719760940321}
   - {fileID: 4330851874963880875}
+  - {fileID: 172126964050120583}
+--- !u!114 &172126964050120583
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7649d9368d3a5c4ab8ad01a63e04962, type: 3}
+  m_Name: ChannelMixer
+  m_EditorClassIdentifier: 
+  active: 0
+  redOutRedIn:
+    m_OverrideState: 1
+    m_Value: 100
+  redOutGreenIn:
+    m_OverrideState: 0
+    m_Value: 75
+  redOutBlueIn:
+    m_OverrideState: 0
+    m_Value: 25
+  greenOutRedIn:
+    m_OverrideState: 0
+    m_Value: 75
+  greenOutGreenIn:
+    m_OverrideState: 1
+    m_Value: 100
+  greenOutBlueIn:
+    m_OverrideState: 0
+    m_Value: 25
+  blueOutRedIn:
+    m_OverrideState: 1
+    m_Value: 25
+  blueOutGreenIn:
+    m_OverrideState: 1
+    m_Value: 75
+  blueOutBlueIn:
+    m_OverrideState: 1
+    m_Value: 50
 --- !u!114 &4184330346063997225
 MonoBehaviour:
   m_ObjectHideFlags: 3

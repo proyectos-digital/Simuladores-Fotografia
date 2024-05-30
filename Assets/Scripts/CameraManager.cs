@@ -93,7 +93,8 @@ public class CameraManager : MonoBehaviour
         });
 
         focusDistanceSlider.onValueChanged.AddListener(fd => {
-            cameraPhoto.focusDistance = FocalLengthValues[(int)fd - 1];
+            cameraPhoto.focusDistance = focusDistanceSlider.value;
+            //Debug.Log(focusDistanceSlider.value);
         });
 
         focalLengthSlider.onValueChanged.AddListener(fl => {
@@ -127,7 +128,11 @@ public class CameraManager : MonoBehaviour
 
     public void ActiveSlider(Slider slider){
         bool checkSlider = CheckActiveSlider(sliders);
-        Debug.Log(checkSlider);
+        foreach (var sld in sliders)
+        {
+            Debug.Log(sld);
+        }
+       // Debug.Log(checkSlider);
 
         if (checkSlider)
         {
