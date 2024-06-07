@@ -21,11 +21,11 @@ public class PanelController : MonoBehaviour{
             camManager.panelStudy += OpenPanel;
         } else {
             cameraAnimations.openPanel += OpenPanel;
+            panelDay.SetActive(activatePanelDay);
         }
     }
 
     void Start(){
-        panelDay.SetActive(activatePanelDay);
         //panelCamProp.SetActive(activatePanelCam);
         OpenPanel();
     }

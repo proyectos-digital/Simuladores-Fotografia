@@ -59,9 +59,4 @@ public class StudyLightController : MonoBehaviour{
         //    Debug.Log("umbrella es_"+mat);
         
     }
-
-    // Update is called once per frame
-    void Update(){
-        
-    }
 }
