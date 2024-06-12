@@ -128,10 +128,10 @@ public class CameraManager : MonoBehaviour
 
     public void ActiveSlider(Slider slider){
         bool checkSlider = CheckActiveSlider(sliders);
-        foreach (var sld in sliders)
-        {
-            Debug.Log(sld);
-        }
+        //foreach (var sld in sliders)
+        //{
+          //  Debug.Log(sld);
+        //}
        // Debug.Log(checkSlider);
 
         if (checkSlider)
@@ -180,7 +180,7 @@ public class CameraManager : MonoBehaviour
     public void OnOffEyeFish() {
         lens.active = !lens.active;
         //lens.active = true;
-        Debug.Log("On off Ojo de Pez");
+        //Debug.Log("On off Ojo de Pez");
     }
     public void OnOffPanel(GameObject panel) {
         //panel.active = !panel.active;
@@ -221,8 +221,13 @@ public class CameraManager : MonoBehaviour
     void Update(){
         if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C))
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Pressed left-click.");
+            }
             PanelAction(true);
             volume.enabled = true;
+            Debug.Log("en el update.");
         }
         //Menu de luces en escena Estudio
         if ((!camHand && !isOpenPanel)&& Input.GetKeyUp(KeyCode.M)) {
@@ -241,6 +246,8 @@ public class CameraManager : MonoBehaviour
     void PanelAction(bool animate) {
         isOpenPanel = !isOpenPanel;
         //Mostrar Panel, bloquear movimiento mouse y ya
+        
+
         Cursor.visible = isOpenPanel;
         Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
         if (animate) {
