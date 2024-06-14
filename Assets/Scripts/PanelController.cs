@@ -12,11 +12,12 @@ public class PanelController : MonoBehaviour{
     bool isOpenPanel = true;
     //Booleano para configurar en escenas que sean de estudio
     [SerializeField] bool isStudy = false;
+    [SerializeField] bool isTV = false;
 
     private void Awake() {
         //Si es escena de estudio donde se usa la camara del escenario y no Player
         //Se suscribe el evento correspondiente
-        if (isStudy) {
+        if (isStudy && !isTV) {
             camManager = GameObject.FindGameObjectWithTag("CamManager").GetComponent<CameraManager>();
             camManager.panelStudy += OpenPanel;
         } else {

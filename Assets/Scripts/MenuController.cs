@@ -97,7 +97,6 @@ public class MenuController : MonoBehaviour
     public void DisableinfoPanel()
     {
         isInfoActive = false;
-        Debug.Log("finalizo");
         infoMenuPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;

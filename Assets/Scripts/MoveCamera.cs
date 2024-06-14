@@ -8,11 +8,15 @@ public class MoveCamera : MonoBehaviour
     public Transform studyPosition;
     public PlayerMovement playerMov;
     [SerializeField] bool isStudy;
+    [SerializeField] bool isTV = false;
     [SerializeField] CameraManager camManager;
 
     void Start() {
-        camManager = GameObject.FindGameObjectWithTag("CamManager").GetComponent<CameraManager>();
-        camManager.panelStudy += MoveCam;
+        if (!isTV)
+        {
+            camManager = GameObject.FindGameObjectWithTag("CamManager").GetComponent<CameraManager>();
+            camManager.panelStudy += MoveCam;
+        }
     }
 
     void Update() {

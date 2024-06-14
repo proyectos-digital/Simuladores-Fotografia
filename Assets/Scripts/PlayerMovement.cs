@@ -23,13 +23,17 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
     [SerializeField] CameraManager camManager;
+    [SerializeField] bool isTV = false;
     bool isMove = true;
 
     void Start(){
         rb = GetComponent<Rigidbody>();
-        camManager = GameObject.FindGameObjectWithTag("CamManager").GetComponent<CameraManager>();
+        if (!isTV)
+        {
+            camManager = GameObject.FindGameObjectWithTag("CamManager").GetComponent<CameraManager>();
+            camManager.panelStudy += MoveAllow;
+        }
         rb.freezeRotation = true;
-        camManager.panelStudy += MoveAllow;
     }
     //Revisar movimmiento personaje cancelarlo
 
