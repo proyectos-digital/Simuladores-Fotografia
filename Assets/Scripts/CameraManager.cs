@@ -17,8 +17,6 @@ public class CameraManager : MonoBehaviour
     public Transform camObj, camPosOrig, camPosStudy;
     [SerializeField] private Slider[] sliders;
 
-
-
     //Paneles
     [Header("Paneles")]
     public GameObject panelMenu;
@@ -40,6 +38,7 @@ public class CameraManager : MonoBehaviour
     //float fovIni, camPhotoValue, sldFov;
     bool isOpenPanel = false, len;
     public Screenshot screenshot;
+    public NotificationController nc;
 
     //sliders
     [Header("Sliders")]
@@ -56,6 +55,7 @@ public class CameraManager : MonoBehaviour
     private TMP_Text shutterSpeedText;
     private TMP_Text exposureText;
     private TMP_Text focalLengthText;
+    private string notificationText;
 
     //Activadores efectos y flash
     [Header("Toggles")]
@@ -221,13 +221,9 @@ public class CameraManager : MonoBehaviour
     void Update(){
         if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Pressed left-click.");
-            }
             PanelAction(true);
             volume.enabled = true;
-            Debug.Log("en el update.");
+            
         }
         //Menu de luces en escena Estudio
         if ((!camHand && !isOpenPanel)&& Input.GetKeyUp(KeyCode.M)) {
@@ -245,11 +241,25 @@ public class CameraManager : MonoBehaviour
 
     void PanelAction(bool animate) {
         isOpenPanel = !isOpenPanel;
+        if (isOpenPanel)
+        {
+            notificationText = "se activo el modo camara";
+            nc.SendNotification(notificationText);
+        }
+        else
+        {
+            notificationText = "se desactivo el modo camara";
+            nc.SendNotification(notificationText);
+        }
         //Mostrar Panel, bloquear movimiento mouse y ya
-        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Pressed left-click.");
+        }
 
         Cursor.visible = isOpenPanel;
-        Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
+        //Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
         if (animate) {
             cameraAnimation(isOpenPanel);
         } else {

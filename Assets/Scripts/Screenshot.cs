@@ -12,8 +12,10 @@ public class Screenshot : MonoBehaviour
     [SerializeField] int resHeight = 0;
     [SerializeField] Camera mainCamera;
     public AudioSource cameraSound;
-    bool m_Play;
+    public NotificationController nc;
+    //bool m_Play;
     private bool takeHiResShot = false, isHorizontal = true, isFlashing = false;
+    private string notificationText;
 
     //public PhotoInventory photoInventory;
     //public string fieldName;
@@ -45,8 +47,9 @@ public class Screenshot : MonoBehaviour
 
     public void Start()
     {
-        cameraSound = GetComponent<AudioSource>();
-        m_Play = false;
+        //cameraSound = GetComponent<AudioSource>();
+        Debug.Log(cameraSound);
+        //m_Play = false;
     }
     public void ChangeOrientation() {
         isHorizontal = !isHorizontal;
@@ -95,7 +98,9 @@ public class Screenshot : MonoBehaviour
     public void GetScreenshot() {
         //Iluminar luz con flash
         if (isFlashing) StartCoroutine("FlashOff");
-        
+        cameraSound.Play();
+        notificationText = "Fotografia Almacenada en el Directorio Screenshots";
+        nc.SendNotification(notificationText);
         //_webGLDownload.GetScreenshot(WebGLDownload.ImageFormat.jpg, 1, "");
         if (!takeHiResShot) StartCoroutine(TakeScreenshot(ImageFormat.jpg, screenshotUpscale));
     }
