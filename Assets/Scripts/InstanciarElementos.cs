@@ -66,7 +66,7 @@ public class InstanciarElementos : MonoBehaviour
             case 0:
                 if (cantLuminaria > 0)
                 {
-                    Instantiate(luminaria1, manoJugador.transform.position, manoJugador.transform.rotation);
+                    Instantiate(luminaria1, manoJugador.transform.position, new Quaternion(0, 0, 0, 0));// manoJugador.transform.rotation);
                     cantLuminaria--;
                     txtCantLuminaria.text = cantLuminaria + "/2";
                     //pnlElementos.ActivarUI(0);  

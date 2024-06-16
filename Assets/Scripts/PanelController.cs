@@ -20,7 +20,7 @@ public class PanelController : MonoBehaviour{
         if (isStudy && !isTV) {
             camManager = GameObject.FindGameObjectWithTag("CamManager").GetComponent<CameraManager>();
             camManager.panelStudy += OpenPanel;
-        } else {
+        } else if(!isTV){
             cameraAnimations.openPanel += OpenPanel;
             panelDay.SetActive(activatePanelDay);
         }
