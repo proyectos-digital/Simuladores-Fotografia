@@ -63,7 +63,7 @@ public class TomaElementos : MonoBehaviour
         {
             elementos.transform.SetParent(null);
             activ = false;
-            txtMensajePanel.text = "-PRESIONA Q CONFIGURACIÓN\n- PRESIONA T AGARRAR\n- PRESIONA E SOLTAR";
+            txtMensajePanel.text = "-PRESIONA Q CONFIGURACIÓN\n \n- PRESIONA T AGARRAR OBJETO";
             isGrabbed = false;
             DesactivarInfo();
         }

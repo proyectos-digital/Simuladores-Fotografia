@@ -40,7 +40,7 @@ public class ActivarPanel : MonoBehaviour
             tomaElementos.DesactivarInfo();
             playerMovement.MoveAllow();
             playerCam.MouseLocked();
-            txtMensajePanel.text = "-PRESIONA Q ABRIR CONFIGURACIÓN\n- PRESIONA T AGARRAR MICROFONO\n- PRESIONA E SOLTAR MICROFONO";
+            txtMensajePanel.text = "-PRESIONA Q ABRIR CONFIGURACIÓN\n \n- PRESIONA T AGARRAR OBJETO";
         }
         //Se activa el modo edición del objeto y se bloquea el movimiento del personaje con tecla Q
         else if ((active && !tomaElementos.isGrabbed) && Input.GetKeyUp(KeyCode.Q))
@@ -49,7 +49,7 @@ public class ActivarPanel : MonoBehaviour
             canvasEditarElm.SetActive(true);
             playerMovement.MoveAllow();
             playerCam.MouseLocked();
-            txtMensajePanel.text = "Rota el objeto\n de su posición.";
+            txtMensajePanel.text = "Desliza los valores\n de la izquierda.";
         }
     }
 
