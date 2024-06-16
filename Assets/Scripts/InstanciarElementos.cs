@@ -6,6 +6,7 @@ using TMPro;
 
 public class InstanciarElementos : MonoBehaviour
 {
+    [SerializeField] PlayerCam playerCam;
     [Header ("Accesorios")]
     public GameObject luminaria1;       //Luz
     public GameObject aperture300;      //Luz
@@ -34,19 +35,32 @@ public class InstanciarElementos : MonoBehaviour
     public GameObject pnlLuces;
     //public MenuElementos pnlElementos;
 
+    [Header("Accesorios")]
+    public GameObject btnLuminaria1;
+    public GameObject btnAperture300;
+    public GameObject btnSennheiser;
+    public GameObject btnNeewer660;
+    public GameObject btnGodox;
+
 
     void Start()
     {
-        txtCantLuminaria.text = "" + cantLuminaria;
-        txtCantAperture300.text = "" + cantAperture300;
-        txtCantSennheiser.text = "" + cantSennheiser;
-        txtCantNeewer660.text = "" + cantNeewer660;
-        txtCantGodox.text = "" + cantGodox;
+        txtCantLuminaria.text = cantLuminaria + "/2";
+        txtCantAperture300.text = cantAperture300 + "/2";
+        txtCantSennheiser.text = cantSennheiser + "/1";
+        txtCantNeewer660.text = cantNeewer660 + "/2";
+        txtCantGodox.text = cantGodox + "/2";
     }
-
-public void NuevoAccersorio(int accesorio)
+    //Instancia objetos según el valor del botón correspondiente
+    // 0 - Luz Luminaria
+    // 1 - Luz Aperture 300
+    // 2 - Microfono Sennheiser
+    // 3 - Luz Neewer 660
+    // 4 - Luz Godox
+    public void NuevoAccersorio(int accesorio)
     {
-        //
+        
+        playerCam.MouseLocked();
         switch(accesorio)
         {
             case 0:
@@ -54,8 +68,9 @@ public void NuevoAccersorio(int accesorio)
                 {
                     Instantiate(luminaria1, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantLuminaria--;
-                    txtCantLuminaria.text = "" + cantLuminaria;
+                    txtCantLuminaria.text = cantLuminaria + "/2";
                     //pnlElementos.ActivarUI(0);  
+                    if (cantLuminaria == 0) btnLuminaria1.SetActive(false);
                 }
                 break;
 
@@ -64,7 +79,8 @@ public void NuevoAccersorio(int accesorio)
                 {
                     Instantiate(aperture300, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantAperture300--;
-                    txtCantAperture300.text = "" + cantAperture300;
+                    txtCantAperture300.text = cantAperture300 + "/2";
+                    if (cantAperture300 == 0) btnAperture300.SetActive(false);
                 }
                 break;
 
@@ -73,7 +89,8 @@ public void NuevoAccersorio(int accesorio)
                 {
                     Instantiate(sennheiser, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantSennheiser--;
-                    txtCantSennheiser.text = "" + cantSennheiser;
+                    txtCantSennheiser.text = cantSennheiser + "/1";
+                    if (cantSennheiser == 0) btnSennheiser.SetActive(false);
                 }
                 break;
 
@@ -91,7 +108,7 @@ public void NuevoAccersorio(int accesorio)
                 {
                     Instantiate(godox_SL60W, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantGodox--;
-                    txtCantGodox.text = "" + cantGodox;
+                    txtCantGodox.text = cantGodox + "/2";
                 }
                 break;
         }

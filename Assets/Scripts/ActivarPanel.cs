@@ -1,89 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ActivarPanel : MonoBehaviour
-{   
-    [Header ("Paneles")]
-    public GameObject canvasEditarElm, canvasInfo;
-    private InstanciarElementos inAccesorios;
-    //REVISAR EN CUANTO SE IMPLEMENTE FULL
-    //private PlayerController playerController;
-    private bool active;
+{
+    [Header("Paneles")]
+    public GameObject canvasEditarElm;
+    public TMP_Text txtMensajePanel;
+    private TomaElementos tomaElementos;
 
-    [SerializeField] ////REVISAR EN CUANTO SE IMPLEMENTE FULL
-    //private CamController camController;
+    private InstanciarElementos inAccesorios;
+    private PlayerMovement playerMovement;
+    private bool active= false;
+    public bool pressQ = false;
+
+
+    PlayerCam playerCam;
 
     void Start()
     {
         canvasEditarElm.SetActive(false);
         inAccesorios = GameObject.FindWithTag("btnInstancia").GetComponent<InstanciarElementos>();
-        //REVISAR EN CUANTO SE IMPLEMENTE FULL
-        //playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        //if (this.CompareTag("CamPrincipal"))
-        //{
-        //    Debug.Log("jplñas mama");
-        //    //camController = GetComponent<CamController>();
-        //}
-    }
+        tomaElementos = this.GetComponent<TomaElementos>();
+        playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        playerCam = GameObject.FindWithTag("MainCamera").GetComponent<PlayerCam>();
 
-    //Para reacomodar
-    /*
-     void Update()
-    {
-        if(active && Input.GetKeyUp(KeyCode.Q)) {
-            lightObj.enabled = !lightObj.isActiveAndEnabled;
-            lightObj.GetComponentInChildren<Renderer>().material = lightObj.enabled ? materialOn : materialOff;
-            txtInfo.text = lightObj.enabled ? "Presiona Q para apagar la Luz.": "Presiona Q para encender Luz.";
-        }
     }
-    private void OnTriggerEnter(Collider other) {
-        if(other.tag == "Player") {
-            active = true;
-            panelInfo.SetActive(true);
-            txtInfo.text = lightObj.enabled ? "Presiona Q para apagar la Luz." : "Presiona Q para encender Luz.";
-        }
-    }
-    private void OnTriggerExit(Collider other) {
-        if (other.tag == "Player") {
-            active = false;
-            txtInfo.text = "";
-            panelInfo.SetActive(false);
-        }
-    }
-    */
     private void Update()
     {
-        //Revisar condicion camController no puede ir porque los otros elementos se deben poder modificar con Q
-        //Más no cambiar modo de camara
-        if (active && Input.GetKeyUp(KeyCode.Q))// && camController)
+        //Si el objeto está en modo edición y se presiona Q se sale del modo edición y vuelve
+        //el personaje a moverse libremente
+        if ((canvasEditarElm.activeSelf && !tomaElementos.isGrabbed) && Input.GetKeyUp(KeyCode.Q))
         {
-            Debug.Log("Aqui cambiamos el modo");
+            pressQ = false;
+            active = false;
+            canvasEditarElm.SetActive(false);
+            tomaElementos.DesactivarInfo();
+            playerMovement.MoveAllow();
+            playerCam.MouseLocked();
+            txtMensajePanel.text = "-PRESIONA Q ABRIR CONFIGURACIÓN\n- PRESIONA T AGARRAR MICROFONO\n- PRESIONA E SOLTAR MICROFONO";
+        }
+        //Se activa el modo edición del objeto y se bloquea el movimiento del personaje con tecla Q
+        else if ((active && !tomaElementos.isGrabbed) && Input.GetKeyUp(KeyCode.Q))
+        {
+            pressQ = true;
             canvasEditarElm.SetActive(true);
-            //playerController.Move(false);
+            playerMovement.MoveAllow();
+            playerCam.MouseLocked();
+            txtMensajePanel.text = "Rota el objeto\n de su posición.";
         }
     }
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && tomaElementos.isGrabbed == false)
         {
+            Debug.Log("Entro al trigger de activar panel");
             active = true;
-            //Cambiar por tecla Q para acceder al panel
-            //Debug.Log("aqui estamos");
-            //canvasEditarElm.SetActive(true);
-            canvasInfo.SetActive(true);
+            
         }
     }
 
     private void OnTriggerExit(Collider other)
-    {
-        //canvasEditarElm.SetActive(false);
-        canvasInfo.SetActive(false);
-        //active = false;
+    { 
+        if (other.CompareTag("Player") && tomaElementos.isGrabbed == false)
+        {
+            active = false;
+        }
     }
 
+    //Elimina los objetos de las escenas segun el valor del botón
+    // 0 - Luminaria
+    // 1 - Aperture 300
+    // 2 - Microfono Sennheiser
+    // 3 - Neewer 660
+    // 4 - Godox
     public void EliminarAccesorio(int accesorioElim)
     {
         switch (accesorioElim)
@@ -91,36 +84,46 @@ public class ActivarPanel : MonoBehaviour
             case 0:
                 Destroy(gameObject);
                 inAccesorios.cantLuminaria++;
-                inAccesorios.txtCantLuminaria.text = "" + inAccesorios.cantLuminaria;
-                //playerController.LockCursor();
+                inAccesorios.txtCantLuminaria.text = inAccesorios.cantLuminaria + "/2"; ;
+                inAccesorios.btnLuminaria1.SetActive(true);
+                playerMovement.MoveAllow();
+                playerCam.MouseLocked();
                 break;
 
             case 1:
                 Destroy(gameObject);
                 inAccesorios.cantAperture300++;
-                inAccesorios.txtCantAperture300.text = "" + inAccesorios.cantAperture300;
-                //playerController.LockCursor();
+                inAccesorios.txtCantAperture300.text = inAccesorios.cantAperture300 + "/2"; ;
+                inAccesorios.btnAperture300.SetActive(true);
+                playerMovement.MoveAllow();
+                playerCam.MouseLocked();
                 break;
 
             case 2:
                 Destroy(gameObject);
                 inAccesorios.cantSennheiser++;
-                inAccesorios.txtCantSennheiser.text = "" + inAccesorios.cantSennheiser;
-                //playerController.LockCursor();
+                inAccesorios.txtCantSennheiser.text = inAccesorios.cantSennheiser + "/1"; ;
+                inAccesorios.btnSennheiser.SetActive(true);
+                playerMovement.MoveAllow();
+                playerCam.MouseLocked();
                 break;
 
             case 3:
                 Destroy(gameObject);
                 inAccesorios.cantNeewer660++;
-                inAccesorios.txtCantNeewer660.text = "" + inAccesorios.cantNeewer660;
-                //playerController.LockCursor();
+                inAccesorios.txtCantNeewer660.text = inAccesorios.cantNeewer660 + "/2";
+                inAccesorios.btnNeewer660.SetActive(true);
+                playerMovement.MoveAllow();
+                playerCam.MouseLocked();
                 break;
 
             case 4:
                 Destroy(gameObject);
                 inAccesorios.cantGodox++;
-                inAccesorios.txtCantGodox.text = "" + inAccesorios.cantGodox;
-                //playerController.LockCursor();
+                inAccesorios.txtCantGodox.text = inAccesorios.cantGodox + "/2";
+                inAccesorios.btnGodox.SetActive(true);
+                playerMovement.MoveAllow();
+                playerCam.MouseLocked();
                 break;
         }
     }

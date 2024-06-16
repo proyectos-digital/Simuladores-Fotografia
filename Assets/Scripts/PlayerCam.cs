@@ -14,7 +14,7 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
-    [SerializeField] bool testP = false;
+    [SerializeField] bool lockMouse = false;
 
     void Start(){
         Cursor.lockState = CursorLockMode.Locked;
@@ -22,13 +22,12 @@ public class PlayerCam : MonoBehaviour
     }
 
     void Update(){
-        if (Input.GetKeyUp(KeyCode.P)) {
-            Debug.Log("presione P: " + testP);
-            testP = !testP;
-            Debug.Log("Ahora P es: " + testP);
-            TestMouse();
+        //Mostrar u ocultar el Mouse por tecla P para grabar o Q para mover objetos, pensar en I para inventario ¬¬
+        if (Input.GetKeyUp(KeyCode.P)) 
+        {
+            MouseLocked();
         }
-        if (!testP)
+        if (!lockMouse)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivtySloder.value;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivtySloder.value;
@@ -45,9 +44,10 @@ public class PlayerCam : MonoBehaviour
         }
 
     }
-    public void TestMouse()
+    public void MouseLocked()
     {
+        lockMouse = !lockMouse;
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = testP;
+        Cursor.visible = lockMouse;
     }
 }

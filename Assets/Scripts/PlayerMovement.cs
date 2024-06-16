@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() {
         MovePlayer();
     }
-    void MoveAllow() {
+    public void MoveAllow() {
         isMove = !isMove;
     }
 
