@@ -308,7 +308,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.94048107, z: 0, w: 0.33984616}
   m_LocalPosition: {x: -7.523, y: -0.420143, z: 3.694}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2315010202003511486}
@@ -393,7 +393,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08168749
+  m_Radius: 0.14
   m_Height: 0.36677453
   m_Direction: 1
   m_Center: {x: -0.0002934188, y: -0.04982139, z: 0.0025614053}
@@ -3379,9 +3379,9 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 16aafd69983285a43bbd30cba3babd5d, type: 2}
-  - {fileID: -1490369919335450160, guid: 9cbe20a480027da46a97b45ef1517fa8, type: 3}
-  - {fileID: 3690312483459297430, guid: 9cbe20a480027da46a97b45ef1517fa8, type: 3}
-  - {fileID: 3419211672412621326, guid: 9cbe20a480027da46a97b45ef1517fa8, type: 3}
+  - {fileID: 2100000, guid: 4610c5e09debf9940be5e47a434a62a5, type: 2}
+  - {fileID: 2100000, guid: 4610c5e09debf9940be5e47a434a62a5, type: 2}
+  - {fileID: 2100000, guid: 4610c5e09debf9940be5e47a434a62a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3429,7 +3429,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2939528645555649319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00011919388}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00012453}
   m_LocalScale: {x: 1.0000101, y: 1.0000101, z: 1.0000101}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3438,8 +3438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138.3, y: -36.8}
-  m_SizeDelta: {x: 180, y: 30}
+  m_AnchoredPosition: {x: 110, y: -68.176}
+  m_SizeDelta: {x: 220, y: 136.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &74972605442174186
 CanvasRenderer:
@@ -3469,7 +3469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "PRESIONA Q PARA ABRIR CONFIGURACI\xD3N"
+  m_text: "-PRESIONA Q ABRIR CONFIGURACI\xD3N\n\n-PRESIONA T AGARRAR"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -3503,7 +3503,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3962,7 +3962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &570449006886127987
 RectTransform:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ public class TomaElementos : MonoBehaviour
                 elementos.transform.SetParent(posicionElemento);
                 elementos.transform.position = posicionElemento.position;
                 elementos.transform.rotation = posicionElemento.rotation;
-                txtMensajePanel.text = "Presiona E\n para soltarlo.";
+                txtMensajePanel.text = "PRESIONA <b><size=22>E</size></b>\n SOLTAR OBJETO.";
             }
             else if (Input.GetKeyDown(KeyCode.T) && posicionElemento.childCount > 0)
             {
@@ -63,7 +63,7 @@ public class TomaElementos : MonoBehaviour
         {
             elementos.transform.SetParent(null);
             activ = false;
-            txtMensajePanel.text = "-PRESIONA Q CONFIGURACIÓN\n \n- PRESIONA T AGARRAR OBJETO";
+            txtMensajePanel.text = "-PRESIONA <b><size=22>Q</size></b> CONFIGURACIÓN.\n \n- PRESIONA <b><size=22>T</size></b> AGARRAR OBJETO.";
             isGrabbed = false;
             DesactivarInfo();
         }

@@ -8,6 +8,7 @@ public class RotacionAltura : MonoBehaviour
     [Header("Objeto a rotar")]
     public GameObject[] objetos;
     public Slider rotationSlider;
+    [Header("0=rot X| 1=rot Y| 2=lightTemp")]
     public int tipoRotacion;
 
     [SerializeField] private Light ambientLight;

@@ -99,7 +99,7 @@ public class InstanciarElementos : MonoBehaviour
                 {
                     Instantiate(neewer660, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantNeewer660--;
-                    txtCantNeewer660.text = "" + cantNeewer660;
+                    txtCantNeewer660.text = cantNeewer660 + "/2";
                 }
                 break;
 
