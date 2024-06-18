@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -972,7 +972,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2602228579699555466, guid: 143cb3228395bb747b3832afba362b43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2702358089737106558, guid: 143cb3228395bb747b3832afba362b43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400571692917162017, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1051,7 +1061,7 @@ PrefabInstance:
     - target: {fileID: 5779867347325323040, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5779867347325323042, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
@@ -9082,7 +9092,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtAviso: {fileID: 938837800}
+  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1542003261}
+  canvasInfo: {fileID: 0}
+  isGrabbed: 0
 --- !u!135 &1542003264
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9933,7 +9946,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtAviso: {fileID: 938837800}
+  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1641239776}
+  canvasInfo: {fileID: 0}
+  isGrabbed: 0
 --- !u!135 &1641239782
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11073,7 +11089,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtAviso: {fileID: 938837800}
+  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1782326167}
+  canvasInfo: {fileID: 0}
+  isGrabbed: 0
 --- !u!114 &1791810548 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3569927186929835866, guid: 143cb3228395bb747b3832afba362b43,

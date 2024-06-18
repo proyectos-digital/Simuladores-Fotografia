@@ -48,7 +48,7 @@ public class Screenshot : MonoBehaviour
     public void Start()
     {
         //cameraSound = GetComponent<AudioSource>();
-        Debug.Log(cameraSound);
+        //Debug.Log(cameraSound);
         //m_Play = false;
     }
     public void ChangeOrientation() {
