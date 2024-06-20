@@ -18,7 +18,7 @@ public class NotificationController : MonoBehaviour
     public void SendNotification(string valueText)
     {
         notificationPanel.SetActive(true);
-        Debug.Log(valueText);
+        //Debug.Log(valueText);
         notificationAnimation.PlayQueued("Fade In", QueueMode.CompleteOthers);
         notificationText.text = valueText;
         notificationAnimation.PlayQueued("Fade Out", QueueMode.CompleteOthers);

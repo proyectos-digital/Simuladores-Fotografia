@@ -15,11 +15,13 @@ public class TomaElementos : MonoBehaviour
     private Transform posicionElemento;     //Mano
     private bool activ;                     //Para saber cuando estoy dentro o fuera de la zona del objeto
     private ActivarPanel activarPanel;
+    TvController tvController;
 
     private void Start()
     {
         GameObject objetoMano = GameObject.FindWithTag("Mano");
         activarPanel = this.GetComponent<ActivarPanel>();
+        //tvController = GameObject.FindWithTag("Tv").GetComponent<TvController>();
         if (objetoMano != null)
         {
             posicionElemento = objetoMano.transform;

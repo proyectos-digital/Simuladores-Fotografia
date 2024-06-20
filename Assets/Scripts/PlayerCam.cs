@@ -15,17 +15,31 @@ public class PlayerCam : MonoBehaviour
     float yRotation;
 
     [SerializeField] bool lockMouse = false;
+    [Header("SOLO PARA TV")]
+    [SerializeField] bool isTv = false;
+    [SerializeField] TvController tvController;
 
     void Start(){
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //COMENTAR PORQUE SI SE INICIA PAUSADO Y CON INFO PANEL ACTIVADO NO SE NECESITA BLOQUEADO
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     void Update(){
         //Mostrar u ocultar el Mouse por tecla P para grabar o Q para mover objetos, pensar en I para inventario ¬¬
-        if (Input.GetKeyUp(KeyCode.P)) 
+        if (isTv)
         {
-            MouseLocked();
+            if (Input.GetKeyUp(KeyCode.P) && !tvController.isOpenInventory)
+            {
+                tvController.PanelCentral();
+                MouseLocked();
+            }
+            if (Input.GetKeyUp(KeyCode.I) && !tvController.isOpenGeneral)
+            {
+                tvController.PanelInventory();
+                MouseLocked();
+            }
+
         }
         if (!lockMouse)
         {
