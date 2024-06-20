@@ -42,7 +42,7 @@ public class TvController : MonoBehaviour
         //playerController.LockCursor();
         //ManejoCamaras(4);
     }*/
-
+    //FUNCIONALES
     public void PanelCentral()
     {
         isOpenGeneral = !isOpenGeneral;
@@ -53,6 +53,10 @@ public class TvController : MonoBehaviour
         isOpenInventory = !isOpenInventory;
         panelInventory.SetActive(isOpenInventory);
     }
+    //public void ResetFalse()
+    //{
+    //    isOpenInventory = false;
+    //}
     public void ManejoCamaras(int caso)
     {
         //REVISAR LOS CASOS SI SON NECESARIOS Y MEJORARLOS DADO CASO

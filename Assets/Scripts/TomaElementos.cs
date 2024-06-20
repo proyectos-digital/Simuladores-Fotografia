@@ -7,21 +7,24 @@ using UnityEngine.UI;
 public class TomaElementos : MonoBehaviour
 {
     [Header("Toma de elementos")]
-    public TMP_Text txtAviso;
     public TMP_Text txtMensajePanel;
     public GameObject elementos;            //El elemento que tomaré
     public GameObject canvasInfo;
+    [SerializeField] bool noMovable = false;
     public bool isGrabbed;
     private Transform posicionElemento;     //Mano
     private bool activ;                     //Para saber cuando estoy dentro o fuera de la zona del objeto
     private ActivarPanel activarPanel;
     TvController tvController;
+    public NotificationController nc;
+    public string message = "Toma de a un objeto!";
 
     private void Start()
     {
         GameObject objetoMano = GameObject.FindWithTag("Mano");
         activarPanel = this.GetComponent<ActivarPanel>();
-        //tvController = GameObject.FindWithTag("Tv").GetComponent<TvController>();
+        tvController = GameObject.FindWithTag("Tv").GetComponent<TvController>();
+        nc = GameObject.FindWithTag("Notification").GetComponent<NotificationController>();
         if (objetoMano != null)
         {
             posicionElemento = objetoMano.transform;
@@ -35,11 +38,18 @@ public class TomaElementos : MonoBehaviour
     {
         TomaElemento();
     }
+    public void BloquearPaneles()
+    {
+        tvController.isOpenGeneral = true;
+        tvController.isOpenInventory = true;
+    }
     public void DesactivarInfo()
     {
         canvasInfo.SetActive(false);
         activ = false;
         isGrabbed = false;
+        tvController.isOpenGeneral = false;
+        tvController.isOpenInventory = false;
     }
 
     public void TomaElemento()
@@ -54,36 +64,32 @@ public class TomaElementos : MonoBehaviour
                 elementos.transform.position = posicionElemento.position;
                 elementos.transform.rotation = posicionElemento.rotation;
                 txtMensajePanel.text = "PRESIONA <b><size=22>E</size></b>\n SOLTAR OBJETO.";
+                BloquearPaneles();
             }
             else if (Input.GetKeyDown(KeyCode.T) && posicionElemento.childCount > 0)
             {
-                StartCoroutine(TextoAviso());
+                nc.SendNotification(message);
             }
         }
         //Suelta el elemento
         if (Input.GetKeyDown(KeyCode.E) && posicionElemento.childCount > 0)
         {
             elementos.transform.SetParent(null);
-            activ = false;
             txtMensajePanel.text = "-PRESIONA <b><size=22>Q</size></b> CONFIGURACIÓN.\n \n- PRESIONA <b><size=22>T</size></b> AGARRAR OBJETO.";
-            isGrabbed = false;
             DesactivarInfo();
         }
     }
 
-    IEnumerator TextoAviso()
-    {
-        txtAviso.text = "Toma de a un objeto!";
-        yield return new WaitForSeconds(2f);
-        txtAviso.text = "";
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && (!isGrabbed && !activarPanel.pressQ))
+        if (other.tag == "Player")
         {
-            activ = true;
             canvasInfo.SetActive(true);
+            if (!noMovable && (!isGrabbed || !activarPanel.pressQ))
+            {
+                activ = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)

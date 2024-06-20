@@ -21,7 +21,7 @@ namespace RockVR.Video.Demo
         //public PlayerController plCtrl; MODIFICAR EN SU MOMENTO
         public Button btnRecord;
         public Image imgRecord;
-        public Color32 colorTest;
+        public Color32 colorRecord;
         [Header("Textos")]
         public TMP_Text txtTiempo;
         public TMP_Text txtProceso;
@@ -60,7 +60,7 @@ namespace RockVR.Video.Demo
             tiempoCorriendo = true;
             btnRecord.onClick.RemoveAllListeners();
             btnRecord.onClick.AddListener(StopRecord);
-            imgRecord.color = colorTest;
+            imgRecord.color = colorRecord;
             //POSIBLEMENTE OBSOLETO
             /*for (int i = 0; i < uiActiv.Length; i++)
             {
@@ -105,7 +105,7 @@ namespace RockVR.Video.Demo
 
         IEnumerator processVideo()
         {
-            message = "Procesando video, por favor espere..";
+            message = "Procesando video,\n por favor espere..";
             nc.SendNotification(message);
             //Obsoleto
             //txtProceso.text = "FIN DE LA GRABACIÓN\r\nProcesando video, por favor espere..";

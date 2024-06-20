@@ -7,6 +7,8 @@ using TMPro;
 public class InstanciarElementos : MonoBehaviour
 {
     [SerializeField] PlayerCam playerCam;
+    [SerializeField] TvController tvController;
+
     [Header ("Accesorios")]
     public GameObject luminaria1;       //Luz
     public GameObject aperture300;      //Luz
@@ -61,6 +63,7 @@ public class InstanciarElementos : MonoBehaviour
     {
         
         playerCam.MouseLocked();
+        tvController.PanelInventory();
         switch(accesorio)
         {
             case 0:

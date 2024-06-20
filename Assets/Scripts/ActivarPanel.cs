@@ -10,7 +10,6 @@ public class ActivarPanel : MonoBehaviour
     public GameObject canvasEditarElm;
     public TMP_Text txtMensajePanel;
     private TomaElementos tomaElementos;
-
     private InstanciarElementos inAccesorios;
     private PlayerMovement playerMovement;
     private bool active= false;
@@ -47,14 +46,15 @@ public class ActivarPanel : MonoBehaviour
         {
             pressQ = true;
             canvasEditarElm.SetActive(true);
+            tomaElementos.BloquearPaneles();
             playerMovement.MoveAllow();
             playerCam.MouseLocked();
-            txtMensajePanel.text = "Desliza los valores\n de la izquierda.";
+            txtMensajePanel.text = "Desliza los valores de la izquierda.\n Presiona Q para salir.";
         }
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   
         if(other.CompareTag("Player") && !tomaElementos.isGrabbed)
         {
             active = true;
@@ -80,49 +80,38 @@ public class ActivarPanel : MonoBehaviour
         switch (accesorioElim)
         {
             case 0:
-                Destroy(gameObject);
                 inAccesorios.cantLuminaria++;
                 inAccesorios.txtCantLuminaria.text = inAccesorios.cantLuminaria + "/2"; ;
                 inAccesorios.btnLuminaria1.SetActive(true);
-                playerMovement.MoveAllow();
-                playerCam.MouseLocked();
                 break;
 
             case 1:
-                Destroy(gameObject);
                 inAccesorios.cantAperture300++;
                 inAccesorios.txtCantAperture300.text = inAccesorios.cantAperture300 + "/2"; ;
                 inAccesorios.btnAperture300.SetActive(true);
-                playerMovement.MoveAllow();
-                playerCam.MouseLocked();
                 break;
 
             case 2:
-                Destroy(gameObject);
                 inAccesorios.cantSennheiser++;
                 inAccesorios.txtCantSennheiser.text = inAccesorios.cantSennheiser + "/1"; ;
                 inAccesorios.btnSennheiser.SetActive(true);
-                playerMovement.MoveAllow();
-                playerCam.MouseLocked();
                 break;
 
             case 3:
-                Destroy(gameObject);
                 inAccesorios.cantNeewer660++;
                 inAccesorios.txtCantNeewer660.text = inAccesorios.cantNeewer660 + "/2";
                 inAccesorios.btnNeewer660.SetActive(true);
-                playerMovement.MoveAllow();
-                playerCam.MouseLocked();
                 break;
 
             case 4:
-                Destroy(gameObject);
                 inAccesorios.cantGodox++;
                 inAccesorios.txtCantGodox.text = inAccesorios.cantGodox + "/2";
                 inAccesorios.btnGodox.SetActive(true);
-                playerMovement.MoveAllow();
-                playerCam.MouseLocked();
                 break;
         }
+        tomaElementos.DesactivarInfo();
+        Destroy(gameObject);
+        playerMovement.MoveAllow();
+        playerCam.MouseLocked();
     }
 }
