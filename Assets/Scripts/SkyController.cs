@@ -10,7 +10,7 @@ public class SkyController : MonoBehaviour
     public GameObject sun;
     private HDAdditionalLightData sunData;
     private Light sunLight;
-    [SerializeField] private VolumetricClouds volumetricClouds = null;
+    private VolumetricClouds volumetricClouds;
     [SerializeField] public Material EmissionMaterial;
     [SerializeField] public Color LigthEmsvColor = new Color(1f, 0.8f, 0.5f, 1f);
     public VolumetricClouds.CloudPresets[] cloudsPrefabs = { VolumetricClouds.CloudPresets.Overcast };
