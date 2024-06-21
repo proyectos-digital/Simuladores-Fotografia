@@ -30,10 +30,10 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0}
   bottomAltitude:
     m_OverrideState: 1
-    m_Value: 3000
+    m_Value: 1200
   altitudeRange:
     m_OverrideState: 1
-    m_Value: 1000
+    m_Value: 2000
   fadeInMode:
     m_OverrideState: 0
     m_Value: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
     m_Value: 0
   m_CloudPreset:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   cumulusMap:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -106,16 +106,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.05
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.75
+        time: 0.15
         value: 1
         inSlope: 0
         outSlope: 0
@@ -125,7 +116,7 @@ MonoBehaviour:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -186,7 +177,7 @@ MonoBehaviour:
         outWeight: 0
       - serializedVersion: 3
         time: 0.25
-        value: 0.5
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -219,7 +210,7 @@ MonoBehaviour:
     m_Value: 0.4
   shapeFactor:
     m_OverrideState: 1
-    m_Value: 0.95
+    m_Value: 0.9
   shapeScale:
     m_OverrideState: 1
     m_Value: 5
@@ -450,34 +441,6 @@ MonoBehaviour:
   m_ObsoleteEarthPreset:
     m_OverrideState: 0
     m_Value: 1
---- !u!114 &-7062983283362903081
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
-  m_Name: IndirectLightingController
-  m_EditorClassIdentifier: 
-  active: 0
-  indirectDiffuseLightingMultiplier:
-    m_OverrideState: 0
-    m_Value: 1
-  indirectDiffuseLightingLayers:
-    m_OverrideState: 0
-    m_Value: 255
-  reflectionLightingMultiplier:
-    m_OverrideState: 0
-    m_Value: 1
-  reflectionLightingLayers:
-    m_OverrideState: 0
-    m_Value: 255
-  reflectionProbeIntensityMultiplier:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &-4151792930034644520
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -508,7 +471,7 @@ MonoBehaviour:
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   maxFogDistance:
     m_OverrideState: 1
-    m_Value: 12.5
+    m_Value: 100
   mipFogMaxMip:
     m_OverrideState: 0
     m_Value: 0.5
@@ -520,13 +483,13 @@ MonoBehaviour:
     m_Value: 1000
   baseHeight:
     m_OverrideState: 0
-    m_Value: -37.4
+    m_Value: 50.8
   maximumHeight:
     m_OverrideState: 0
-    m_Value: 50
+    m_Value: 50.8
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 162.22
+    m_Value: 15
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
@@ -537,8 +500,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   depthExtent:
-    m_OverrideState: 1
-    m_Value: 10
+    m_OverrideState: 0
+    m_Value: 32.91
   denoisingMode:
     m_OverrideState: 1
     m_Value: 2
@@ -583,7 +546,6 @@ MonoBehaviour:
   - {fileID: -8039899907684426481}
   - {fileID: -4151792930034644520}
   - {fileID: -8242510524313155342}
-  - {fileID: -7062983283362903081}
   - {fileID: 5943864803352944500}
 --- !u!114 &1142777632297148762
 MonoBehaviour:
