@@ -661,9 +661,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275321047033361092}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.99999005, z: -0, w: -0.0044611716}
+  m_LocalRotation: {x: -0, y: -0.99999005, z: 0, w: -0.00445924}
   m_LocalPosition: {x: -8.742, y: -1.181143, z: 3.293}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8359189649538309251}
@@ -775,11 +775,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 2122233834655706995}
   txtMensajePanel: {fileID: 6369124494182493950}
   elementos: {fileID: 1275321047033361092}
   canvasInfo: {fileID: 8440021293120672165}
+  noMovable: 0
   isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!114 &2122233835294658448
 MonoBehaviour:
   m_ObjectHideFlags: 0
