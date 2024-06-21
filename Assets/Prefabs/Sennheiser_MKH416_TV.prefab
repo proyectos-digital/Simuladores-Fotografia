@@ -2152,18 +2152,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 452fef1437cd3784a9ebb6c486589ffa,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 452fef1437cd3784a9ebb6c486589ffa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 452fef1437cd3784a9ebb6c486589ffa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 452fef1437cd3784a9ebb6c486589ffa,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46.107
+      value: 17.458572
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 452fef1437cd3784a9ebb6c486589ffa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.222
+      value: 0.754
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 452fef1437cd3784a9ebb6c486589ffa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -141.254
+      value: 8.96109
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 452fef1437cd3784a9ebb6c486589ffa,
         type: 3}
@@ -2337,11 +2352,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 4198923285557319006}
   txtMensajePanel: {fileID: 7218654001378773492}
   elementos: {fileID: 7304588428801471946}
   canvasInfo: {fileID: 7527001939964999541}
+  noMovable: 0
   isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!114 &7644548489595378653
 MonoBehaviour:
   m_ObjectHideFlags: 0
