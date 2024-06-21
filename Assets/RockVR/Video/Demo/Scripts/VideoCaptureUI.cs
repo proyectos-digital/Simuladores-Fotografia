@@ -20,15 +20,15 @@ namespace RockVR.Video.Demo
         //public GameObject[] uiActiv; OBSOLETAS
         //public PlayerController plCtrl; MODIFICAR EN SU MOMENTO
         public Button btnRecord;
-        public Image imgRecord;
+        private Image imgRecord;
         public Color32 colorRecord;
         [Header("Textos")]
+        public GameObject btnAbrirFolder;
         public TMP_Text txtTiempo;
         public TMP_Text txtProceso;
         private float tiempo;
         private bool tiempoCorriendo;
         [Header("UI OBSOLETO")]
-        public GameObject btnAbrirFolder;
         public GameObject btnCerrar;
         [Header("Cámaras")]
         public Camera camPrincipal;
@@ -39,6 +39,16 @@ namespace RockVR.Video.Demo
         private NotificationController nc;
         private string message;
 
+
+        private void Awake()
+        {
+            //Application.runInBackground = true;
+            isPlayVideo = false;
+        }
+        void Start()
+        {
+            imgRecord = btnRecord.GetComponent<Image>();
+        }
         void Update()
         {
             if (tiempoCorriendo)
@@ -48,12 +58,6 @@ namespace RockVR.Video.Demo
             }
         }
 
-        private void Awake()
-        {
-            //Application.runInBackground = true;
-            isPlayVideo = false;
-        }
-        
         public void StartRecord()
         {
             VideoCaptureCtrl.instance.StartCapture();
@@ -107,17 +111,9 @@ namespace RockVR.Video.Demo
         {
             message = "Procesando video,\n por favor espere..";
             nc.SendNotification(message);
-            //Obsoleto
-            //txtProceso.text = "FIN DE LA GRABACIÓN\r\nProcesando video, por favor espere..";
-            //btnAbrirFolder.SetActive(false);
-            //btnCerrar.SetActive(false);
             yield return new WaitForSeconds(4f);
-            message = "VIDEO LISTO\r\nAlmacenado en Documentos/RockVR";
+            message = "VIDEO LISTO\nAlmacenado en Documentos/RockVR";
             nc.SendNotification(message);
-            //Obsoleto
-            //txtProceso.text = "VIDEO LISTO\r\n¿Ver archivo?";
-            //btnAbrirFolder.SetActive(true);
-            //btnCerrar.SetActive(true);
         }
 
         public void OpenFolder()

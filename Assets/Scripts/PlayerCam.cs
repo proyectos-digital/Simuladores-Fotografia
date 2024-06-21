@@ -19,12 +19,6 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] bool isTv = false;
     [SerializeField] TvController tvController;
 
-    void Start(){
-        //COMENTAR PORQUE SI SE INICIA PAUSADO Y CON INFO PANEL ACTIVADO NO SE NECESITA BLOQUEADO
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-    }
-
     void Update(){
         //Mostrar u ocultar el Mouse por tecla P para grabar o Q para mover objetos, pensar en I para inventario ¬¬
         if (isTv)

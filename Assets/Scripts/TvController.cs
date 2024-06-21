@@ -60,6 +60,7 @@ public class TvController : MonoBehaviour
     public void ManejoCamaras(int caso)
     {
         //REVISAR LOS CASOS SI SON NECESARIOS Y MEJORARLOS DADO CASO
+        //AL PARECER NO SON NECESARIOS BORRAR O MEJORAR SI NO SE USARAN 21/6/2024
         switch (caso)
         {
             case 0: //Cam Principal
