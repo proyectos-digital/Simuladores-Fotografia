@@ -18,30 +18,6 @@ public class TvController : MonoBehaviour
     [SerializeField] GameObject panelGeneral;
     [SerializeField] GameObject panelInventory;
 
-    //NO VA!!!
-    //public GameObject panelEdicion;
-    //public GameObject panelInfo;
-    //Preguntar a Jaime
-    public GameObject PanelDia;
-
-    //[Header ("Jugador")]
-    //public PlayerController playerController;
-
-    //OBSOLETOSSS!!!!????? O VAN EN OTRO LADO
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            PanelDia.SetActive(false);
-        }
-    }
-    
-    private void OnTriggerExit(Collider other)
-    {
-        PanelDia.SetActive(true);
-        //playerController.LockCursor();
-        //ManejoCamaras(4);
-    }*/
     //FUNCIONALES
     public void PanelCentral()
     {
@@ -53,10 +29,8 @@ public class TvController : MonoBehaviour
         isOpenInventory = !isOpenInventory;
         panelInventory.SetActive(isOpenInventory);
     }
-    //public void ResetFalse()
-    //{
-    //    isOpenInventory = false;
-    //}
+
+    //POSIBLMENTE NO SEAN NECESARIOS
     public void ManejoCamaras(int caso)
     {
         //REVISAR LOS CASOS SI SON NECESARIOS Y MEJORARLOS DADO CASO

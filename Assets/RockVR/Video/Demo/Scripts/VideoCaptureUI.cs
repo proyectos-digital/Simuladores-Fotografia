@@ -16,38 +16,27 @@ namespace RockVR.Video.Demo
         private bool isPlayVideo = false;
 
         //Inicio de variables
-        //public GameObject[] uiDesact; OBSOLETAS
-        //public GameObject[] uiActiv; OBSOLETAS
         //public PlayerController plCtrl; MODIFICAR EN SU MOMENTO
-        public Button btnRecord;
-        private Image imgRecord;
-        public Color32 colorRecord;
+        [SerializeField] Button btnRecord;
+        [SerializeField] GameObject imgStopRecord;
         [Header("Textos")]
-        public GameObject btnAbrirFolder;
+        [SerializeField] GameObject btnAbrirFolder;
         public TMP_Text txtTiempo;
-        public TMP_Text txtProceso;
         private float tiempo;
         private bool tiempoCorriendo;
-        [Header("UI OBSOLETO")]
-        public GameObject btnCerrar;
         [Header("Cámaras")]
         public Camera camPrincipal;
         public Camera camAuxiliar;
         public Camera camJugador;
 
-        [SerializeField]
-        private NotificationController nc;
-        private string message;
+        [SerializeField] private NotificationController nc;
+        [SerializeField] private string message;
 
 
         private void Awake()
         {
             //Application.runInBackground = true;
             isPlayVideo = false;
-        }
-        void Start()
-        {
-            imgRecord = btnRecord.GetComponent<Image>();
         }
         void Update()
         {
@@ -64,17 +53,7 @@ namespace RockVR.Video.Demo
             tiempoCorriendo = true;
             btnRecord.onClick.RemoveAllListeners();
             btnRecord.onClick.AddListener(StopRecord);
-            imgRecord.color = colorRecord;
-            //POSIBLEMENTE OBSOLETO
-            /*for (int i = 0; i < uiActiv.Length; i++)
-            {
-                uiActiv[i].gameObject.SetActive(true);
-            }
-
-            for (int i = 0; i < uiDesact.Length; i++)
-            {
-                uiDesact[i].gameObject.SetActive(false);
-            }*/
+            imgStopRecord.SetActive(true);
             camPrincipal.targetDisplay = 1;
             camAuxiliar.targetDisplay = 1;
             camJugador.targetDisplay = 0;
@@ -85,21 +64,12 @@ namespace RockVR.Video.Demo
             VideoCaptureCtrl.instance.StopCapture();
             btnRecord.onClick.RemoveAllListeners();
             btnRecord.onClick.AddListener(StartRecord);
-            imgRecord.color = Color.white;
+            imgStopRecord.SetActive(false);
             if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.FINISH)
             {
                 if (!isPlayVideo)
                 { }
             }
-            //OBSOLETOS
-            /*for (int i = 0; i < uiActiv.Length; i++)
-            {
-                uiActiv[i].gameObject.SetActive(false);
-            }
-            for (int i = 0; i < uiDesact.Length; i++)
-            {
-                uiDesact[i].gameObject.SetActive(true);
-            }*/
             tiempoCorriendo = false;
             tiempo = 0f;                            //Reinicia el tiempo
             txtTiempo.text = "";
@@ -120,76 +90,5 @@ namespace RockVR.Video.Demo
         {
             Process.Start(PathConfig.saveFolder);
         }
-
-
-        /*
-        private void OnGUI()
-        {
-            if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.NOT_START)
-            {
-                if (GUI.Button(new Rect(10, Screen.height - 60, 150, 50), "Start Capture"))
-                {
-                    VideoCaptureCtrl.instance.StartCapture();
-                }
-            }
-            else if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.STARTED)
-            {
-                if (GUI.Button(new Rect(10, Screen.height - 60, 150, 50), "Stop Capture"))
-                {
-                    VideoCaptureCtrl.instance.StopCapture();
-                }
-                if (GUI.Button(new Rect(180, Screen.height - 60, 150, 50), "Pause Capture"))
-                {
-                    VideoCaptureCtrl.instance.ToggleCapture();
-                }
-            }
-            else if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.PAUSED)
-            {
-                if (GUI.Button(new Rect(10, Screen.height - 60, 150, 50), "Stop Capture"))
-                {
-                    VideoCaptureCtrl.instance.StopCapture();
-                }
-                if (GUI.Button(new Rect(180, Screen.height - 60, 150, 50), "Continue Capture"))
-                {
-                    VideoCaptureCtrl.instance.ToggleCapture();
-                }
-            }
-            else if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.STOPPED)
-            {
-                if (GUI.Button(new Rect(10, Screen.height - 60, 150, 50), "Processing"))
-                {
-                    // Waiting processing end.
-                }
-            }
-            else if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.FINISH)
-            {
-                if (!isPlayVideo)
-                {
-                    if (GUI.Button(new Rect(10, Screen.height - 60, 150, 50), "View Video"))
-                    {
-#if UNITY_5_6_OR_NEWER
-                        // Set root folder.
-                        isPlayVideo = true;
-                        VideoPlayer.instance.SetRootFolder();
-                        // Play capture video.
-                        VideoPlayer.instance.PlayVideo();
-                    }
-                }
-                else
-                {
-                    if (GUI.Button(new Rect(10, Screen.height - 60, 150, 50), "Next Video"))
-                    {
-                        // Turn to next video.
-                        VideoPlayer.instance.NextVideo();
-                        // Play capture video.
-                        VideoPlayer.instance.PlayVideo();
-#else
-                        // Open video save directory.
-                        Process.Start(PathConfig.saveFolder);
-#endif
-                    }
-                }
-            }
-        }*/
     }
 }

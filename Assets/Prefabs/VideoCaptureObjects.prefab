@@ -2035,13 +2035,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2165881093898952500}
-  - component: {fileID: 3455390143357499302}
-  - component: {fileID: 2705902996717769484}
   - component: {fileID: 7738530719603284733}
   - component: {fileID: 3334902802148494810}
   - component: {fileID: 4569036453766430288}
   m_Layer: 0
-  m_Name: CameraComponent
+  m_Name: CameraComponentAux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2064,26 +2062,6 @@ Transform:
   - {fileID: 1162108540560770732}
   m_Father: {fileID: 3757037448680558615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &3455390143357499302
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116546249112739571}
-  m_Enabled: 0
---- !u!114 &2705902996717769484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116546249112739571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bf4be83c4174504b904e958637cced, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &7738530719603284733
 Camera:
   m_ObjectHideFlags: 0
@@ -2125,7 +2103,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: dd2b22b30816c804b86a98d71512618a, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 0
@@ -2155,8 +2133,8 @@ MonoBehaviour:
   panoramaProjection: 0
   encodeQuality: 1
   _antiAliasing: 0
-  _targetFramerate: 2
-  isDedicated: 0
+  _targetFramerate: 4
+  isDedicated: 1
   captureGUI: 1
   mode: 0
   customPath: 0
@@ -4038,8 +4016,11 @@ GameObject:
   - component: {fileID: 5142586095912780326}
   - component: {fileID: 1953250733705655504}
   - component: {fileID: 8355992678585346506}
+  - component: {fileID: 5266225505137474894}
+  - component: {fileID: 990976570148120465}
+  - component: {fileID: 5638272269649856005}
   m_Layer: 0
-  m_Name: CameraComponent
+  m_Name: CameraComponentMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4069,7 +4050,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6233900387003037589}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 95146da3df66c2e4285b3e8e86c1f91c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4147,7 +4128,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: ef053565fe25534438b60358833f475d, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 0
@@ -4171,7 +4152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   format: 0
   stereo: 0
-  stereoFormat: 1
+  stereoFormat: 0
   frameSize: 3
   _cubemapSize: 1
   panoramaProjection: 0
@@ -4349,6 +4330,53 @@ MonoBehaviour:
   isGrabbed: 0
   nc: {fileID: 0}
   message: Toma de a un objeto!
+--- !u!54 &5266225505137474894
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233900387003037589}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!81 &990976570148120465
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233900387003037589}
+  m_Enabled: 1
+--- !u!114 &5638272269649856005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233900387003037589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bf4be83c4174504b904e958637cced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6316246146105524002
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,7 +6077,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _audioCapture
       value: 
-      objectReference: {fileID: 2705902996717769484}
+      objectReference: {fileID: 5638272269649856005}
     - target: {fileID: 114812251737396918, guid: 3d7a94094ef20fc4982eace127bb049e,
         type: 3}
       propertyPath: _videoCaptures.Array.size
@@ -6065,11 +6093,6 @@ PrefabInstance:
       propertyPath: _videoCaptures.Array.data[1]
       value: 
       objectReference: {fileID: 3334902802148494810}
-    - target: {fileID: 328256145740287484, guid: 3d7a94094ef20fc4982eace127bb049e,
-        type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 3f130667e7afd3a41bfa938deabb88c2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6182,15 +6205,19 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9070413989543470861}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8557233421096866664}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 30921407058004719}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3289386536654992790}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6833639323347245312}
   m_SourcePrefab: {fileID: 100100000, guid: 4929f185912b63648ad21fa0b87b1da0, type: 3}
 --- !u!4 &3757037448680558615 stripped
 Transform:
@@ -6248,7 +6275,64 @@ CapsuleCollider:
   m_Height: 0.64
   m_Direction: 1
   m_Center: {x: 0, y: -0.09, z: 0}
---- !u!54 &9070413989543470861
+--- !u!114 &8557233421096866664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569039312238250669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74dec1b8d1cea734ba5ded380e988892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasEditarElm: {fileID: 1882550618476654704}
+  txtMensajePanel: {fileID: 3410740045712576412}
+  pressQ: 0
+--- !u!136 &30921407058004719
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569039312238250669}
+  m_Material: {fileID: 13400000, guid: 95146da3df66c2e4285b3e8e86c1f91c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.12
+  m_Height: 0.49
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.12, z: 0.02}
+--- !u!114 &3289386536654992790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569039312238250669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtMensajePanel: {fileID: 3410740045712576412}
+  elementos: {fileID: 4569039312238250669}
+  canvasInfo: {fileID: 4203652838653399386}
+  noMovable: 0
+  isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
+--- !u!54 &6833639323347245312
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6275,40 +6359,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8557233421096866664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4569039312238250669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74dec1b8d1cea734ba5ded380e988892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasEditarElm: {fileID: 1882550618476654704}
-  txtMensajePanel: {fileID: 3410740045712576412}
-  pressQ: 0
---- !u!114 &3289386536654992790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4569039312238250669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtMensajePanel: {fileID: 3410740045712576412}
-  elementos: {fileID: 4569039312238250669}
-  canvasInfo: {fileID: 4203652838653399386}
-  noMovable: 0
-  isGrabbed: 0
-  nc: {fileID: 0}
-  message: Toma de a un objeto!
 --- !u!1001 &4235077648224784055
 PrefabInstance:
   m_ObjectHideFlags: 0

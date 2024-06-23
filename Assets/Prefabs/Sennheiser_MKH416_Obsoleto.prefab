@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 6653844188999704341}
   - component: {fileID: 8460356120431525150}
   m_Layer: 0
-  m_Name: Sennheiser_MKH416
+  m_Name: Sennheiser_MKH416_Obsoleto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2335,8 +2335,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 0}
+  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 0}
+  canvasInfo: {fileID: 0}
+  noMovable: 0
+  isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!114 &8622177193962688588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2350,7 +2355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasEditarElm: {fileID: 0}
-  canvasInfo: {fileID: 0}
+  txtMensajePanel: {fileID: 0}
+  pressQ: 0
 --- !u!81 &7313689579357374782
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2387,7 +2393,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: e791d27ffe8a34040a42b388f167831a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

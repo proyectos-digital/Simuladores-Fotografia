@@ -87,12 +87,13 @@ public class MenuController : MonoBehaviour
         //Debug.Log(Time.timeScale);
     }
 
-    public void ActivateMenuInfo()
-    {
+    //COMENTADO YA QUE NO HACE NADA!!!
+    //public void ActivateMenuInfo()
+    //{
         
-        //Cursor.lockState = CursorLockMode.Confined;
+    //    //Cursor.lockState = CursorLockMode.Confined;
         
-    }
+    //}
 
     public void DisableinfoPanel()
     {
