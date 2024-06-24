@@ -26,7 +26,7 @@ public class ChangeProductName : MonoBehaviour
         // Buscar el nombre de la escena activa en productNameConfig y cambiar el productName si se encuentra
         foreach (SceneProductNameConfig.SceneProductPair pair in GetInstance().sceneProductPairs)
         {
-            if (pair.sceneName.Equals(activeSceneName))
+            if (pair.sceneName.name.Equals(activeSceneName))
             {
                 PlayerSettings.productName = pair.productName;
                 Debug.Log("Product Name changed to: " + pair.productName + " for scene: " + activeSceneName);

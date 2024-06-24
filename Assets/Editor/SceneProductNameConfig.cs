@@ -8,7 +8,7 @@ public class SceneProductNameConfig : ScriptableObject
     [System.Serializable]
     public struct SceneProductPair
     {
-        public string sceneName;
+        public SceneAsset sceneName;
         public string productName;
     }
 
