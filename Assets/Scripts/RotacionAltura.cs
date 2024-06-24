@@ -16,7 +16,10 @@ public class RotacionAltura : MonoBehaviour
     private void Start()
     {
         rotationSlider.onValueChanged.AddListener(EdicionObjeto);
-        rotationSlider.value = objetos[0].transform.eulerAngles.y / 360f;
+        if (objetos != null)
+        {
+            rotationSlider.value = objetos[0].transform.eulerAngles.y / 360f;
+        }
     }
 
     public void EdicionObjeto(float value)

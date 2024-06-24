@@ -47,6 +47,7 @@ public class TomaElementos : MonoBehaviour
     {
         canvasInfo.SetActive(false);
         activ = false;
+        activarPanel.active = false;
         isGrabbed = false;
         tvController.isOpenGeneral = false;
         tvController.isOpenInventory = false;
@@ -66,7 +67,7 @@ public class TomaElementos : MonoBehaviour
                 txtMensajePanel.text = "PRESIONA <b><size=22>E</size></b>\n SOLTAR OBJETO.";
                 BloquearPaneles();
             }
-            else if (Input.GetKeyDown(KeyCode.T) && posicionElemento.childCount > 0)
+            else if (Input.GetKeyDown(KeyCode.T) && !isGrabbed && posicionElemento.childCount > 0)
             {
                 nc.SendNotification(message);
             }
@@ -79,14 +80,17 @@ public class TomaElementos : MonoBehaviour
             DesactivarInfo();
         }
     }
-
+    public bool CallCheck()
+    {
+        return tvController.CheckActivePanels();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && posicionElemento.childCount <= 0)
         {
-            canvasInfo.SetActive(true);
-            if (!noMovable && (!isGrabbed || !activarPanel.pressQ))
+            canvasInfo.SetActive(!CallCheck());
+            if (!noMovable && (!isGrabbed || !activarPanel.pressQ) && !CallCheck())
             {
                 activ = true;
             }
