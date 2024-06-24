@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 
 public class ActivarPanel : MonoBehaviour
@@ -12,7 +13,7 @@ public class ActivarPanel : MonoBehaviour
     private TomaElementos tomaElementos;
     private InstanciarElementos inAccesorios;
     private PlayerMovement playerMovement;
-    private bool active= false;
+    public bool active= false;
     public bool pressQ = false;
 
 
@@ -54,8 +55,8 @@ public class ActivarPanel : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {   
-        if(other.CompareTag("Player") && !tomaElementos.isGrabbed)
+    {
+        if(other.CompareTag("Player") && (!tomaElementos.CallCheck()) && !tomaElementos.isGrabbed)
         {
             active = true;
         }

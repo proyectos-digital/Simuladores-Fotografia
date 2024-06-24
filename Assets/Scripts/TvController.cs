@@ -29,6 +29,16 @@ public class TvController : MonoBehaviour
         isOpenInventory = !isOpenInventory;
         panelInventory.SetActive(isOpenInventory);
     }
+    //Funcion booleana que se ejecuta las funciones de TomaElementos y ActivarPanel
+    //Para los objetos instanciados y camaras
+    public bool CheckActivePanels()
+    {
+        if (isOpenGeneral || isOpenInventory)
+        {
+            return true;
+        }
+        return false;
+    }
 
     //POSIBLMENTE NO SEAN NECESARIOS
     public void ManejoCamaras(int caso)
