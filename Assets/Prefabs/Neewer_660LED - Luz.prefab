@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasEditarElm: {fileID: 2122233833997513137}
-  txtMensajePanel: {fileID: 6369124494182493950}
+  active: 0
   pressQ: 0
 --- !u!1 &1604193925490072958
 GameObject:
@@ -973,7 +973,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4312444722660695404}
   - component: {fileID: 628104437693715019}
-  - component: {fileID: 7581125323784501362}
   m_Layer: 0
   m_Name: TemperaturaLuz
   m_TagString: Untagged
@@ -1053,23 +1052,19 @@ MonoBehaviour:
   m_Value: 3200
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &7581125323784501362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980882258188628918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f74a37ffa56998c43be943bd73876335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetos: []
-  rotationSlider: {fileID: 628104437693715019}
-  tipoRotacion: 2
-  ambientLight: {fileID: 2122233834094979146}
+      m_Calls:
+      - m_Target: {fileID: 2122233834094979146}
+        m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
+        m_MethodName: set_colorTemperature
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1996119955541315042
 GameObject:
   m_ObjectHideFlags: 0

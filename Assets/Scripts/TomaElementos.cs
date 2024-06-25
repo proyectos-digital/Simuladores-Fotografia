@@ -25,6 +25,7 @@ public class TomaElementos : MonoBehaviour
         activarPanel = this.GetComponent<ActivarPanel>();
         tvController = GameObject.FindWithTag("Tv").GetComponent<TvController>();
         nc = GameObject.FindWithTag("Notification").GetComponent<NotificationController>();
+        MensajesPanel(noMovable ? "-<b><size=22>Q</size></b>\n\nABRIR CONFIGURACIÓN" : null);
         if (objetoMano != null)
         {
             posicionElemento = objetoMano.transform;
@@ -42,14 +43,18 @@ public class TomaElementos : MonoBehaviour
     {
         tvController.isOpenGeneral = true;
         tvController.isOpenInventory = true;
+        MensajesPanel(isGrabbed ? "PRESIONA <b><size=22>E</size></b>\n SOLTAR OBJETO." : 
+            "-Configura los valores de la izquierda.\n\n-<b><size=22>Q</size></b> SALIR.");
     }
     public void DesactivarInfo()
     {
         canvasInfo.SetActive(false);
         activ = false;
+        activarPanel.active = false;
         isGrabbed = false;
         tvController.isOpenGeneral = false;
         tvController.isOpenInventory = false;
+        MensajesPanel(noMovable ? "-<b><size=22>Q</size></b>\n\nABRIR CONFIGURACIÓN" : null);
     }
 
     public void TomaElemento()
@@ -63,11 +68,11 @@ public class TomaElementos : MonoBehaviour
                 elementos.transform.SetParent(posicionElemento);
                 elementos.transform.position = posicionElemento.position;
                 elementos.transform.rotation = posicionElemento.rotation;
-                txtMensajePanel.text = "PRESIONA <b><size=22>E</size></b>\n SOLTAR OBJETO.";
                 BloquearPaneles();
             }
-            else if (Input.GetKeyDown(KeyCode.T) && posicionElemento.childCount > 0)
+            else if (Input.GetKeyDown(KeyCode.T) && !isGrabbed && posicionElemento.childCount > 0)
             {
+                message = "Toma de a un objeto!";
                 nc.SendNotification(message);
             }
         }
@@ -75,18 +80,29 @@ public class TomaElementos : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && posicionElemento.childCount > 0)
         {
             elementos.transform.SetParent(null);
-            txtMensajePanel.text = "-PRESIONA <b><size=22>Q</size></b> CONFIGURACIÓN.\n \n- PRESIONA <b><size=22>T</size></b> AGARRAR OBJETO.";
             DesactivarInfo();
         }
     }
-
+    public void MensajesPanel(string text)
+    {
+        if(text == null)
+        {
+            text = "-<b><size=22>Q</size></b> ABRIR CONFIGURACIÓN\n \n-<b><size=22>T</size></b> AGARRAR OBJETO";
+        }
+        message = text;
+        txtMensajePanel.text = text;
+    }
+    public bool CallCheck()
+    {
+        return tvController.CheckActivePanels();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && posicionElemento.childCount <= 0)
         {
-            canvasInfo.SetActive(true);
-            if (!noMovable && (!isGrabbed || !activarPanel.pressQ))
+            canvasInfo.SetActive(!CallCheck());
+            if (!noMovable && (!isGrabbed || !activarPanel.pressQ) && !CallCheck())
             {
                 activ = true;
             }
