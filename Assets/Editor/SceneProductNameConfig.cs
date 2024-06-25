@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "SceneProductNameConfig", menuName = "ScriptableObjects/SceneProductNameConfig", order = 1)]
 public class SceneProductNameConfig : ScriptableObject
@@ -9,7 +8,7 @@ public class SceneProductNameConfig : ScriptableObject
     public struct SceneProductPair
     {
         public SceneAsset sceneName;
-        public string productName;
+        [HideInInspector]public string productName;
     }
 
     public SceneProductPair[] sceneProductPairs; // Array de pares de nombre de escena y nombre de producto

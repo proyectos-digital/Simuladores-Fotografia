@@ -9,7 +9,7 @@ public class ActivarPanel : MonoBehaviour
 {
     [Header("Paneles")]
     public GameObject canvasEditarElm;
-    public TMP_Text txtMensajePanel;
+    //public TMP_Text txtMensajePanel;
     private TomaElementos tomaElementos;
     private InstanciarElementos inAccesorios;
     private PlayerMovement playerMovement;
@@ -26,7 +26,6 @@ public class ActivarPanel : MonoBehaviour
         tomaElementos = this.GetComponent<TomaElementos>();
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         playerCam = GameObject.FindWithTag("MainCamera").GetComponent<PlayerCam>();
-        txtMensajePanel.text = "-PRESIONA <b><size=22>Q</size></b> ABRIR CONFIGURACIÓN\n \n- PRESIONA <b><size=22>T</size></b> AGARRAR OBJETO";
     }
     private void Update()
     {
@@ -40,7 +39,6 @@ public class ActivarPanel : MonoBehaviour
             tomaElementos.DesactivarInfo();
             playerMovement.MoveAllow();
             playerCam.MouseLocked();
-            txtMensajePanel.text = "-PRESIONA <b><size=22>Q</size></b> ABRIR CONFIGURACIÓN\n \n- PRESIONA <b><size=22>T</size></b> AGARRAR OBJETO";
         }
         //Se activa el modo edición del objeto y se bloquea el movimiento del personaje con tecla Q
         else if ((active && !tomaElementos.isGrabbed) && Input.GetKeyUp(KeyCode.Q))
@@ -50,7 +48,6 @@ public class ActivarPanel : MonoBehaviour
             tomaElementos.BloquearPaneles();
             playerMovement.MoveAllow();
             playerCam.MouseLocked();
-            txtMensajePanel.text = "Desliza los valores de la izquierda.\n Presiona Q para salir.";
         }
     }
 
