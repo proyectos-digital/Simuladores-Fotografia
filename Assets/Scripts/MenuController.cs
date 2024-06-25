@@ -12,6 +12,7 @@ public class MenuController : MonoBehaviour
 {
     private bool isMenuActive = false;
     private bool isInfoActive = true;
+    private bool isDayControlActive = false;
     private char[] delimiterChars = { 'x', ' '};
     private string screenResolutionSelected;
     public Toggle fullScreenToggle;
@@ -20,6 +21,7 @@ public class MenuController : MonoBehaviour
     public GameObject mainOptionsPanel;
     public GameObject controlOptionsPanel;
     public GameObject infoMenuPanel;
+    public GameObject dayControlPanel;
     public TMP_Dropdown screenSizeDropdown;
     //public string[] resString;
     public List<string> resString = new List<string>();
@@ -52,6 +54,15 @@ public class MenuController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             Time.timeScale = 0;
+        }
+
+        if ((!isDayControlActive) && Input.GetKeyUp(KeyCode.X))
+        {
+            isDayControlActive = !isDayControlActive;
+            Cursor.lockState = isDayControlActive ? CursorLockMode.None : CursorLockMode.Confined;
+            dayControlPanel.SetActive(isDayControlActive);
+            Cursor.visible = isDayControlActive;
+            Time.timeScale = isDayControlActive ? 0 : 1;
         }
     }
 
