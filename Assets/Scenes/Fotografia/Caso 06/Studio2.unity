@@ -174,6 +174,7 @@ MonoBehaviour:
   volume: {fileID: 545092424}
   txtLens: {fileID: 155251126}
   screenshot: {fileID: 2102730770}
+  nc: {fileID: 0}
   isoSlider: {fileID: 1509029438}
   apertureSlider: {fileID: 1359552926}
   shutterSpeedSlider: {fileID: 1817652979}
@@ -2686,6 +2687,7 @@ MonoBehaviour:
   cameraAnimations: {fileID: 1241630809}
   camManager: {fileID: 7725407}
   isStudy: 1
+  isTV: 0
 --- !u!4 &477363369
 Transform:
   m_ObjectHideFlags: 0
@@ -7744,7 +7746,7 @@ PrefabInstance:
     - target: {fileID: 8851095564566581785, guid: 8ed11baa2bddb8647b26090860c8a0e7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8851095564566581785, guid: 8ed11baa2bddb8647b26090860c8a0e7,
         type: 3}
@@ -8955,8 +8957,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 938837800}
+  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1542003261}
+  canvasInfo: {fileID: 0}
+  noMovable: 0
+  isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!135 &1542003264
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9228,7 +9235,7 @@ PrefabInstance:
     - target: {fileID: 2351432890641209219, guid: 49a0b8c2661e44d4d85b5145d9a37c36,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2351432890641209219, guid: 49a0b8c2661e44d4d85b5145d9a37c36,
         type: 3}
@@ -9806,8 +9813,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 938837800}
+  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1641239776}
+  canvasInfo: {fileID: 0}
+  noMovable: 0
+  isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!135 &1641239782
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10934,8 +10946,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 938837800}
+  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1782326167}
+  canvasInfo: {fileID: 0}
+  noMovable: 0
+  isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!114 &1791810548 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3569927186929835866, guid: 143cb3228395bb747b3832afba362b43,
@@ -11213,6 +11230,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1842843133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.299
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.974
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.01116845
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.99993765
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -181.28
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7853282245581187813, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 825954affe4e05d4888f2678d59fe736, type: 2}
+    - target: {fileID: 69622499903844517, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0071
+      objectReference: {fileID: 0}
+    - target: {fileID: 304686184592978355, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0ed5069dcba34b4cb48a26bb70095af, type: 2}
+    - target: {fileID: 919132149155446097, guid: f8d581143ada5fe47b464d2c77d8a693,
+        type: 3}
+      propertyPath: m_Name
+      value: Animacion_Familia
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f8d581143ada5fe47b464d2c77d8a693, type: 3}
 --- !u!1001 &1874497137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16783,3 +16898,4 @@ SceneRoots:
   - {fileID: 173439002}
   - {fileID: 149900538}
   - {fileID: 1906984378}
+  - {fileID: 1842843133}
