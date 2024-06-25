@@ -29,14 +29,6 @@ public class TvController : MonoBehaviour
         isOpenInventory = !isOpenInventory;
         panelInventory.SetActive(isOpenInventory);
     }
-    //public void Test()
-    //{
-    //    isOpenGeneral = true; isOpenInventory = true;
-    //}
-    //public void Otro()
-    //{
-    //    isOpenGeneral = false; isOpenInventory = false;
-    //}
     //Funcion booleana que se ejecuta las funciones de TomaElementos y ActivarPanel
     //Para los objetos instanciados y camaras
     public bool CheckActivePanels()
@@ -46,66 +38,5 @@ public class TvController : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    //POSIBLMENTE NO SEAN NECESARIOS
-    public void ManejoCamaras(int caso)
-    {
-        //REVISAR LOS CASOS SI SON NECESARIOS Y MEJORARLOS DADO CASO
-        //AL PARECER NO SON NECESARIOS BORRAR O MEJORAR SI NO SE USARAN 21/6/2024
-        switch (caso)
-        {
-            case 0: //Cam Principal
-                camPrincipal.targetDisplay = 0;
-                camAuxiliar.targetDisplay = 1;
-                camJugador.targetDisplay = 1;
-                //Ahora sería panelGeneral revisar si es necesario
-                //panelCentral.SetActive(false);
-                //panelInfo.SetActive(false);
-                camPrincipal.targetTexture = null;
-                camAuxiliar.targetTexture = null;
-                camJugador.targetTexture = null;
-
-                break;
-
-            case 1: //Cam Auxiliar
-                camPrincipal.targetDisplay = 1;
-                camAuxiliar.targetDisplay = 0;
-                camJugador.targetDisplay = 1;
-                //panelInfo.SetActive(false);
-                //Ahora sería panelGeneral revisar si es necesario
-                //panelCentral.SetActive(false);
-                camPrincipal.targetTexture = null;
-                camAuxiliar.targetTexture = null;
-                camJugador.targetTexture = null;
-                break;
-
-            case 2: //Volver a cámara del jugador
-                camPrincipal.targetDisplay = 1;
-                camAuxiliar.targetDisplay = 1;
-                camJugador.targetDisplay = 0;
-                //playerController.enabled = true;
-                //Ahora sería panelGeneral revisar si es necesario
-                //panelCentral.SetActive(true);
-                camPrincipal.targetTexture = null;
-                camAuxiliar.targetTexture = null;
-                camJugador.targetTexture = null;
-                break;
-
-            //POSIBLEMENTE OBSOLETOS
-            /*
-            case 3: //Abrir la cámara
-                panelEdicion.SetActive(true);
-                panelInfo.SetActive(false);
-                //playerController.enabled = false;
-                break;
-
-            case 4: //Volver al panel
-                panelEdicion.SetActive(false);
-                panelInfo.SetActive(true);
-                //playerController.enabled = true;
-                break;
-            */
-        }
     }
 }

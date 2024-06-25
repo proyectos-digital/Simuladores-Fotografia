@@ -79,10 +79,10 @@ namespace RockVR.Video.Demo
 
         IEnumerator processVideo()
         {
-            message = "Procesando video,\n por favor espere..";
+            message = "<size=30>Procesando video,\n Por favor espere...</size>";
             nc.SendNotification(message);
             yield return new WaitForSeconds(4f);
-            message = "VIDEO LISTO\nAlmacenado en Documentos/RockVR";
+            message = "<size=30>VIDEO LISTO\nAlmacenado en Documentos/RockVR</size>";
             nc.SendNotification(message);
         }
 
