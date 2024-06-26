@@ -4546,7 +4546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasEditarElm: {fileID: 2276607240824211503}
-  txtMensajePanel: {fileID: 8605121712794063807}
   active: 0
   pressQ: 0
 --- !u!114 &8355992678585346506
@@ -6670,6 +6669,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 6833639323347245312}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 8557233421096866664}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
         type: 3}
@@ -6679,10 +6682,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3289386536654992790}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4929f185912b63648ad21fa0b87b1da0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6833639323347245312}
   m_SourcePrefab: {fileID: 100100000, guid: 4929f185912b63648ad21fa0b87b1da0, type: 3}
 --- !u!4 &3757037448680558615 stripped
 Transform:
@@ -6740,6 +6739,33 @@ CapsuleCollider:
   m_Height: 0.64
   m_Direction: 1
   m_Center: {x: 0, y: -0.09, z: 0}
+--- !u!54 &6833639323347245312
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569039312238250669}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &8557233421096866664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6753,7 +6779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasEditarElm: {fileID: 1882550618476654704}
-  txtMensajePanel: {fileID: 3410740045712576412}
   active: 0
   pressQ: 0
 --- !u!136 &30921407058004719
@@ -6798,33 +6823,6 @@ MonoBehaviour:
   isGrabbed: 0
   nc: {fileID: 0}
   message: Toma de a un objeto!
---- !u!54 &6833639323347245312
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4569039312238250669}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1001 &4235077648224784055
 PrefabInstance:
   m_ObjectHideFlags: 0

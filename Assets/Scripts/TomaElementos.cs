@@ -62,7 +62,7 @@ public class TomaElementos : MonoBehaviour
         if (activ && !activarPanel.pressQ)
         {
             //Toma el elemento
-            if (Input.GetKeyDown(KeyCode.T) && posicionElemento.childCount == 0)
+            if (Input.GetKeyUp(KeyCode.T) && posicionElemento.childCount == 0)
             {
                 isGrabbed = true;
                 elementos.transform.SetParent(posicionElemento);
@@ -70,15 +70,16 @@ public class TomaElementos : MonoBehaviour
                 elementos.transform.rotation = posicionElemento.rotation;
                 BloquearPaneles();
             }
-            else if (Input.GetKeyDown(KeyCode.T) && !isGrabbed && posicionElemento.childCount > 0)
+            else if (Input.GetKeyUp(KeyCode.T) && !isGrabbed && posicionElemento.childCount > 0)
             {
                 message = "Toma de a un objeto!";
                 nc.SendNotification(message);
             }
         }
         //Suelta el elemento
-        if (Input.GetKeyDown(KeyCode.E) && posicionElemento.childCount > 0)
+        if (Input.GetKeyUp(KeyCode.E) && posicionElemento.childCount > 0)
         {
+            elementos.transform.eulerAngles = new Vector3(0, elementos.transform.eulerAngles.y, elementos.transform.eulerAngles.z);
             elementos.transform.SetParent(null);
             DesactivarInfo();
         }
@@ -87,7 +88,7 @@ public class TomaElementos : MonoBehaviour
     {
         if(text == null)
         {
-            text = "-<b><size=22>Q</size></b> ABRIR CONFIGURACIÓN\n \n-<b><size=22>T</size></b> AGARRAR OBJETO";
+            text = "-<b><size=22>Q</size></b> ABRIR CONFIGURACIÓN\n\n-<b><size=22>T</size></b> AGARRAR OBJETO";
         }
         message = text;
         txtMensajePanel.text = text;
