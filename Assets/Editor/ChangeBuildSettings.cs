@@ -11,60 +11,60 @@ public class ChangeBuildSettings : MonoBehaviour
         config = AssetDatabase.LoadAssetAtPath<SceneProductNameConfig>("Assets/Settings/SceneProductNameConfig.asset");
     }
 
-    [MenuItem("Build/Fotografia/Fotografía Plaza")]
+    [MenuItem("Build/Fotografia/Caso1 Plaza")]
     static void FotoCaso1()
     {
         UpdateProductNameAndBuildSettings(0);
     }
 
-    [MenuItem("Build/Fotografia/Fotografia Polideportivo")]
+    [MenuItem("Build/Fotografia/Caso2 Polideportivo")]
     static void FotoCaso2()
     {
         UpdateProductNameAndBuildSettings(1);
     }
 
-    [MenuItem("Build/Fotografia/Fotografía Rural")]
+    [MenuItem("Build/Fotografia/Caso3 Rural")]
     static void FotoCaso3()
     {
         UpdateProductNameAndBuildSettings(2);
     }
 
-    [MenuItem("Build/Fotografia/Fotografía Municipio")]
+    [MenuItem("Build/Fotografia/Caso4 Municipio")]
     static void FotoCaso4()
     {
         UpdateProductNameAndBuildSettings(3);
     }
 
-    [MenuItem("Build/Fotografia/Fotografía Studio")]
+    [MenuItem("Build/Fotografia/Caso5 Studio")]
     static void FotoCaso5()
     {
         UpdateProductNameAndBuildSettings(4);
     }
 
-    [MenuItem("Build/Fotografia/Fotografía Studio 2")]
+    [MenuItem("Build/Fotografia/Caso6 Studio 2")]
     static void FotoCaso6()
     {
         UpdateProductNameAndBuildSettings(5);
     }
 
-    [MenuItem("Build/Tv/Tv Nosferatu")]
+    [MenuItem("Build/Tv/Caso3 Nosferatu")]
     static void TvCaso3()
     {
         UpdateProductNameAndBuildSettings(6);
     }
 
-    [MenuItem("Build/Tv/Tv Polideportivo")]
+    [MenuItem("Build/Tv/Caso4 Polideportivo")]
     static void TvCaso4()
     {
         UpdateProductNameAndBuildSettings(7);
     }
 
-    [MenuItem("Build/Tv/Tv Municipio")]
+    [MenuItem("Build/Tv/Caso5 Municipio")]
     static void TvCaso5()
     {
         UpdateProductNameAndBuildSettings(8);
     }
-    [MenuItem("Build/Tv/Tv Festival")]
+    [MenuItem("Build/Tv/Caso6 Festival")]
     static void TvCaso6()
     {
         UpdateProductNameAndBuildSettings(9);
