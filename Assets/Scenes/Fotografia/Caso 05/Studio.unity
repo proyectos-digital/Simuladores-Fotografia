@@ -3469,9 +3469,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-  m_Intensity: 262144
-  m_Range: 6.3
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 128
+  m_Range: 2
   m_SpotAngle: 179
   m_InnerSpotAngle: 135
   m_CookieSize: 10
@@ -3515,7 +3515,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 8700
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 6.3}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 2}
   m_UseBoundingSphereOverride: 1
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -3532,7 +3532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 21
+  m_Intensity: 10
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -5123,7 +5123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 13.772607
+  m_Intensity: 10
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 80
@@ -5245,8 +5245,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1749.3544
-  m_Range: 7
+  m_Intensity: 128
+  m_Range: 2
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5290,7 +5290,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 8700
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 7}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 2}
   m_UseBoundingSphereOverride: 1
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -9091,11 +9091,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 938837800}
   txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1542003261}
   canvasInfo: {fileID: 0}
+  noMovable: 0
   isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!135 &1542003264
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9945,11 +9947,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 938837800}
   txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1641239776}
   canvasInfo: {fileID: 0}
+  noMovable: 0
   isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!135 &1641239782
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10512,9 +10516,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-  m_Intensity: 262144
-  m_Range: 7
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 128
+  m_Range: 2
   m_SpotAngle: 179
   m_InnerSpotAngle: 135
   m_CookieSize: 10
@@ -10558,7 +10562,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 8700
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 7}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 2}
   m_UseBoundingSphereOverride: 1
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -10575,7 +10579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 21
+  m_Intensity: 10
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -11088,11 +11092,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtAviso: {fileID: 938837800}
   txtMensajePanel: {fileID: 0}
   elementos: {fileID: 1782326167}
   canvasInfo: {fileID: 0}
+  noMovable: 0
   isGrabbed: 0
+  nc: {fileID: 0}
+  message: Toma de a un objeto!
 --- !u!114 &1791810548 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3569927186929835866, guid: 143cb3228395bb747b3832afba362b43,
@@ -11715,8 +11721,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-  m_Intensity: 6813670.5
-  m_Range: 7
+  m_Intensity: 128
+  m_Range: 2
   m_SpotAngle: 179
   m_InnerSpotAngle: 135
   m_CookieSize: 10
@@ -11760,7 +11766,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 8700
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 7}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 2}
   m_UseBoundingSphereOverride: 1
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -11777,7 +11783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 25.7
+  m_Intensity: 10
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
