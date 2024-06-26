@@ -8,7 +8,7 @@ public class SceneProductNameConfig : ScriptableObject
     public struct SceneProductPair
     {
         public SceneAsset sceneName;
-        [HideInInspector]public string productName;
+        public string productName;
     }
 
     public SceneProductPair[] sceneProductPairs; // Array de pares de nombre de escena y nombre de producto
