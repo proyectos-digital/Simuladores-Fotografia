@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class PanelController : MonoBehaviour{
 
@@ -10,6 +12,7 @@ public class PanelController : MonoBehaviour{
     [SerializeField] private CameraAnimations cameraAnimations;
     [SerializeField] private CameraManager camManager;
     bool isOpenPanel = true;
+    [SerializeField] public Volume volume;
     //Booleano para configurar en escenas que sean de estudio
     [SerializeField] bool isStudy = false;
     [SerializeField] bool isTV = false;
@@ -34,5 +37,7 @@ public class PanelController : MonoBehaviour{
     void OpenPanel(){
         isOpenPanel = !isOpenPanel;
         panelGeneral.SetActive(isOpenPanel);
+        volume.enabled = isOpenPanel;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

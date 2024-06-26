@@ -231,6 +231,7 @@ public class CameraManager : MonoBehaviour
             panelMenu.SetActive(isMenu);
             Cursor.visible = isMenu;
             Cursor.lockState = isMenu ? CursorLockMode.None : CursorLockMode.Locked;
+            Debug.Log(Cursor.lockState);
             cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !isMenu;
         }
     }
