@@ -42,7 +42,7 @@ public class AIPatrol : MonoBehaviour
         destPoint = (destPoint + 1) % points.Length;
     }
     //Inicia la actriz a caminar hacia el punto indicado
-    void StartAnimation()
+    public void StartAnimation()
     {
         waitRecord = false;
         GotoNextPoint();
@@ -52,7 +52,7 @@ public class AIPatrol : MonoBehaviour
     }
     //Se Teletransporta la posición original de actriz y...
     //Reinicio de condiciones para el estado de animaciones
-    void ResetAnimation()
+    public void ResetAnimation()
     {
         agent.Warp(originalPosition);
         waitRecord =true;
@@ -63,12 +63,10 @@ public class AIPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Cuando se presiona Tecla N --> Temporal se usara TvController o VideoCapture para iniciar animaciones
-        if(Input.GetKeyUp(KeyCode.N))
+        if (Input.GetKeyUp(KeyCode.N))
         {
             StartAnimation();
         }
-        //Tecla M --> Temporal se usara TvController o VideoCapture para resetear posiciones y animaciones
         if (Input.GetKeyUp(KeyCode.M))
         {
             ResetAnimation();

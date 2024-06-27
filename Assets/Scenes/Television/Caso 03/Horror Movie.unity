@@ -3688,6 +3688,11 @@ PrefabInstance:
       objectReference: {fileID: 244597877}
     - target: {fileID: 3050193125609574865, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
+      propertyPath: aiPatrol
+      value: 
+      objectReference: {fileID: 1165606191}
+    - target: {fileID: 3050193125609574865, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
       propertyPath: btnRecord
       value: 
       objectReference: {fileID: 2023081314}
@@ -9701,13 +9706,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 261979190}
     - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1165606191}
+    - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartRecord
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AIPatrol, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5779867347645019713, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -13086,7 +13126,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a9af1cafee33a8249874cc859f21df69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.717
+      value: 7.371
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9af1cafee33a8249874cc859f21df69,
         type: 3}
@@ -13192,10 +13232,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.02
-  m_Speed: 1
-  m_Acceleration: 3
+  m_Speed: 0.45
+  m_Acceleration: 2
   avoidancePriority: 50
-  m_AngularSpeed: 80
+  m_AngularSpeed: 40
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
