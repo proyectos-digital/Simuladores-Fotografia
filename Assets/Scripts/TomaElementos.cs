@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class TomaElementos : MonoBehaviour
 {
     [Header("Toma de elementos")]
-    public TMP_Text txtMensajePanel;
     public GameObject elementos;            //El elemento que tomaré
     public GameObject canvasInfo;
+    public GameObject grabInfoImg;
+    public GameObject exitInfoImg;
+    public GameObject dropInfoImg;
     [SerializeField] bool noMovable = false;
     public bool isGrabbed;
     private Transform posicionElemento;     //Mano
@@ -17,7 +19,6 @@ public class TomaElementos : MonoBehaviour
     private ActivarPanel activarPanel;
     TvController tvController;
     public NotificationController nc;
-    public string message = "Toma de a un objeto!";
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class TomaElementos : MonoBehaviour
         activarPanel = this.GetComponent<ActivarPanel>();
         tvController = GameObject.FindWithTag("Tv").GetComponent<TvController>();
         nc = GameObject.FindWithTag("Notification").GetComponent<NotificationController>();
-        MensajesPanel(noMovable ? "-<b><size=22>Q</size></b>\n\nABRIR CONFIGURACIÓN" : null);
+        MensajesPanel(grabInfoImg);
         if (objetoMano != null)
         {
             posicionElemento = objetoMano.transform;
@@ -39,12 +40,13 @@ public class TomaElementos : MonoBehaviour
     {
         TomaElemento();
     }
-    public void BloquearPaneles()
+    public void BloquearPaneles(int value)
     {
         tvController.isOpenGeneral = true;
         tvController.isOpenInventory = true;
-        MensajesPanel(isGrabbed ? "PRESIONA <b><size=22>E</size></b>\n SOLTAR OBJETO." : 
-            "-Configura los valores de la izquierda.\n\n-<b><size=22>Q</size></b> SALIR.");
+        //Cambio de manejo de mensajes, ahora activaremos objetos en el PanelInfo
+        MensajesPanel(isGrabbed ? dropInfoImg : value > 0 ? exitInfoImg : grabInfoImg);
+            //"-Configura los valores de la izquierda.\n\n-<b><size=22>Q</size></b> SALIR.");
     }
     public void DesactivarInfo()
     {
@@ -54,7 +56,7 @@ public class TomaElementos : MonoBehaviour
         isGrabbed = false;
         tvController.isOpenGeneral = false;
         tvController.isOpenInventory = false;
-        MensajesPanel(noMovable ? "-<b><size=22>Q</size></b>\n\nABRIR CONFIGURACIÓN" : null);
+        MensajesPanel(null);
     }
 
     public void TomaElemento()
@@ -68,12 +70,11 @@ public class TomaElementos : MonoBehaviour
                 elementos.transform.SetParent(posicionElemento);
                 elementos.transform.position = posicionElemento.position;
                 elementos.transform.rotation = posicionElemento.rotation;
-                BloquearPaneles();
+                BloquearPaneles(0);
             }
             else if (Input.GetKeyUp(KeyCode.T) && !isGrabbed && posicionElemento.childCount > 0)
             {
-                message = "Toma de a un objeto!";
-                nc.SendNotification(message);
+                nc.SendNotification("Toma de a un objeto!");
             }
         }
         //Suelta el elemento
@@ -84,14 +85,17 @@ public class TomaElementos : MonoBehaviour
             DesactivarInfo();
         }
     }
-    public void MensajesPanel(string text)
+    public void MensajesPanel(GameObject obj)
     {
-        if(text == null)
+        grabInfoImg.SetActive(false);
+        dropInfoImg.SetActive(false);
+        exitInfoImg.SetActive(false);
+        if (obj == null)
         {
-            text = "-<b><size=22>Q</size></b> ABRIR CONFIGURACIÓN\n\n-<b><size=22>T</size></b> AGARRAR OBJETO";
+            canvasInfo.SetActive(false);
+            return;
         }
-        message = text;
-        txtMensajePanel.text = text;
+        obj.SetActive(true);
     }
     public bool CallCheck()
     {
@@ -103,6 +107,7 @@ public class TomaElementos : MonoBehaviour
         if (other.tag == "Player" && posicionElemento.childCount <= 0)
         {
             canvasInfo.SetActive(!CallCheck());
+            MensajesPanel(grabInfoImg);
             if (!noMovable && (!isGrabbed || !activarPanel.pressQ) && !CallCheck())
             {
                 activ = true;

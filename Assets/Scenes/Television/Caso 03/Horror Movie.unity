@@ -3681,6 +3681,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: VideoCaptureObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 2592479342863838057, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592479342863838057, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.348
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768089876440890674, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3050193125609574865, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: nc
@@ -3922,7 +3937,9 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6574505499643661710, guid: 04fc4a7513d101943b6c1c8e15894308, type: 3}
+    - {fileID: 2768089876440890674, guid: 04fc4a7513d101943b6c1c8e15894308, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04fc4a7513d101943b6c1c8e15894308, type: 3}
@@ -9574,11 +9591,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1089323769}
-    - target: {fileID: 2256526820643766007, guid: 8d480b83f4091b947a4413938a81fe69,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisableinfoPanel
-      objectReference: {fileID: 0}
     - target: {fileID: 2602228579699555466, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_IsActive
@@ -9653,6 +9665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnabledControlPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613894526684443342, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -437.7
       objectReference: {fileID: 0}
     - target: {fileID: 4629295358086766001, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -9874,6 +9891,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenFolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6309809446053079285, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6956516704799597263, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9883,11 +9905,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318805834433216727, guid: 8d480b83f4091b947a4413938a81fe69,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7441588114648022771, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -12439,7 +12456,6 @@ MonoBehaviour:
   mainOptionsPanel: {fileID: 864746233}
   controlOptionsPanel: {fileID: 864746229}
   infoMenuPanel: {fileID: 864746225}
-  dayControlPanel: {fileID: 0}
   screenSizeDropdown: {fileID: 864746232}
   resString: []
 --- !u!1 &1093956186
