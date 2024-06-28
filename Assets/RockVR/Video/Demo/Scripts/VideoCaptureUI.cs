@@ -31,11 +31,11 @@ namespace RockVR.Video.Demo
 
         [SerializeField] private NotificationController nc;
         [SerializeField] private string message;
+        [SerializeField] AIPatrol aiPatrol;
 
 
         private void Awake()
         {
-            //Application.runInBackground = true;
             isPlayVideo = false;
         }
         void Update()
@@ -54,9 +54,6 @@ namespace RockVR.Video.Demo
             btnRecord.onClick.RemoveAllListeners();
             btnRecord.onClick.AddListener(StopRecord);
             imgStopRecord.SetActive(true);
-            camPrincipal.targetDisplay = 1;
-            camAuxiliar.targetDisplay = 1;
-            camJugador.targetDisplay = 0;
         }
 
         public void StopRecord()
@@ -73,7 +70,6 @@ namespace RockVR.Video.Demo
             tiempoCorriendo = false;
             tiempo = 0f;                            //Reinicia el tiempo
             txtTiempo.text = "";
-            //plCtrl.LockCursor();
             StartCoroutine("processVideo");
         }
 
@@ -84,6 +80,10 @@ namespace RockVR.Video.Demo
             yield return new WaitForSeconds(4f);
             message = "<size=30>VIDEO LISTO\nAlmacenado en Documentos/RockVR</size>";
             nc.SendNotification(message);
+            if (aiPatrol != null)
+            {
+                aiPatrol.ResetAnimation();
+            }
         }
 
         public void OpenFolder()
