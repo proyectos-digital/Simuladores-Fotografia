@@ -13,6 +13,7 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] bool camHand = true;
     public bool isMenu = false;
+    public bool isDayControlActive = false;
     public Camera cameraPhoto;
     public Transform camObj, camPosOrig, camPosStudy;
     [SerializeField] private Slider[] sliders;
@@ -20,6 +21,7 @@ public class CameraManager : MonoBehaviour
     //Paneles
     [Header("Paneles")]
     public GameObject panelMenu;
+    public GameObject dayControlPanel;
 
     [Header("Buttons")]
     public Button isoButton;
@@ -226,15 +228,33 @@ public class CameraManager : MonoBehaviour
             
         }
         //Menu de luces en escena Estudio
-        if ((!camHand && !isOpenPanel)&& Input.GetKeyUp(KeyCode.M)) {
+        if ((!camHand && !isOpenPanel) && Input.GetKeyUp(KeyCode.M)) {
+            Debug.Log(isMenu);
             isMenu = !isMenu;
             panelMenu.SetActive(isMenu);
             Cursor.visible = isMenu;
             Cursor.lockState = isMenu ? CursorLockMode.None : CursorLockMode.Locked;
-            Debug.Log(Cursor.lockState);
             cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !isMenu;
         }
+
+        if ((camHand) && Input.GetKeyUp(KeyCode.X))
+        {
+            isMenu = !isMenu;
+            Debug.Log(isMenu);
+            //isMenuActivated = !isMenu;
+            dayControlPanel.SetActive(isMenu);
+            Cursor.visible = isMenu;
+            Cursor.lockState = isMenu ? CursorLockMode.Confined : CursorLockMode.None;
+            cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
+        }
+
     }
+
+    public void EnabledPanel(bool isMenuActivated)
+    {
+        
+    }
+
     public void PanelCamStudy() {
         if(!isMenu)
             PanelAction(false);
@@ -254,10 +274,7 @@ public class CameraManager : MonoBehaviour
         }
         //Mostrar Panel, bloquear movimiento mouse y ya
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Pressed left-click.");
-        }
+        
 
         Cursor.visible = isOpenPanel;
         //Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
@@ -278,6 +295,7 @@ public class CameraManager : MonoBehaviour
             }
             
         }
+
         cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
     }
 }
