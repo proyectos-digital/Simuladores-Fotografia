@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -12698,6 +12698,10 @@ MonoBehaviour:
   - {fileID: 1069492446}
   - {fileID: 1422471936}
   - {fileID: 1664565307}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!95 &456312853
 Animator:
   serializedVersion: 5
@@ -23099,6 +23103,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1469889755}
+    - target: {fileID: 585410944009543191, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 601797504965189778, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23119,6 +23128,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2144469447}
+    - target: {fileID: 1372527616406825078, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1530918714302345202, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23294,6 +23308,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2112209974}
+    - target: {fileID: 7256135686454478014, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7441588114648022771, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -42140,6 +42159,10 @@ MonoBehaviour:
   - {fileID: 1920746021}
   - {fileID: 1427187874}
   - {fileID: 1700072302}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!4 &1232949352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b97ea67a4f10f0e4e99bdea37cc8aea3,
@@ -55398,6 +55421,10 @@ MonoBehaviour:
   - {fileID: 1920746021}
   - {fileID: 1427187874}
   - {fileID: 1700072302}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!1001 &1732844875
 PrefabInstance:
   m_ObjectHideFlags: 0
