@@ -4,6 +4,7 @@ using UnityEngine;
 //using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
+using System.Diagnostics;
 using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
@@ -229,7 +230,7 @@ public class CameraManager : MonoBehaviour
         }
         //Menu de luces en escena Estudio
         if ((!camHand && !isOpenPanel) && Input.GetKeyUp(KeyCode.M)) {
-            Debug.Log(isMenu);
+            //Debug.Log(isMenu);
             isMenu = !isMenu;
             panelMenu.SetActive(isMenu);
             Cursor.visible = isMenu;
@@ -240,7 +241,7 @@ public class CameraManager : MonoBehaviour
         if ((camHand) && Input.GetKeyUp(KeyCode.X))
         {
             isMenu = !isMenu;
-            Debug.Log(isMenu);
+            //Debug.Log(isMenu);
             //isMenuActivated = !isMenu;
             dayControlPanel.SetActive(isMenu);
             Cursor.visible = isMenu;
@@ -297,5 +298,11 @@ public class CameraManager : MonoBehaviour
         }
 
         cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
+    }
+
+    public void OpenFolder()
+    {
+        string path = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Screenshots";
+        Process.Start(path);
     }
 }
