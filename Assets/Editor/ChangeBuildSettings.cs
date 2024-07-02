@@ -41,7 +41,7 @@ public class ChangeBuildSettings : MonoBehaviour
         UpdateProductNameAndBuildSettings(4);
     }
 
-    [MenuItem("Build/Fotografia/Caso6 Studio 2")]
+    [MenuItem("Build/Fotografia/Caso6 Studio People")]
     static void FotoCaso6()
     {
         UpdateProductNameAndBuildSettings(5);

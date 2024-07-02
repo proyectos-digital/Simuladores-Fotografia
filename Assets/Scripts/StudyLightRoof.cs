@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StudyLightRoof : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class StudyLightRoof : MonoBehaviour
         lightObj = GetComponent<Light>();
     }
 
-    public void ChangeState() {
-        active =! active;
+    public void ChangeState(Toggle toggle) {
+        active = toggle.isOn;
         lightObj.enabled = active;
         lightObj.GetComponentInChildren<Renderer>().material = active ? materialOn : materialOff;
     }

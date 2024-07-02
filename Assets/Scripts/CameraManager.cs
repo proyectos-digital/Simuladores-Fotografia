@@ -265,12 +265,12 @@ public class CameraManager : MonoBehaviour
         isOpenPanel = !isOpenPanel;
         if (isOpenPanel)
         {
-            notificationText = "se activo el modo camara";
+            notificationText = "Se activo el modo cámara";
             nc.SendNotification(notificationText);
         }
         else
         {
-            notificationText = "se desactivo el modo camara";
+            notificationText = "Se desactivo el modo cámara";
             nc.SendNotification(notificationText);
         }
         //Mostrar Panel, bloquear movimiento mouse y ya

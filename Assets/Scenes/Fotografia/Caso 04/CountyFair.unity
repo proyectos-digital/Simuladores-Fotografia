@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1336.9904, g: 1158.3771, b: 1208.0958, a: 1}
+  m_IndirectSpecularColor: {r: 1337.9747, g: 1143.0802, b: 1173.1427, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12741,6 +12741,10 @@ MonoBehaviour:
   - {fileID: 1069492446}
   - {fileID: 1422471936}
   - {fileID: 1664565307}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!95 &456312853
 Animator:
   serializedVersion: 5
@@ -34942,12 +34946,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1083618648}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1093804286 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6308106876556335328, guid: 143cb3228395bb747b3832afba362b43,
-    type: 3}
-  m_PrefabInstance: {fileID: 1077170541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1093949286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42529,6 +42527,10 @@ MonoBehaviour:
   - {fileID: 1920746021}
   - {fileID: 1427187874}
   - {fileID: 1700072302}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!4 &1232949352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b97ea67a4f10f0e4e99bdea37cc8aea3,
@@ -45689,6 +45691,12 @@ Transform:
   - {fileID: 1655705659}
   m_Father: {fileID: 174054131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1349610402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3133037892764277971, guid: 143cb3228395bb747b3832afba362b43,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077170541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1355782831 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8339102469414745840, guid: 143cb3228395bb747b3832afba362b43,
@@ -46820,9 +46828,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8816282954732307388, guid: 3f5bf1989da4b6e4690b07d2ff9fcd62,
         type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 967607033}
+    - target: {fileID: 8816282954732307388, guid: 3f5bf1989da4b6e4690b07d2ff9fcd62,
+        type: 3}
       propertyPath: panelDay
       value: 
-      objectReference: {fileID: 1093804286}
+      objectReference: {fileID: 1349610402}
     - target: {fileID: 8816282954732307388, guid: 3f5bf1989da4b6e4690b07d2ff9fcd62,
         type: 3}
       propertyPath: camManager
@@ -47126,6 +47139,11 @@ PrefabInstance:
       propertyPath: exposureSlider
       value: 
       objectReference: {fileID: 2072297856}
+    - target: {fileID: 2387281139830822043, guid: dbd404d633aa5564b85e030444ac0045,
+        type: 3}
+      propertyPath: dayControlPanel
+      value: 
+      objectReference: {fileID: 1907828554}
     - target: {fileID: 2387281139830822043, guid: dbd404d633aa5564b85e030444ac0045,
         type: 3}
       propertyPath: focalLengthButton
@@ -55664,6 +55682,10 @@ MonoBehaviour:
   - {fileID: 1920746021}
   - {fileID: 1427187874}
   - {fileID: 1700072302}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!1001 &1732844875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60013,6 +60035,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d62931e0a9d452d4b8c6e29df7ab3868,
     type: 3}
   m_PrefabInstance: {fileID: 1906456355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1907828554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4143937137288511492, guid: 143cb3228395bb747b3832afba362b43,
+    type: 3}
+  m_PrefabInstance: {fileID: 1077170541}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1911288349
 PrefabInstance:
