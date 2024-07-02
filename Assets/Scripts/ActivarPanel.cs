@@ -45,7 +45,7 @@ public class ActivarPanel : MonoBehaviour
         {
             pressQ = true;
             canvasEditarElm.SetActive(true);
-            tomaElementos.BloquearPaneles();
+            tomaElementos.BloquearPaneles(1);
             playerMovement.MoveAllow();
             playerCam.MouseLocked();
         }

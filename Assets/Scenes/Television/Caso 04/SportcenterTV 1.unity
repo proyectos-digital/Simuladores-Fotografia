@@ -501,6 +501,10 @@ MonoBehaviour:
   - {fileID: 898367531}
   - {fileID: 456433751}
   - {fileID: 795036922}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!195 &67573969
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7329,6 +7333,10 @@ MonoBehaviour:
   - {fileID: 423364159}
   - {fileID: 1196508754}
   - {fileID: 645476445}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!1001 &1060216716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7468,6 +7476,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.52, y: 2.15, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1079575637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3628043310309186314, guid: bc5fe80d55522db4eba01c0c1f02688e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3628043311114746155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1088810983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: c630eafd8df6ac44a9e398da0cc05ac8,
@@ -8565,6 +8585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8816282954732307388, guid: 3f5bf1989da4b6e4690b07d2ff9fcd62,
         type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1079575637}
+    - target: {fileID: 8816282954732307388, guid: 3f5bf1989da4b6e4690b07d2ff9fcd62,
+        type: 3}
       propertyPath: panelDay
       value: 
       objectReference: {fileID: 893914561}
@@ -9170,6 +9195,10 @@ MonoBehaviour:
   - {fileID: 795036922}
   - {fileID: 1285735826}
   - {fileID: 898367531}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!195 &1313785045
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9205,6 +9234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!1001 &1342836864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10785,6 +10818,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 15979031}
+    - target: {fileID: 585410944009543191, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 601797504965189778, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10965,6 +11003,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1846713085}
+    - target: {fileID: 6308106876556335328, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256135686454478014, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7441588114648022771, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -15584,6 +15632,10 @@ MonoBehaviour:
   - {fileID: 645476445}
   - {fileID: 1986312315}
   - {fileID: 423364159}
+  nosferatu: 0
+  waitRecord: 0
+  chicaNosferatu: {fileID: 0}
+  chicoNosferatu: {fileID: 0}
 --- !u!195 &2104256246
 NavMeshAgent:
   m_ObjectHideFlags: 0
