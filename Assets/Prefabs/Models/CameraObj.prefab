@@ -412,13 +412,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3418799702819964079}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.19936797, y: 0, z: 0, w: 0.97992474}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3418799703113505409}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -23, y: 0, z: 0}
 --- !u!108 &3418799702819964066
 Light:
   m_ObjectHideFlags: 0
@@ -431,8 +431,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 221.85745
-  m_Range: 20
+  m_Intensity: 1024
+  m_Range: 6
   m_SpotAngle: 110.55879
   m_InnerSpotAngle: 60.24318
   m_CookieSize: 10
@@ -516,14 +516,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 600
+  m_Intensity: 13
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
-  m_LightUnit: 0
+  m_LightUnit: 4
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
   m_AffectDiffuse: 1
@@ -692,8 +692,8 @@ Camera:
   m_Iso: 200
   m_ShutterSpeed: 0.004
   m_Aperture: 5.6
-  m_FocusDistance: 3
-  m_FocalLength: 24.063894
+  m_FocusDistance: 448.5
+  m_FocalLength: 23.5
   m_BladeCount: 6
   m_Curvature: {x: 2, y: 32}
   m_BarrelClipping: 0
@@ -707,8 +707,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 60
-  field of view: 56
+  far clip plane: 300
+  field of view: 57.133766
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -782,9 +782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efb4a762d5ffb14882fb8f1e33cd7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 400
-  sensY: 400
+  sensitivtySloder: {fileID: 0}
   orientation: {fileID: 0}
+  lockMouse: 0
+  isTv: 0
+  tvController: {fileID: 0}
 --- !u!114 &3418799703113505415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,6 +802,8 @@ MonoBehaviour:
   resWidth: 1280
   resHeight: 720
   mainCamera: {fileID: 1576445735}
+  cameraSound: {fileID: 0}
+  nc: {fileID: 0}
   luzFlash: {fileID: 3418799702819964079}
   imgHorizontal: {fileID: 0}
   imgVertical: {fileID: 0}
@@ -994,6 +998,7 @@ MonoBehaviour:
   studyPosition: {fileID: 0}
   playerMov: {fileID: 0}
   isStudy: 0
+  isTV: 0
   camManager: {fileID: 0}
 --- !u!1001 &566138713436337100
 PrefabInstance:

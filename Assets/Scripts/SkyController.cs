@@ -23,7 +23,7 @@ public class SkyController : MonoBehaviour
         
         sunData = sun.GetComponent<HDAdditionalLightData>();
         sunLight = sun.GetComponent<Light>();
-        SetCloudPreset();
+        //SetCloudPreset();
     }
 
     // Update is called once per frame
@@ -63,10 +63,10 @@ public class SkyController : MonoBehaviour
             case 3:
                 sun.transform.rotation = Quaternion.identity;
                 //mid sun
-                sunData.intensity = 2000f;
+                sunData.intensity = 550f;
                 sun.transform.Rotate(-180.0f, 0.0f, 0.0f, Space.Self);
                 EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
-                sunLight.colorTemperature = 4000f;
+                sunLight.colorTemperature = 5500f;
                 break;
             case 4:
                 sun.transform.rotation = Quaternion.identity;
