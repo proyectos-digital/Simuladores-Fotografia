@@ -177,7 +177,7 @@ public class CameraManager : MonoBehaviour
 
     public void ToggleFlash(Toggle toggle) {
         screenshot.FlashOn(toggle);
-        UnityEngine.Debug.Log(toggle);
+        //UnityEngine.Debug.Log(toggle);
         //toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
     }
 
