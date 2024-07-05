@@ -3705,7 +3705,7 @@ PrefabInstance:
         type: 3}
       propertyPath: aiPatrol
       value: 
-      objectReference: {fileID: 1165606191}
+      objectReference: {fileID: 0}
     - target: {fileID: 3050193125609574865, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: btnRecord
@@ -3731,6 +3731,11 @@ PrefabInstance:
       propertyPath: btnAbrirFolder
       value: 
       objectReference: {fileID: 2023081312}
+    - target: {fileID: 3050193125609574865, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: aiPatrolNosferatu
+      value: 
+      objectReference: {fileID: 1165606197}
     - target: {fileID: 3334902802148494810, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: _targetFramerate
@@ -9783,7 +9788,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1165606191}
+      objectReference: {fileID: 1165606197}
     - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -9802,7 +9807,7 @@ PrefabInstance:
     - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: AIPatrol, Assembly-CSharp
+      value: AIPatrolNosferatu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -13270,7 +13275,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a9af1cafee33a8249874cc859f21df69,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1165606191}
+      addedObject: {fileID: 1165606197}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a9af1cafee33a8249874cc859f21df69,
         type: 3}
       insertIndex: -1
@@ -13318,24 +13323,6 @@ NavMeshAgent:
   m_BaseOffset: -0.01
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1165606191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165606189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b12b25fdefd118b41ba5280a1ff3e051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 258522339}
-  nosferatu: 1
-  waitRecord: 1
-  chicaNosferatu: {fileID: 1165606195}
-  chicoNosferatu: {fileID: 156629195}
 --- !u!114 &1165606195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13370,6 +13357,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1165606197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165606189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3537389fedd52444b85064ccd7dd564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 258522339}
+  nosferatu: 1
+  waitRecord: 1
+  chicaNosferatu: {fileID: 1165606195}
+  chicoNosferatu: {fileID: 156629195}
 --- !u!1 &1173160679
 GameObject:
   m_ObjectHideFlags: 0

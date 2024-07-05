@@ -31,7 +31,7 @@ namespace RockVR.Video.Demo
 
         [SerializeField] private NotificationController nc;
         [SerializeField] private string message;
-        [SerializeField] AIPatrol aiPatrol;
+        [SerializeField] AIPatrolNosferatu aiPatrolNosferatu;
 
 
         private void Awake()
@@ -80,9 +80,9 @@ namespace RockVR.Video.Demo
             yield return new WaitForSeconds(4f);
             message = "<size=30>VIDEO LISTO\nAlmacenado en Documentos/RockVR</size>";
             nc.SendNotification(message);
-            if (aiPatrol != null)
+            if (aiPatrolNosferatu != null)
             {
-                aiPatrol.ResetAnimation();
+                aiPatrolNosferatu.ResetAnimation();
             }
         }
 
