@@ -14,7 +14,6 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] bool camHand = true;
     public bool isMenu = false;
-    public bool isDayControlActive = false;
     public Camera cameraPhoto;
     public Transform camObj, camPosOrig, camPosStudy;
     [SerializeField] private Slider[] sliders;
@@ -74,7 +73,6 @@ public class CameraManager : MonoBehaviour
     void Start() {
         
         volume.profile.TryGet<LensDistortion>(out lens);
-        //volume.profile.TryGet(out colorAdjustments);
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         volume.profile.TryGet<FilmGrain>(out filmGrain);
 
@@ -95,7 +93,6 @@ public class CameraManager : MonoBehaviour
 
         focusDistanceSlider.onValueChanged.AddListener(fd => {
             cameraPhoto.focusDistance = focusDistanceSlider.value;
-            //Debug.Log(focusDistanceSlider.value);
         });
 
         focalLengthSlider.onValueChanged.AddListener(fl => {
@@ -122,19 +119,11 @@ public class CameraManager : MonoBehaviour
             exposureText = exposureButton.GetComponentInChildren<TMP_Text>();
             exposureText.text = "± " + v.ToString();
         });
-
-        SaveCamera();
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void ActiveSlider(Slider slider){
         bool checkSlider = CheckActiveSlider(sliders);
-        //foreach (var sld in sliders)
-        //{
-          //  Debug.Log(sld);
-        //}
-       // Debug.Log(checkSlider);
-
         if (checkSlider)
         {
             foreach (var s in sliders)
@@ -168,24 +157,16 @@ public class CameraManager : MonoBehaviour
             }
         }
         return sliderStatus;
-
     }
-
-    
 
     public void ToggleFlash(Toggle toggle) {
         screenshot.FlashOn(toggle);
-        //UnityEngine.Debug.Log(toggle);
-        //toggle.GetComponentInChildren<Text>().text = toggle.isOn ? "Flash On" : "Flash Off";
     }
 
     public void OnOffEyeFish() {
         lens.active = !lens.active;
-        //lens.active = true;
-        //Debug.Log("On off Ojo de Pez");
     }
     public void OnOffPanel(GameObject panel) {
-        //panel.active = !panel.active;
         if (panel.gameObject.activeSelf)
         {
             panel.gameObject.SetActive(false);
@@ -194,19 +175,6 @@ public class CameraManager : MonoBehaviour
         {
             panel.gameObject.SetActive(true);
         }
-        //lens.active = true;
-    }
-
-
-    //Guardar ajustes de la camara
-    void SaveCamera() {
-        
-        //len = lens.active;
-    }
-
-    //Cargar ajustes Camara
-    public void LoadCamera() {
-        //lens.active = len;
     }
 
     void LoadCameraStudy() {
@@ -214,14 +182,11 @@ public class CameraManager : MonoBehaviour
     }
 
     public void ResetCamera() {
-        SaveCamera();
         cameraPhoto.focalLength = 23.5f;
         volume.enabled = false;
-        //lens.active = false;
     }
 
     void Update(){
-        //REVISAR MODO CON CLICK SOSTENIDO MANIPULAR LA ORIENTACIÓN DE LA CAMARA EN MODO CAMARA
         if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C))
         {
             PanelAction(true);
@@ -230,30 +195,17 @@ public class CameraManager : MonoBehaviour
         }
         //Menu de luces en escena Estudio
         if ((!camHand && !isOpenPanel) && Input.GetKeyUp(KeyCode.M)) {
-            //Debug.Log(isMenu);
             isMenu = !isMenu;
             panelMenu.SetActive(isMenu);
-            Cursor.visible = isMenu;
-            Cursor.lockState = isMenu ? CursorLockMode.None : CursorLockMode.Locked;
-            cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !isMenu;
+            cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked();// = !isMenu;
         }
 
         if ((camHand) && Input.GetKeyUp(KeyCode.X))
         {
             isMenu = !isMenu;
-            //Debug.Log(isMenu);
-            //isMenuActivated = !isMenu;
             dayControlPanel.SetActive(isMenu);
-            Cursor.visible = isMenu;
-            Cursor.lockState = isMenu ? CursorLockMode.Confined : CursorLockMode.None;
-            cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
+            cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked();// = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
         }
-
-    }
-
-    public void EnabledPanel(bool isMenuActivated)
-    {
-        
     }
 
     public void PanelCamStudy() {
@@ -273,9 +225,7 @@ public class CameraManager : MonoBehaviour
             notificationText = "Se desactivo el modo cámara";
             nc.SendNotification(notificationText);
         }
-        //Mostrar Panel, bloquear movimiento mouse y ya
-
-        
+        //Mostrar Panel, bloquear movimiento mouse y ya        
 
         Cursor.visible = isOpenPanel;
         //Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
@@ -294,10 +244,10 @@ public class CameraManager : MonoBehaviour
                 cameraPhoto.transform.rotation = camPosOrig.rotation;
                 ResetCamera();
             }
-            
         }
-
-        cameraPhoto.GetComponentInChildren<PlayerCam>().enabled = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
+        //Se llama a la función MouseLocked en vez de deshabilitar el script...
+        //para poder usar el drag del mouse y girar la cámara en modo Cámara
+        cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked(); // = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
     }
 
     public void OpenFolder()

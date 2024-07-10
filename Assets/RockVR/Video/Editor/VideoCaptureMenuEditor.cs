@@ -36,7 +36,7 @@ namespace RockVR.Video.Editor
         {
             GameObject videoCapturePrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/VideoCaptureCtrl")) as GameObject;
             videoCapturePrefab.name = "VideoCaptureCtrl";
-            PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
+            //PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
             GameObjectUtility.SetParentAndAlign(videoCapturePrefab, menuCommand.context as GameObject);
             Undo.RegisterCreatedObjectUndo(videoCapturePrefab, "Create " + videoCapturePrefab.name);
             Selection.activeObject = videoCapturePrefab;
@@ -48,7 +48,7 @@ namespace RockVR.Video.Editor
         {
             GameObject videoCapturePrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/DedicatedCapture")) as GameObject;
             videoCapturePrefab.name = "DedicatedCapture";
-            PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
+            //PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
             GameObjectUtility.SetParentAndAlign(videoCapturePrefab, menuCommand.context as GameObject);
             Undo.RegisterCreatedObjectUndo(videoCapturePrefab, "Create " + videoCapturePrefab.name);
             Selection.activeObject = videoCapturePrefab;
@@ -60,7 +60,7 @@ namespace RockVR.Video.Editor
         {
             GameObject videoCapturePrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/360Capture")) as GameObject;
             videoCapturePrefab.name = "360Capture";
-            PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
+            //PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
             GameObjectUtility.SetParentAndAlign(videoCapturePrefab, menuCommand.context as GameObject);
             Undo.RegisterCreatedObjectUndo(videoCapturePrefab, "Create " + videoCapturePrefab.name);
             Selection.activeObject = videoCapturePrefab;
@@ -82,7 +82,7 @@ namespace RockVR.Video.Editor
             }
             GameObject videoCapturePrefab = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/MainCapture")) as GameObject;
             videoCapturePrefab.name = "MainCapture";
-            PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
+            //PrefabUtility.DisconnectPrefabInstance(videoCapturePrefab);
             GameObjectUtility.SetParentAndAlign(videoCapturePrefab, menuCommand.context as GameObject);
             Undo.RegisterCreatedObjectUndo(videoCapturePrefab, "Create " + videoCapturePrefab.name);
             Selection.activeObject = videoCapturePrefab;

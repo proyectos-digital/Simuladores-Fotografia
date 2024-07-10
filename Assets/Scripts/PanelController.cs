@@ -5,9 +5,7 @@ using UnityEngine.Rendering.HighDefinition;
 public class PanelController : MonoBehaviour{
 
     [SerializeField] private GameObject panelGeneral;
-    [SerializeField] private GameObject panelDay;
     [SerializeField] private GameObject panelCamProp;
-    [SerializeField] private bool activatePanelDay;
     [SerializeField] private bool activatePanelCam;
     [SerializeField] private CameraAnimations cameraAnimations;
     [SerializeField] private CameraManager camManager;
@@ -25,7 +23,6 @@ public class PanelController : MonoBehaviour{
             camManager.panelStudy += OpenPanel;
         } else if(!isTV){
             cameraAnimations.openPanel += OpenPanel;
-            panelDay.SetActive(activatePanelDay);
         }
     }
 

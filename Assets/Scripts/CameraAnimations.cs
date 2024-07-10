@@ -35,10 +35,6 @@ public class CameraAnimations : MonoBehaviour
     void OnOffPanel() {
         openPanel();
     }
-    //Funciones usadas como eventos en las animaciones de la camara
-    void LoadCamera() {
-        cameraManager.LoadCamera();
-    }
     void ResetCamera() {
         cameraManager.ResetCamera();
     }
