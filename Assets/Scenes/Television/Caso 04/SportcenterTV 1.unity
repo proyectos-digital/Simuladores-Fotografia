@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1676798006}
-  m_IndirectSpecularColor: {r: 5282.977, g: 4179.678, b: 3401.2427, a: 1}
+  m_IndirectSpecularColor: {r: 5277.561, g: 4154.395, b: 3300.9536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -536,10 +536,6 @@ MonoBehaviour:
   - {fileID: 456433751}
   - {fileID: 573951400}
   - {fileID: 795036922}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!195 &67573969
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3204,6 +3200,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje33
       objectReference: {fileID: 0}
+    - target: {fileID: 3644698129384156916, guid: 8bf234862cd808c4db3f8f429ed15d4e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb6ff4f9ed3486c4a9bb8260119f9800, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3983,7 +3984,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0f3e089a5cf0efe469e73ce17823711d, type: 2}
+      objectReference: {fileID: 2100000, guid: f85c7e4e0dd5c8c4685a72c5095df561, type: 2}
     - target: {fileID: 919132149155446097, guid: 8358b21166d716d42a2d766daaea8f02,
         type: 3}
       propertyPath: m_Name
@@ -4007,6 +4008,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1312626575}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8358b21166d716d42a2d766daaea8f02,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1312626576}
   m_SourcePrefab: {fileID: 100100000, guid: 8358b21166d716d42a2d766daaea8f02, type: 3}
 --- !u!1001 &456317349
 PrefabInstance:
@@ -7414,6 +7419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje34
       objectReference: {fileID: 0}
+    - target: {fileID: 3644698129384156916, guid: 9104a62a5549cda4588f59173508ab71,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb6ff4f9ed3486c4a9bb8260119f9800, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7933,10 +7943,6 @@ MonoBehaviour:
   - {fileID: 722537424}
   - {fileID: 645476445}
   - {fileID: 1770592519}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!1001 &1060216716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9445,10 +9451,6 @@ MonoBehaviour:
   - {fileID: 23966236}
   - {fileID: 1285735826}
   - {fileID: 2047194503}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!195 &1288738252
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9714,6 +9716,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2044333143}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85709e2f65cc4164ab3de89dd967ba4c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2044333144}
   m_SourcePrefab: {fileID: 100100000, guid: 85709e2f65cc4164ab3de89dd967ba4c, type: 3}
 --- !u!1 &1302027535
 GameObject:
@@ -9945,6 +9951,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.03, y: 0.13, z: 0.03}
   m_Center: {x: 0, y: 0.065, z: 0}
+--- !u!95 &1312626576
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100069850}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 6fa009b790370a242a3419cd8a2356f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1313785041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e3c1cf045f90a7f42a52e7dfbf3a7168,
@@ -9972,10 +9999,6 @@ MonoBehaviour:
   - {fileID: 2047194503}
   - {fileID: 898367531}
   - {fileID: 1421462578}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!195 &1313785045
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10515,10 +10538,6 @@ MonoBehaviour:
   - {fileID: 898367531}
   - {fileID: 1421462578}
   - {fileID: 456433751}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!195 &1369850414
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -16619,6 +16638,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.085, z: 0}
   m_TimeToStationary: 0.5
+--- !u!95 &2044333144
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044333139}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: b14dcd92f6108854d8e227c1edd97661, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2047194502
 GameObject:
   m_ObjectHideFlags: 0
@@ -16938,10 +16978,6 @@ MonoBehaviour:
   - {fileID: 1986312315}
   - {fileID: 1416325502}
   - {fileID: 423364159}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!195 &2104256246
 NavMeshAgent:
   m_ObjectHideFlags: 0
