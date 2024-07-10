@@ -78,8 +78,6 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         volume.profile.TryGet<FilmGrain>(out filmGrain);
 
-        
-
         isoSlider.wholeNumbers = true;
         int[] isoValues = { 100, 200, 400, 800, 1600, 3200, 6400 };
         float[] FGValues = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.7f, 0.9f };
@@ -223,6 +221,7 @@ public class CameraManager : MonoBehaviour
     }
 
     void Update(){
+        //REVISAR MODO CON CLICK SOSTENIDO MANIPULAR LA ORIENTACIÓN DE LA CAMARA EN MODO CAMARA
         if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C))
         {
             PanelAction(true);
