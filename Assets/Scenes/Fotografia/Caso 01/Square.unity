@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1586.5955, g: 1247.3566, b: 990.54114, a: 1}
+  m_IndirectSpecularColor: {r: 1586.283, g: 1246.9718, b: 990.33606, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,14 +252,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {fileID: 1131904381}
-  - {fileID: 1521497215}
+  - {fileID: 496911531}
   - {fileID: 1060381633}
   - {fileID: 1542850194}
-  - {fileID: 496911531}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
+  - {fileID: 1521497215}
 --- !u!195 &31356121
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -270,7 +266,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.03
-  m_Speed: 0.6
+  m_Speed: 0.7
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 60
@@ -5603,7 +5599,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.02
-  m_Speed: 0.58
+  m_Speed: 0.7
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 60
@@ -5629,14 +5625,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {fileID: 1521497215}
-  - {fileID: 496911531}
   - {fileID: 1131904381}
+  - {fileID: 496911531}
   - {fileID: 1060381633}
   - {fileID: 1542850194}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!4 &292929883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9e650993f46a9c44ab6c771500cbf78a,
@@ -6246,14 +6238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {fileID: 1131904381}
-  - {fileID: 1542850194}
-  - {fileID: 496911531}
-  - {fileID: 1060381633}
   - {fileID: 1521497215}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
+  - {fileID: 1542850194}
+  - {fileID: 1060381633}
+  - {fileID: 496911531}
 --- !u!4 &354487406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74a9c164d076cbb4986dc48b86a8222e,
@@ -14313,10 +14301,6 @@ MonoBehaviour:
   - {fileID: 496911531}
   - {fileID: 1131904381}
   - {fileID: 1521497215}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!195 &978236755
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -16079,7 +16063,7 @@ Transform:
   m_GameObject: {fileID: 1060381632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.15, y: -1.9, z: 2.673}
+  m_LocalPosition: {x: 22.15, y: -1.9, z: 3.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17380,7 +17364,7 @@ Transform:
   m_GameObject: {fileID: 1131904380}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.19, y: -1.9, z: 16.51}
+  m_LocalPosition: {x: -2.59, y: -1.9, z: 14.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18997,7 +18981,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 74a9c164d076cbb4986dc48b86a8222e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9480656
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a9c164d076cbb4986dc48b86a8222e,
         type: 3}
@@ -19007,7 +18991,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 74a9c164d076cbb4986dc48b86a8222e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.3180749
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a9c164d076cbb4986dc48b86a8222e,
         type: 3}
@@ -19022,7 +19006,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 74a9c164d076cbb4986dc48b86a8222e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -37.093
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a9c164d076cbb4986dc48b86a8222e,
         type: 3}
@@ -22267,14 +22251,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 1060381633}
-  - {fileID: 496911531}
+  - {fileID: 1542850194}
   - {fileID: 1521497215}
   - {fileID: 1131904381}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
+  - {fileID: 496911531}
+  - {fileID: 1060381633}
 --- !u!1 &1521497214
 GameObject:
   m_ObjectHideFlags: 0
@@ -22378,7 +22359,7 @@ Transform:
   m_GameObject: {fileID: 1542850193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.68, y: -1.9, z: -9.96}
+  m_LocalPosition: {x: 20.76, y: -1.9, z: -9.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26787,7 +26768,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 558c130068141ff42ab5785cfba99e08,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.439592
+      value: 8.253
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 558c130068141ff42ab5785cfba99e08,
         type: 3}
@@ -26919,14 +26900,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {fileID: 496911531}
+  - {fileID: 1060381633}
   - {fileID: 1542850194}
   - {fileID: 1521497215}
   - {fileID: 1131904381}
-  - {fileID: 1060381633}
-  nosferatu: 0
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
 --- !u!4 &1884780106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 558c130068141ff42ab5785cfba99e08,
@@ -27642,6 +27619,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1981053556}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe20acfee0ad3e141ad69f1a30017cff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1981053557}
   m_SourcePrefab: {fileID: 100100000, guid: fe20acfee0ad3e141ad69f1a30017cff, type: 3}
 --- !u!4 &1981053553 stripped
 Transform:
@@ -27690,14 +27671,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 1521497215}
   - {fileID: 496911531}
+  - {fileID: 1521497215}
   - {fileID: 1131904381}
   - {fileID: 1060381633}
-  nosferatu: 1
-  waitRecord: 0
-  chicaNosferatu: {fileID: 0}
-  chicoNosferatu: {fileID: 0}
+--- !u!95 &1981053557
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981053554}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d583dd560551ba64db8f9bd5327a0f4e, type: 3}
+  m_Controller: {fileID: 22100000, guid: f7460dd91206c6c4cb7f52fa31b79d9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1986734772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 910267d983170f547aa23abad3a67cbb,
