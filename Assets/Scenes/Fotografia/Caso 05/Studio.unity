@@ -155,7 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camHand: 0
   isMenu: 0
-  isDayControlActive: 0
   cameraPhoto: {fileID: 2102730771}
   camObj: {fileID: 1658962513}
   camPosOrig: {fileID: 76683313}
@@ -1139,6 +1138,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3133037892764277971, guid: 143cb3228395bb747b3832afba362b43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3400571692917162017, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
       propertyPath: m_IsActive
@@ -1162,9 +1166,19 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3927291073633627937, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927291073633627937, guid: 143cb3228395bb747b3832afba362b43,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActiveSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 3927291073633627937, guid: 143cb3228395bb747b3832afba362b43,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1817652979}
     - target: {fileID: 4339829681945275190, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1178,6 +1192,11 @@ PrefabInstance:
     - target: {fileID: 4339829681945275190, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629295358086766001, guid: 143cb3228395bb747b3832afba362b43,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4633603326789055097, guid: 143cb3228395bb747b3832afba362b43,
@@ -3203,9 +3222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelGeneral: {fileID: 155251121}
-  panelDay: {fileID: 0}
   panelCamProp: {fileID: 2059670412}
-  activatePanelDay: 0
   activatePanelCam: 0
   cameraAnimations: {fileID: 1241630809}
   camManager: {fileID: 7725407}
