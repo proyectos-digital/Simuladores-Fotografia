@@ -23,7 +23,7 @@ public class SkyController : MonoBehaviour
         
         sunData = sun.GetComponent<HDAdditionalLightData>();
         sunLight = sun.GetComponent<Light>();
-        //SetCloudPreset();
+        SetCloudPreset();
     }
 
     // Update is called once per frame
@@ -35,9 +35,9 @@ public class SkyController : MonoBehaviour
     void SetCloudPreset() 
     {
         skyVolume.profile.TryGet<VolumetricClouds>(out volumetricClouds);
-        cloudPresetSelected = cloudsPrefabs[Random.Range(0, cloudsPrefabs.Length - 1)];
+        int randomCloud = Random.Range(0, cloudsPrefabs.Length - 1);
+        cloudPresetSelected = cloudsPrefabs[randomCloud];
         volumetricClouds.cloudPreset = cloudPresetSelected;
-        //Debug.Log(cloudPresetSelected);
     }
 
     public void SetTimeOfDay(float time)
@@ -64,7 +64,7 @@ public class SkyController : MonoBehaviour
                 sun.transform.rotation = Quaternion.identity;
                 //mid sun
                 sunData.intensity = 550f;
-                sun.transform.Rotate(-180.0f, 0.0f, 0.0f, Space.Self);
+                sun.transform.Rotate(175.0f, 0.0f, 0.0f, Space.Self);
                 EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
                 sunLight.colorTemperature = 5500f;
                 break;

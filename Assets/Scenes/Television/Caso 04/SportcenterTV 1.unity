@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1676798006}
-  m_IndirectSpecularColor: {r: 5280.3657, g: 4166.4653, b: 3346.891, a: 1}
+  m_IndirectSpecularColor: {r: 4998.7446, g: 4015.8716, b: 3364.1646, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,7 +428,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 23e0f9830b5ce8c43bd0a77fceae971d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -488.812
+      value: -488.8417
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 23e0f9830b5ce8c43bd0a77fceae971d,
         type: 3}
@@ -496,6 +496,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 2e23d0dc714592e4a850349a495a4137,
         type: 2}
+    - target: {fileID: 5866666021909216657, guid: 23e0f9830b5ce8c43bd0a77fceae971d,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 23e0f9830b5ce8c43bd0a77fceae971d,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -504,10 +514,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2002876765}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23e0f9830b5ce8c43bd0a77fceae971d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2002876764}
   m_SourcePrefab: {fileID: 100100000, guid: 23e0f9830b5ce8c43bd0a77fceae971d, type: 3}
 --- !u!1 &67573965 stripped
 GameObject:
@@ -3557,7 +3563,7 @@ PrefabInstance:
     - target: {fileID: 8971937729077594892, guid: 663f43a35a839ef4ebbac1146a7128af,
         type: 3}
       propertyPath: cloudPresetSelected
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16407,33 +16413,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 60895187}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &2002876764
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205243452}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 2
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &2002876765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16453,8 +16432,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.15, z: 0.08}
-  m_Center: {x: 0, y: 0.075, z: 0}
+  m_Size: {x: 0.08, y: 0.14251336, z: 0.08}
+  m_Center: {x: 0, y: 0.07, z: 0}
 --- !u!4 &2006443767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: afc0e3767d3d114408d50d4da204f043,

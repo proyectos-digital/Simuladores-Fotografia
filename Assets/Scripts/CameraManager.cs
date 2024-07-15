@@ -144,10 +144,8 @@ public class CameraManager : MonoBehaviour
     private bool CheckActiveSlider(Slider[] sliderList)
     {
         bool sliderStatus = false;
-        UnityEngine.Debug.Log("sliderList_"+sliderList);
         foreach (var slider in sliderList)
         {
-            UnityEngine.Debug.Log("slider_"+slider);
             if (slider.gameObject.activeSelf) {
                 sliderStatus = false;
             }
@@ -157,7 +155,6 @@ public class CameraManager : MonoBehaviour
                 break;
             }
         }
-        UnityEngine.Debug.Log("sliderStatus_" + sliderStatus);
         return sliderStatus;
     }
 
