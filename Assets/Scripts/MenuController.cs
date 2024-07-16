@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
     public GameObject mainOptionsPanel;
     public GameObject controlOptionsPanel;
     public GameObject infoMenuPanel;
+    //public CanvasScaler scaler;
     
     public TMP_Dropdown screenSizeDropdown;
     //public string[] resString;
@@ -77,6 +78,7 @@ public class MenuController : MonoBehaviour
         {
             Screen.SetResolution(resx, resy, false);
         }
+        //scaler.referenceResolution = new Vector2(resx, resy);
     }
     public void ActivateMenu(bool activeMenu)
     {
