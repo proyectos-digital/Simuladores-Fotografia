@@ -53,17 +53,18 @@ public class ChangeBuildSettings : MonoBehaviour
         UpdateProductNameAndBuildSettings(6);
     }
 
-    [MenuItem("Build/Tv/Caso4 Polideportivo")]
+    [MenuItem("Build/Tv/Caso4 Municipio")]
     static void TvCaso4()
     {
         UpdateProductNameAndBuildSettings(7);
     }
 
-    [MenuItem("Build/Tv/Caso5 Municipio")]
+    [MenuItem("Build/Tv/Caso5 Polideportivo")]
     static void TvCaso5()
     {
         UpdateProductNameAndBuildSettings(8);
     }
+
     [MenuItem("Build/Tv/Caso6 Festival")]
     static void TvCaso6()
     {

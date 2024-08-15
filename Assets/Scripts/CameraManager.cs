@@ -201,10 +201,14 @@ public class CameraManager : MonoBehaviour
 
         if ((camHand) && Input.GetKeyUp(KeyCode.X))
         {
-            isMenu = !isMenu;
-            dayControlPanel.SetActive(isMenu);
-            cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked();// = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
+                DayPanel();
         }
+    }
+    public void DayPanel()
+    {
+        isMenu = !isMenu;
+        dayControlPanel.SetActive(isMenu);
+        cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked();// = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
     }
 
     public void PanelCamStudy() {
@@ -224,7 +228,7 @@ public class CameraManager : MonoBehaviour
             notificationText = "Se desactivo el modo cámara";
             nc.SendNotification(notificationText);
         }
-        //Mostrar Panel, bloquear movimiento mouse y ya        
+        //Mostrar Panel, bloquear movimiento mouse y ya
 
         Cursor.visible = isOpenPanel;
         //Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
