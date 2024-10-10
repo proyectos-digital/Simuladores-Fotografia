@@ -45,12 +45,6 @@ public class Screenshot : MonoBehaviour
         takeHiResShot = true;
     }
 
-    public void Start()
-    {
-        //cameraSound = GetComponent<AudioSource>();
-        //Debug.Log(cameraSound);
-        //m_Play = false;
-    }
     public void ChangeOrientation() {
         isHorizontal = !isHorizontal;
         imgHorizontal.SetActive(!imgHorizontal.activeSelf);
@@ -61,39 +55,6 @@ public class Screenshot : MonoBehaviour
     public void FlashOn(Toggle tgl) {
         isFlashing = tgl.isOn;
     }
-
-    /*void LateUpdate() {
-        Texture2D screenShot;
-        RenderTexture rt;
-        //takeHiResShot |= Input.GetKeyUp(KeyCode.P); //Input.GetKeyDown("k");
-        if (Input.GetKeyUp(KeyCode.K) || takeHiResShot) {
-            if (isHorizontal) {
-                rt = new RenderTexture(resWidth, resHeight, 24);
-                mainCamera.targetTexture = rt;
-                screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
-                mainCamera.Render();
-                RenderTexture.active = rt;
-                screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
-            } else {
-                rt = new RenderTexture(resHeight, resWidth, 24);
-                mainCamera.targetTexture = rt;
-                screenShot = new Texture2D(resHeight, resWidth, TextureFormat.RGB24, false);
-                mainCamera.Render();
-                RenderTexture.active = rt;
-                screenShot.ReadPixels(new Rect(0, 0, resHeight, resWidth), 0, 0);
-            }
-            mainCamera.targetTexture = null;
-            RenderTexture.active = null;
-            Destroy(rt);
-            byte[] bytes = screenShot.EncodeToPNG();
-            string fileName = ScreenShotName(resWidth, resHeight);
-            System.IO.File.WriteAllBytes(fileName, bytes);
-            txtItem.text = "se tomo la foto: " + fileName;
-            Debug.Log(string.Format("Took screenshot to: {0}", fileName));
-            takeHiResShot = false;
-
-        }
-    }*/
 
     public void GetScreenshot() {
         //Iluminar luz con flash
@@ -130,49 +91,6 @@ public class Screenshot : MonoBehaviour
         }
         takeHiResShot = false;
     }
-    //Funcion sin usar 
-    /*IEnumerator RecordUpscaledFrame(ImageFormat imageFormat, int screenshotUpscale, string fileName) {
-        takeHiResShot = true;
-        yield return new WaitForEndOfFrame();
-        try {
-            RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
-            mainCamera.targetTexture = rt;
-            Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
-            mainCamera.Render();
-            RenderTexture.active = rt;
-            screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
-            mainCamera.targetTexture = null;
-            RenderTexture.active = null;
-            Destroy(rt);
-            byte[] bytes = screenShot.EncodeToJPG();
-            string dateFormat = "yyyy-MM-dd-HH-mm-ss";
-            fileName = resWidth.ToString() + "x" + resHeight.ToString() + "px_" + System.DateTime.Now.ToString(dateFormat);
-            //photoInventory.GetTexture(rt);
-            if (fileName == "") {
-                int resWidth = mainCamera.pixelWidth * screenshotUpscale;
-                int resHeight = mainCamera.pixelHeight * screenshotUpscale;
-            }
-            //Funcion para subir imagen a servidor... SIN USO
-            //Texture2D screenShot = ScreenCapture.CaptureScreenshotAsTexture(screenshotUpscale);
-            //ImageUploader.Initialize()
-            //    .SetUrl(serverUrl)
-            //    .SetTexture(screenShot)
-            //    //.SetBytes(bytes)
-            //    .SetFieldName(fieldName)
-            //    .SetFileName(fileName)
-            //    .SetType(ImageType.JPG)
-            //    .OnError(error => Debug.Log(error))
-            //    .OnComplete(text => Debug.Log(text))
-            //    .Upload();
-            //if (imageFormat == ImageFormat.jpg) DownloadFile({{..EncodeToJPG(), fileName, "jpg");
-            //else if (imageFormat == ImageFormat.png) DownloadFile(screenShot.EncodeToPNG(), fileName, "png");
-            Destroy(screenShot);
-        } catch (System.Exception e) {
-            Debug.Log("Original error: " + e.Message);
-        }
-        takeHiResShot = false;
-        StartCoroutine("FlashOff");
-    }*/
 
     IEnumerator FlashOff() {
         luzFlash.SetActive(true);

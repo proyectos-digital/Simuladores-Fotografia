@@ -1,19 +1,18 @@
 using UnityEngine.AI;
 using UnityEngine;
 
+//SCRIPT PARA EL MOVIMIENTO DE LOS NPC EN ESCENA NOSFERATU
 public class AIPatrolNosferatu : MonoBehaviour
 {
     public Transform[] points;
-    //public NavMeshAgent
     private int destPoint = 0;
-    private NavMeshAgent agent;
-    [SerializeField] bool nosferatu = false;
+    private NavMeshAgent agent; 
     [SerializeField] bool waitRecord = false;
     [SerializeField] AnimationsController chicaNosferatu;
     [SerializeField] AnimationsController chicoNosferatu;
     Vector3 originalPosition = Vector3.zero;
     bool prepare = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -48,8 +47,7 @@ public class AIPatrolNosferatu : MonoBehaviour
         chicoNosferatu.ResetAnimation(waitRecord);
         chicaNosferatu.Animations("Walk");
     }
-    //Se Teletransporta la posición original de actriz y...
-    //Reinicio de condiciones para el estado de animaciones
+    //Se Teletransporta la posición inicial de actriz y reinicia condiciones para el estado de animaciones
     public void ResetAnimation()
     {
         agent.Warp(originalPosition);
@@ -61,23 +59,10 @@ public class AIPatrolNosferatu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.N))
-        {
-            StartAnimation();
-        }
-        if (Input.GetKeyUp(KeyCode.M))
-        {
-            ResetAnimation();
-        }
         // Choose the next destination point when the agent gets
         // close to the current one.
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
-            if (!nosferatu)
-            {
-                //Segundo if Nosferatu falso para las demas escenas
-                GotoNextPoint();
-            }
             // Only one point y waitRecord es falso
             //Camina la actriz hacia Nosferatu
             if (points.Length == 1 && !waitRecord)

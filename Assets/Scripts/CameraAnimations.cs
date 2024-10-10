@@ -22,12 +22,11 @@ public class CameraAnimations : MonoBehaviour
             screenshot.cameraOrientation += ChangeOrientation;
         }
     }
-
+    //Funciones para controlar el estado de animaciones, entra o sale de modo cámara
     void MoveCamera(bool isOpen) {
         cameraAnimator.SetBool("IsMode", isOpen);
-        //Desactivar renderizar en miniatura camara si da problemas de rendimiento
-        //cameraRender.SetActive(!isOpen);
     }
+    //Funciones para controlar el estado de animaciones, cambia orientación de cámara
     void ChangeOrientation(bool isHorizontal) {
         cameraAnimator.SetBool("IsHorizontal", isHorizontal);
     }

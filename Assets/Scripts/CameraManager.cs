@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using System.Diagnostics;
 using UnityEngine.UI;
 using TMPro;
-using System.Globalization;
 using System;
 
 public class CameraManager : MonoBehaviour
@@ -36,9 +32,7 @@ public class CameraManager : MonoBehaviour
     private LensDistortion lens = null;
     private ColorAdjustments colorAdjustments = null;
     private FilmGrain filmGrain = null;
-    //Valores iniciales de la camara Foto
-    //float fovIni, camPhotoValue, sldFov;
-    bool isOpenPanel = false, len;
+    bool isOpenPanel = false;
     public Screenshot screenshot;
     public NotificationController nc;
 
@@ -71,11 +65,12 @@ public class CameraManager : MonoBehaviour
 
 
     void Start() {
-        
+        //Obtenemos los componentes de Volume y los almacenamos en variables
         volume.profile.TryGet<LensDistortion>(out lens);
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         volume.profile.TryGet<FilmGrain>(out filmGrain);
 
+        //Asignamos los valores que tendran cada cada parámetro de la cámara
         isoSlider.wholeNumbers = true;
         int[] isoValues = { 100, 200, 400, 800, 1600, 3200, 6400 };
         float[] FGValues = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.7f, 0.9f };
@@ -84,6 +79,7 @@ public class CameraManager : MonoBehaviour
         float[] FocalLengthValues = { 14f, 35f, 50f, 200f, 400f };
         string[] FocalLegthTexts = { "Ultra Angular 14MM", "Gran Angular 35MM", "Distancia Media 50MM", "Teleobjetivo 200MM", "Super Teleobjetivo 400MM" };
 
+        //Asignamos que tendra los sliders según interactuemos para cada Slider correspondiente con sus variables
         isoSlider.onValueChanged.AddListener(i => {
             cameraPhoto.iso = isoValues[(int)i - 1];
             isoText = isoButton.GetComponentInChildren<TMP_Text>();
@@ -119,9 +115,11 @@ public class CameraManager : MonoBehaviour
             exposureText = exposureButton.GetComponentInChildren<TMP_Text>();
             exposureText.text = "± " + v.ToString();
         });
+        //Bloqueamos el mouse para que no se pueda salir de la ventana del simulador
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    // Función que desactiva todos los sliders de la cámara y despues activa la seleccionada
     public void ActiveSlider(Slider slider){
         bool checkSlider = CheckActiveSlider(sliders);
         if (checkSlider)
@@ -140,7 +138,8 @@ public class CameraManager : MonoBehaviour
             slider.gameObject.SetActive(true);
         }
     }
-
+    
+    // Función que retorna el estado activo de los sliders
     private bool CheckActiveSlider(Slider[] sliderList)
     {
         bool sliderStatus = false;
@@ -157,14 +156,15 @@ public class CameraManager : MonoBehaviour
         }
         return sliderStatus;
     }
-
+    //Función para activar el flash de la cámara
     public void ToggleFlash(Toggle toggle) {
         screenshot.FlashOn(toggle);
     }
-
+    //Función para activar el efecto ojo de pez
     public void OnOffEyeFish() {
         lens.active = !lens.active;
     }
+    //Función para activar panel en concreto si no está activo
     public void OnOffPanel(GameObject panel) {
         if (panel.gameObject.activeSelf)
         {
@@ -176,27 +176,30 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    //Al entrar en modo camara en escenas Studio y Studio People carga parametros a la cámara
     void LoadCameraStudy() {
         cameraPhoto.fieldOfView = 30;
     }
 
+    //Al salir del modo cámara reinicia los valores de la cámara y desactiva efectos del global volume
     public void ResetCamera() {
         cameraPhoto.focalLength = 23.5f;
         volume.enabled = false;
     }
 
     void Update(){
+        //Entra en modo cámara si no hay menú abierto y se oprime la tecla C
         if ((camHand && !isMenu)&& Input.GetKeyUp(KeyCode.C))
         {
             PanelAction(true);
             volume.enabled = true;
             
         }
-        //Menu de luces en escena Estudio
+        //Menu de luces en escena Estudio y se abre al presionar la tecla M
         if ((!camHand && !isOpenPanel) && Input.GetKeyUp(KeyCode.M)) {
             isMenu = !isMenu;
             panelMenu.SetActive(isMenu);
-            cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked();// = !isMenu;
+            cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked();
         }
 
         if ((camHand) && Input.GetKeyUp(KeyCode.X))
@@ -204,6 +207,7 @@ public class CameraManager : MonoBehaviour
                 DayPanel();
         }
     }
+    //Abre y cierra el panel de día para cambiar el modo de iluminación, activa el mouse
     public void DayPanel()
     {
         isMenu = !isMenu;
@@ -211,11 +215,13 @@ public class CameraManager : MonoBehaviour
         cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked();// = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
     }
 
+    //Abre el panel de la cámara en escenas Studio y Studio People
     public void PanelCamStudy() {
         if(!isMenu)
             PanelAction(false);
     }
 
+    //Función para el panel de cámara, inicia animación, envia textos al NotificationController
     void PanelAction(bool animate) {
         isOpenPanel = !isOpenPanel;
         if (isOpenPanel)
@@ -228,22 +234,17 @@ public class CameraManager : MonoBehaviour
             notificationText = "Se desactivo el modo cámara";
             nc.SendNotification(notificationText);
         }
-        //Mostrar Panel, bloquear movimiento mouse y ya
 
+        //Mostrar Panel, bloquear movimiento mouse
         Cursor.visible = isOpenPanel;
-        //Cursor.lockState = isOpenPanel ? CursorLockMode.None : CursorLockMode.Locked;
         if (animate) {
             cameraAnimation(isOpenPanel);
         } else {
             panelStudy();
-            //playerMov.gameObject.SetActive(!playerMov.gameObject.activeSelf);
-            //playerMov.enabled = !playerMov.enabled;
             if (isOpenPanel) {
-                //camObj.position = camPosStudy.position;
                 cameraPhoto.transform.rotation = camPosStudy.rotation;
                 LoadCameraStudy();
             } else {
-                //camObj.position = camPosOrig.position;
                 cameraPhoto.transform.rotation = camPosOrig.rotation;
                 ResetCamera();
             }
@@ -253,6 +254,7 @@ public class CameraManager : MonoBehaviour
         cameraPhoto.GetComponentInChildren<PlayerCam>().MouseLocked(); // = !cameraPhoto.GetComponentInChildren<PlayerCam>().enabled;
     }
 
+    //Función para abrir la carpeta donde se almacenan las imágenes 
     public void OpenFolder()
     {
         string path = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Screenshots";

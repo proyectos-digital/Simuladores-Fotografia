@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
+//Script para simuladores Tv crea los objetos de luces y micrófono
 public class InstanciarElementos : MonoBehaviour
 {
     [SerializeField] PlayerCam playerCam;
@@ -30,13 +28,15 @@ public class InstanciarElementos : MonoBehaviour
     public TMP_Text txtCantNeewer660;
     public TMP_Text txtCantGodox;
 
+    //Ubicación donde se generará los objetos
     [Header ("Referencia al jugador")]
     public Transform manoJugador;
 
+    //Luces de escenas Studio y Studio People
     [Header("Luces superiores")]
     public GameObject pnlLuces;
-    //public MenuElementos pnlElementos;
 
+    //Botones que están en el inventario
     [Header("Accesorios")]
     public GameObject btnLuminaria1;
     public GameObject btnAperture300;
@@ -47,13 +47,14 @@ public class InstanciarElementos : MonoBehaviour
 
     void Start()
     {
+        //Indicamos la cantidad que podra crear o instanciar de cada objeto
         txtCantLuminaria.text = cantLuminaria + "/2";
         txtCantAperture300.text = cantAperture300 + "/2";
         txtCantSennheiser.text = cantSennheiser + "/1";
         txtCantNeewer660.text = cantNeewer660 + "/2";
         txtCantGodox.text = cantGodox + "/2";
     }
-    //Instancia objetos según el valor del botón correspondiente
+    //Instancia objetos según el valor del botón correspondiente en el siguiente switch
     // 0 - Luz Luminaria
     // 1 - Luz Aperture 300
     // 2 - Microfono Sennheiser
@@ -61,7 +62,7 @@ public class InstanciarElementos : MonoBehaviour
     // 4 - Luz Godox
     public void NuevoAccersorio(int accesorio)
     {
-        
+        //Instanciamos el objeto segun el valor indicado
         playerCam.MouseLocked();
         tvController.PanelInventory();
         switch(accesorio)
@@ -72,7 +73,6 @@ public class InstanciarElementos : MonoBehaviour
                     Instantiate(luminaria1, manoJugador.transform.position, new Quaternion(0, 0, 0, 0));// manoJugador.transform.rotation);
                     cantLuminaria--;
                     txtCantLuminaria.text = cantLuminaria + "/2";
-                    //pnlElementos.ActivarUI(0);  
                     if (cantLuminaria == 0) btnLuminaria1.SetActive(false);
                 }
                 break;

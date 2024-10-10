@@ -1,14 +1,13 @@
 using UnityEngine.AI;
 using UnityEngine;
 
+//SCRIPT PARA EL MOVIMIENTO DE LOS NPC
 public class AIPatrol : MonoBehaviour
 {
     public Transform[] points;
-    //public NavMeshAgent
     private int destPoint = 0;
     private NavMeshAgent agent;
 
-    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -18,6 +17,7 @@ public class AIPatrol : MonoBehaviour
         // approaches a destination point).
         agent.autoBraking = false;
     }
+    //Una vez llegue al punto indicado se le asignara un nuevo punto a donde ir
     void GotoNextPoint()
     {
         // Returns if no points have been set up
@@ -31,7 +31,7 @@ public class AIPatrol : MonoBehaviour
         // cycling to the start if necessary.
         destPoint = (destPoint + 1) % points.Length;
     }
-    // Update is called once per frame
+    // Cuando este cerca al punto indicado llama a la función
     void Update()
     {
         // Choose the next destination point when the agent gets

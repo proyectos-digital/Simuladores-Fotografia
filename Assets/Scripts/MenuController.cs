@@ -1,43 +1,38 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 using TMPro;
+using System.Linq;
 
+//Script para todo lo relevante con el UI y resolución de los simuladores
 public class MenuController : MonoBehaviour
 {
     private bool isMenuActive = false;
     private bool isInfoActive = true;
     private char[] delimiterChars = { 'x', ' '};
     private string screenResolutionSelected;
+    //Objetos activadores/desactivadores de pantalla completa y cesped
     public Toggle fullScreenToggle;
     public Toggle grassEnabled;
+    //Objetos Paneles
     public GameObject mainMenuPanel;
     public GameObject mainOptionsPanel;
     public GameObject controlOptionsPanel;
     public GameObject infoMenuPanel;
-    //public CanvasScaler scaler;
-    
     public TMP_Dropdown screenSizeDropdown;
-    //public string[] resString;
     public List<string> resString = new List<string>();
 
-    // Start is called before the first frame update
     void Start()
     {
-        //ActivateMenuInfo();
+        //Carga los valores de resolución disponibles
         SetNativeResolutions();
         screenSizeDropdown.onValueChanged.AddListener(delegate {
             DropdownValueChanged(screenSizeDropdown);
         });
-
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if ((!isMenuActive) && Input.GetKeyUp(KeyCode.Escape))
@@ -65,11 +60,8 @@ public class MenuController : MonoBehaviour
         {
             Debug.Log(word);
         }
-        //Debug.Log(screenResolutionSelected);
         int resx = Int32.Parse(words[0]);
-        //Debug.Log(resx);
         int resy = Int32.Parse(words[1]);
-        //Debug.Log(resy);
         if (fullScreenToggle.isOn)
         {
             Screen.SetResolution(resx, resy, true);
@@ -78,7 +70,6 @@ public class MenuController : MonoBehaviour
         {
             Screen.SetResolution(resx, resy, false);
         }
-        //scaler.referenceResolution = new Vector2(resx, resy);
     }
     public void ActivateMenu(bool activeMenu)
     {
@@ -89,14 +80,6 @@ public class MenuController : MonoBehaviour
         Time.timeScale = isMenuActive ? 0 : 1;
         //Debug.Log(Time.timeScale);
     }
-
-    //COMENTADO YA QUE NO HACE NADA!!!
-    //public void ActivateMenuInfo()
-    //{
-        
-    //    //Cursor.lockState = CursorLockMode.Confined;
-        
-    //}
 
     public void DisableinfoPanel()
     {
@@ -139,34 +122,16 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public void ChangeResolution(string resSelected)
-    {
-        //se necesita resolucion
-        //necesita ver si es full screen o no
-        
-    }
-
     private void SetNativeResolutions()
     {
-        Resolution[] resolutions = Screen.resolutions;
+        var resolutions = Screen.resolutions.Where(resolution => resolution.refreshRateRatio.value <= 180 );
         
         foreach (var res in resolutions)
         {
-            resString.Add(res.width.ToString() + "x" + res.height.ToString() +" "+ res.refreshRateRatio.ToString() + "hz");
+            resString.Add(res.width.ToString() + "x" + res.height.ToString() +" "+ res.refreshRateRatio.value.ToString("F0") + "hz");
         }
         screenSizeDropdown.ClearOptions();
         screenSizeDropdown.AddOptions(resString);
-        //string[] stringResolutions;
-        /*for (int i = 0; i < resolutions.length; i++)
-        {
-            string newResolution = resolutions[i].width + "x" + resolutions[i].height;
-            Debug.Log(newResolution);
-        }*/
-        //Debug.Log(resolutions[2].width + "x" + resolutions[2].height);
-        /*foreach (var res in resolutions)
-        {
-            Debug.Log(res.width + "x" + res.height);
-        }*/
     }
 
     public void EnableGrass(Toggle grassToggle)

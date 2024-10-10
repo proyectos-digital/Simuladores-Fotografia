@@ -7,7 +7,8 @@ public enum ImageType{
 	PNG,
 	JPG
 }
-
+	//Script sin uso cuando se pensaba en que se enviaría al backen directamente desde el ejecutable.
+	//En su lugar se genera archivo y se guarda en una carpeta local
 public class ImageUploader : MonoBehaviour{
 	Texture2D imageTexture;
 	string fieldName;

@@ -1,24 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.UI;
 
+//SCRIPT PARA LOS SIMULADORES DE TV
 public class ActivarPanel : MonoBehaviour
 {
     [Header("Paneles")]
     public GameObject canvasEditarElm;
-    //public TMP_Text txtMensajePanel;
+
     private TomaElementos tomaElementos;
     private InstanciarElementos inAccesorios;
     private PlayerMovement playerMovement;
     public bool active= false;
     public bool pressQ = false;
-
-
     PlayerCam playerCam;
 
+    //Inicialización de variables
     void Start()
     {
         canvasEditarElm.SetActive(false);
@@ -29,8 +24,7 @@ public class ActivarPanel : MonoBehaviour
     }
     private void Update()
     {
-        //Si el objeto está en modo edición y se presiona Q se sale del modo edición y vuelve
-        //el personaje a moverse libremente
+        // Si el objeto está en modo edición y se presiona Q, se sale del modo edición y el personaje vuelve a moverse libremente
         if ((canvasEditarElm.activeSelf && !tomaElementos.isGrabbed) && Input.GetKeyUp(KeyCode.Q))
         {
             pressQ = false;
@@ -41,6 +35,7 @@ public class ActivarPanel : MonoBehaviour
             playerCam.MouseLocked();
         }
         //Se activa el modo edición del objeto y se bloquea el movimiento del personaje con tecla Q
+
         else if ((active && !tomaElementos.isGrabbed) && Input.GetKeyUp(KeyCode.Q))
         {
             pressQ = true;
@@ -50,6 +45,7 @@ public class ActivarPanel : MonoBehaviour
             playerCam.MouseLocked();
         }
     }
+    // Si el jugador entra en el trigger, se activa el modo edición si no hay un objeto agarrado
 
     private void OnTriggerEnter(Collider other)
     {
@@ -59,6 +55,7 @@ public class ActivarPanel : MonoBehaviour
         }
     }
 
+    // Si el jugador sale del trigger, se desactiva el modo edición si no hay un objeto agarrado
     private void OnTriggerExit(Collider other)
     { 
         if (other.CompareTag("Player") && !tomaElementos.isGrabbed)
