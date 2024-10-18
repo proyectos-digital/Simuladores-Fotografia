@@ -30,11 +30,15 @@ public class MenuController : MonoBehaviour
         screenSizeDropdown.onValueChanged.AddListener(delegate {
             DropdownValueChanged(screenSizeDropdown);
         });
+        if (Screen.fullScreen)
+        {
+            fullScreenToggle.isOn = true;
+        }
     }
-
 
     void Update()
     {
+        //Se revisa si no hay algun menú o panel abierto al oprimir Esc para abrir el menú opciones
         if ((!isMenuActive) && Input.GetKeyUp(KeyCode.Escape))
         {
             Cursor.lockState = isMenuActive ? CursorLockMode.None : CursorLockMode.Confined;
@@ -42,7 +46,7 @@ public class MenuController : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = isMenuActive ? 1 : 0;
         }
-
+        //Carga el panel donde muestra los controles del simulador.
         if (isInfoActive)
         {
             infoMenuPanel.SetActive(true);
@@ -51,7 +55,7 @@ public class MenuController : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-
+    //Función para mostrar las diferentes resoluciones en un selector del UI
     void DropdownValueChanged(TMP_Dropdown dropdown)
     {
         screenResolutionSelected = dropdown.options[dropdown.value].text;
@@ -71,16 +75,15 @@ public class MenuController : MonoBehaviour
             Screen.SetResolution(resx, resy, false);
         }
     }
+    //Desactiva u oculta el panel de opciones
     public void ActivateMenu(bool activeMenu)
     {
-        //Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = activeMenu ? CursorLockMode.None : CursorLockMode.Confined;
         mainMenuPanel.SetActive(false);
         Cursor.visible = isMenuActive;
         Time.timeScale = isMenuActive ? 0 : 1;
-        //Debug.Log(Time.timeScale);
     }
-
+    //Desactiva el panel de controles e inicia el simulador
     public void DisableinfoPanel()
     {
         isInfoActive = false;
@@ -89,7 +92,7 @@ public class MenuController : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1.0f;
     }
-
+    //Muestra u oculta el panel de cambiar controles
     public void EnabledControlPanel(bool showControlPanel)
     {
         if (showControlPanel)
@@ -102,9 +105,8 @@ public class MenuController : MonoBehaviour
             mainOptionsPanel.SetActive(true);
             controlOptionsPanel.SetActive(false);
         }
-
     }
-
+    //Cambia a modo de pantalla completa
     public void SetFullScreen(Toggle fsToggle)
     {
         if (fsToggle.isOn)
@@ -116,15 +118,15 @@ public class MenuController : MonoBehaviour
             Screen.fullScreen = false;
         }
     }
-
+    //Función para cerrar el simulador
     public void QuitApplication()
     {
         Application.Quit();
     }
-
+    //Funcion para cargar las resoluciones disponibles y agregarlas a la lista
     private void SetNativeResolutions()
     {
-        var resolutions = Screen.resolutions.Where(resolution => resolution.refreshRateRatio.value <= 180 );
+        var resolutions = Screen.resolutions.Where(resolution => resolution.refreshRateRatio.value <= 60.0f );
         
         foreach (var res in resolutions)
         {
@@ -133,7 +135,7 @@ public class MenuController : MonoBehaviour
         screenSizeDropdown.ClearOptions();
         screenSizeDropdown.AddOptions(resString);
     }
-
+    //Funcion para activar y desactivar el cesped
     public void EnableGrass(Toggle grassToggle)
     {
         if (grassToggle.isOn)
