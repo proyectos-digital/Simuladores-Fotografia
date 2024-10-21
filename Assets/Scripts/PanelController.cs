@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 
 public class PanelController : MonoBehaviour{
 
     [SerializeField] private GameObject panelGeneral;
-    [SerializeField] private GameObject panelCamProp;
     [SerializeField] private bool activatePanelCam;
     [SerializeField] private CameraAnimations cameraAnimations;
     [SerializeField] private CameraManager camManager;
@@ -13,6 +11,7 @@ public class PanelController : MonoBehaviour{
     [SerializeField] public Volume volume;
     //Booleano para configurar en escenas que sean de estudio
     [SerializeField] bool isStudy = false;
+    //Booleano para configurar en escenas que son de simuladores Tv
     [SerializeField] bool isTV = false;
 
     private void Awake() {
@@ -25,12 +24,12 @@ public class PanelController : MonoBehaviour{
             cameraAnimations.openPanel += OpenPanel;
         }
     }
-
+    //Ejecutamos la función al iniciar el simulador
     void Start(){
-        //panelCamProp.SetActive(activatePanelCam);
         OpenPanel();
     }
 
+    //Función para abrir el panel del modo cámara
     void OpenPanel(){
         isOpenPanel = !isOpenPanel;
         panelGeneral.SetActive(isOpenPanel);

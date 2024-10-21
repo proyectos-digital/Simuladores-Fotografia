@@ -17,7 +17,6 @@ public class CameraAnimations : MonoBehaviour
         cameraAnimator = GetComponent<Animator>();
         if (!isStudy) {
             cameraManager.cameraAnimation += MoveCamera;
-            screenshot.cameraOrientation += ChangeOrientation;
         }
     }
     //Funciones para controlar el estado de animaciones, entra o sale de modo cámara
