@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -30,7 +27,7 @@ public class PlayerCam : MonoBehaviour
         {
             return; // No rotar la cámara si el mouse está sobre un objeto UI.
         }
-        //Mostrar u ocultar el Mouse por tecla P para grabar o Q para mover objetos, pensar en I para inventario ¬¬
+        //Mostrar u ocultar el Mouse con tecla P para grabar e I para inventario
         if (isTv)
         {
             if (Input.GetKeyUp(KeyCode.P) && !tvController.isOpenInventory)
@@ -38,6 +35,7 @@ public class PlayerCam : MonoBehaviour
                 tvController.PanelCentral();
                 MouseLocked();
             }
+            //En simulador TV muestra el inventario con la tecla I si no hay otro panel abierto
             if (Input.GetKeyUp(KeyCode.I) && !tvController.isOpenGeneral)
             {
                 tvController.PanelInventory();
@@ -45,12 +43,12 @@ public class PlayerCam : MonoBehaviour
             }
 
         }
+        //Si el mouse no esta bloqueado rotamos la camara con el movimiento del mouse
         if (!lockMouse)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivtySloder.value;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivtySloder.value;
 
-            //Debug.Log(sensitivtySloder.value);
             yRotation += mouseX;
 
             xRotation -= mouseY;
@@ -68,8 +66,6 @@ public class PlayerCam : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-                //Vector3 deltaMouse = Input.mousePosition - lastMousePosition;
-
                 float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivtySloder.value;
                 float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivtySloder.value;
 
@@ -88,11 +84,9 @@ public class PlayerCam : MonoBehaviour
     {
         lockMouse = !lockMouse;
         Cursor.lockState = CursorLockMode.None;
-        //Cursor.lockState = lockMouse ? CursorLockMode.Confined : CursorLockMode.None;
-        //Cursor.lockState = isMenu ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = lockMouse;
     }
-    //Si al arrastrar el Mouse en modo Cámara detecta elemento 
+    //Si al arrastrar el Mouse en modo Cámara detecta elemento del UI
     private bool IsPointerOverUIObject()
     {
         if (EventSystem.current.IsPointerOverGameObject())
