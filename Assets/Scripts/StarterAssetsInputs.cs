@@ -2,7 +2,7 @@ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
-
+//Scipt sin usar presuntamente
 namespace StarterAssets
 {
 	public class StarterAssetsInputs : MonoBehaviour
