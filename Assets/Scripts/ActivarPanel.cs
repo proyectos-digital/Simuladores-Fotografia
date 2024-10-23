@@ -76,19 +76,19 @@ public class ActivarPanel : MonoBehaviour
         {
             case 0:
                 inAccesorios.cantLuminaria++;
-                inAccesorios.txtCantLuminaria.text = inAccesorios.cantLuminaria + "/2"; ;
+                inAccesorios.txtCantLuminaria.text = inAccesorios.cantLuminaria + "/2";
                 inAccesorios.btnLuminaria1.SetActive(true);
                 break;
 
             case 1:
                 inAccesorios.cantAperture300++;
-                inAccesorios.txtCantAperture300.text = inAccesorios.cantAperture300 + "/2"; ;
+                inAccesorios.txtCantAperture300.text = inAccesorios.cantAperture300 + "/2";
                 inAccesorios.btnAperture300.SetActive(true);
                 break;
 
             case 2:
                 inAccesorios.cantSennheiser++;
-                inAccesorios.txtCantSennheiser.text = inAccesorios.cantSennheiser + "/1"; ;
+                inAccesorios.txtCantSennheiser.text = inAccesorios.cantSennheiser + "/1";
                 inAccesorios.btnSennheiser.SetActive(true);
                 break;
 
