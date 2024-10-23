@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TomaElementos : MonoBehaviour
 {
     [Header("Toma de elementos")]
-    public GameObject elementos;            //El elemento que tomaré
-    public GameObject canvasInfo;
-    public GameObject grabInfoImg;
-    public GameObject exitInfoImg;
-    public GameObject dropInfoImg;
-    [SerializeField] bool noMovable = false;
-    public bool isGrabbed;
-    private Transform posicionElemento;     //Mano
-    private bool activ;                     //Para saber cuando estoy dentro o fuera de la zona del objeto
+    public GameObject elementos; // El elemento que tomaré
+    public GameObject canvasInfo; // Panel de información
+    public GameObject grabInfoImg; // Imagen de información para agarrar
+    public GameObject exitInfoImg; // Imagen de información para salir
+    public GameObject dropInfoImg; // Imagen de información para soltar
+    [SerializeField] bool noMovable = false; // Indica si el objeto es movible
+    public bool isGrabbed; // Indica si el objeto está agarrado
+    private Transform posicionElemento; // Mano
+    private bool activ; // Para saber cuando estoy dentro o fuera de la zona del objeto
     private ActivarPanel activarPanel;
     TvController tvController;
-    public NotificationController nc;
+    public NotificationController nc; // Controlador de notificaciones
 
     private void Start()
     {
@@ -36,18 +32,20 @@ public class TomaElementos : MonoBehaviour
             Debug.LogError("No se encontró ningún objeto con la etiqueta Mano.");
         }
     }
+
     void Update()
     {
         TomaElemento();
     }
+
     public void BloquearPaneles(int value)
     {
         tvController.isOpenGeneral = true;
         tvController.isOpenInventory = true;
-        //Cambio de manejo de mensajes, ahora activaremos objetos en el PanelInfo
+        // Cambio de manejo de mensajes, ahora activaremos objetos en el PanelInfo
         MensajesPanel(isGrabbed ? dropInfoImg : value > 0 ? exitInfoImg : grabInfoImg);
-            //"-Configura los valores de la izquierda.\n\n-<b><size=22>Q</size></b> SALIR.");
     }
+
     public void DesactivarInfo()
     {
         canvasInfo.SetActive(false);
@@ -63,7 +61,7 @@ public class TomaElementos : MonoBehaviour
     {
         if (activ && !activarPanel.pressQ)
         {
-            //Toma el elemento
+            // Toma el elemento
             if (Input.GetKeyUp(KeyCode.T) && posicionElemento.childCount == 0)
             {
                 isGrabbed = true;
@@ -74,10 +72,10 @@ public class TomaElementos : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.T) && !isGrabbed && posicionElemento.childCount > 0)
             {
-                nc.SendNotification("Toma de a un objeto!");
+                nc.SendNotification("¡Toma de a un objeto!");
             }
         }
-        //Suelta el elemento
+        // Suelta el elemento
         if (Input.GetKeyUp(KeyCode.E) && posicionElemento.childCount > 0)
         {
             elementos.transform.eulerAngles = new Vector3(0, elementos.transform.eulerAngles.y, elementos.transform.eulerAngles.z);
@@ -85,6 +83,8 @@ public class TomaElementos : MonoBehaviour
             DesactivarInfo();
         }
     }
+
+    // Función para mostrar los mensajes para agarrar o soltar el objeto
     public void MensajesPanel(GameObject obj)
     {
         grabInfoImg.SetActive(false);
@@ -97,11 +97,14 @@ public class TomaElementos : MonoBehaviour
         }
         obj.SetActive(true);
     }
+
+    // Función que revisa si hay algun panel aparte activado
     public bool CallCheck()
     {
         return tvController.CheckActivePanels();
     }
 
+    // Si el jugador activa el triggeer y no hay paneles activos, se procede a activar el panel
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && posicionElemento.childCount <= 0)
@@ -114,9 +117,10 @@ public class TomaElementos : MonoBehaviour
             }
         }
     }
+    // Se desactiva el panel correspondiente
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Player" && (!isGrabbed && !activarPanel.pressQ))
+        if (other.tag == "Player" && (!isGrabbed && !activarPanel.pressQ))
         {
             activ = false;
             canvasInfo.SetActive(false);
