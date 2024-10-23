@@ -103,6 +103,7 @@ public class InstanciarElementos : MonoBehaviour
                     Instantiate(neewer660, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantNeewer660--;
                     txtCantNeewer660.text = cantNeewer660 + "/2";
+                    if(cantNeewer660 == 0) btnNeewer660.SetActive(false);
                 }
                 break;
 
@@ -112,6 +113,7 @@ public class InstanciarElementos : MonoBehaviour
                     Instantiate(godox_SL60W, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantGodox--;
                     txtCantGodox.text = cantGodox + "/2";
+                    if(cantGodox == 0) btnGodox.SetActive(false);
                 }
                 break;
         }
