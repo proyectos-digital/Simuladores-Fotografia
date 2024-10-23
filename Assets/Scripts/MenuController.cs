@@ -126,7 +126,7 @@ public class MenuController : MonoBehaviour
     //Funcion para cargar las resoluciones disponibles y agregarlas a la lista
     private void SetNativeResolutions()
     {
-        var resolutions = Screen.resolutions.Where(resolution => resolution.refreshRateRatio.value <= 60.0f );
+        var resolutions = Screen.resolutions.Where(resolution => resolution.refreshRateRatio.value == 60.0f );
         
         foreach (var res in resolutions)
         {
