@@ -30,14 +30,14 @@ public class RotacionAltura : MonoBehaviour
             case 0:
                 for (int i = 0; i < objetos.Length; i++)
                 {
-                    objetos[i].transform.rotation = Quaternion.Euler(valorRotacionX, 0f, 0f);
+                    objetos[i].transform.rotation = Quaternion.Euler(valorRotacionX, objetos[i].transform.eulerAngles.y, 0f);
                 }
                 break;
 
             case 1:
                 for (int i = 0; i < objetos.Length; i++)
                 {
-                    objetos[i].transform.rotation = Quaternion.Euler(0f, valorRotacionY, 0f);
+                    objetos[i].transform.rotation = Quaternion.Euler(objetos[i].transform.eulerAngles.x, valorRotacionY, 0f);
                 }
                 break;
 
