@@ -87,9 +87,12 @@ public class ActivarPanel : MonoBehaviour
                 break;
 
             case 2:
-                inAccesorios.cantSennheiser++;
-                inAccesorios.txtCantSennheiser.text = inAccesorios.cantSennheiser + "/1";
-                inAccesorios.btnSennheiser.SetActive(true);
+                inAccesorios.cantMicro++;
+                inAccesorios.txtCantSennheiser.text = inAccesorios.cantMicro + "/1";
+                for (int i = 0; i < inAccesorios.btnMicrofonos.Length; i++)
+                {
+                    inAccesorios.btnMicrofonos[i].SetActive(true);
+                }
                 break;
 
             case 3:

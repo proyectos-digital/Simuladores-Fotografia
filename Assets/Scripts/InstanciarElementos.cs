@@ -21,10 +21,15 @@ public class InstanciarElementos : MonoBehaviour
     public int cantNeewer660;
     public int cantGodox;
 
+    //CANTIDAD MICROFONOS DICIEMBRE ELECCION CORRECTA
+    public int cantMicro = 1;
+
     [Header("Textos de cantidades")]
     public TMP_Text txtCantLuminaria;
     public TMP_Text txtCantAperture300;
+    //-----Texto unico para microfono-----//
     public TMP_Text txtCantSennheiser;
+    //-----Texto unico para microfono-----//
     public TMP_Text txtCantNeewer660;
     public TMP_Text txtCantGodox;
 
@@ -40,17 +45,21 @@ public class InstanciarElementos : MonoBehaviour
     [Header("Accesorios")]
     public GameObject btnLuminaria1;
     public GameObject btnAperture300;
-    public GameObject btnSennheiser;
     public GameObject btnNeewer660;
     public GameObject btnGodox;
 
+
+    //Botones Microfonos
+    [Header("Microfonos")]
+    public GameObject[] btnMicrofonos;
+    public MicrophoneSelector microphoneSelector;
 
     void Start()
     {
         //Indicamos la cantidad que podra crear o instanciar de cada objeto
         txtCantLuminaria.text = cantLuminaria + "/2";
         txtCantAperture300.text = cantAperture300 + "/2";
-        txtCantSennheiser.text = cantSennheiser + "/1";
+        txtCantSennheiser.text = cantMicro + "/1";
         txtCantNeewer660.text = cantNeewer660 + "/2";
         txtCantGodox.text = cantGodox + "/2";
     }
@@ -86,14 +95,17 @@ public class InstanciarElementos : MonoBehaviour
                     if (cantAperture300 == 0) btnAperture300.SetActive(false);
                 }
                 break;
-
+            //MICROFONOS OBSOLETO CAMBIOS DICIEMBRE
+            //AHORA SE USA FUNCION NuevoMicrofono
             case 2:
                 if (cantSennheiser > 0)
                 {
+                    bool generarMicrofono = microphoneSelector.ElegirMicrofono(sennheiser);
+                    Debug.Log("el bool que hice es: " + generarMicrofono);
                     Instantiate(sennheiser, manoJugador.transform.position, manoJugador.transform.rotation);
                     cantSennheiser--;
                     txtCantSennheiser.text = cantSennheiser + "/1";
-                    if (cantSennheiser == 0) btnSennheiser.SetActive(false);
+                    //btnSennheiser.SetActive(false);
                 }
                 break;
 
@@ -116,6 +128,23 @@ public class InstanciarElementos : MonoBehaviour
                     if(cantGodox == 0) btnGodox.SetActive(false);
                 }
                 break;
+        }
+    }
+    public void NuevoMicrofono(GameObject microfono)
+    {
+        if (cantMicro > 0)
+        {
+            bool generarMicrofono = microphoneSelector.ElegirMicrofono(microfono);
+            if (generarMicrofono)
+            {
+                Instantiate(microfono, manoJugador.transform.position, manoJugador.transform.rotation);
+                cantMicro--;
+                txtCantSennheiser.text = cantMicro + "/1";
+                for (int i = 0; i < btnMicrofonos.Length; i++)
+                {
+                    btnMicrofonos[i].SetActive(false);
+                }
+            }
         }
     }
 
