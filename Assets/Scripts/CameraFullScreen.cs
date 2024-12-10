@@ -12,7 +12,7 @@ public class CameraFullScreen : MonoBehaviour
 
     void Update()
     {
-        if (isPanelFullScreen && (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.P)))
+        if (isPanelFullScreen && (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.P)))          
         {
             ResetState();
         }
