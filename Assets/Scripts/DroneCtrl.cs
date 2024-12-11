@@ -13,6 +13,7 @@ public class DroneCtrl : MonoBehaviour
 
     private bool enDespegue = false;
     private bool enAterrizaje = false;
+    private bool enUso = false;
     private Vector3 posicionInicial;
 
     [Header("Controladores")]
@@ -23,47 +24,54 @@ public class DroneCtrl : MonoBehaviour
     [Header ("Posición de elementos")]
     public Transform puntoDespegueAterrizaje;
 
-    [Header("UI")]
-    public GameObject btnCerrar;
-    public GameObject panelConfi;
-    public GameObject panelPrincipal;
-    public GameObject btnMenu;
-
     void Start()
     {
-        dronController.enabled = false;
+        //dronController.enabled = false;
         posicionInicial = puntoDespegueAterrizaje.position;
+        enUso = false;
     }
 
     void Update()
     {
-        ControlDron();
-        ComprobacionVuelo();
+        if (enUso)
+        {
+            ControlDron();
+            ComprobacionVuelo();
+        }
     }
 
+    //Se usa al activar el trigger y presionar Q
     public void Despegue()
     {
         enDespegue = true;
-        enAterrizaje = false; 
-        dronController.enabled = true;
+        enAterrizaje = false;
+        EnUso();
+        //dronController.enabled = true;
         //Revisar necesidad
         //playerController.enabled = false;
-        btnCerrar.SetActive(false);
+        //btnCerrar.SetActive(false);
     }
 
+    //Al presionar Q se sale del modo Dron
     public void Aterrizaje()
     {
         enAterrizaje = true;
         enDespegue = false;
         StartCoroutine("FinVuelo");
     }
+    public void EnUso()
+    {
+        enUso = !enUso;
+    }
 
+    //Funcion antes de volver a "modo Player"
     IEnumerator FinVuelo()
     {
         yield return new WaitForSeconds(3f);
-        dronController.enabled = false;
-        btnCerrar.SetActive(true);
-        btnMenu.SetActive(true);
+        //dronController.enabled = false;
+        EnUso();
+        //btnCerrar.SetActive(true);
+        //btnMenu.SetActive(true);
     }
 
     public void ComprobacionVuelo()
@@ -89,10 +97,10 @@ public class DroneCtrl : MonoBehaviour
         if (alturaMax == 6f)
         {
             //playerController.enabled = false;
-            panelConfi.SetActive(true);
+            //panelConfi.SetActive(true);
             //playerController.UnlockCursor();
-            panelPrincipal.SetActive(true);
-            btnMenu.SetActive(false);
+            //panelPrincipal.SetActive(true);
+            //btnMenu.SetActive(false);
         }
     }
 
