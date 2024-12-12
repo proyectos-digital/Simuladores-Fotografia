@@ -35,7 +35,10 @@ public class DroneCtrl : MonoBehaviour
     {
         if (enUso)
         {
-            ControlDron();
+            if (!enAterrizaje)
+            {
+                ControlDron();
+            }
             ComprobacionVuelo();
         }
     }
@@ -57,7 +60,10 @@ public class DroneCtrl : MonoBehaviour
     {
         enAterrizaje = true;
         enDespegue = false;
-        StartCoroutine("FinVuelo");
+        enAterrizaje = false;
+        transform.position = posicionInicial;
+        EnUso();
+        //StartCoroutine("FinVuelo");
     }
     public void EnUso()
     {

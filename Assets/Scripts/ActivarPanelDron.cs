@@ -32,9 +32,9 @@ public class ActivarPanelDron : MonoBehaviour
         {
             active = false;
             canvasDronOff.SetActive(false);
-            canvasDronStart.SetActive(true);
+            canvasDronStart.SetActive(false);
             playerMovement.MoveAllow();
-            playerCam.MouseLocked();
+            //playerCam.MouseLocked();
             droneCtrl.Aterrizaje();
         }
 
@@ -45,7 +45,7 @@ public class ActivarPanelDron : MonoBehaviour
             canvasDronOff.SetActive(true);
             //tomaElementos.BloquearPaneles(1);
             playerMovement.MoveAllow();
-            playerCam.MouseLocked();
+            Cursor.visible = true;
             droneCtrl.Despegue();
         }
     }

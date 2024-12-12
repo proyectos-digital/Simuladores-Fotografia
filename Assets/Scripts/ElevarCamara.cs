@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ElevarCamara : MonoBehaviour
@@ -24,8 +25,9 @@ public class ElevarCamara : MonoBehaviour
             Vector3 currentPosition = objectToElevate.localPosition;
             currentPosition.y = value;
             objectToElevate.localPosition = currentPosition;
-                
-            
-        
+    }
+    private void OnEnable()
+    {
+        yPositionSlider.value = SceneManager.GetActiveScene().name == "MusicFestival" ? maxValue : yPositionSlider.value;
     }
 }

@@ -1,5 +1,7 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerCam : MonoBehaviour
@@ -23,7 +25,8 @@ public class PlayerCam : MonoBehaviour
 
     void Update()
     {
-        if (IsPointerOverUIObject())
+        
+        if (IsPointerOverUIObject() && SceneManager.GetActiveScene().name != "MusicFestival")
         {
             return; // No rotar la cámara si el mouse está sobre un objeto UI.
         }
@@ -41,7 +44,6 @@ public class PlayerCam : MonoBehaviour
                 tvController.PanelInventory();
                 MouseLocked();
             }
-
         }
         //Si el mouse no esta bloqueado rotamos la camara con el movimiento del mouse
         if (!lockMouse)
