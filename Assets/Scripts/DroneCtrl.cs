@@ -44,6 +44,7 @@ public class DroneCtrl : MonoBehaviour
     }
 
     //Se usa al activar el trigger y presionar Q
+    //Revisar como cambiar logica por tecla sin activar trigger y sin afectar el resto del simulador
     public void Despegue()
     {
         enDespegue = true;
