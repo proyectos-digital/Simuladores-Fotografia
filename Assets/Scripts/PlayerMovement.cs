@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     [SerializeField] CameraManager camManager; // Referencia al script CameraManager
     [SerializeField] bool isTV = false; //Sera false si no esta en escena simulador Tv
-    bool isMove = true;
+    public bool isMove = true;
 
     void Start(){
         //Busca el script CameraManager si no esta del simulador TV

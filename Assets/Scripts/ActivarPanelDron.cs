@@ -27,8 +27,18 @@ public class ActivarPanelDron : MonoBehaviour
     }
     private void Update()
     {
-        // Si el dron está en uso y se presiona Q, se sale del y el personaje vuelve a moverse libremente
-        if (!active && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
+        //Se inicia el Dron y se bloquea el movimiento del personaje con tecla R
+        if (active && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
+        {
+            canvasDronStart.SetActive(false);
+            canvasDronOff.SetActive(true);
+            //tomaElementos.BloquearPaneles(1);
+            playerMovement.MoveAllow();
+            Cursor.visible = true;
+            droneCtrl.Despegue();
+        }
+        // Si el dron está en uso y se presiona R, se sale del y el personaje vuelve a moverse libremente
+        else if(!playerMovement.isMove && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
         {
             active = false;
             canvasDronOff.SetActive(false);
@@ -38,16 +48,7 @@ public class ActivarPanelDron : MonoBehaviour
             droneCtrl.Aterrizaje();
         }
 
-        //Se inicia el Dron y se bloquea el movimiento del personaje con tecla Q
-        else if (active && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
-        {
-            canvasDronStart.SetActive(false);
-            canvasDronOff.SetActive(true);
-            //tomaElementos.BloquearPaneles(1);
-            playerMovement.MoveAllow();
-            Cursor.visible = true;
-            droneCtrl.Despegue();
-        }
+
     }
 
     // Si el jugador entra en el trigger, se activa el modo edición si no hay un objeto agarrado
