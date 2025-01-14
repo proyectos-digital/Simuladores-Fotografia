@@ -14,7 +14,7 @@ public class ElevarCamara : MonoBehaviour
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "MusicFestival") {
-            yPositionSlider.minValue = minValue;
+            //yPositionSlider.minValue = minValue;
             yPositionSlider.maxValue = maxValue;
             yPositionSlider.onValueChanged.AddListener(OnSliderValueChangedDron);
             return;

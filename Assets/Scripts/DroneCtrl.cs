@@ -31,6 +31,7 @@ public class DroneCtrl : MonoBehaviour
         posicionInicial = puntoDespegueAterrizaje.position;
         enUso = false;
         rb = GetComponent<Rigidbody>();
+        elevarCamaraSlider.yPositionSlider.minValue = posicionInicial.y;
     }
 
     void FixedUpdate()
@@ -93,9 +94,10 @@ public class DroneCtrl : MonoBehaviour
             rb.MovePosition(transform.position + tempVect);
             elevarCamaraSlider.UpdateSliderDronValue(rb.position.y);
             //transform.Translate(Vector3.up * velocidad * Time.deltaTime);       //Se desplaza hacia arriba hasta la altura máxima
-            if (transform.position.y - posicionInicial.y >= alturaMax -0.3f)           //Verifica si ha alcanzado la altura máxima
+            if (transform.position.y - posicionInicial.y >= alturaMax -0.5f)           //Verifica si ha alcanzado la altura máxima
             {
                 rb.MovePosition(new Vector3(rb.position.x, alturaMax, rb.position.z));
+                elevarCamaraSlider.yPositionSlider.minValue = elevarCamaraSlider.minValue;
                 enDespegue = false;
             }
         }
