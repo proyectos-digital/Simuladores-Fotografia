@@ -7,7 +7,6 @@ public class DroneCtrl : MonoBehaviour
 {
     [Header("Propiedades del Dron")]
     public float velMovimiento;
-    public float velRotacion;
     public float alturaMax;
     public float velocidad;
 
@@ -18,20 +17,23 @@ public class DroneCtrl : MonoBehaviour
 
     [Header("Controladores")]
     public DroneCtrl dronController;
-    //Buscar el movimiento del personaje
-    //public PlayerController playerController;
 
     [Header ("Posición de elementos")]
     public Transform puntoDespegueAterrizaje;
+    Rigidbody rb;
+    private Vector2 inputDirection;
+    public Vector3 rotationSpeed = new Vector3(0, 80, 0);
+    [SerializeField] int counter = 0;
+    [SerializeField] ElevarCamara elevarCamaraSlider;
 
     void Start()
     {
-        //dronController.enabled = false;
         posicionInicial = puntoDespegueAterrizaje.position;
         enUso = false;
+        rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (enUso)
         {
@@ -50,6 +52,7 @@ public class DroneCtrl : MonoBehaviour
         enDespegue = true;
         enAterrizaje = false;
         EnUso();
+        counter++;
         //dronController.enabled = true;
         //Revisar necesidad
         //playerController.enabled = false;
@@ -62,7 +65,7 @@ public class DroneCtrl : MonoBehaviour
         enAterrizaje = true;
         enDespegue = false;
         enAterrizaje = false;
-        transform.position = posicionInicial;
+        //transform.position = posicionInicial;
         EnUso();
         //StartCoroutine("FinVuelo");
     }
@@ -83,49 +86,47 @@ public class DroneCtrl : MonoBehaviour
 
     public void ComprobacionVuelo()
     {
-        if (enDespegue)
+        if (enDespegue && counter<=1)
         {
-            transform.Translate(Vector3.up * velocidad * Time.deltaTime);       //Se desplaza hacia arriba hasta la altura máxima
-            if (transform.position.y - posicionInicial.y >= alturaMax)           //Verifica si ha alcanzado la altura máxima
+            Vector3 tempVect = new Vector3(0, velMovimiento, 0);
+            tempVect = tempVect.normalized * velocidad * Time.fixedDeltaTime;
+            rb.MovePosition(transform.position + tempVect);
+            elevarCamaraSlider.UpdateSliderDronValue(rb.position.y);
+            //transform.Translate(Vector3.up * velocidad * Time.deltaTime);       //Se desplaza hacia arriba hasta la altura máxima
+            if (transform.position.y - posicionInicial.y >= alturaMax -0.3f)           //Verifica si ha alcanzado la altura máxima
             {
+                rb.MovePosition(new Vector3(rb.position.x, alturaMax, rb.position.z));
                 enDespegue = false;
             }
         }
 
-        else if (enAterrizaje)
-        {
-            //transform.Translate(Vector3.down * velocidad * Time.deltaTime);     //Desciende hacia el punto inicial
-            enAterrizaje = false;
-            if (transform.position.y <= posicionInicial.y)                       //Verifica si ha alcanzado o pasado la posición inicial
-            {
-                enAterrizaje = false;
-                //transform.position = posicionInicial;
-            }
-        }
-        if (alturaMax == 6f)
-        {
-            //playerController.enabled = false;
-            //panelConfi.SetActive(true);
-            //playerController.UnlockCursor();
-            //panelPrincipal.SetActive(true);
-            //btnMenu.SetActive(false);
-        }
+        //else if (enAterrizaje)
+        //{
+        //    //transform.Translate(Vector3.down * velocidad * Time.deltaTime);     //Desciende hacia el punto inicial
+        //    enAterrizaje = false;
+        //    if (transform.position.y <= posicionInicial.y)                       //Verifica si ha alcanzado o pasado la posición inicial
+        //    {
+        //        enAterrizaje = false;
+        //        //transform.position = posicionInicial;
+        //    }
+        //}
+        //if (alturaMax == 6f)
+        //{
+        //    //playerController.enabled = false;
+        //    //panelConfi.SetActive(true);
+        //    //playerController.UnlockCursor();
+        //    //panelPrincipal.SetActive(true);
+        //    //btnMenu.SetActive(false);
+        //}
     }
 
     public void ControlDron()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        Vector2 inputs = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        inputDirection = inputs.normalized;
 
-        //Rotacion del dron
-        float valorRotacion = horizontalInput * velRotacion * Time.deltaTime;
-        transform.Rotate(Vector3.up, valorRotacion);
-
-        Vector3 redireccion = transform.forward;
-
-        Vector3 movimiento = redireccion * verticalInput * velMovimiento * Time.deltaTime;
-        Vector3 nuevaPosicion = transform.position + movimiento;
-
-        transform.position = nuevaPosicion;
+        Quaternion deltaRotation = Quaternion.Euler(inputDirection.x * rotationSpeed * Time.fixedDeltaTime);
+        rb.MoveRotation(rb.rotation * deltaRotation);
+        rb.MovePosition(rb.position + transform.forward * velMovimiento * inputDirection.y * Time.fixedDeltaTime);
     }
 }

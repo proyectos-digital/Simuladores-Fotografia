@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//SCRIPT OBSOLETO POR LO GENERAL
 public class RotacionAltura : MonoBehaviour
 {
     [Header("Objeto a rotar")]

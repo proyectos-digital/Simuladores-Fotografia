@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 //SCRIPT PARA LOS SIMULADORES DE TV DRON
@@ -28,7 +29,7 @@ public class ActivarPanelDron : MonoBehaviour
     private void Update()
     {
         //Se inicia el Dron y se bloquea el movimiento del personaje con tecla Q
-        if (active && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
+        if ((playerMovement.isMove && active) && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
         {
             canvasDronStart.SetActive(false);
             canvasDronOff.SetActive(true);
@@ -41,14 +42,12 @@ public class ActivarPanelDron : MonoBehaviour
         else if(!playerMovement.isMove && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
         {
             active = false;
-            canvasDronOff.SetActive(false);
             canvasDronStart.SetActive(false);
+            canvasDronOff.SetActive(false);
             playerMovement.MoveAllow();
             //playerCam.MouseLocked();
             droneCtrl.Aterrizaje();
         }
-
-
     }
 
     // Si el jugador entra en el trigger, se activa el modo edición si no hay un objeto agarrado
