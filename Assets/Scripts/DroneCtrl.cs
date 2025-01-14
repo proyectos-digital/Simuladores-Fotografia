@@ -94,11 +94,12 @@ public class DroneCtrl : MonoBehaviour
 
         else if (enAterrizaje)
         {
-            transform.Translate(Vector3.down * velocidad * Time.deltaTime);     //Desciende hacia el punto inicial
+            //transform.Translate(Vector3.down * velocidad * Time.deltaTime);     //Desciende hacia el punto inicial
+            enAterrizaje = false;
             if (transform.position.y <= posicionInicial.y)                       //Verifica si ha alcanzado o pasado la posición inicial
             {
                 enAterrizaje = false;
-                transform.position = posicionInicial;
+                //transform.position = posicionInicial;
             }
         }
         if (alturaMax == 6f)

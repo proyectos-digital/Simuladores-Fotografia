@@ -13,7 +13,7 @@ public class ActivarPanelDron : MonoBehaviour
     public bool active = false;
     public bool pressQ = false;
     PlayerCam playerCam;
-    DroneCtrl droneCtrl;
+    public DroneCtrl droneCtrl;//
 
     //Inicialización de variables
     void Start()
@@ -21,13 +21,13 @@ public class ActivarPanelDron : MonoBehaviour
         canvasDronOff.SetActive(false);
         //inAccesorios = GameObject.FindWithTag("btnInstancia").GetComponent<InstanciarElementos>();
         //tomaElementos = this.GetComponent<TomaElementos>();
-        droneCtrl = this.GetComponent<DroneCtrl>();
+        //droneCtrl = this.GetComponent<DroneCtrl>();
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         playerCam = GameObject.FindWithTag("MainCamera").GetComponent<PlayerCam>();
     }
     private void Update()
     {
-        //Se inicia el Dron y se bloquea el movimiento del personaje con tecla R
+        //Se inicia el Dron y se bloquea el movimiento del personaje con tecla Q
         if (active && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
         {
             canvasDronStart.SetActive(false);
@@ -37,7 +37,7 @@ public class ActivarPanelDron : MonoBehaviour
             Cursor.visible = true;
             droneCtrl.Despegue();
         }
-        // Si el dron está en uso y se presiona R, se sale del y el personaje vuelve a moverse libremente
+        // Si el dron está en uso y se presiona Q, se sale del y el personaje vuelve a moverse libremente
         else if(!playerMovement.isMove && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
         {
             active = false;
