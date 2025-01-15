@@ -7719,6 +7719,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &306763254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2566305126010471554, guid: 8d480b83f4091b947a4413938a81fe69,
+    type: 3}
+  m_PrefabInstance: {fileID: 843909301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &312467641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22934,6 +22940,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2144469447}
+    - target: {fileID: 920489251956641112, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1372527616406825078, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_IsActive
@@ -23083,7 +23094,7 @@ PrefabInstance:
     - target: {fileID: 5779867347162732339, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5779867347426450250, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -23347,6 +23358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056443796012307699, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32726,6 +32742,9 @@ MonoBehaviour:
   - {fileID: 1469889758}
   - {fileID: 1469889754}
   - {fileID: 1884471159}
+  camRenderPrincipal: {fileID: 306763254}
+  camRenderAuxiliar: {fileID: 1922051317}
+  camPlayer: {fileID: 0}
 --- !u!1001 &1314087478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49578,6 +49597,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920260173}
   m_Mesh: {fileID: 4732937762076777578, guid: bde85b360a8cecf4ab9f8ef1a23c5894, type: 3}
+--- !u!1 &1922051317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6646255970189698192, guid: 8d480b83f4091b947a4413938a81fe69,
+    type: 3}
+  m_PrefabInstance: {fileID: 843909301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1924359241
 PrefabInstance:
   m_ObjectHideFlags: 0

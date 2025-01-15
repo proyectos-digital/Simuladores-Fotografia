@@ -12416,12 +12416,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _audioCapture
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 593169514}
     - target: {fileID: 3050498641400999903, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: _videoCaptures.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 593169519}
     - target: {fileID: 3050498641400999903, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: _videoCaptures.Array.data[1]
@@ -17927,6 +17927,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 591886226}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &593169514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5638272269649856005, guid: 04fc4a7513d101943b6c1c8e15894308,
+    type: 3}
+  m_PrefabInstance: {fileID: 449717333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bf4be83c4174504b904e958637cced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &593169519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8643459780631050764, guid: 04fc4a7513d101943b6c1c8e15894308,
+    type: 3}
+  m_PrefabInstance: {fileID: 449717333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d01430cb7446d4787e1549b55f0a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &593564994 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7180494056223983710, guid: 8d480b83f4091b947a4413938a81fe69,
@@ -21066,6 +21090,7 @@ MonoBehaviour:
   - {fileID: 1720213360}
   camRenderPrincipal: {fileID: 1651094633}
   camRenderAuxiliar: {fileID: 523850612}
+  camPlayer: {fileID: 0}
 --- !u!1001 &700290020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45935,6 +45960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3418799703113505415, guid: a3ca61c79d5d86643ac2bffc6b1b660b, type: 3}
+    - {fileID: 3418799703113505411, guid: a3ca61c79d5d86643ac2bffc6b1b660b, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6829779741289937714, guid: a3ca61c79d5d86643ac2bffc6b1b660b, type: 3}
     - {fileID: 3418799702819964079, guid: a3ca61c79d5d86643ac2bffc6b1b660b, type: 3}

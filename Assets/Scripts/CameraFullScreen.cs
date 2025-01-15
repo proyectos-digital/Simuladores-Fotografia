@@ -13,6 +13,7 @@ public class CameraFullScreen : MonoBehaviour
     [Header("RenderCameras")]
     [SerializeField] GameObject camRenderPrincipal;
     [SerializeField] GameObject camRenderAuxiliar;
+    [SerializeField] GameObject camPlayer;
 
     void Start()
     {
@@ -26,12 +27,8 @@ public class CameraFullScreen : MonoBehaviour
             ResetState();
         }
     }
-    public void OffScreenCamera(Camera cam)
-    {
-        //LoopCameras(false);
-        //REVISAR FUNCION
-        cam.enabled = true;
-    }
+
+    //Funcion usada en el UI, los botones BtnFullScreen
     public void ActivatePanel(GameObject panel)
     {
         LoopPanels(false);
@@ -53,15 +50,15 @@ public class CameraFullScreen : MonoBehaviour
         {
             allCameras[i].enabled = state;
         }
+        //Desactivamos los renders de miniatura revisar en los escenarios
+        ChangeStateRenders(false);
     }
+    //Funcion para cambiar el estado de los paneles de perspectiva y desactivar los de pantalla completa
     void LoopPanels(bool state)
     {
         //Los 2 paneles de pantalla completa
         for (int i = 0; i < panelFullScreen.Length; i++)
         {
-            Debug.Log("primer loop");
-            camRenderPrincipal.SetActive(false);
-            camRenderAuxiliar.SetActive(false);
             panelFullScreen[i].gameObject.SetActive(false);
         }
         //Las 3 miniaturas de cada camara en el modo Configuracion
