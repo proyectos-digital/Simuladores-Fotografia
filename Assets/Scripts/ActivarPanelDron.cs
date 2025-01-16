@@ -38,7 +38,7 @@ public class ActivarPanelDron : MonoBehaviour
             playerMovement.MoveAllow();
             Cursor.visible = true;
             droneCtrl.Despegue();
-            panelRender.SetActive(true);
+            //panelRender.SetActive(true);
         }
         // Si el dron está en uso y se presiona Q, se sale del y el personaje vuelve a moverse libremente
         else if(!playerMovement.isMove && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
@@ -49,7 +49,7 @@ public class ActivarPanelDron : MonoBehaviour
             playerMovement.MoveAllow();
             //playerCam.MouseLocked();
             droneCtrl.Aterrizaje();
-            panelRender.SetActive(false);
+            //panelRender.SetActive(false);
         }
     }
 

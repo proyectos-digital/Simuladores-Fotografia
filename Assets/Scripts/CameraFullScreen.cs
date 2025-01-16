@@ -71,7 +71,7 @@ public class CameraFullScreen : MonoBehaviour
     //Ajustar desactivado y activado de RendersCamera
     public void ChangeStateRenders(bool state)
     {
-        camRenderPrincipal.SetActive(state);
-        camRenderAuxiliar.SetActive(state);
+        //camRenderPrincipal.SetActive(state);
+        //camRenderAuxiliar.SetActive(state);
     }
 }
