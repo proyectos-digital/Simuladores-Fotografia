@@ -12714,9 +12714,39 @@ PrefabInstance:
       objectReference: {fileID: 825530670}
     - target: {fileID: 7918554174924352198, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
+      propertyPath: microphoneSelector
+      value: 
+      objectReference: {fileID: 1047073987}
+    - target: {fileID: 7918554174924352198, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
       propertyPath: txtCantAperture300
       value: 
       objectReference: {fileID: 825530671}
+    - target: {fileID: 7918554174924352198, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: btnMicrofonos.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918554174924352198, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: btnMicrofonos.Array.data[0]
+      value: 
+      objectReference: {fileID: 825530665}
+    - target: {fileID: 7918554174924352198, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: btnMicrofonos.Array.data[1]
+      value: 
+      objectReference: {fileID: 1820691353}
+    - target: {fileID: 7918554174924352198, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: btnMicrofonos.Array.data[2]
+      value: 
+      objectReference: {fileID: 2033171622}
+    - target: {fileID: 7918554174924352198, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: btnMicrofonos.Array.data[3]
+      value: 
+      objectReference: {fileID: 1892271540}
     - target: {fileID: 8139204099339984441, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -24641,13 +24671,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 77481679}
     - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NuevoAccersorio
+      value: NuevoMicrofono
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InstanciarElementos, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8892719925669653784, guid: bb6a472e92e29a841a7e29c28f276543,
+        type: 3}
+    - target: {fileID: 2877140830687578734, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3128609624721196599, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -24974,6 +25040,57 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetFullScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 77481679}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NuevoMicrofono
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InstanciarElementos, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8892719925669653784, guid: bb6a472e92e29a841a7e29c28f276543,
+        type: 3}
+    - target: {fileID: 7925077722201902163, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8371375395001030287, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -24984,10 +25101,112 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NuevoAccersorio
       objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 77481679}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NuevoMicrofono
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InstanciarElementos, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 7304588428801471946, guid: 9e6657d804a45b44a95296aa84498fac,
+        type: 3}
+    - target: {fileID: 8934023266389975011, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8934491400195769720, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 77481679}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NuevoMicrofono
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InstanciarElementos, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8892719925669653784, guid: bb6a472e92e29a841a7e29c28f276543,
+        type: 3}
+    - target: {fileID: 9001199759806996625, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -61790,6 +62009,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da2e22d6670bca54da0809d35cfcaff0, type: 3}
+--- !u!1 &1820691353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5701842922417681532, guid: 8d480b83f4091b947a4413938a81fe69,
+    type: 3}
+  m_PrefabInstance: {fileID: 825530662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1832965323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5779867346477080787, guid: 8d480b83f4091b947a4413938a81fe69,
@@ -64264,6 +64489,12 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &1892271540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9087753807779769518, guid: 8d480b83f4091b947a4413938a81fe69,
+    type: 3}
+  m_PrefabInstance: {fileID: 825530662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1892506869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69012,6 +69243,12 @@ Transform:
   - {fileID: 803329177}
   m_Father: {fileID: 960729510}
   m_LocalEulerAnglesHint: {x: 0, y: -151.634, z: 0}
+--- !u!1 &2033171622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2938931264819573829, guid: 8d480b83f4091b947a4413938a81fe69,
+    type: 3}
+  m_PrefabInstance: {fileID: 825530662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035998570
 GameObject:
   m_ObjectHideFlags: 0

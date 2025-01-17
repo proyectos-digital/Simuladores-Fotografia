@@ -21,7 +21,7 @@ public class InstanciarElementos : MonoBehaviour
     public int cantNeewer660;
     public int cantGodox;
 
-    //CANTIDAD MICROFONOS DICIEMBRE ELECCION CORRECTA
+    //CANTIDAD MICROFONOS ELECCION CORRECTA
     public int cantMicro = 1;
 
     [Header("Textos de cantidades")]
