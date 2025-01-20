@@ -177,6 +177,7 @@ namespace RockVR.Video
                     }
                     videoCapture.eventDelegate.OnComplete -= OnVideoCaptureComplete;
                     status = StatusType.NOT_START;
+                    Debug.Log("bueeeeenooooo!!!s");
                     return;
                 }
                 videoCapture.StopCapture();
@@ -217,6 +218,7 @@ namespace RockVR.Video
         private void OnVideoCaptureComplete()
         {
             videoCaptureFinishCount++;
+            Debug.Log("mensajito");
             if (videoCaptureFinishCount == videoCaptureRequiredCount && // Finish all video capture.
                 !isCaptureAudio)// No audio capture required.
             {
@@ -245,9 +247,11 @@ namespace RockVR.Video
         private void VideoMergeThreadFunction()
         {
             // Wait for all video record finish.
+            Debug.Log("Entendiendo");
             while (videoCaptureFinishCount < videoCaptureRequiredCount)
             {
                 Thread.Sleep(1000);
+                Debug.Log("Dentro de while");
             }
             foreach (VideoCapture videoCapture in videoCaptures)
             {
