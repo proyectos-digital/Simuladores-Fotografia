@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading;
 using System.Collections.Generic;
 using RockVR.Common;
+using System;
 
 namespace RockVR.Video
 {
@@ -250,7 +251,7 @@ namespace RockVR.Video
             Debug.Log("Entendiendo");
             while (videoCaptureFinishCount < videoCaptureRequiredCount)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(5000);
                 Debug.Log("Dentro de while");
             }
             foreach (VideoCapture videoCapture in videoCaptures)
@@ -285,7 +286,8 @@ namespace RockVR.Video
             {
                 // TODO, adjust gc interval dynamic.
                 Thread.Sleep(1000);
-                System.GC.Collect();
+                GC.GetTotalMemory(false);
+                GC.Collect();
             }
         }
         /// <summary>
