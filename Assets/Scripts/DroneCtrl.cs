@@ -75,7 +75,7 @@ public class DroneCtrl : MonoBehaviour
         enUso = !enUso;
     }
 
-    //Funcion antes de volver a "modo Player"
+    //Funcion antes de volver a "modo Player" 
     IEnumerator FinVuelo()
     {
         yield return new WaitForSeconds(3f);
@@ -101,25 +101,6 @@ public class DroneCtrl : MonoBehaviour
                 enDespegue = false;
             }
         }
-
-        //else if (enAterrizaje)
-        //{
-        //    //transform.Translate(Vector3.down * velocidad * Time.deltaTime);     //Desciende hacia el punto inicial
-        //    enAterrizaje = false;
-        //    if (transform.position.y <= posicionInicial.y)                       //Verifica si ha alcanzado o pasado la posición inicial
-        //    {
-        //        enAterrizaje = false;
-        //        //transform.position = posicionInicial;
-        //    }
-        //}
-        //if (alturaMax == 6f)
-        //{
-        //    //playerController.enabled = false;
-        //    //panelConfi.SetActive(true);
-        //    //playerController.UnlockCursor();
-        //    //panelPrincipal.SetActive(true);
-        //    //btnMenu.SetActive(false);
-        //}
     }
 
     public void ControlDron()
