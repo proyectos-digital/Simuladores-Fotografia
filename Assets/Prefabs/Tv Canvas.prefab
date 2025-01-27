@@ -3886,7 +3886,7 @@ GameObject:
   - component: {fileID: 4486498341112871809}
   - component: {fileID: 5033340057448615736}
   m_Layer: 5
-  m_Name: Generic Panel  (1)
+  m_Name: Generic Panel  Mic_Mano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4705,7 +4705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e4fe09b3a5c0a244b1f86b08a992e9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a4798f2d708a4a4fafbec03c1017902, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7951,7 +7951,7 @@ GameObject:
   - component: {fileID: 4966571696221652762}
   - component: {fileID: 8934023266389975011}
   m_Layer: 5
-  m_Name: Add Button
+  m_Name: Add Button Mic_Mano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8058,7 +8058,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4966571696221652762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InstanciarElementos, Assembly-CSharp
+        m_MethodName: NuevoMicrofono
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6032473315445428175, guid: dbd3262597419fe49bebbd604f77a18e,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3027749008795868707
 GameObject:
   m_ObjectHideFlags: 0
@@ -13487,7 +13500,7 @@ GameObject:
   - component: {fileID: 1421586930786602601}
   - component: {fileID: 1153071451950364086}
   m_Layer: 5
-  m_Name: Generic Panel  (2)
+  m_Name: Generic Panel Mic_Solapa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20320,7 +20333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e4fe09b3a5c0a244b1f86b08a992e9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fa8e04d88e29a341801446b2c5a9017, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23834,7 +23847,7 @@ GameObject:
   - component: {fileID: 1468376753024226287}
   - component: {fileID: 7925077722201902163}
   m_Layer: 5
-  m_Name: Add Button
+  m_Name: Add Button Mic_Solapa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
