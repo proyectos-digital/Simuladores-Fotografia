@@ -51,18 +51,18 @@ namespace RockVR.Video.Demo
         {
             VideoCaptureCtrl.instance.StartCapture();
             tiempoCorriendo = true;
-            //btnRecord.onClick.RemoveAllListeners();
-            //btnRecord.onClick.AddListener(StopRecord);
-            //imgStopRecord.SetActive(true);
+            btnRecord.onClick.RemoveAllListeners();
+            btnRecord.onClick.AddListener(StopRecord);
+            imgStopRecord.SetActive(true);
         }
 
         public void StopRecord()
         {
             VideoCaptureCtrl.instance.StopCapture();
             UnityEngine.Debug.Log("pensando");
-            //btnRecord.onClick.RemoveAllListeners();
-            //btnRecord.onClick.AddListener(StartRecord);
-            //imgStopRecord.SetActive(false);
+            btnRecord.onClick.RemoveAllListeners();
+            btnRecord.onClick.AddListener(StartRecord);
+            imgStopRecord.SetActive(false);
             if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.FINISH)
             {
                 UnityEngine.Debug.Log("olas");
