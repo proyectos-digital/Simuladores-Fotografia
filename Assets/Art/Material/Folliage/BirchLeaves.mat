@@ -52,23 +52,23 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BirchLeaves
-  m_Shader: {fileID: -6465566751694194690, guid: 4819724840ee9444f9da841b477038ce,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 99134b1f0c27d54469a840832a28fadf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - EFFECT_BUMP
+  - EFFECT_HUE_VARIATION
+  - _WINDQUALITY_FASTEST
+  m_InvalidKeywords:
   - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
-  - _WINDQUALITY_BEST
-  m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2475
+  m_CustomRenderQueue: -1
   stringTagMap:
     MotionVector: User
-    RenderType: TransparentCutout
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -172,6 +172,8 @@ Material:
     - _AlphaSrcBlend: 1
     - _Alpha_CuttOff: 0.417
     - _BaseLight: 0.273
+    - _BillboardKwToggle: 0
+    - _BillboardShadowFade: 0.5
     - _Blend: 0
     - _BlendMode: 0
     - _BlendOp: 0
@@ -235,6 +237,8 @@ Material:
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
     - _Strength: 0.2
+    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceKwToggle: 0
     - _SubsurfaceScale: 1
     - _SupportDecals: 1
     - _Surface: 0
@@ -247,6 +251,7 @@ Material:
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
+    - _TwoSided: 2
     - _UVSec: 0
     - _UseShadowThreshold: 0
     - _WINDQUALITY: 4
@@ -270,6 +275,7 @@ Material:
     - _ShallowWaterColor: {r: 0, g: 0.50980395, b: 1, a: 0.7647059}
     - _SpecColor: {r: 0.1509434, g: 0.077268645, b: 0, a: 1}
     - _Specular_Color: {r: 0.26415092, g: 0.09843359, b: 0.09843359, a: 0}
+    - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
