@@ -2335,13 +2335,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec9864bf647a743930c3bbb2e35c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtMensajePanel: {fileID: 0}
   elementos: {fileID: 0}
   canvasInfo: {fileID: 0}
+  grabInfoImg: {fileID: 0}
+  exitInfoImg: {fileID: 0}
+  dropInfoImg: {fileID: 0}
   noMovable: 0
   isGrabbed: 0
   nc: {fileID: 0}
-  message: Toma de a un objeto!
 --- !u!114 &8622177193962688588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,7 +2356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasEditarElm: {fileID: 0}
-  txtMensajePanel: {fileID: 0}
+  active: 0
   pressQ: 0
 --- !u!81 &7313689579357374782
 AudioListener:

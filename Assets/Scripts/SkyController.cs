@@ -1,13 +1,15 @@
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 //Script encargada de manipular todo lo del global volume
 public class SkyController : MonoBehaviour
 {
     public Volume skyVolume; //Global volume
     public GameObject sun; //Objeto luz sol
-    private HDAdditionalLightData sunData; //Componente data de luz HD
+    //private HDAdditionalLightData sunData; //Componente data de luz HD
+    private LightData sunData;
     private Light sunLight; //Componente del objeto luz sol
     private VolumetricClouds volumetricClouds; //Componente en skyVolume de las nubes volumetricas
     [SerializeField] public Material EmissionMaterial; //Emitir luz en materiales
@@ -20,7 +22,7 @@ public class SkyController : MonoBehaviour
     //Inicializamos variables y llamamos función de nubes
     void Start()
     {
-        sunData = sun.GetComponent<HDAdditionalLightData>();
+        sunData = sun.GetComponent<LightData>();
         sunLight = sun.GetComponent<Light>();
         SetCloudPreset();
     }
@@ -41,7 +43,7 @@ public class SkyController : MonoBehaviour
             case 1:
                 sun.transform.rotation = Quaternion.identity;
                 //sunrise
-                sunData.intensity = 5000f;
+                sunLight.intensity = 5000f;
                 sun.transform.Rotate(21.0f, 0.0f, 0.0f, Space.Self);
                 sunLight.colorTemperature = 4000f;
                 EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
@@ -49,7 +51,7 @@ public class SkyController : MonoBehaviour
             case 2:
                 sun.transform.rotation = Quaternion.identity;
                 //mid sun
-                sunData.intensity = 30000f;
+                sunLight.intensity = 30000f;
                 sun.transform.Rotate(75.0f, 0.0f, 0.0f, Space.Self);
                 EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
                 sunLight.colorTemperature = 5500f;
@@ -57,7 +59,7 @@ public class SkyController : MonoBehaviour
             case 3:
                 sun.transform.rotation = Quaternion.identity;
                 //sun set
-                sunData.intensity = 550f;
+                sunLight.intensity = 550f;
                 sun.transform.Rotate(175.0f, 0.0f, 0.0f, Space.Self);
                 EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
                 sunLight.colorTemperature = 5500f;
@@ -65,7 +67,7 @@ public class SkyController : MonoBehaviour
             case 4:
                 sun.transform.rotation = Quaternion.identity;
                 //night
-                sunData.intensity = 1f;
+                sunLight.intensity = 1f;
                 sun.transform.Rotate(60.0f, 0.0f, 0.0f, Space.Self);
                 sunLight.colorTemperature = 15000f;
                 EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
