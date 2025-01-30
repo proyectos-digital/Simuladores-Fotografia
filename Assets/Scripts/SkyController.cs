@@ -9,7 +9,7 @@ public class SkyController : MonoBehaviour
     public Volume skyVolume; //Global volume
     public GameObject sun; //Objeto luz sol
     //private HDAdditionalLightData sunData; //Componente data de luz HD
-    private LightData sunData;
+    private UniversalAdditionalLightData sunData;
     private Light sunLight; //Componente del objeto luz sol
     private VolumetricClouds volumetricClouds; //Componente en skyVolume de las nubes volumetricas
     [SerializeField] public Material EmissionMaterial; //Emitir luz en materiales
@@ -22,7 +22,7 @@ public class SkyController : MonoBehaviour
     //Inicializamos variables y llamamos función de nubes
     void Start()
     {
-        sunData = sun.GetComponent<LightData>();
+        sunData = sun.GetComponent<UniversalAdditionalLightData>();
         sunLight = sun.GetComponent<Light>();
         SetCloudPreset();
     }
