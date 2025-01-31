@@ -2,6 +2,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Android;
 
 //Script encargada de manipular todo lo del global volume
 public class SkyController : MonoBehaviour
@@ -43,34 +44,38 @@ public class SkyController : MonoBehaviour
             case 1:
                 sun.transform.rotation = Quaternion.identity;
                 //sunrise
-                sunLight.intensity = 5000f;
+                sunLight.intensity = 2;
                 sun.transform.Rotate(21.0f, 0.0f, 0.0f, Space.Self);
                 sunLight.colorTemperature = 4000f;
-                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
+                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
+                EmissionMaterial.DisableKeyword("_EMISSION");
                 break;
             case 2:
                 sun.transform.rotation = Quaternion.identity;
                 //mid sun
-                sunLight.intensity = 30000f;
+                sunLight.intensity = 1f;
                 sun.transform.Rotate(75.0f, 0.0f, 0.0f, Space.Self);
-                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
+                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
+                EmissionMaterial.DisableKeyword("_EMISSION");
                 sunLight.colorTemperature = 5500f;
                 break;
             case 3:
                 sun.transform.rotation = Quaternion.identity;
                 //sun set
-                sunLight.intensity = 550f;
+                sunLight.intensity = 1.3f;
                 sun.transform.Rotate(175.0f, 0.0f, 0.0f, Space.Self);
-                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
+                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
+                EmissionMaterial.DisableKeyword("_EMISSION");
                 sunLight.colorTemperature = 5500f;
                 break;
             case 4:
                 sun.transform.rotation = Quaternion.identity;
                 //night
-                sunLight.intensity = 1f;
+                sunLight.intensity = 0.5f;
                 sun.transform.Rotate(60.0f, 0.0f, 0.0f, Space.Self);
-                sunLight.colorTemperature = 15000f;
-                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
+                sunLight.colorTemperature = 20000f;
+                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
+                EmissionMaterial.EnableKeyword("_EMISSION");
                 break;
         }
     }
