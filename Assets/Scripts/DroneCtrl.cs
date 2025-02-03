@@ -31,6 +31,7 @@ public class DroneCtrl : MonoBehaviour
         posicionInicial = puntoDespegueAterrizaje.position;
         enUso = false;
         rb = GetComponent<Rigidbody>();
+        dronController.enabled = false;
         elevarCamaraSlider.yPositionSlider.minValue = posicionInicial.y;
     }
 
