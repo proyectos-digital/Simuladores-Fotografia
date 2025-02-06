@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 48645219245844747}
         m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
         m_MethodName: set_colorTemperature
         m_Mode: 0
@@ -1669,14 +1669,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122233834094979151}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15628561, y: -0.0068235793, z: 0.043082375, w: 0.9867483}
-  m_LocalPosition: {x: -0.0049, y: 0.203, z: 0.0163}
+  m_LocalRotation: {x: 0.03143049, y: -0.0011973102, z: 0.044700477, w: 0.9985052}
+  m_LocalPosition: {x: -0.004899763, y: 0.203, z: 0.016299907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8710375720964737817}
   m_Father: {fileID: 1943594681291040894}
-  m_LocalEulerAnglesHint: {x: 18, y: 0, z: 5}
+  m_LocalEulerAnglesHint: {x: 3.605, y: 0.024, z: 5.127}
 --- !u!108 &48645219245844747
 Light:
   m_ObjectHideFlags: 0
@@ -1686,13 +1686,13 @@ Light:
   m_GameObject: {fileID: 2122233834094979151}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 10
+  m_Range: 6
+  m_SpotAngle: 38
+  m_InnerSpotAngle: 22
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -1920,16 +1920,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 2122233835330480139}
   m_HandleRect: {fileID: 2122233834755548372}
   m_Direction: 0
-  m_MinValue: 1
-  m_MaxValue: 10
+  m_MinValue: 2
+  m_MaxValue: 65
   m_WholeNumbers: 0
-  m_Value: 2
+  m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 48645219245844747}
         m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
-        m_MethodName: set_range
+        m_MethodName: set_spotAngle
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2561,16 +2561,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 2122233834784316532}
   m_HandleRect: {fileID: 2122233835379188387}
   m_Direction: 0
-  m_MinValue: 7
-  m_MaxValue: 14
+  m_MinValue: 0.5
+  m_MaxValue: 7
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Rendering.HighDefinition.HDAdditionalLightData,
-          Unity.RenderPipelines.HighDefinition.Runtime
+      - m_Target: {fileID: 48645219245844747}
+        m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
         m_MethodName: set_intensity
         m_Mode: 0
         m_Arguments:
