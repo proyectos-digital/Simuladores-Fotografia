@@ -13,7 +13,7 @@ public class ElevarCamara : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "MusicFestival") {
+        if (gameObject.CompareTag("Dron")) {
             //yPositionSlider.minValue = minValue;
             yPositionSlider.maxValue = maxValue;
             yPositionSlider.onValueChanged.AddListener(OnSliderValueChangedDron);

@@ -25,7 +25,7 @@ public class PlayerCam : MonoBehaviour
     void Update()
     {
         
-        if (IsPointerOverUIObject() && SceneManager.GetActiveScene().name != "MusicFestival")
+        if (IsPointerOverUIObject())
         {
             return; // No rotar la cámara si el mouse está sobre un objeto UI.
         }
