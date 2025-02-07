@@ -41,7 +41,7 @@ public class ActivarPanelDron : MonoBehaviour
             //panelRender.SetActive(true);
         }
         // Si el dron está en uso y se presiona Q, se sale del y el personaje vuelve a moverse libremente
-        else if(!playerMovement.isMove && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
+        else if(!playerMovement.isMove && active && Input.GetKeyUp(KeyCode.Q)) //&& !tomaElementos.isGrabbed
         {
             active = false;
             canvasDronStart.SetActive(false);
@@ -59,6 +59,7 @@ public class ActivarPanelDron : MonoBehaviour
         if (other.CompareTag("Player"))// && (!tomaElementos.CallCheck()) && !tomaElementos.isGrabbed)
         {
             active = true;
+            //droneCtrl.enabled = true;
             canvasDronStart.SetActive(active);
         }
     }
@@ -69,6 +70,7 @@ public class ActivarPanelDron : MonoBehaviour
         if (other.CompareTag("Player"))// && !tomaElementos.isGrabbed)
         {
             active = false;
+            //droneCtrl.enabled = false;
             canvasDronStart.SetActive(active);
         }
     }
