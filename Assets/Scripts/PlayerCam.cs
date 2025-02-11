@@ -32,13 +32,13 @@ public class PlayerCam : MonoBehaviour
         //Mostrar u ocultar el Mouse con tecla P para grabar e I para inventario
         if (isTv)
         {
-            if (Input.GetKeyUp(KeyCode.P) && !tvController.isOpenInventory)
+            if (Input.GetKeyUp(KeyCode.P) && !tvController.isOpenInventory && !tvController.isOpenInfo)
             {
                 tvController.PanelCentral();
                 MouseLocked();
             }
             //En simulador TV muestra el inventario con la tecla I si no hay otro panel abierto
-            if (Input.GetKeyUp(KeyCode.I) && !tvController.isOpenGeneral)
+            if (Input.GetKeyUp(KeyCode.I) && !tvController.isOpenGeneral && !tvController.isOpenInfo)
             {
                 tvController.PanelInventory();
                 MouseLocked();
