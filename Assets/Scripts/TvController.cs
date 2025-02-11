@@ -4,6 +4,7 @@ public class TvController : MonoBehaviour
 {
     public bool isOpenGeneral = false;
     public bool isOpenInventory = false;
+    public bool isOpenInfo = false;
 
     [Header("Cámaras")]
     public Camera camPrincipal;
