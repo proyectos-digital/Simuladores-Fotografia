@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 8bf7db0cabc76d84ab7291b7584f0449, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,8 +38,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 563634278}
-  m_IndirectSpecularColor: {r: 0.22941841, g: 0.39670426, b: 0.5317987, a: 1}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 1478.0231, g: 1186.8624, b: 995.463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7603,7 +7603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213813723}
   m_Layer: 0
-  m_Name: Camara3D
+  m_Name: PrincipalCamara3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10787,7 +10787,7 @@ GameObject:
   - component: {fileID: 374823698}
   - component: {fileID: 374823697}
   m_Layer: 0
-  m_Name: PanelFullScreen
+  m_Name: PrincipalPanelFullScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13809,7 +13809,7 @@ RectTransform:
   m_Father: {fileID: 1022432302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16172,11 +16172,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
         type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
-        type: 3}
       propertyPath: m_Lightmapping
       value: 4
       objectReference: {fileID: 0}
@@ -16185,12 +16180,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8a615727274f541b6a28425344ee56, type: 3}
---- !u!108 &563634278 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
-    type: 3}
-  m_PrefabInstance: {fileID: 563634277}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &566064085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17696,8 +17685,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 801675322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27193,6 +27182,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1469889755}
+    - target: {fileID: 523887172680992571, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 585410944009543191, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -27304,6 +27298,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetTimeOfDay
       objectReference: {fileID: 0}
+    - target: {fileID: 3561105982454117177, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_text
+      value: Camara Auxiliar (Oprimir P para salir)
+      objectReference: {fileID: 0}
     - target: {fileID: 3621466536182771893, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -27368,6 +27367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419764155188877286, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_text
+      value: Camara Principal (Oprimir P para salir)
       objectReference: {fileID: 0}
     - target: {fileID: 5764295310589317137, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -27579,6 +27583,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2112209974}
+    - target: {fileID: 6328198441596195900, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 721.5727
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328198441596195900, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000013351
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649625861828199487, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7256135686454478014, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -27639,6 +27658,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051021999622951259, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 880.3584
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051021999622951259, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000013351
       objectReference: {fileID: 0}
     - target: {fileID: 8371375395001030287, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -28253,7 +28282,7 @@ RectTransform:
   m_Father: {fileID: 434276434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29484,7 +29513,7 @@ GameObject:
   - component: {fileID: 939479656}
   - component: {fileID: 939479655}
   m_Layer: 5
-  m_Name: AuxCameraRender
+  m_Name: PrincipalCameraRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32049,7 +32078,7 @@ GameObject:
   - component: {fileID: 998845481}
   - component: {fileID: 998845480}
   m_Layer: 0
-  m_Name: CamaraAuxiliar Clon
+  m_Name: PrincipalCamara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34156,7 +34185,7 @@ GameObject:
   - component: {fileID: 1068925768}
   - component: {fileID: 1068925767}
   m_Layer: 5
-  m_Name: AuxCameraRender
+  m_Name: PrincipalCameraRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36520,8 +36549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000013351, y: 50}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.0006, y: 50}
+  m_SizeDelta: {x: 1163.1768, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1150527241
 MonoBehaviour:
@@ -36543,7 +36572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Camara Auxiliar
+  m_text: Camara Principal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -38234,7 +38263,7 @@ RectTransform:
   m_Father: {fileID: 226409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -46650,6 +46679,11 @@ PrefabInstance:
       propertyPath: _videoCaptures.Array.data[0]
       value: 
       objectReference: {fileID: 1815846888}
+    - target: {fileID: 3050498641400999903, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: _videoCaptures.Array.data[1]
+      value: 
+      objectReference: {fileID: 1469889763}
     - target: {fileID: 3149214739662749461, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -46660,6 +46694,11 @@ PrefabInstance:
       propertyPath: nc
       value: 
       objectReference: {fileID: 1634996115}
+    - target: {fileID: 3334902802148494810, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: _targetFramerate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3455390143357499302, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: m_Enabled
@@ -46971,6 +47010,7 @@ PrefabInstance:
     - {fileID: 3051791293549519079, guid: 04fc4a7513d101943b6c1c8e15894308, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3893200795762406374, guid: 04fc4a7513d101943b6c1c8e15894308, type: 3}
+    - {fileID: 426690967523584614, guid: 04fc4a7513d101943b6c1c8e15894308, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6428385416169702328, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
@@ -47008,6 +47048,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1469889753}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1469889763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3334902802148494810, guid: 04fc4a7513d101943b6c1c8e15894308,
+    type: 3}
+  m_PrefabInstance: {fileID: 1469889753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d01430cb7446d4787e1549b55f0a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1471509318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55365,6 +55417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpenGeneral: 0
   isOpenInventory: 0
+  isOpenInfo: 0
   camPrincipal: {fileID: 1815846886}
   camAuxiliar: {fileID: 1469889756}
   camJugador: {fileID: 149512031}
@@ -57699,7 +57752,7 @@ GameObject:
   - component: {fileID: 1786398414}
   - component: {fileID: 1786398413}
   m_Layer: 0
-  m_Name: CameraRenderAux
+  m_Name: PrincipalCameraRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58954,7 +59007,7 @@ GameObject:
   - component: {fileID: 1815846890}
   - component: {fileID: 1815846889}
   m_Layer: 0
-  m_Name: CameraComponentAux Clon
+  m_Name: PrincipalCameraComponent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59177,7 +59230,7 @@ MonoBehaviour:
   panoramaProjection: 0
   encodeQuality: 1
   _antiAliasing: 0
-  _targetFramerate: 4
+  _targetFramerate: 2
   isDedicated: 1
   captureGUI: 1
   mode: 0
@@ -60372,7 +60425,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851777113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60380,8 +60433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000013351, y: 50}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.0007, y: 50}
+  m_SizeDelta: {x: 1296.0286, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1851777115
 MonoBehaviour:
@@ -60403,7 +60456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Camara Auxiliar
+  m_text: Camara Principal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
