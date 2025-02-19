@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -7622,6 +7622,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1815846885}
+  - {fileID: 1786398412}
   - {fileID: 328939821}
   - {fileID: 1985165308}
   - {fileID: 584295384}
@@ -7694,7 +7696,6 @@ Transform:
   - {fileID: 1932006981}
   - {fileID: 1843338622}
   - {fileID: 26033613}
-  - {fileID: 1786398412}
   m_Father: {fileID: 869031554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &220823107 stripped
@@ -32097,7 +32098,6 @@ Transform:
   m_LocalScale: {x: 2.288231, y: 2.288231, z: 2.288231}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1815846885}
   - {fileID: 869031554}
   - {fileID: 72215091}
   m_Father: {fileID: 222418627}
@@ -59022,13 +59022,13 @@ Transform:
   m_GameObject: {fileID: 1815846884}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.031028327, z: 0.1324167}
+  m_LocalPosition: {x: 0, y: 0.031028327, z: 0.13241687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1654188144}
   - {fileID: 1930780147}
-  m_Father: {fileID: 998845479}
+  m_Father: {fileID: 213813723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1815846886
 Camera:
