@@ -144,6 +144,8 @@ public class InstanciarElementos : MonoBehaviour
                 {
                     btnMicrofonos[i].SetActive(false);
                 }
+                playerCam.MouseLocked();
+                tvController.PanelInventory();
             }
         }
     }
