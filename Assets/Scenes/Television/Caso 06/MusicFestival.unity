@@ -18,7 +18,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: aca4207ab11d04546b092a504868044b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,8 +38,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1478.0231, g: 1186.8624, b: 995.46497, a: 1}
+  m_Sun: {fileID: 563634278}
+  m_IndirectSpecularColor: {r: 0.21889164, g: 0.3124479, b: 0.3744737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 23a8f121926c2df46be509fb57bdc726,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -14058,8 +14059,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
         type: 3}
+      propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
+        type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
         type: 3}
@@ -14071,6 +14077,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8a615727274f541b6a28425344ee56, type: 3}
+--- !u!108 &563634278 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
+    type: 3}
+  m_PrefabInstance: {fileID: 563634277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &564214157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33686,6 +33698,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1373149788938013281, guid: d583dd560551ba64db8f9bd5327a0f4e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad031ac9f2a25bc47b4153f6e262d04c, type: 2}
     - target: {fileID: 919132149155446097, guid: d583dd560551ba64db8f9bd5327a0f4e,
         type: 3}
       propertyPath: m_Name
@@ -40716,6 +40733,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1373149788938013281, guid: fe20acfee0ad3e141ad69f1a30017cff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad031ac9f2a25bc47b4153f6e262d04c, type: 2}
     - target: {fileID: 919132149155446097, guid: fe20acfee0ad3e141ad69f1a30017cff,
         type: 3}
       propertyPath: m_Name
@@ -61514,7 +61536,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 22ff8771d87ef27429e670136399094b, type: 2}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
