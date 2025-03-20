@@ -17,8 +17,9 @@ public class SkyController : MonoBehaviour
     [SerializeField] public Color LigthEmsvColor = new Color(1f, 0.8f, 0.5f, 1f);
     //public VolumetricClouds.CloudPresets[] cloudsPrefabs = { VolumetricClouds.CloudPresets.Overcast }; //Obtener los tipos de nubes predefinidas
     //public VolumetricClouds.CloudPresets cloudPresetSelected; //Tupo de nube a seleccionar
-    private float emissiveIntensityNight = 7;
-    private float emissiveIntensityDay = 0;
+    //private float emissiveIntensityNight = 7;
+    //private float emissiveIntensityDay = 0;
+    private AmbientLightController ambientLightController;
 
     [SerializeField]
     private Material[] skyboxes; //[0= Cloudymorning, 1=CasualDay, 2=HighFantasy, 3=CoriolisNight4k]
@@ -28,6 +29,7 @@ public class SkyController : MonoBehaviour
     {
         sunData = sun.GetComponent<UniversalAdditionalLightData>();
         sunLight = sun.GetComponent<Light>();
+        ambientLightController = GetComponent<AmbientLightController>();
         SetCloudPreset();
     }
     //Función para elegir un tipo de nubes aleatorio que se mantendra durante la ejecución del programa
@@ -36,10 +38,7 @@ public class SkyController : MonoBehaviour
         int randomCloud = Random.Range(0, skyboxes.Length - 1);
         RenderSettings.skybox = skyboxes[randomCloud];
         SetTimeOfDay(randomCloud + 1);
-        //skyVolume.profile.TryGet<VolumetricClouds>(out volumetricClouds);
-        //int randomCloud = Random.Range(0, cloudsPrefabs.Length - 1);
-        //cloudPresetSelected = cloudsPrefabs[randomCloud];
-        //volumetricClouds.cloudPreset = cloudPresetSelected;
+        ambientLightController.Lamps(false);
 
     }
 
@@ -57,6 +56,7 @@ public class SkyController : MonoBehaviour
                 //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 RenderSettings.skybox = skyboxes[(int)time-1];
+                ambientLightController.Lamps(false);
                 break;
             case 2:
                 sun.transform.rotation = Quaternion.identity;
@@ -67,6 +67,7 @@ public class SkyController : MonoBehaviour
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 sunLight.colorTemperature = 5500f;
                 RenderSettings.skybox = skyboxes[(int)time - 1];
+                ambientLightController.Lamps(false);
                 break;
             case 3:
                 sun.transform.rotation = Quaternion.identity;
@@ -77,6 +78,7 @@ public class SkyController : MonoBehaviour
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 sunLight.colorTemperature = 3000f;
                 RenderSettings.skybox = skyboxes[(int)time - 1];
+                ambientLightController.Lamps(false);
                 break;
             case 4:
                 sun.transform.rotation = Quaternion.identity;
@@ -87,8 +89,8 @@ public class SkyController : MonoBehaviour
                 RenderSettings.skybox = skyboxes[(int)time - 1];
                 //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
                 EmissionMaterial.EnableKeyword("_EMISSION");
+                ambientLightController.Lamps(true);
                 break;
         }
-        Debug.Log("Todo rebien");
     }
 }
