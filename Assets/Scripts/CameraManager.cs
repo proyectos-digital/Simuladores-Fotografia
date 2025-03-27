@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.Rendering.Universal;
 using System.Diagnostics;
 using UnityEngine.UI;
 using TMPro;
@@ -32,6 +32,7 @@ public class CameraManager : MonoBehaviour
     private LensDistortion lens = null;
     private ColorAdjustments colorAdjustments = null;
     private FilmGrain filmGrain = null;
+    private Bloom bloom = null;
     bool isOpenPanel = false;
     public Screenshot screenshot;
     public NotificationController nc;
@@ -69,12 +70,14 @@ public class CameraManager : MonoBehaviour
         volume.profile.TryGet<LensDistortion>(out lens);
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         volume.profile.TryGet<FilmGrain>(out filmGrain);
+        volume.profile.TryGet<Bloom>(out bloom);
 
         //Asignamos los valores que tendran cada cada parámetro de la cámara
         isoSlider.wholeNumbers = true;
         int[] isoValues = { 100, 200, 400, 800, 1600, 3200, 6400 };
         float[] FGValues = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.7f, 0.9f };
         float[] apertureValues = { 1.4f, 2f, 2.8f, 4f, 5.6f, 8f, 11f, 13f, 16f, 22f };
+        float[] bloomValues = { };
         float[] shutterSpeedValues = { 2f, 4f, 8f, 15f, 30f, 60f, 125f, 250f, 500f, 1000f };
         float[] FocalLengthValues = { 14f, 35f, 50f, 200f, 400f };
         string[] FocalLegthTexts = { "Ultra Angular 14MM", "Gran Angular 35MM", "Distancia Media 50MM", "Teleobjetivo 200MM", "Super Teleobjetivo 400MM" };
@@ -101,6 +104,8 @@ public class CameraManager : MonoBehaviour
             cameraPhoto.aperture = apertureValues[(int)a - 1];
             apertureText = apertureButton.GetComponentInChildren<TMP_Text>();
             apertureText.text = apertureValues[(int)a - 1].ToString();
+            //Probar acá el bloom
+            bloom.intensity.value = apertureSlider.value;
         });
 
         shutterSpeedSlider.onValueChanged.AddListener(ss => {
