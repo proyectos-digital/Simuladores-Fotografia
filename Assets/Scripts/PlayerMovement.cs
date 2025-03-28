@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
     }
     //Permitirle moverse al jugador
     public void MoveAllow() {
-        Debug.Log("que pasa: "+isMove);
         isMove = !isMove;
     }
 

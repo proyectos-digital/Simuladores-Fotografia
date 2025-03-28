@@ -5614,12 +5614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfe0e7d9a388534bb7c1e5eb6592de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!20 &149512031 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1576445735, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1267135306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &152542086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16951,6 +16945,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 98.9, y: 23.11, z: 21.82}
   m_Center: {x: 41.1, y: 11.6, z: 0}
+--- !u!20 &434628465 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2281999796291679456, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267135306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &437856628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51991,6 +51991,11 @@ PrefabInstance:
       objectReference: {fileID: 1634996115}
     - target: {fileID: 3418799703113505415, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
         type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 434628465}
+    - target: {fileID: 3418799703113505415, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+        type: 3}
       propertyPath: cameraSound
       value: 
       objectReference: {fileID: 595420455}
@@ -52072,6 +52077,16 @@ PrefabInstance:
     - target: {fileID: 4658692842605498515, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035278497759409618, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+        type: 3}
+      propertyPath: m_RendererIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035278497759409618, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -57073,7 +57088,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraPhoto
       value: 
-      objectReference: {fileID: 149512031}
+      objectReference: {fileID: 434628465}
     - target: {fileID: 2387281139830822043, guid: dbd404d633aa5564b85e030444ac0045,
         type: 3}
       propertyPath: apertureButton
