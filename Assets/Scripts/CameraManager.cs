@@ -31,10 +31,13 @@ public class CameraManager : MonoBehaviour
     public TMP_Text txtLens;
     private LensDistortion lens = null;
     private ColorAdjustments colorAdjustments = null;
+    private DepthOfField depthOfField = null;
     private FilmGrain filmGrain = null;
-    private Bloom bloom = null;
+    //private Bloom bloom = null;
     private ChannelMixer channelMixer = null;
-    private LiftGammaGain liftGammaGain = null;
+    private LiftGammaGain gamma = null;
+    private LiftGammaGain gain = null;
+
     bool isOpenPanel = false;
     public Screenshot screenshot;
     public NotificationController nc;
@@ -70,11 +73,13 @@ public class CameraManager : MonoBehaviour
     void Start() {
         //Obtenemos los componentes de Volume y los almacenamos en variables
         volume.profile.TryGet<LensDistortion>(out lens);
+        volume.profile.TryGet<DepthOfField>(out depthOfField);
         volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         volume.profile.TryGet<FilmGrain>(out filmGrain);
-        volume.profile.TryGet<Bloom>(out bloom);
+        //volume.profile.TryGet<Bloom>(out bloom); Reemplazar por lift
         volume.profile.TryGet<ChannelMixer>(out channelMixer);
-        volume.profile.TryGet<LiftGammaGain>(out liftGammaGain);
+        volume.profile.TryGet<LiftGammaGain>(out gamma);
+        volume.profile.TryGet<LiftGammaGain>(out gain);
 
         //Asignamos los valores que tendran cada cada parámetro de la cámara
         isoSlider.wholeNumbers = true;
@@ -85,6 +90,7 @@ public class CameraManager : MonoBehaviour
         float[] gammaValues = {  0, 0.35f, 0.6f, 0.85f, 1.15f, 1.45f, 2f };
         float[] shutterSpeedValues = { 2f, 4f, 8f, 15f, 30f, 60f, 125f, 250f, 500f, 1000f };
         float[] FocalLengthValues = { 14f, 35f, 50f, 200f, 400f };
+        float[] channelMixerValues = { 200, 180, 160, 140, 120, 100, 80, 60, 40, 20 };
         string[] FocalLegthTexts = { "Ultra Angular 14MM", "Gran Angular 35MM", "Distancia Media 50MM", "Teleobjetivo 200MM", "Super Teleobjetivo 400MM" };
 
         //Asignamos que tendra los sliders según interactuemos para cada Slider correspondiente con sus variables
@@ -92,12 +98,14 @@ public class CameraManager : MonoBehaviour
             cameraPhoto.iso = isoValues[(int)i - 1];
             isoText = isoButton.GetComponentInChildren<TMP_Text>();
             filmGrain.intensity.value = FGValues[(int)i - 1];
-            liftGammaGain.gamma.value = new Vector4(1, 1, 1, gammaValues[(int)i -1]);
+            gamma.gamma.value = new Vector4(1, 1, 1, gammaValues[(int)i -1]);
             isoText.text = isoValues[(int)i - 1].ToString();
         });
 
         focusDistanceSlider.onValueChanged.AddListener(fd => {
-            cameraPhoto.focusDistance = focusDistanceSlider.value;
+            //cameraPhoto.focusDistance = focusDistanceSlider.value;
+            depthOfField.gaussianStart.value = focusDistanceSlider.value;
+
         });
 
         focalLengthSlider.onValueChanged.AddListener(fl => {
@@ -111,11 +119,14 @@ public class CameraManager : MonoBehaviour
             apertureText = apertureButton.GetComponentInChildren<TMP_Text>();
             apertureText.text = apertureValues[(int)a - 1].ToString();
             //Probar acá el bloom
-            bloom.intensity.value = apertureSlider.value;
+            //bloom.intensity.value = apertureSlider.value;
         });
 
         shutterSpeedSlider.onValueChanged.AddListener(ss => {
             float realshutterspeedvalue = 1 / shutterSpeedValues[(int)ss - 1];
+            channelMixer.redOutRedIn.value = channelMixerValues[(int)ss - 1];
+            channelMixer.greenOutGreenIn.value = channelMixerValues[(int)ss - 1];
+            channelMixer.blueOutBlueIn.value = channelMixerValues[(int)ss - 1];
             cameraPhoto.shutterSpeed = realshutterspeedvalue;
             shutterSpeedText = shutterSpeedButton.GetComponentInChildren<TMP_Text>();
             shutterSpeedText.text = "1/" + shutterSpeedValues[(int)ss - 1].ToString();
