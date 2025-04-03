@@ -17,8 +17,8 @@ public class SkyController : MonoBehaviour
     [SerializeField] public Color LigthEmsvColor = new Color(1f, 0.8f, 0.5f, 1f);
     //public VolumetricClouds.CloudPresets[] cloudsPrefabs = { VolumetricClouds.CloudPresets.Overcast }; //Obtener los tipos de nubes predefinidas
     //public VolumetricClouds.CloudPresets cloudPresetSelected; //Tupo de nube a seleccionar
-    //private float emissiveIntensityNight = 7;
-    //private float emissiveIntensityDay = 0;
+    private float emissiveIntensityNight = 10;
+    private float emissiveIntensityDay = 0;
     private AmbientLightController ambientLightController;
 
     [SerializeField]
@@ -53,7 +53,7 @@ public class SkyController : MonoBehaviour
                 sunLight.intensity = 1f;
                 sun.transform.Rotate(21.0f, 0.0f, 0.0f, Space.Self);
                 sunLight.colorTemperature = 4000f;
-                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 RenderSettings.skybox = skyboxes[(int)time-1];
                 ambientLightController.Lamps(false);
@@ -62,8 +62,8 @@ public class SkyController : MonoBehaviour
                 sun.transform.rotation = Quaternion.identity;
                 //mid sun
                 sunLight.intensity = 2f;
-                sun.transform.Rotate(75.0f, 0.0f, 0.0f, Space.Self);
-                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
+                sun.transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityDay);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 sunLight.colorTemperature = 5500f;
                 RenderSettings.skybox = skyboxes[(int)time - 1];
@@ -73,8 +73,8 @@ public class SkyController : MonoBehaviour
                 sun.transform.rotation = Quaternion.identity;
                 //sun set
                 sunLight.intensity = 1.3f;
-                sun.transform.Rotate(175.0f, 0.0f, 0.0f, Space.Self);
-                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
+                sun.transform.Rotate(135.0f, 0.0f, 0.0f, Space.Self);
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
                 EmissionMaterial.DisableKeyword("_EMISSION");
                 sunLight.colorTemperature = 3000f;
                 RenderSettings.skybox = skyboxes[(int)time - 1];
@@ -87,7 +87,7 @@ public class SkyController : MonoBehaviour
                 sun.transform.Rotate(60.0f, 0.0f, 0.0f, Space.Self);
                 sunLight.colorTemperature = 20000f;
                 RenderSettings.skybox = skyboxes[(int)time - 1];
-                //EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
+                EmissionMaterial.SetColor("_EmissiveColor", LigthEmsvColor * emissiveIntensityNight);
                 EmissionMaterial.EnableKeyword("_EMISSION");
                 ambientLightController.Lamps(true);
                 break;
