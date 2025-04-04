@@ -38,8 +38,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 1676798006}
-  m_IndirectSpecularColor: {r: 0.22941841, g: 0.39670426, b: 0.5317987, a: 1}
+  m_Sun: {fileID: 3072282969790511440}
+  m_IndirectSpecularColor: {r: 0.73745745, g: 0.66200787, b: 0.6554334, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4997,7 +4997,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraPhoto
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 929548694}
     - target: {fileID: 2387281139830822043, guid: dbd404d633aa5564b85e030444ac0045,
         type: 3}
       propertyPath: apertureButton
@@ -7892,6 +7892,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfe0e7d9a388534bb7c1e5eb6592de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &929548694 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2281999796291679456, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3418799702759265034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931994833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f1fece9d8426fa46b0e3f4f37532ce1,
@@ -15260,12 +15266,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676785140}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!108 &1676798006 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 8449361603650923554, guid: cb8a615727274f541b6a28425344ee56,
-    type: 3}
-  m_PrefabInstance: {fileID: 3072282969790511439}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1679693319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5856102138120831081, guid: 143cb3228395bb747b3832afba362b43,
@@ -20689,6 +20689,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8a615727274f541b6a28425344ee56, type: 3}
+--- !u!108 &3072282969790511440 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 477480180915132414, guid: cb8a615727274f541b6a28425344ee56,
+    type: 3}
+  m_PrefabInstance: {fileID: 3072282969790511439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3149920660524067932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23990,6 +23996,11 @@ PrefabInstance:
       objectReference: {fileID: 1648545679}
     - target: {fileID: 3418799703113505415, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
         type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 929548694}
+    - target: {fileID: 3418799703113505415, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+        type: 3}
       propertyPath: cameraSound
       value: 
       objectReference: {fileID: 1542129509}
@@ -24057,6 +24068,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035278497759409618, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3418799702819964066, guid: a3ca61c79d5d86643ac2bffc6b1b660b, type: 3}
