@@ -2031,17 +2031,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Lights.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1753489685}
     - target: {fileID: 7990755626676163491, guid: 663f43a35a839ef4ebbac1146a7128af,
         type: 3}
       propertyPath: Lights.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 962738174}
     - target: {fileID: 7990755626676163491, guid: 663f43a35a839ef4ebbac1146a7128af,
         type: 3}
       propertyPath: Lights.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1492328697}
     - target: {fileID: 8971937729077594892, guid: 663f43a35a839ef4ebbac1146a7128af,
         type: 3}
       propertyPath: sun
@@ -18768,6 +18768,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.527218, y: 0.34901342, z: 0.6685012}
   m_Center: {x: -0.009542152, y: 0.02358824, z: -0.008426964}
+--- !u!108 &962738174 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 165051838561955113, guid: d60a2807ef4858d4dad1ba9387e5de56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1524851458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &969181690
 GameObject:
   m_ObjectHideFlags: 0
@@ -31014,6 +31020,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489537812}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!108 &1492328697 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 165051838561955113, guid: d60a2807ef4858d4dad1ba9387e5de56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1874362075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1497180775
 GameObject:
   m_ObjectHideFlags: 0
@@ -37346,6 +37358,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1753489685 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 165051838561955113, guid: d60a2807ef4858d4dad1ba9387e5de56,
+    type: 3}
+  m_PrefabInstance: {fileID: 410338662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1755396842 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8971937729077594892, guid: 663f43a35a839ef4ebbac1146a7128af,
@@ -44641,6 +44659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnableGrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779867346505464010, guid: 143cb3228395bb747b3832afba362b43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5779867346662822694, guid: 143cb3228395bb747b3832afba362b43,
         type: 3}
