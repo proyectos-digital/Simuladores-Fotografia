@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 303955518}
-  m_IndirectSpecularColor: {r: 0.22941841, g: 0.39670426, b: 0.5317987, a: 1}
+  m_IndirectSpecularColor: {r: 0.04578375, g: 0.053896904, b: 0.06902942, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8165,7 +8165,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camJugador
       value: 
-      objectReference: {fileID: 929548688}
+      objectReference: {fileID: 0}
     - target: {fileID: 3050193125609574865, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: txtProceso
@@ -9530,7 +9530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCameras:
-  - {fileID: 929548688}
+  - {fileID: 0}
   - {fileID: 736416385}
   - {fileID: 722266119}
   panelFullScreen:
@@ -10107,12 +10107,6 @@ Transform:
   - {fileID: 460318423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &929548688 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1576445735, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
-    type: 3}
-  m_PrefabInstance: {fileID: 3418799702759265034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931994833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f1fece9d8426fa46b0e3f4f37532ce1,
@@ -18903,7 +18897,7 @@ MonoBehaviour:
   isOpenInfo: 0
   camPrincipal: {fileID: 736416385}
   camAuxiliar: {fileID: 722266119}
-  camJugador: {fileID: 929548688}
+  camJugador: {fileID: 0}
   panelGeneral: {fileID: 1518329785}
   panelInventory: {fileID: 1518329786}
 --- !u!4 &1765320512 stripped
