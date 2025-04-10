@@ -18,7 +18,7 @@ public class DroneCtrl : MonoBehaviour
     [Header("Controladores")]
     public DroneCtrl dronController;
 
-    [Header ("Posición de elementos")]
+    [Header("Posición de elementos")]
     public Transform puntoDespegueAterrizaje;
     Rigidbody rb;
     private Vector2 inputDirection;
@@ -31,7 +31,6 @@ public class DroneCtrl : MonoBehaviour
         posicionInicial = puntoDespegueAterrizaje.position;
         enUso = false;
         rb = GetComponent<Rigidbody>();
-        dronController.enabled = false;
         elevarCamaraSlider.yPositionSlider.minValue = posicionInicial.y;
     }
 
@@ -88,14 +87,14 @@ public class DroneCtrl : MonoBehaviour
 
     public void ComprobacionVuelo()
     {
-        if (enDespegue && counter<=1)
+        if (enDespegue && counter <= 1)
         {
             Vector3 tempVect = new Vector3(0, velMovimiento, 0);
             tempVect = tempVect.normalized * velocidad * Time.fixedDeltaTime;
             rb.MovePosition(transform.position + tempVect);
             elevarCamaraSlider.UpdateSliderDronValue(rb.position.y);
             //transform.Translate(Vector3.up * velocidad * Time.deltaTime);       //Se desplaza hacia arriba hasta la altura máxima
-            if (transform.position.y - posicionInicial.y >= alturaMax -0.5f)           //Verifica si ha alcanzado la altura máxima
+            if (transform.position.y - posicionInicial.y >= alturaMax - 0.5f)           //Verifica si ha alcanzado la altura máxima
             {
                 rb.MovePosition(new Vector3(rb.position.x, alturaMax, rb.position.z));
                 elevarCamaraSlider.yPositionSlider.minValue = elevarCamaraSlider.minValue;
