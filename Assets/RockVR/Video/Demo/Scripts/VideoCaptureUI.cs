@@ -27,7 +27,6 @@ namespace RockVR.Video.Demo
         [Header("Cámaras")]
         public Camera camPrincipal;
         public Camera camAuxiliar;
-        public Camera camJugador;
 
         [SerializeField] private NotificationController nc;
         [SerializeField] private string message;
