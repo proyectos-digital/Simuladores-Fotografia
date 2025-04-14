@@ -58,13 +58,11 @@ namespace RockVR.Video.Demo
         public void StopRecord()
         {
             VideoCaptureCtrl.instance.StopCapture();
-            UnityEngine.Debug.Log("pensando");
             btnRecord.onClick.RemoveAllListeners();
             btnRecord.onClick.AddListener(StartRecord);
             imgStopRecord.SetActive(false);
             if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.FINISH)
             {
-                UnityEngine.Debug.Log("olas");
                 if (!isPlayVideo)
                 { }
             }
