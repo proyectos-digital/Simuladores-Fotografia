@@ -1991,16 +1991,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 2024829520503588007}
   m_HandleRect: {fileID: 2024829522033584533}
   m_Direction: 0
-  m_MinValue: 5
-  m_MaxValue: 20
+  m_MinValue: 21.8
+  m_MaxValue: 70
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3209110770963820751}
         m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
-        m_MethodName: set_range
+        m_MethodName: set_spotAngle
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2839,7 +2839,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2897,7 +2897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
+  m_AdditionalLightsShadowResolutionTier: 1
   m_LightLayerMask: 1
   m_RenderingLayers: 1
   m_CustomShadowLayers: 0
@@ -2990,7 +2990,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2024829521814679937}
   m_Direction: 0
   m_MinValue: 0.7
-  m_MaxValue: 4
+  m_MaxValue: 6
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
