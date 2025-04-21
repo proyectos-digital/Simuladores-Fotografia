@@ -10,16 +10,6 @@ public class CameraFullScreen : MonoBehaviour
     public GameObject[] panelPanelsPerspective;
     bool isPanelFullScreen = false;
 
-    [Header("RenderCameras")]
-    [SerializeField] GameObject camRenderPrincipal;
-    [SerializeField] GameObject camRenderAuxiliar;
-    [SerializeField] GameObject camPlayer;
-
-    void Start()
-    {
-        ChangeStateRenders(false);
-    }
-
     void Update()
     {
         if (isPanelFullScreen && (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.P)))          
@@ -37,7 +27,6 @@ public class CameraFullScreen : MonoBehaviour
     }
     public void ResetState()
     {
-
         LoopCameras(true);
         LoopPanels(true);
         isPanelFullScreen = false;
@@ -50,8 +39,6 @@ public class CameraFullScreen : MonoBehaviour
         {
             allCameras[i].enabled = state;
         }
-        //Desactivamos los renders de miniatura revisar en los escenarios
-        ChangeStateRenders(false);
     }
     //Funcion para cambiar el estado de los paneles de perspectiva y desactivar los de pantalla completa
     void LoopPanels(bool state)
@@ -66,12 +53,5 @@ public class CameraFullScreen : MonoBehaviour
         {
             panelPanelsPerspective[i].SetActive(state);
         }
-    }
-
-    //Ajustar desactivado y activado de RendersCamera
-    public void ChangeStateRenders(bool state)
-    {
-        //camRenderPrincipal.SetActive(state);
-        //camRenderAuxiliar.SetActive(state);
     }
 }

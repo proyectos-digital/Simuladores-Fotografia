@@ -10501,6 +10501,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -0.898
       objectReference: {fileID: 0}
+    - target: {fileID: 3834050170977327319, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3999926239472096860, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -10565,6 +10570,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 152.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553785857988995082, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553785857988995082, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553785857988995082, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 699564916}
+    - target: {fileID: 4553785857988995082, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivatePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553785857988995082, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CameraFullScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553785857988995082, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 703194005}
+    - target: {fileID: 4553785857988995082, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4569039312238250669, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
@@ -10860,6 +10900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Camara Principal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198212248346654850, guid: 04fc4a7513d101943b6c1c8e15894308,
+        type: 3}
+      propertyPath: m_WholeNumbers
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9204783949643084332, guid: 04fc4a7513d101943b6c1c8e15894308,
         type: 3}
@@ -18050,7 +18095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCameras:
-  - {fileID: 0}
+  - {fileID: 1267135311}
   - {fileID: 570114195}
   - {fileID: 2114641798}
   panelFullScreen:
@@ -18061,9 +18106,6 @@ MonoBehaviour:
   panelPanelsPerspective:
   - {fileID: 1240138588}
   - {fileID: 1720213360}
-  camRenderPrincipal: {fileID: 997700933}
-  camRenderAuxiliar: {fileID: 523850612}
-  camPlayer: {fileID: 660556203}
 --- !u!1001 &700290020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21359,6 +21401,11 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3561105982454117177, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_text
+      value: "C\xE1mara Dron (Oprimir P para Salir)"
+      objectReference: {fileID: 0}
     - target: {fileID: 3621466536182771893, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -21443,6 +21490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419764155188877286, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_text
+      value: "C\xE1mara Principal (Oprimir P para Salir)"
       objectReference: {fileID: 0}
     - target: {fileID: 5764295310589317137, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -21609,6 +21661,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenFolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6328198441596195900, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 900
+      objectReference: {fileID: 0}
     - target: {fileID: 7256135686454478014, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -21689,6 +21746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051021999622951259, guid: 8d480b83f4091b947a4413938a81fe69,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 8371375395001030287, guid: 8d480b83f4091b947a4413938a81fe69,
         type: 3}
@@ -25561,12 +25623,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a57d54078be620049b41fc1fa2665a24,
     type: 3}
   m_PrefabInstance: {fileID: 993691775}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &997700933 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2474917963503806314, guid: 04fc4a7513d101943b6c1c8e15894308,
-    type: 3}
-  m_PrefabInstance: {fileID: 449717333}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &999582284
 PrefabInstance:
@@ -42051,6 +42107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efb4a762d5ffb14882fb8f1e33cd7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &1267135311 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2281999796291679456, guid: a3ca61c79d5d86643ac2bffc6b1b660b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267135306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1275272004
 PrefabInstance:
   m_ObjectHideFlags: 0
