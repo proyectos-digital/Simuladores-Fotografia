@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.3500356, g: 0.35325864, b: 0.3584906, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 4914f2279ca8cec46a86dc7d913d241f, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8bf7db0cabc76d84ab7291b7584f0449, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,8 +38,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5746278, g: 0.7346123, b: 0.9083678, a: 1}
+  m_Sun: {fileID: 958192923}
+  m_IndirectSpecularColor: {r: 0.73745745, g: 0.66200787, b: 0.6554334, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2248,7 +2248,7 @@ Terrain:
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
@@ -14712,6 +14712,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 477480180915132414, guid: cb8a615727274f541b6a28425344ee56,
+        type: 3}
+      propertyPath: m_ShadowAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477480180915132414, guid: cb8a615727274f541b6a28425344ee56,
+        type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7797825554571423694, guid: cb8a615727274f541b6a28425344ee56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14772,6 +14782,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8a615727274f541b6a28425344ee56, type: 3}
+--- !u!108 &958192923 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 477480180915132414, guid: cb8a615727274f541b6a28425344ee56,
+    type: 3}
+  m_PrefabInstance: {fileID: 958192922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &969565065 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5779867346555337937, guid: 143cb3228395bb747b3832afba362b43,
@@ -33854,6 +33870,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reflection Probe
       objectReference: {fileID: 0}
+    - target: {fileID: 2415426419873082179, guid: 566b1c6a9b6ddea4686793fd10f960a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6820884480966815313, guid: 566b1c6a9b6ddea4686793fd10f960a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33909,11 +33930,57 @@ PrefabInstance:
       propertyPath: m_ProbeSettings.proxySettings.useInfluenceVolumeAsProxyVolume
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6987059753326779770, guid: 566b1c6a9b6ddea4686793fd10f960a4, type: 3}
+    - {fileID: 8431416939698880024, guid: 566b1c6a9b6ddea4686793fd10f960a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2415426419873082179, guid: 566b1c6a9b6ddea4686793fd10f960a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4648536904522070934}
   m_SourcePrefab: {fileID: 100100000, guid: 566b1c6a9b6ddea4686793fd10f960a4, type: 3}
+--- !u!1 &4648536904522070933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2415426419873082179, guid: 566b1c6a9b6ddea4686793fd10f960a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4648536904522070932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!215 &4648536904522070934
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648536904522070933}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 2
+  m_RefreshMode: 2
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 25.82, y: 10, z: 29.9}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 0
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 8900000, guid: 180a7e3e3a48bda4fbe43a7523a7b18b,
+    type: 3}
 --- !u!1001 &4710501147843865393
 PrefabInstance:
   m_ObjectHideFlags: 0
