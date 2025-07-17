@@ -149,4 +149,10 @@ public class MenuController : MonoBehaviour
         
     }
 
+    public void EnableInfoPanel()
+    {
+        isInfoActive = true;
+        ActivateMenu(false);
+    }
+
 }
