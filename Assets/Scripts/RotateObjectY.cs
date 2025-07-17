@@ -12,6 +12,7 @@ public class RotateObjectY : MonoBehaviour
         {
             yRotationSlider.minValue = 0;
             yRotationSlider.maxValue = 360;
+            yRotationSlider.value = 0;
             yRotationSlider.onValueChanged.AddListener(OnSliderValueChanged);
         }
     }
