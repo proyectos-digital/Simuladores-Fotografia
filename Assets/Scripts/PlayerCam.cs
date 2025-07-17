@@ -22,6 +22,18 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] bool isTv = false;
     [SerializeField] TvController tvController;
 
+    void Start()
+    {
+        // Obtener la rotación inicial del objeto orientation
+        Vector3 initialRotation = orientation.rotation.eulerAngles;
+        yRotation = initialRotation.y;
+        xRotation = initialRotation.x;
+
+        // Aplicar la rotación inicial a la cámara y a orientation
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
     void Update()
     {
         
