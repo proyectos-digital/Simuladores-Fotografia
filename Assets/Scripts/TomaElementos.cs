@@ -67,7 +67,7 @@ public class TomaElementos : MonoBehaviour
                 isGrabbed = true;
                 elementos.transform.SetParent(posicionElemento);
                 elementos.transform.position = posicionElemento.position;
-                elementos.transform.rotation = posicionElemento.rotation;
+                //elementos.transform.rotation = posicionElemento.rotation;
                 BloquearPaneles(0);
             }
             else if (Input.GetKeyUp(KeyCode.T) && !isGrabbed && posicionElemento.childCount > 0)
@@ -78,7 +78,7 @@ public class TomaElementos : MonoBehaviour
         // Suelta el elemento
         if (Input.GetKeyUp(KeyCode.E) && posicionElemento.childCount > 0)
         {
-            elementos.transform.eulerAngles = new Vector3(0, elementos.transform.eulerAngles.y, elementos.transform.eulerAngles.z);
+            elementos.transform.eulerAngles = new Vector3(0, elementos.transform.eulerAngles.y, 0);
             elementos.transform.SetParent(null);
             DesactivarInfo();
         }
