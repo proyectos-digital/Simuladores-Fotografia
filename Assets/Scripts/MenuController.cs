@@ -39,7 +39,7 @@ public class MenuController : MonoBehaviour
     void Update()
     {
         //Se revisa si no hay algun menú o panel abierto al oprimir Esc para abrir el menú opciones
-        if ((!isMenuActive) && Input.GetKeyUp(KeyCode.Escape))
+        if ((!isMenuActive) && (!isInfoActive) && Input.GetKeyUp(KeyCode.Escape))
         {
             Cursor.lockState = isMenuActive ? CursorLockMode.None : CursorLockMode.Confined;
             mainMenuPanel.SetActive(true);
