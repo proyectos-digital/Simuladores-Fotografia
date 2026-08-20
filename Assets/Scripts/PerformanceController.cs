@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PerformanceController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //Ajustamos la velocidad de los frames por segundo a 60
+    void Awake()
     {
-        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 30;
     }
 
     

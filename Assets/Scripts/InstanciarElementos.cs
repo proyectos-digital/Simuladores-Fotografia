@@ -1,0 +1,168 @@
+using UnityEngine;
+using TMPro;
+
+//Script para simuladores Tv crea los objetos de luces y micrófono
+public class InstanciarElementos : MonoBehaviour
+{
+    [SerializeField] PlayerCam playerCam;
+    [SerializeField] TvController tvController;
+
+    [Header ("Accesorios")]
+    public GameObject luminaria1;       //Luz
+    public GameObject aperture300;      //Luz
+    public GameObject sennheiser;       //Micrófono
+    public GameObject neewer660;        //Luz
+    public GameObject godox_SL60W;      //Luz
+
+    [Header("Cantidad de objetos")]
+    public int cantLuminaria;
+    public int cantAperture300;
+    public int cantSennheiser;
+    public int cantNeewer660;
+    public int cantGodox;
+
+    //CANTIDAD MICROFONOS ELECCION CORRECTA
+    public int cantMicro = 1;
+
+    [Header("Textos de cantidades")]
+    public TMP_Text txtCantLuminaria;
+    public TMP_Text txtCantAperture300;
+    //-----Texto unico para microfono-----//
+    public TMP_Text txtCantSennheiser;
+    //-----Texto unico para microfono-----//
+    public TMP_Text txtCantNeewer660;
+    public TMP_Text txtCantGodox;
+
+    //Ubicación donde se generará los objetos
+    [Header ("Referencia al jugador")]
+    public Transform manoJugador;
+
+    //Luces de escenas Studio y Studio People
+    [Header("Luces superiores")]
+    public GameObject pnlLuces;
+
+    //Botones que están en el inventario
+    [Header("Accesorios")]
+    public GameObject btnLuminaria1;
+    public GameObject btnAperture300;
+    public GameObject btnNeewer660;
+    public GameObject btnGodox;
+
+
+    //Botones Microfonos
+    [Header("Microfonos")]
+    public GameObject[] btnMicrofonos;
+    public MicrophoneSelector microphoneSelector;
+
+    void Start()
+    {
+        //Indicamos la cantidad que podra crear o instanciar de cada objeto
+        txtCantLuminaria.text = cantLuminaria + "/2";
+        txtCantAperture300.text = cantAperture300 + "/2";
+        txtCantSennheiser.text = cantMicro + "/1";
+        txtCantNeewer660.text = cantNeewer660 + "/2";
+        txtCantGodox.text = cantGodox + "/2";
+    }
+    //Instancia objetos según el valor del botón correspondiente en el siguiente switch
+    // 0 - Luz Luminaria
+    // 1 - Luz Aperture 300
+    // 2 - Microfono Sennheiser
+    // 3 - Luz Neewer 660
+    // 4 - Luz Godox
+    public void NuevoAccersorio(int accesorio)
+    {
+        //Instanciamos el objeto segun el valor indicado
+        playerCam.MouseLocked();
+        tvController.PanelInventory();
+        switch(accesorio)
+        {
+            case 0:
+                if (cantLuminaria > 0)
+                {
+                    Instantiate(luminaria1, manoJugador.transform.position, new Quaternion(0, 0, 0, 0));// manoJugador.transform.rotation);
+                    cantLuminaria--;
+                    txtCantLuminaria.text = cantLuminaria + "/2";
+                    if (cantLuminaria == 0) btnLuminaria1.SetActive(false);
+                }
+                break;
+
+            case 1:
+                if (cantAperture300 > 0)
+                {
+                    Instantiate(aperture300, manoJugador.transform.position, manoJugador.transform.rotation);
+                    cantAperture300--;
+                    txtCantAperture300.text = cantAperture300 + "/2";
+                    if (cantAperture300 == 0) btnAperture300.SetActive(false);
+                }
+                break;
+            //MICROFONOS OBSOLETO CAMBIOS DICIEMBRE
+            //AHORA SE USA FUNCION NuevoMicrofono
+            case 2:
+                if (cantSennheiser > 0)
+                {
+                    bool generarMicrofono = microphoneSelector.ElegirMicrofono(sennheiser);
+                    Debug.Log("el bool que hice es: " + generarMicrofono);
+                    Instantiate(sennheiser, manoJugador.transform.position, manoJugador.transform.rotation);
+                    cantSennheiser--;
+                    txtCantSennheiser.text = cantSennheiser + "/1";
+                    //btnSennheiser.SetActive(false);
+                }
+                break;
+
+            case 3:
+                if (cantNeewer660 > 0)
+                {
+                    Instantiate(neewer660, manoJugador.transform.position, manoJugador.transform.rotation);
+                    cantNeewer660--;
+                    txtCantNeewer660.text = cantNeewer660 + "/2";
+                    if(cantNeewer660 == 0) btnNeewer660.SetActive(false);
+                }
+                break;
+
+            case 4:
+                if (cantGodox > 0)
+                {
+                    Instantiate(godox_SL60W, manoJugador.transform.position, manoJugador.transform.rotation);
+                    cantGodox--;
+                    txtCantGodox.text = cantGodox + "/2";
+                    if(cantGodox == 0) btnGodox.SetActive(false);
+                }
+                break;
+        }
+    }
+    public void NuevoMicrofono(GameObject microfono)
+    {
+        if (cantMicro > 0)
+        {
+            bool generarMicrofono = microphoneSelector.ElegirMicrofono(microfono);
+            if (generarMicrofono)
+            {
+                Instantiate(microfono, manoJugador.transform.position, manoJugador.transform.rotation);
+                cantMicro--;
+                txtCantSennheiser.text = cantMicro + "/1";
+                for (int i = 0; i < btnMicrofonos.Length; i++)
+                {
+                    btnMicrofonos[i].SetActive(false);
+                }
+                playerCam.MouseLocked();
+                tvController.PanelInventory();
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            pnlLuces.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            pnlLuces.SetActive(true);
+        }
+    }
+}

@@ -17,6 +17,7 @@ using System;
 /// For documentation and usage examples: https://github.com/deadlyfingers/UnityWav
 /// </remarks>
 
+// Sin uso era para simuladores de Radio
 public class WavUtility
 {
 	// Force save as 16-bit .wav

@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 namespace UnityStandardAssets.Utility
 {
+    //Contador de frames por segundo, requiere colocarse en objeto de UI TMP_Text
     [RequireComponent(typeof (TMP_Text))]
     public class FPSCounter : MonoBehaviour{
         const float fpsMeasurePeriod = 0.5f;

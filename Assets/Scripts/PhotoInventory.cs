@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Script obsoleta ya no esta en uso
 public class PhotoInventory : MonoBehaviour{
 
     public GameObject panelInventory;

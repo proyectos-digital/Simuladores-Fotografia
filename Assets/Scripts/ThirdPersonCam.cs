@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Script sin uso al parecer
 public class ThirdPersonCam : MonoBehaviour
 {
     [Header("References")]
@@ -17,7 +16,7 @@ public class ThirdPersonCam : MonoBehaviour
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);

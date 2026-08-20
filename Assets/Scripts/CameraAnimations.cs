@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraAnimations : MonoBehaviour
@@ -19,25 +17,19 @@ public class CameraAnimations : MonoBehaviour
         cameraAnimator = GetComponent<Animator>();
         if (!isStudy) {
             cameraManager.cameraAnimation += MoveCamera;
-            screenshot.cameraOrientation += ChangeOrientation;
         }
     }
-
+    //Funciones para controlar el estado de animaciones, entra o sale de modo cámara
     void MoveCamera(bool isOpen) {
         cameraAnimator.SetBool("IsMode", isOpen);
-        //Desactivar renderizar en miniatura camara si da problemas de rendimiento
-        cameraRender.SetActive(!isOpen);
     }
+    //Funciones para controlar el estado de animaciones, cambia orientación de cámara
     void ChangeOrientation(bool isHorizontal) {
         cameraAnimator.SetBool("IsHorizontal", isHorizontal);
     }
     //Funcion para ejecutar el Evento openPanel
     void OnOffPanel() {
         openPanel();
-    }
-    //Funciones usadas como eventos en las animaciones de la camara
-    void LoadCamera() {
-        cameraManager.LoadCamera();
     }
     void ResetCamera() {
         cameraManager.ResetCamera();
