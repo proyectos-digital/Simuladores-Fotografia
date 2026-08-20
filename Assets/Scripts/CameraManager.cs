@@ -85,7 +85,7 @@ public class CameraManager : MonoBehaviour
         isoSlider.wholeNumbers = true;
         int[] isoValues = { 100, 200, 400, 800, 1600, 3200, 6400 };
         float[] FGValues = { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.7f, 0.9f };
-        float[] apertureValues = { 1.4f, 2f, 2.8f, 4f, 5.6f, 8f, 11f, 13f, 16f, 22f };
+        float[] apertureValues = { 22f, 16f, 13f, 11f, 8f, 5.6f, 4f, 2.8f, 2f, 1.4f };
         float[] bloomValues = { 0, 15, 30, 45, 60, 75, 90 };
         float[] gammaValues = {  0, 0.35f, 0.6f, 0.85f, 1.15f, 1.45f, 2f };
         float[] gainValues = {  0, 0.15f, 0.3f, 0.5f, 0.7f, 1f, 1.2f, 2.5f, 3.7f, 5f };
